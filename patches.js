@@ -1,4 +1,4 @@
-// StudyForge v15 - Merged quiz fix + cleanup (expert review)
+// StudyForge v16 - Fix 3 bugs: slug path, analysis render, quiz consistency
 
 // 0. MARKED.JS + STYLES
 (function(){
@@ -39,6 +39,14 @@ function showToast(msg, isError) {
   setTimeout(() => { t.style.opacity = '0'; t.style.transition = 'opacity .3s'; setTimeout(() => t.remove(), 300); }, 3000);
 }
 
+// === BUG FIX 3: Store original file slug ===
+let ficheSlug = null; // Original filename without .json
+
+function getFichePath() {
+  if (!selCat || !ficheSlug) return null;
+  return 'data/' + selCat.id + '/' + ficheSlug + '.json';
+}
+
 // === MEMORY CACHE ===
 const _cache = new Map();
 const CACHE_TTL = 5 * 60 * 1000;
@@ -72,7 +80,6 @@ ghPut = async function(path, content, msg, sha) {
   return _origGhPut(path, content, msg, sha);
 };
 
-// MODELS
 const SONNET = 'claude-sonnet-4-20250514';
 const HAIKU = 'claude-haiku-4-5-20251001';
 callClaude = async function(sys, msgs, model, maxTok) {
@@ -84,7 +91,6 @@ callClaude = async function(sys, msgs, model, maxTok) {
   return d.content?.[0]?.text || '';
 };
 
-// JSON VALIDATION
 function validateFicheJSON(data) {
   const errors = [];
   if (!data || typeof data !== 'object') return ['Pas un objet JSON'];
@@ -112,7 +118,6 @@ function validateFicheJSON(data) {
   return errors;
 }
 
-// SAFE TRUNCATION
 function smartTruncateFiche(ficheJSON, maxLen) {
   if (ficheJSON.length <= maxLen) return ficheJSON;
   try {
@@ -127,15 +132,13 @@ function smartTruncateFiche(ficheJSON, maxLen) {
   } catch { return ficheJSON.slice(0, maxLen); }
 }
 
-// === QUIZ CONTEXT BUILDER (for large fiches) ===
 function buildQuizContext(fiche) {
   const sections = fiche.base?.sections || [];
   const wp = fiche.quiz?.weakPoints || [];
   return sections.map(s => {
     let summary = '## ' + s.title;
-    // Mark sections containing weak points
     const hasWeak = wp.some(w => s.keyPoints?.some(kp => w.includes(kp?.slice(0, 20))) || s.title.toLowerCase().includes(w.slice(0, 15).toLowerCase()));
-    if (hasWeak) summary += ' [WEAK - insiste sur cette section]';
+    if (hasWeak) summary += ' [WEAK]';
     summary += '\n';
     if (s.content) summary += s.content.slice(0, 300) + '\n';
     if (s.concepts?.length) summary += 'Concepts: ' + s.concepts.map(c => c.term + ' = ' + (c.definition || '').slice(0, 80)).join(' | ') + '\n';
@@ -146,10 +149,8 @@ function buildQuizContext(fiche) {
   }).join('\n');
 }
 
-// QUIZ STATE
 let qCount = 10, qLevel = 'modere', qAnalysis = null, qSuggestions = null;
 
-// LOADING OVERLAY
 const overlay = document.createElement('div');
 overlay.id = 'loading-overlay';
 overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,6,16,0.85);display:none;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:16px';
@@ -158,7 +159,6 @@ document.body.appendChild(overlay);
 function showLoading(t) { document.getElementById('loading-text').textContent = t || 'Chargement...'; overlay.style.display = 'flex'; }
 function hideLoading() { overlay.style.display = 'none'; }
 
-// WEAKPOINTS EXPIRATION
 function updateWeakPoints(ficheData, qResults, type) {
   if (!ficheData.quiz) ficheData.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
   if (!ficheData.quiz._wpSuccess) ficheData.quiz._wpSuccess = {};
@@ -167,30 +167,24 @@ function updateWeakPoints(ficheData, qResults, type) {
       const q = r.question;
       if (r.ok) {
         ficheData.quiz._wpSuccess[q] = (ficheData.quiz._wpSuccess[q] || 0) + 1;
-        if (ficheData.quiz._wpSuccess[q] >= 2) {
-          ficheData.quiz.weakPoints = ficheData.quiz.weakPoints.filter(wp => wp !== q);
-          delete ficheData.quiz._wpSuccess[q];
-        }
-      } else {
-        ficheData.quiz._wpSuccess[q] = 0;
-        if (!ficheData.quiz.weakPoints.includes(q)) ficheData.quiz.weakPoints.push(q);
-      }
+        if (ficheData.quiz._wpSuccess[q] >= 2) { ficheData.quiz.weakPoints = ficheData.quiz.weakPoints.filter(wp => wp !== q); delete ficheData.quiz._wpSuccess[q]; }
+      } else { ficheData.quiz._wpSuccess[q] = 0; if (!ficheData.quiz.weakPoints.includes(q)) ficheData.quiz.weakPoints.push(q); }
     });
   }
 }
 
-// PERSIST DISCUSSION
+// PERSIST DISCUSSION - uses ficheSlug
 async function saveDiscussion(status) {
-  if (!fiche || !selCat || !hasToken() || chatMsgs.length < 2) return;
+  if (!fiche || !selCat || !hasToken() || chatMsgs.length < 2 || !ficheSlug) return;
   const u = JSON.parse(JSON.stringify(fiche));
   if (!u.discussions) u.discussions = [];
   const preview = chatMsgs.slice(0, 2).map(m => m.content.slice(0, 50)).join(' | ');
   u.discussions.push({ id: 'disc-' + Date.now(), date: new Date().toISOString().split('T')[0], status: status || 'open', messageCount: chatMsgs.length, preview, messages: chatMsgs.map(m => ({ role: m.role, content: m.content.slice(0, 2000) })) });
   if (u.discussions.length > 5) u.discussions = u.discussions.slice(-5);
   try {
-    const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
-    const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
-    await ghPut('data/' + selCat.id + '/' + slug + '.json', u, 'Save discussion', ex?.sha);
+    const path = getFichePath();
+    const ex = await ghGet(path);
+    await ghPut(path, u, 'Save discussion', ex?.sha);
     fiche = u;
   } catch (e) { console.error('Discussion save error:', e); }
 }
@@ -201,33 +195,28 @@ function loadPreviousDiscussion() {
   const last = fiche.discussions[fiche.discussions.length - 1];
   if (last.status === 'open' && last.messages?.length) {
     chatMsgs = last.messages.map(m => ({ role: m.role, content: m.content }));
-    showToast('Discussion precedente restauree (' + chatMsgs.length + ' messages)');
+    showToast('Discussion restauree (' + chatMsgs.length + ' msg)');
   }
 }
 
-// === QUIZ GEN (Haiku) - MERGED FIX for large fiches ===
+// === QUIZ GEN - BUG FIX 1: better prompt for consistency ===
 genQuiz = async function() {
   if (!fiche) return;
   showLoading('Generation de ' + qCount + ' questions (' + qLevel + ')...');
   qRes = null; qAns = {}; qFlip = {}; qAnalysis = null; qSuggestions = null;
-
-  // Smart context: structured summary instead of raw JSON
   const ctx = buildQuizContext(fiche);
   const en = (fiche.enrichments || []).map(e => (e.addedPoints || []).join(', ')).join(' | ');
   const wp = (fiche.quiz?.weakPoints || []).slice(0, 10).join(', ');
-
-  // Adaptive max_tokens based on question count
   const maxTok = qCount <= 10 ? 4000 : qCount <= 15 ? 6000 : 8000;
-
-  const levels = { basique: 'BASIQUE: memorisation, definitions. Pas de pieges.', modere: 'MODERE: application, comprehension, subtilites.', expert: 'EXPERT: cas pratiques complexes, pieges, calculs, articulations entre concepts.' };
+  const levels = { basique: 'BASIQUE: memorisation, definitions.', modere: 'MODERE: application, comprehension.', expert: 'EXPERT: cas pratiques complexes, pieges, calculs.' };
   const pr = {
-    qcm: 'Genere exactement ' + qCount + ' QCM. Niveau ' + levels[qLevel] + (wp ? ' Points faibles (insiste): ' + wp : '') + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"question":"","options":["A) ...","B) ...","C) ...","D) ..."],"correct":"A","explanation":""}]',
-    open: 'Genere exactement ' + qCount + ' questions ouvertes. Niveau ' + levels[qLevel] + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"question":"","expectedPoints":["","",""],"difficulty":"' + qLevel + '","hint":""}]',
-    flashcard: 'Genere exactement ' + qCount + ' flashcards. Niveau ' + levels[qLevel] + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"front":"","back":""}]'
+    qcm: 'Genere exactement ' + qCount + ' QCM. Niveau ' + levels[qLevel] + (wp ? ' Points faibles (insiste): ' + wp : '') + '. REGLE ABSOLUE: le champ correct DOIT correspondre a l\'explication. Verifie chaque question. JSON array sans backticks: [{"id":1,"question":"","options":["A) ...","B) ...","C) ...","D) ..."],"correct":"A","explanation":""}]',
+    open: 'Genere exactement ' + qCount + ' questions ouvertes. Niveau ' + levels[qLevel] + '. JSON array sans backticks: [{"id":1,"question":"","expectedPoints":["","",""],"difficulty":"' + qLevel + '","hint":""}]',
+    flashcard: 'Genere exactement ' + qCount + ' flashcards. Niveau ' + levels[qLevel] + '. JSON array sans backticks: [{"id":1,"front":"","back":""}]'
   };
   try {
     const r = await callClaude(
-      'Tu generes des quiz pedagogiques patrimoine/fiscalite. Reponds UNIQUEMENT avec du JSON valide, sans backticks. EXACTEMENT ' + qCount + ' elements.',
+      'Tu generes des quiz pedagogiques patrimoine/fiscalite. JSON valide UNIQUEMENT, sans backticks. ' + qCount + ' elements. IMPORTANT pour les QCM: verifie que le champ "correct" correspond EXACTEMENT a la bonne reponse dans l\'explication. Ne mets JAMAIS une lettre dans correct qui contredit l\'explanation.',
       pr[qType] + '\n\nCONTENU:\n' + ctx.slice(0, 8000) + (en ? '\nENRICHISSEMENTS: ' + en.slice(0, 1000) : ''),
       HAIKU, maxTok
     );
@@ -238,7 +227,6 @@ genQuiz = async function() {
   hideLoading(); render();
 };
 
-// CORRECTION
 correctQuiz = async function() {
   if (!quiz) return; showLoading('Correction...');
   qAnalysis = null; qSuggestions = null;
@@ -251,7 +239,7 @@ correctQuiz = async function() {
   hideLoading(); render();
 };
 
-// QUIZ ERROR ANALYSIS
+// === BUG FIX 2: Reset analysisPatched flag before render ===
 async function analyzeQuizErrors() {
   if (!qRes || !fiche) return;
   showLoading('Analyse de tes erreurs...');
@@ -271,14 +259,18 @@ async function analyzeQuizErrors() {
     const r = await callClaude('Propose ameliorations fiche. JSON sans backticks: {"improvements":[{"type":"warning|example|concept|keyPoint","section":"titre","content":"texte","reason":"pourquoi"}],"summary":"resume"}', 'ERREURS:\n' + errorsText + '\nFICHE:\n' + ctx, HAIKU, 2000);
     qSuggestions = parseJ(r);
   } catch (e) { console.error('Suggestions:', e); }
-  hideLoading(); render();
+  hideLoading();
+  // CRITICAL FIX: clear the analysisPatched flag so render re-injects the section
+  const content = $('content');
+  if (content) delete content.dataset.analysisPatched;
+  render();
   setTimeout(() => { const c = $('content'); if (c) c.scrollTop = c.scrollHeight; }, 100);
 }
 window.analyzeQuizErrors = analyzeQuizErrors;
 
-// APPLY QUIZ IMPROVEMENTS
+// APPLY QUIZ IMPROVEMENTS - uses ficheSlug
 async function applyQuizImprovements() {
-  if (!qSuggestions?.improvements?.length || !fiche || !selCat) return;
+  if (!qSuggestions?.improvements?.length || !fiche || !selCat || !ficheSlug) return;
   requireToken(async function() {
     showLoading('Amelioration de la fiche...');
     const u = JSON.parse(JSON.stringify(fiche));
@@ -293,7 +285,7 @@ async function applyQuizImprovements() {
       else if (imp.type==='keyPoint'&&imp.content) { t.keyPoints.push(imp.content); applied.push(imp.content); }
       else if (imp.type==='concept'&&imp.content) { t.concepts.push({ term: imp.content.split(':')[0]||imp.content, definition: imp.content, ref: '' }); applied.push(imp.content); }
     });
-    if (!applied.length) { showToast('Aucune amelioration applicable', true); hideLoading(); return; }
+    if (!applied.length) { showToast('Aucune amelioration', true); hideLoading(); return; }
     u.enrichments.push({ id: 'enr-qa-' + Date.now(), date: new Date().toISOString().split('T')[0], source: { type: 'quiz-analysis' }, trigger: 'quiz', summary: qSuggestions.summary || applied.length + ' ameliorations', addedPoints: applied });
     u.quiz.totalAttempts++; u.quiz.lastDate = new Date().toISOString().split('T')[0];
     if (qType === 'qcm' && qRes) {
@@ -302,9 +294,9 @@ async function applyQuizImprovements() {
     }
     u.metadata.version = (u.metadata.version || 1) + 1;
     try {
-      const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
-      const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
-      await ghPut('data/' + selCat.id + '/' + slug + '.json', u, 'Quiz v' + u.metadata.version, ex?.sha);
+      const path = getFichePath();
+      const ex = await ghGet(path);
+      await ghPut(path, u, 'Quiz v' + u.metadata.version, ex?.sha);
       fiche = u; showToast('Fiche v' + u.metadata.version + ' amelioree !');
     } catch (e) { showToast('Erreur: ' + e.message, true); }
     hideLoading(); render();
@@ -312,7 +304,6 @@ async function applyQuizImprovements() {
 }
 window.applyQuizImprovements = applyQuizImprovements;
 
-// DISCUSSION - SONNET
 sendMsg = async function() {
   const msg = $('chat-input')?.value?.trim();
   if (!msg || !fiche) return;
@@ -329,9 +320,9 @@ sendMsg = async function() {
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// APPLY DISCUSSION + AUTO-SWITCH
+// APPLY DISCUSSION - uses ficheSlug
 async function _doApplyChanges() {
-  if (!fiche || !selCat) return;
+  if (!fiche || !selCat || !ficheSlug) return;
   if (chatMsgs.length < 1) { showToast('Discute d\'abord', true); return; }
   showLoading('Application des modifications...');
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 15000);
@@ -344,9 +335,9 @@ async function _doApplyChanges() {
     const err = validateFicheJSON(p);
     if (err.length) { showToast('Validation: ' + err.join(', '), true); hideLoading(); return; }
     p.metadata.version = (fiche.metadata?.version || 1) + 1;
-    const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
-    const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
-    await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discuss v' + p.metadata.version, ex?.sha);
+    const path = getFichePath();
+    const ex = await ghGet(path);
+    await ghPut(path, p, 'Discuss v' + p.metadata.version, ex?.sha);
     fiche = p;
     await saveDiscussion('applied');
     showToast('Fiche v' + p.metadata.version + ' sauvegardee !');
@@ -357,7 +348,6 @@ async function _doApplyChanges() {
 function applyDiscussionChanges() { requireToken(() => _doApplyChanges()); }
 window.applyDiscussionChanges = applyDiscussionChanges;
 
-// IMPORT
 doAnalysis = async function(text) {
   showLoading('Analyse IA...');
   impStep = 'discuss'; impMsgs = [];
@@ -387,8 +377,10 @@ enrichDoc = async function() {
   showLoading('Analyse...'); await _origEnrich(); hideLoading();
 };
 
+// Override loadFiche to capture original slug + restore discussions
 const _origLoadFiche = loadFiche;
 loadFiche = async function(id) {
+  ficheSlug = id; // CRITICAL: store original file slug
   await _origLoadFiche(id);
   loadPreviousDiscussion();
 };
@@ -399,7 +391,6 @@ render = function() {
   _origRender();
   const content = $('content'); if (!content) return;
 
-  // Markdown in AI messages
   if (typeof marked !== 'undefined') {
     content.querySelectorAll('.msg-ai').forEach(el => {
       if (el.dataset.mdRendered) return;
@@ -409,7 +400,6 @@ render = function() {
     });
   }
 
-  // QUIZ controls
   if (currentView === 'quiz' && fiche) {
     const genBtn = content.querySelector('[onclick*="genQuiz"]');
     if (genBtn) {
@@ -426,7 +416,6 @@ render = function() {
         row.appendChild(d);
       }
     }
-    // Error analysis
     if (qRes && qType !== 'flashcard' && !content.dataset.analysisPatched) {
       content.dataset.analysisPatched = 'true';
       const container = content.querySelector('[style*="max-width:780px"]'); if (!container) return;
@@ -451,7 +440,6 @@ render = function() {
     }
   }
 
-  // DISCUSSION: Apply + Save
   if (currentView === 'discuss' && fiche) {
     const chatInput = content.querySelector('[id="chat-input"]');
     if (chatInput) {
@@ -469,4 +457,4 @@ render = function() {
   }
 };
 
-console.log('StudyForge v15: Merged quiz fix + cleanup');
+console.log('StudyForge v16: Fix slug path + analysis render + quiz consistency');
