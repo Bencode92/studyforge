@@ -1,5 +1,49 @@
-// StudyForge v12 - Expert fixes + Quiz auto-analyse errors + improve fiche
-// Changes: fix smartTruncate edge case, quiz error analysis loop, cleanup
+// StudyForge v13 - Markdown rendering in chat bubbles + quiz analysis
+
+// 0. LOAD MARKED.JS for markdown rendering
+(function(){
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.1/marked.min.js';
+  s.onload = function() {
+    // Configure marked: no raw HTML, safe output
+    marked.setOptions({ breaks: true, gfm: true });
+    console.log('marked.js loaded');
+  };
+  document.head.appendChild(s);
+
+  // Markdown styles for chat bubbles
+  const style = document.createElement('style');
+  style.textContent = `
+    .md-content h1,.md-content h2,.md-content h3,.md-content h4{font-weight:700;margin:10px 0 6px;color:#e8e8f0}
+    .md-content h1{font-size:16px} .md-content h2{font-size:14px} .md-content h3{font-size:13px} .md-content h4{font-size:12.5px}
+    .md-content p{margin:4px 0;line-height:1.7}
+    .md-content ul,.md-content ol{margin:6px 0;padding-left:20px}
+    .md-content li{margin:3px 0;line-height:1.6}
+    .md-content strong{color:#e8e8f0;font-weight:700}
+    .md-content em{color:#9999b0;font-style:italic}
+    .md-content code{background:#0d0d1a;padding:2px 6px;border-radius:4px;font-size:11px;font-family:monospace;color:#7B68EE}
+    .md-content pre{background:#0d0d1a;padding:10px 14px;border-radius:8px;overflow-x:auto;margin:8px 0}
+    .md-content pre code{background:none;padding:0;font-size:11px}
+    .md-content blockquote{border-left:3px solid #7B68EE;padding:4px 12px;margin:8px 0;color:#9999b0}
+    .md-content table{border-collapse:collapse;width:100%;margin:8px 0;font-size:11px}
+    .md-content th,.md-content td{border:1px solid #1a1a33;padding:6px 10px;text-align:left}
+    .md-content th{background:#0d0d1a;font-weight:600;color:#e8e8f0}
+    .md-content hr{border:none;border-top:1px solid #1a1a33;margin:12px 0}
+    .md-content a{color:#7B68EE;text-decoration:underline}
+  `;
+  document.head.appendChild(style);
+})();
+
+// Safe markdown render function
+function renderMd(text) {
+  if (!text) return '';
+  if (typeof marked === 'undefined') return esc(text); // fallback if marked not loaded yet
+  try {
+    // Strip any raw HTML tags for safety
+    const clean = text.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, '');
+    return '<div class="md-content">' + marked.parse(clean) + '</div>';
+  } catch { return esc(text); }
+}
 
 // 1. UTF-8 FIX
 const _origGhRead = ghRead;
@@ -67,36 +111,31 @@ ghPut = async function(path, content, msg, sha) {
   return _origGhPut(path, content, msg, sha);
 };
 
-// 5. SAFE TRUNCATION (fix: never produce invalid JSON)
+// 5. SAFE TRUNCATION
 function smartTruncateFiche(ficheJSON, maxLen) {
   if (ficheJSON.length <= maxLen) return ficheJSON;
   try {
     const f = JSON.parse(ficheJSON);
-    // Step 1: trim long content
     if (f.base?.sections) f.base.sections.forEach(s => {
       if (s.content && s.content.length > 500) s.content = s.content.slice(0, 400) + '...[tronque]';
     });
     let r = JSON.stringify(f);
     if (r.length <= maxLen) return r;
-    // Step 2: trim enrichments
     if (f.enrichments?.length > 3) { f.enrichments = f.enrichments.slice(-3); r = JSON.stringify(f); }
     if (r.length <= maxLen) return r;
-    // Step 3: trim examples and warnings
     if (f.base?.sections) f.base.sections.forEach(s => { s.examples = []; s.warnings = s.warnings?.slice(0, 1) || []; });
     r = JSON.stringify(f);
     if (r.length <= maxLen) return r;
-    // Step 4: remove sections content entirely, keep structure
     if (f.base?.sections) f.base.sections.forEach(s => { s.content = '[voir fiche complete]'; });
     return JSON.stringify(f);
-    // NEVER do raw slice - always return valid JSON
   } catch { return ficheJSON.slice(0, maxLen); }
 }
 
 // 6. QUIZ STATE
 let qCount = 10;
 let qLevel = 'modere';
-let qAnalysis = null;  // Error analysis result
-let qSuggestions = null; // Proposed fiche improvements
+let qAnalysis = null;
+let qSuggestions = null;
 
 // 7. LOADING OVERLAY
 const overlay = document.createElement('div');
@@ -132,7 +171,7 @@ genQuiz = async function() {
   hideLoading(); render();
 };
 
-// 9. CORRECTION (Haiku for open, local for QCM)
+// 9. CORRECTION
 correctQuiz = async function() {
   if (!quiz) return; showLoading('Correction...');
   qAnalysis = null; qSuggestions = null;
@@ -145,16 +184,14 @@ correctQuiz = async function() {
   hideLoading(); render();
 };
 
-// 10. QUIZ ERROR ANALYSIS (Haiku for analysis, then Sonnet for fiche suggestions)
+// 10. QUIZ ERROR ANALYSIS
 async function analyzeQuizErrors() {
   if (!qRes || !fiche) return;
   showLoading('Analyse detaillee de tes erreurs...');
-
-  // Collect errors
   let errorsText = '';
   if (qType === 'qcm') {
     const wrong = qRes.filter(r => !r.ok);
-    if (wrong.length === 0) { qAnalysis = 'Bravo, aucune erreur ! Ta maitrise du sujet est excellente.'; hideLoading(); render(); return; }
+    if (wrong.length === 0) { qAnalysis = 'Bravo, aucune erreur !'; hideLoading(); render(); return; }
     errorsText = wrong.map(w => {
       const userAns = (w.options || []).find(o => o.charAt(0) === w.ua) || 'Pas de reponse';
       const goodAns = (w.options || []).find(o => o.charAt(0) === w.correct) || '?';
@@ -162,33 +199,26 @@ async function analyzeQuizErrors() {
     }).join('\n\n');
   } else {
     const weak = qRes.filter(r => r.score < 7);
-    if (weak.length === 0) { qAnalysis = 'Tres bon resultat ! Les reponses sont solides.'; hideLoading(); render(); return; }
+    if (weak.length === 0) { qAnalysis = 'Tres bon resultat !'; hideLoading(); render(); return; }
     errorsText = weak.map(w => {
       const q = quiz.find(x => x.id === w.id);
       return 'Question: ' + (q?.question || '') + '\nScore: ' + w.score + '/10\nFeedback: ' + w.feedback + '\nPoints manquants: ' + (w.missingPoints || []).join(', ');
     }).join('\n\n');
   }
-
-  // Step 1: Detailed error analysis (Haiku - cheap)
   try {
-    const analysisSys = 'Tu es un tuteur expert en patrimoine, fiscalite et finance. L\'eleve vient de faire un quiz et a fait des erreurs. Analyse chaque erreur en detail:\n- Pourquoi l\'eleve s\'est trompe (confusion probable, piege, manque de connaissance)\n- L\'explication pedagogique correcte avec references legales\n- Un moyen mnemotechnique ou astuce pour ne plus se tromper\n\nSois precis, pedagogique et encourageant. Francais.';
-    qAnalysis = await callClaude(analysisSys, 'ERREURS DU QUIZ:\n' + errorsText, HAIKU, 3000);
+    qAnalysis = await callClaude('Tuteur expert patrimoine/fiscalite. Analyse chaque erreur: pourquoi l\'eleve s\'est trompe, explication pedagogique avec references legales, astuce mnemotechnique. Precis, pedagogique, encourageant. Francais. Utilise du markdown (## titres, **gras**, listes) pour structurer.', 'ERREURS:\n' + errorsText, HAIKU, 3000);
   } catch (e) { qAnalysis = 'Erreur analyse: ' + e.message; }
-
-  // Step 2: Propose fiche improvements (Haiku - cheap)
   try {
     const ficheCtx = JSON.stringify((fiche.base?.sections || []).map(s => ({ title: s.title, keyPoints: s.keyPoints, warnings: s.warnings })));
-    const sugSys = 'Basé sur les erreurs de l\'eleve au quiz, propose des ameliorations concretes pour la fiche de cours. JSON sans backticks:\n{"improvements":[{"type":"warning|example|concept|keyPoint","section":"titre section concernee","content":"texte a ajouter","reason":"pourquoi"}],"summary":"resume des ameliorations"}';
-    const sugR = await callClaude(sugSys, 'ERREURS:\n' + errorsText + '\n\nFICHE ACTUELLE:\n' + ficheCtx, HAIKU, 2000);
+    const sugR = await callClaude('Propose ameliorations pour la fiche. JSON sans backticks: {"improvements":[{"type":"warning|example|concept|keyPoint","section":"titre section","content":"texte","reason":"pourquoi"}],"summary":"resume"}', 'ERREURS:\n' + errorsText + '\nFICHE:\n' + ficheCtx, HAIKU, 2000);
     qSuggestions = parseJ(sugR);
   } catch (e) { console.error('Suggestions error:', e); }
-
   hideLoading(); render();
   setTimeout(() => { const c = $('content'); if (c) c.scrollTop = c.scrollHeight; }, 100);
 }
 window.analyzeQuizErrors = analyzeQuizErrors;
 
-// 11. APPLY QUIZ IMPROVEMENTS TO FICHE
+// 11. APPLY QUIZ IMPROVEMENTS
 async function applyQuizImprovements() {
   if (!qSuggestions?.improvements?.length || !fiche || !selCat) return;
   requireToken(async function() {
@@ -196,8 +226,6 @@ async function applyQuizImprovements() {
     const u = JSON.parse(JSON.stringify(fiche));
     if (!u.enrichments) u.enrichments = [];
     if (!u.quiz) u.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
-
-    // Apply each improvement to the right section
     const applied = [];
     qSuggestions.improvements.forEach(imp => {
       const sec = u.base?.sections?.find(s => s.title.toLowerCase().includes((imp.section || '').toLowerCase().slice(0, 15)));
@@ -206,42 +234,22 @@ async function applyQuizImprovements() {
       if (imp.type === 'warning' && imp.content) { target.warnings.push(imp.content); applied.push(imp.content); }
       else if (imp.type === 'example' && imp.content) { target.examples.push(imp.content); applied.push(imp.content); }
       else if (imp.type === 'keyPoint' && imp.content) { target.keyPoints.push(imp.content); applied.push(imp.content); }
-      else if (imp.type === 'concept' && imp.content) {
-        target.concepts.push({ term: imp.content.split(':')[0] || imp.content, definition: imp.content, ref: '' });
-        applied.push(imp.content);
-      }
+      else if (imp.type === 'concept' && imp.content) { target.concepts.push({ term: imp.content.split(':')[0] || imp.content, definition: imp.content, ref: '' }); applied.push(imp.content); }
     });
-
-    if (applied.length === 0) { setStatus('Aucune amelioration applicable'); hideLoading(); return; }
-
-    // Add enrichment record
-    u.enrichments.push({
-      id: 'enr-qa-' + Date.now(),
-      date: new Date().toISOString().split('T')[0],
-      source: { type: 'quiz-analysis' },
-      trigger: 'quiz',
-      summary: qSuggestions.summary || applied.length + ' ameliorations suite au quiz',
-      addedPoints: applied
-    });
-
-    // Record quiz attempt
+    if (applied.length === 0) { setStatus('Aucune amelioration'); hideLoading(); return; }
+    u.enrichments.push({ id: 'enr-qa-' + Date.now(), date: new Date().toISOString().split('T')[0], source: { type: 'quiz-analysis' }, trigger: 'quiz', summary: qSuggestions.summary || applied.length + ' ameliorations', addedPoints: applied });
     u.quiz.totalAttempts++;
     u.quiz.lastDate = new Date().toISOString().split('T')[0];
     if (qType === 'qcm' && qRes) {
-      const sc = qRes.filter(r => r.ok).length;
-      u.quiz.history.push({ date: u.quiz.lastDate, type: 'qcm', score: sc + '/' + qRes.length, level: qLevel });
+      u.quiz.history.push({ date: u.quiz.lastDate, type: 'qcm', score: qRes.filter(r => r.ok).length + '/' + qRes.length, level: qLevel });
       qRes.filter(r => !r.ok).forEach(w => { if (!u.quiz.weakPoints.includes(w.question)) u.quiz.weakPoints.push(w.question); });
     }
-
-    // Increment version
     u.metadata.version = (u.metadata.version || 1) + 1;
-
     try {
       const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
       const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
       await ghPut('data/' + selCat.id + '/' + slug + '.json', u, 'Quiz analysis v' + u.metadata.version, ex?.sha);
-      fiche = u;
-      setStatus('Fiche v' + u.metadata.version + ' amelioree !');
+      fiche = u; setStatus('Fiche v' + u.metadata.version + ' amelioree !');
     } catch (e) { setStatus('Erreur: ' + e.message); }
     hideLoading(); render();
   });
@@ -256,7 +264,7 @@ sendMsg = async function() {
   chatMsgs.push({ role: 'user', content: msg }); render();
   showLoading('Reflexion approfondie...');
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 12000);
-  const sys = `Tu es un tuteur expert en gestion de patrimoine, fiscalite et finance. Fiche:\n${ficheJSON}\n\nREGLES: Detaille, pedagogique, exemples concrets, references legales, challenge les idees. Francais. Pas de JSON.`;
+  const sys = `Tu es un tuteur expert en gestion de patrimoine, fiscalite et finance. Fiche:\n${ficheJSON}\n\nREGLES: Detaille, pedagogique, exemples concrets, references legales, challenge. Utilise du markdown (## titres, **gras**, listes, tableaux) pour structurer tes reponses. Francais. Pas de JSON.`;
   try {
     const r = await callClaude(sys, chatMsgs.map(m => ({ role: m.role, content: m.content })), SONNET, 4000);
     chatMsgs.push({ role: 'assistant', content: r });
@@ -272,11 +280,11 @@ async function _doApplyChanges() {
   showLoading('Application des modifications...');
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 15000);
   const discussion = chatMsgs.map(m => (m.role === 'user' ? 'USER' : 'EXPERT') + ': ' + m.content).join('\n\n').slice(0, 8000);
-  const sys = 'Expert pedagogique. APPLIQUE les modifications discutees. JSON complet sans backticks. Champs requis: metadata (title,category,version,verified,verificationNotes,sources), base.sections (array non vide avec title,content,concepts,keyPoints,warnings,examples), enrichments, quiz. Accents francais. CONSERVE enrichissements/quiz existants. Incremente version.';
+  const sys = 'Expert pedagogique. APPLIQUE les modifications discutees. JSON complet sans backticks. Champs requis: metadata (title,category,version,verified,verificationNotes,sources), base.sections (array non vide), enrichments, quiz. Accents francais. CONSERVE existants. Incremente version.';
   try {
     const r = await callClaude(sys, 'FICHE:\n' + ficheJSON + '\n\nDISCUSSION:\n' + discussion, SONNET, 8000);
     const p = parseJ(r);
-    if (!p) { console.error('PARSE FAIL:', r.slice(0, 500)); chatMsgs.push({ role: 'assistant', content: '\u274c JSON invalide. Voir console F12.' }); hideLoading(); render(); return; }
+    if (!p) { console.error('PARSE FAIL:', r.slice(0, 500)); chatMsgs.push({ role: 'assistant', content: '\u274c JSON invalide. F12.' }); hideLoading(); render(); return; }
     const errors = validateFicheJSON(p);
     if (errors.length) { chatMsgs.push({ role: 'assistant', content: '\u274c Validation: ' + errors.join(', ') }); hideLoading(); render(); return; }
     p.metadata.version = (fiche.metadata?.version || 1) + 1;
@@ -284,7 +292,7 @@ async function _doApplyChanges() {
     const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
     await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discuss v' + p.metadata.version, ex?.sha);
     fiche = p;
-    chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche v' + p.metadata.version + ' sauvegardee ! Clique sur Fiche pour voir.' });
+    chatMsgs.push({ role: 'assistant', content: '\u2705 **Fiche v' + p.metadata.version + ' sauvegardee !** Clique sur Fiche pour voir.' });
     setStatus('v' + p.metadata.version + ' OK');
   } catch (e) { chatMsgs.push({ role: 'assistant', content: '\u274c ' + e.message }); }
   hideLoading(); render();
@@ -298,7 +306,7 @@ doAnalysis = async function(text) {
   showLoading('Analyse IA du document...');
   impStep = 'discuss'; impMsgs = [];
   const catList = cats.map(c => c.id + ' (' + c.name + ')').join(', ');
-  const sys = 'Assistant pedagogique expert patrimoine/finance/fiscalite. Analyse le document: identifie sujet, propose TITRE, suggere CATEGORIE parmi: ' + catList + ' (ou NOUVELLE: nom). Analyse points forts/erreurs/manques. Propose ameliorations. Pose 2-3 questions. Detaille. Francais. A la fin JSON: {"suggestedTitle":"","suggestedCategory":"","analysis":""}';
+  const sys = 'Assistant pedagogique expert patrimoine/finance/fiscalite. Analyse le document: identifie sujet, propose TITRE, suggere CATEGORIE parmi: ' + catList + ' (ou NOUVELLE: nom). Analyse points forts/erreurs/manques. Propose ameliorations. Pose 2-3 questions. Utilise du markdown (## titres, **gras**, listes) pour structurer. Francais. A la fin JSON: {"suggestedTitle":"","suggestedCategory":"","analysis":""}';
   try {
     render();
     const r = await callClaude(sys, 'Contenu:\n\n' + text.slice(0, 14000), SONNET);
@@ -317,12 +325,28 @@ saveImportFiche = async function() { if (!hasToken()) { requireToken(saveImportF
 const _origEnrich = enrichDoc;
 enrichDoc = async function() { if (!hasToken()) { requireToken(enrichDoc); return; } showLoading('Analyse...'); await _origEnrich(); hideLoading(); };
 
-// 16. RENDER OVERRIDES
+// 16. RENDER OVERRIDES + MARKDOWN POST-PROCESSING
 const _origRender = render;
 render = function() {
   _origRender();
   const content = $('content');
   if (!content) return;
+
+  // POST-RENDER: Convert AI messages from escaped text to rendered markdown
+  if (typeof marked !== 'undefined') {
+    // Discussion chat bubbles
+    content.querySelectorAll('.msg-ai').forEach(el => {
+      if (el.dataset.mdRendered) return;
+      el.dataset.mdRendered = 'true';
+      const raw = el.textContent;
+      if (raw) {
+        el.style.whiteSpace = 'normal';
+        el.innerHTML = renderMd(raw);
+      }
+    });
+    // Import discussion bubbles (same class)
+    // Already handled above since they use .msg-ai too
+  }
 
   // QUIZ: inject controls + error analysis
   if (currentView === 'quiz' && fiche) {
@@ -345,36 +369,32 @@ render = function() {
       }
     }
 
-    // After correction: inject error analysis section
+    // Error analysis section
     if (qRes && qType !== 'flashcard' && !content.dataset.analysisPatched) {
       content.dataset.analysisPatched = 'true';
       const container = content.querySelector('[style*="max-width:780px"]');
       if (!container) return;
-
       const hasErrors = qType === 'qcm' ? qRes.some(r => !r.ok) : qRes.some(r => r.score < 7);
-
-      // Analysis section
       const aDiv = document.createElement('div');
       aDiv.style.cssText = 'margin-top:14px';
 
       if (!qAnalysis && hasErrors) {
-        // Show "Analyze errors" button
         aDiv.innerHTML = '<div style="background:#111122;border:1px solid #f87171;border-radius:14px;padding:20px;text-align:center">' +
           '<p style="font-size:14px;font-weight:600;color:#f87171;margin-bottom:8px">\u{1F50D} Des erreurs detectees</p>' +
-          '<p style="font-size:12px;color:#9999b0;margin-bottom:14px">L\'IA peut analyser tes erreurs en detail et proposer des ameliorations a la fiche</p>' +
+          '<p style="font-size:12px;color:#9999b0;margin-bottom:14px">L\'IA peut analyser tes erreurs et proposer des ameliorations</p>' +
           '<button class="btn" onclick="analyzeQuizErrors()" style="background:#f87171;color:#fff;padding:12px 24px;font-size:14px">Analyser mes erreurs et ameliorer la fiche</button></div>';
       } else if (!qAnalysis && !hasErrors) {
         aDiv.innerHTML = '<div style="background:#111122;border:1px solid #34d399;border-radius:14px;padding:20px;text-align:center">' +
           '<p style="font-size:14px;font-weight:600;color:#34d399">\u2705 Parfait ! Aucune erreur.</p></div>';
       } else if (qAnalysis) {
-        // Show analysis result
+        // Render analysis with MARKDOWN
         let h = '<div style="background:#111122;border:1px solid #7B68EE;border-radius:14px;padding:20px;margin-bottom:14px">' +
           '<h4 style="font-size:14px;color:#7B68EE;margin-bottom:10px">\u{1F9E0} Analyse de tes erreurs</h4>' +
-          '<p style="font-size:12.5px;color:#9999b0;line-height:1.7;white-space:pre-wrap">' + esc(qAnalysis) + '</p></div>';
+          '<div style="font-size:12.5px;color:#9999b0;line-height:1.7">' + renderMd(qAnalysis) + '</div></div>';
 
         if (qSuggestions?.improvements?.length) {
           h += '<div style="background:#111122;border:1px solid #fbbf24;border-radius:14px;padding:20px">' +
-            '<h4 style="font-size:14px;color:#fbbf24;margin-bottom:10px">\u{1F4DD} Ameliorations proposees pour la fiche</h4>';
+            '<h4 style="font-size:14px;color:#fbbf24;margin-bottom:10px">\u{1F4DD} Ameliorations proposees</h4>';
           qSuggestions.improvements.forEach(imp => {
             const typeIcon = { warning: '\u26a0', example: '\u{1F4A1}', concept: '\u{1F4D6}', keyPoint: '\u2192' };
             h += '<div style="padding:8px 0;border-bottom:1px solid #1a1a33;font-size:12px">' +
@@ -383,7 +403,7 @@ render = function() {
               '<p style="color:#e8e8f0;margin-top:4px">' + esc(imp.content) + '</p>' +
               '<p style="color:#6b6b88;font-style:italic;font-size:11px;margin-top:2px">' + esc(imp.reason || '') + '</p></div>';
           });
-          h += '<button class="btn btn-grn" onclick="applyQuizImprovements()" style="width:100%;padding:14px;font-size:14px;margin-top:14px">\u2713 Appliquer ces ameliorations a la fiche</button></div>';
+          h += '<button class="btn btn-grn" onclick="applyQuizImprovements()" style="width:100%;padding:14px;font-size:14px;margin-top:14px">\u2713 Appliquer ces ameliorations</button></div>';
         }
         aDiv.innerHTML = h;
       }
@@ -408,4 +428,4 @@ render = function() {
   }
 };
 
-console.log('StudyForge v12: Quiz auto-analyse + safe truncation + expert fixes');
+console.log('StudyForge v13: Markdown rendering in chat + quiz analysis');
