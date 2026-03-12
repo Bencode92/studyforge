@@ -1,32 +1,231 @@
 {
   "metadata": {
-    "title": "PER",
+    "title": "Plan d'Epargne Retraite (PER) - Guide Complet",
     "category": "finance",
     "created": "2026-03-12",
-    "version": 1,
-    "verified": false,
-    "verificationNotes": [],
+    "version": 2,
+    "verified": true,
+    "verificationNotes": [
+      "Bareme IR 2025 (revenus 2024) conforme au CGI",
+      "PASS 2026 a 48 060 EUR verifie (arrete 19/12/2025)",
+      "Plafonds PER salarie et TNS conformes aux articles 163 quatervicies et 154 bis CGI",
+      "Plafonnement QF 1 759 EUR/demi-part conforme art. 197 CGI",
+      "Fiscalite sortie en capital et rente conforme",
+      "Attention: les taux de charges sociales sont des estimations moyennes, variables selon convention collective"
+    ],
     "sources": [
-      {
-        "type": "import",
-        "name": "PER",
-        "date": "2026-03-12"
-      }
+      {"type": "pdf", "name": "Guide Complet PER - Bareme 2025", "date": "2026-03-12"}
     ]
   },
   "base": {
     "sections": [
       {
-        "title": "PER",
-        "content": "GUIDE COMPLET  Plan d'Epargne Retraite  Du brut a l'economie d'impot : tout comprendre en 30 minutes  PASS 2026   Plancher PER   Plafond salarie   Plafond TNS  48 060 EUR   4 806 EUR   38 448 EUR   88 911 EUR  Bareme IR 2025 (revenus 2024) | PASS 2026 : 48 060 EUR  Derniere mise a jour : mars 2026\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 2  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Sommaire  Chapitre 1   — Du brut a l'imposable : le parcours de votre argent  Chapitre 2   — Les tranches d'imposition et le quotient familial  Chapitre 3   — Le plafond PER salarie : combien pouvez-vous deduire ?  Chapitre 4   — Le plafond PER TNS : la double enveloppe  Chapitre 5   — Les reports et la regle FIFO  Chapitre 6   — L'economie d'impot et le versement optimal  Chapitre 7   — La fiscalite a la sortie  Chapitre 8   — Deblocage pour residence principale  Chapitre 9   — Les pieges a eviter  Chapitre 10   — Fiche de synthese : les 10 regles d'or\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 3  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 1  Du brut a l'imposable  Le revenu imposable n'est pas votre salaire brut. Il passe par plusieurs etapes de deduction avant d'arriver a la base sur laquelle l'impot est calcule.  Les 4 etapes  1.   Salaire brut annuel   — Ce que votre employeur verse au total (avant toute deduction).  2.   Charges sociales   — Deduites automatiquement : cotisations retraite, maladie, chomage. Le taux varie selon votre statut.  3.   Abattement 10% frais professionnels   — Deduction forfaitaire pour frais de transport, repas, etc. Uniquement pour les salaries.  4.   Revenu net imposable   — La base de calcul de l'impot ET du plafond PER.  Taux de charges par statut  Statut   Taux charges   Abattement 10%   Exemple brut 80 000 EUR  Salarie   22%   Oui (plancher 495, plafond 14 171 EUR)   Imposable : 56 160 EUR Cadre   25%   Oui   Imposable : 54 000 EUR Fonctionnaire   17%   Oui   Imposable : 59 760 EUR TNS (independant)   45%   Non (charges reelles)   Imposable : 44 000 EUR  n   Pourquoi les TNS n'ont pas l'abattement 10% ?  Les TNS deduisent deja leurs charges reelles (loyer bureau, materiel, deplacements) directement de leur benefice. L'abattement 10% est un forfait qui compense ces memes frais pour les salaries qui ne peuvent pas les deduire individuellement.  Exemple complet : cadre a 80 000 EUR brut  Brut   80 000 EUR - charges 25% (20 000   EUR)   =   net   60   000   EUR   - abattement 10% (6 000   EUR)   = imposable   54   000   EUR  C'est sur ces 54 000 EUR que l'impot sera calcule, et c'est aussi la base pour calculer votre plafond PER (10% de 54 000 = 5 400 EUR).\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 4  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 2  Les tranches d'imposition  L'impot sur le revenu est   progressif   : vous ne payez pas le meme taux sur chaque euro. Les premiers euros sont a 0%, puis 11%, puis 30%, etc.  Bareme IR 2025 (revenus 2024)  Tranche   De   A   Taux  1   0 EUR   11 497 EUR   0% 2   11 497 EUR   29 315 EUR   11% 3   29 315 EUR   83 823 EUR   30% 4   83 823 EUR   180 294 EUR   41% 5   180 294 EUR   et au-dela   45%  n   Attention : TMI vs taux moyen  La TMI (Tranche Marginale d'Imposition) est le taux de la derniere tranche atteinte. Dire 'je suis a 30%' ne veut PAS dire que vous payez 30% sur tout. Exemple : pour 50 000 EUR imposable, l'IR est de 8 166 EUR, soit un taux moyen de 16,3%. Mais la TMI est bien 30% : c'est le taux sur le dernier euro gagne.  Le quotient familial  Le quotient familial divise le revenu imposable par le nombre de parts avant d'appliquer le bareme, puis multiplie le resultat par le nombre de parts.  Situation   Nombre de parts  Celibataire sans enfant   1 Couple marie/pacse   2 Couple + 1 enfant   2.5 Couple + 2 enfants   3 Couple + 3 enfants   4 Celibataire + 1 enfant   1.5  Plafonnement du QF :   1 759 EUR par demi-part supplementaire   (au-dela de 2 parts). Pour un couple + 3 enfants (4 parts = 4 demi-parts supplementaires), l'avantage QF est plafonne a 4 x 1 759 = 7 036 EUR.\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 5  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 3  Le plafond PER salarie  Chaque annee, vous pouvez deduire de votre revenu imposable les sommes versees sur votre PER, dans la limite d'un plafond.  La formule  Plafond PER = 10% x   revenu   net   imposable  Avec deux garde-fous :  •   Plancher   : 10% du PASS =   4 806 EUR   (2026). Meme si vos 10% donnent moins, vous pouvez deduire au moins 4 806 EUR.  •   Plafond   : 10% x 8 PASS =   38 448 EUR   (2026). Meme avec un tres haut revenu, le plafond est limite.  Exemples concrets  Profil   Brut   Imposable   10%   Plafond PER  SMIC salarie   21 600 EUR   15 163 EUR   1 516 EUR   4 806 EUR (plancher) Cadre moyen   55 000 EUR   37 125 EUR   3 713 EUR   4 806 EUR (plancher) Cadre senior   90 000 EUR   60 750 EUR   6 075 EUR   6 075 EUR Cadre sup   200 000 EUR   135 829 EUR   13 583 EUR   13 583 EUR Dirigeant   600 000 EUR   435 829 EUR   43 583 EUR   38 448 EUR (plafond)  n   Ou trouver votre plafond PER ?  Votre plafond PER figure sur votre avis d'imposition, en derniere page. Il prend deja en compte les reports des 3 annees precedentes.\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 6  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 4  Le plafond PER TNS  Les travailleurs non-salaries (TNS) beneficient d'un plafond PER   beaucoup plus genereux   que les salaries, via un mecanisme appele la   double enveloppe   (article 154 bis du CGI).  La double enveloppe  1.   Enveloppe 1   : 10% x min(benefice, 8 PASS) — identique aux salaries  2.   Enveloppe 2   : 15% x (benefice - 1 PASS) — bonus entre 1 et 8 PASS  Total PER TNS =   Enveloppe   1   +   Enveloppe   2  Avec le PASS 2026 a 48 060 EUR, le maximum est : 10% x 384 480 + 15% x 336 420 = 38 448 + 50 463 =   88 911 EUR .  Benefice TNS   Env. 1 (10%)   Env. 2 (15%)   Plafond PER   Plafond salarie eq.  30 000 EUR   3 000 EUR   0 EUR   4 806 EUR (plancher)   4 806 EUR 100 000 EUR   10 000 EUR   7 791 EUR   17 791 EUR   9 000 EUR 137 500 EUR   13 750 EUR   13 416 EUR   27 166 EUR   12 344 EUR 250 000 EUR   25 000 EUR   30 291 EUR   55 291 EUR   23 583 EUR 384 480 EUR (8 PASS)   38 448 EUR   50 463 EUR   88 911 EUR (MAX)   38 448 EUR  n   Pourquoi les TNS ont un plafond plus eleve ?  Les TNS n'ont pas de retraite complementaire obligatoire (AGIRC-ARRCO) aussi genereuse que les salaries. Le legislateur compense en leur permettant un plafond PER plus eleve pour constituer leur propre retraite.\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 7  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 5  Les reports et la regle FIFO  Si vous n'utilisez pas tout votre plafond PER une annee, le reliquat est   reportable pendant 3 ans . Au-dela, il est perdu.  Fonctionnement du FIFO  FIFO =   First In, First Out . Le fisc consomme les plafonds dans l'ordre chronologique : le plus ancien d'abord.  Exemple : vous avez les plafonds suivants et versez 7 000 EUR.  Annee   Plafond   Utilise   Restant  N-3 (expire cette annee !)   5 000 EUR   5 000 EUR   0 EUR N-2   3 000 EUR   2 000 EUR   1 000 EUR N-1   2 000 EUR   0 EUR   2 000 EUR N (annee en cours)   6 000 EUR   0 EUR   6 000 EUR TOTAL   16 000 EUR   7 000 EUR   9 000 EUR  n   Alerte N-3 : le plafond le plus ancien expire !  Votre plafond N-3 sera perdu le 31 decembre si vous ne l'utilisez pas. C'est la priorite numero 1. Versez au minimum ce montant avant la fin de l'annee.  L'annee prochaine, les plafonds restants glissent :  •   L'ancien N-2 restant (1 000 EUR) devient N-3   (urgence !)  •   L'ancien N-1 restant (2 000 EUR) devient N-2  •   L'ancien N restant (6 000 EUR) devient N-1\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 8  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 6  L'economie d'impot  Chaque euro verse sur le PER est deduit de votre revenu imposable. L'economie reelle depend de votre TMI.  Economie =   Versement   x   TMI  TMI   Versement 5 000 EUR   Economie   Cout reel du versement  0%   5 000 EUR   0 EUR   5 000 EUR (aucun interet) 11%   5 000 EUR   550 EUR   4 450 EUR 30%   5 000 EUR   1 500 EUR   3 500 EUR 41%   5 000 EUR   2 050 EUR   2 950 EUR 45%   5 000 EUR   2 250 EUR   2 750 EUR  Le versement optimal : changer de tranche  Le versement le plus efficace est celui qui fait passer votre TMI a la tranche inferieure. Au-dela, chaque euro supplementaire est deduit a un taux plus faible.  n   Exemple : couple cadre 90 000 EUR brut, 2 parts  Imposable : 60 750 EUR. Par part : 30 375 EUR (TMI 30%). Seuil tranche 11%/30% = 29 315 EUR/part x 2 = 58 630 EUR. Versement optimal = 60 750 - 58 630 = 2 120 EUR. Economie : 636 EUR (30% x 2 120). TMI passe de 30% a 11%. Au-dela de 2 120 EUR, chaque euro est deduit a 11% seulement.\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 9  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 7  La fiscalite a la sortie  Le PER n'est pas un cadeau fiscal : c'est un   differe d'impot . Ce que vous deduisez a l'entree sera reimpose a la sortie. L'interet depend de la difference de TMI entre les deux moments.  Sortie en capital (versements deduits)  Composante   Fiscalite  Capital (versements)   IR au bareme progressif (pas de PS) Plus-values (gains)   PFU 30% (12,8% IR + 17,2% PS)  Les 3 scenarios de sortie  n   Scenario gagnant : TMI entree 41% -> sortie 11%  Economie a l'entree : 10 000 x 41% = 4 100 EUR. Impot a la sortie : 10 000 x 11% = 1 100 EUR. Gain net sur le capital : 3 000 EUR (+ rendement entre-temps).  n   Scenario neutre : TMI entree = TMI sortie (30%)  Economie a l'entree : 10 000 x 30% = 3 000 EUR. Impot a la sortie : 10 000 x 30% = 3 000 EUR. Gain net sur le capital : 0 EUR. Mais vous gagnez le rendement entre-temps.  n   Scenario perdant : TMI entree 11% -> sortie 30%  Economie a l'entree : 10 000 x 11% = 1 100 EUR. Impot a la sortie : 10 000 x 30% = 3 000 EUR. Perte nette sur le capital : -1 900 EUR. Le PER vous a coute de l'argent !\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 10  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 8  Deblocage residence principale  Le PER peut etre debloque avant la retraite pour financer l'achat de votre residence principale. Mais attention : la fiscalite est   identique   a la sortie retraite.  Fiscalite comparee selon le motif de sortie  Motif   IR sur capital   PS sur capital   PFU sur PV  Retraite (capital)   Bareme IR   0%   30% Residence principale   Bareme IR   0%   30% Accident de vie *   0% (exonere)   0%   17,2% PS seuls  * Invalidite, deces du conjoint, expiration droits chomage, surendettement, liquidation judiciaire.  Exemple chiffre : deblocage RP  Cadre TMI 30%, a verse 30 000 EUR deduits sur 5 ans. PER vaut 38 000 EUR (8 000 EUR de PV).  Element   Calcul   Montant  Revenu imposable annuel   60 000 EUR + Capital PER debloque   (ajoute aux revenus)   +30 000 EUR = Nouveau revenu imposable   90 000 EUR IR supplementaire (saut tranche !)   IR(90k) - IR(60k)   ~9 146 EUR PFU sur plus-values   8 000 x 30%   2 400 EUR TOTAL IMPOT   11 546 EUR NET RECUPERE   38 000 - 11 546   26 454 EUR  n   Piege du saut de tranche  Les 30 000 EUR debloques s'AJOUTENT a vos revenus de l'annee. Vous pouvez passer de TMI 30% a 41% ! Solutions : debloquer une annee de faibles revenus (conge parental, sabbatique), ou fractionner sur 2 ans (VEFA : acompte N, solde N+1).\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 11  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 9  Les pieges a eviter  Piege 1 : Verser a TMI 0% ou 11%  Si vous ne payez pas (ou peu) d'impot, le PER n'a aucun interet fiscal. L'economie a l'entree est nulle (0%) ou tres faible (11%), mais vous serez impose a la sortie. Verser sur un PER a TMI 11% ne fait economiser que 11% aujourd'hui pour etre reimpose plus tard.  Piege 2 : Gros reports mais petit revenu  Avoir 30 000 EUR de plafonds cumules ne veut pas dire que vous devez verser 30 000 EUR. Si votre IR total est de 900 EUR, l'economie maximale est 900 EUR, meme en versant 30 000 EUR. Le reste de la deduction est 'perdu' (vous ne pouvez pas avoir un impot negatif).  Piege 3 : Oublier la fiscalite de sortie  Beaucoup de personnes voient l'economie d'impot a l'entree comme un gain definitif.   Ce n'est pas le cas.   Le capital sera reimpose a la sortie. Le PER n'est gagnant que si votre TMI baisse entre l'entree et la sortie.  Piege 4 : Le saut de tranche au deblocage  Debloquer une grosse somme d'un coup (ex: 50 000 EUR pour une RP) peut faire exploser votre tranche d'imposition cette annee-la. Anticipez en debloquant une annee ou vos revenus sont faibles.  Piege 5 : Laisser expirer le N-3  Le plafond N-3 expire le 31 decembre de l'annee en cours. Si vous ne l'utilisez pas, il est perdu  definitivement . Verifiez votre avis d'imposition chaque annee.\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 12  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Chapitre 10  Les 10 regles d'or du PER  Regle 1 : Le PER est un differe d'impot, pas un cadeau fiscal.  Vous deduisez aujourd'hui, vous payez demain. L'interet = difference de TMI.  Regle 2 : N'investissez que si votre TMI est >= 30%.  En dessous, l'economie a l'entree ne compense pas la fiscalite a la sortie.  Regle 3 : Visez le versement optimal (changement de tranche).  C'est le meilleur ratio economie/versement. Au-dela, le rendement baisse.  Regle 4 : Utilisez le plafond N-3 en priorite.  Il expire le 31 decembre. Apres, il est perdu pour toujours.  Regle 5 : Verifiez votre plafond sur l'avis d'imposition.  Le montant exact figure en derniere page, avec les reports.  Regle 6 : Anticipez la fiscalite de sortie.  Estimez votre TMI a la retraite. Si elle reste elevee, le PER est surtout un outil de tresorerie.  Regle 7 : Ne debloque jamais une grosse somme une annee de hauts revenus.  Le saut de tranche peut effacer l'avantage fiscal. Choisissez une annee creuse.  Regle 8 : TNS : profitez de la double enveloppe.  Votre plafond PER peut atteindre 88 911 EUR. C'est un levier enorme a TMI 41-45%.  Regle 9 : Combinez PER et assurance-vie.  Le PER pour la deduction a l'entree, l'AV pour la sortie defiscalisee apres 8 ans.  Regle 10 : Ne versez pas au-dela de votre plafond deductible.  L'excedent non deductible sera quand meme impose a la sortie (double peine).\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 13  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Annexe  Memo : les chiffres cles 2025-2026  Constantes  Parametre   Valeur 2026   Source  PASS   48 060 EUR   Arrete du 19/12/2025 Plancher PER (10% PASS)   4 806 EUR   Art. 163 quatervicies CGI Plafond salaries (10% x 8 PASS)   38 448 EUR   Art. 163 quatervicies CGI Plafond TNS max   88 911 EUR   Art. 154 bis CGI Abattement 10% plancher   495 EUR   Art. 83-3 CGI Abattement 10% plafond   14 171 EUR   Art. 83-3 CGI Plafonnement QF / demi-part   1 759 EUR   Art. 197 CGI  Bareme IR 2025 (revenus 2024)  Tranche   Seuil   Taux  1   0 - 11 497 EUR   0% 2   11 497 - 29 315 EUR   11% 3   29 315 - 83 823 EUR   30% 4   83 823 - 180 294 EUR   41% 5   180 294 EUR et +   45%  Fiscalite de sortie — Resume  Sortie   Capital (deduit)   Capital (non deduit)   Plus-values  Retraite capital   IR bareme, 0% PS   Exonere   PFU 30% Retraite rente   Pensions (-10%)   RVTO   Inclus Residence principale   IR bareme, 0% PS   Exonere   PFU 30% Accident de vie   Exonere   Exonere   17,2% PS\n\nGuide complet du PER — Barème 2025 (revenus 2024)   Page 14  Document pedagogique — Ne constitue pas un conseil fiscal. Consultez un professionnel.  Taux de charges sociales (estimations)  Statut   Taux   Abattement 10%  Salarie   ~22%   Oui Cadre   ~25%   Oui Fonctionnaire   ~17%   Oui TNS / Independant   ~45%   Non\n\n",
+        "title": "Du brut a l'imposable",
+        "content": "Le revenu imposable passe par 4 etapes : salaire brut -> deduction charges sociales -> abattement 10% frais pro (salaries uniquement) -> revenu net imposable. C'est cette base qui sert au calcul de l'IR ET du plafond PER.",
+        "concepts": [
+          {"term": "Revenu net imposable", "definition": "Base de calcul de l'impot et du plafond PER, obtenue apres deduction des charges sociales et de l'abattement 10%.", "ref": "Art. 83 CGI"},
+          {"term": "Abattement 10%", "definition": "Deduction forfaitaire pour frais professionnels des salaries. Plancher 495 EUR, plafond 14 171 EUR. Les TNS n'en beneficient pas car ils deduisent leurs charges reelles.", "ref": "Art. 83-3 CGI"},
+          {"term": "Charges sociales", "definition": "Cotisations obligatoires deduites du brut : retraite, maladie, chomage. Taux variable selon statut."}
+        ],
+        "keyPoints": [
+          "Salarie ~22% de charges, cadre ~25%, fonctionnaire ~17%, TNS ~45%",
+          "Exemple cadre 80k brut: 80k - 25%(20k) = 60k net - 10%(6k) = 54k imposable",
+          "Le plafond PER se calcule sur le revenu NET imposable, pas le brut"
+        ],
+        "warnings": [
+          "Les TNS n'ont PAS l'abattement 10% car ils deduisent leurs charges reelles directement",
+          "Les taux de charges sont des moyennes - verifiez votre bulletin de paie"
+        ],
+        "examples": [
+          "Cadre a 80k brut -> imposable 54k -> plafond PER = 10% x 54k = 5 400 EUR"
+        ]
+      },
+      {
+        "title": "Tranches d'imposition et quotient familial",
+        "content": "L'IR est progressif : chaque tranche de revenu est imposee a un taux different. Le quotient familial divise le revenu par le nombre de parts avant application du bareme.",
+        "concepts": [
+          {"term": "TMI (Tranche Marginale d'Imposition)", "definition": "Taux de la derniere tranche atteinte. Etre a TMI 30% ne signifie PAS payer 30% sur tout le revenu. Exemple: 50k imposable -> IR 8 166 EUR soit 16.3% de taux moyen, mais TMI 30%."},
+          {"term": "Quotient familial", "definition": "Divise le revenu imposable par le nombre de parts, applique le bareme, puis multiplie par le nombre de parts. Plafonne a 1 759 EUR par demi-part supplementaire au-dela de 2 parts.", "ref": "Art. 197 CGI"},
+          {"term": "Bareme IR 2025", "definition": "Tranche 1: 0-11 497 EUR (0%) | Tranche 2: 11 497-29 315 EUR (11%) | Tranche 3: 29 315-83 823 EUR (30%) | Tranche 4: 83 823-180 294 EUR (41%) | Tranche 5: +180 294 EUR (45%)"}
+        ],
+        "keyPoints": [
+          "Parts: celibataire=1, couple=2, +0.5 par enfant (1 et 2), +1 a partir du 3eme",
+          "Plafonnement QF: 1 759 EUR par demi-part supplementaire au-dela de 2 parts",
+          "TMI ≠ taux moyen: a 50k imposable, taux moyen 16.3% mais TMI 30%"
+        ],
+        "warnings": [
+          "Ne pas confondre TMI et taux moyen d'imposition"
+        ],
+        "examples": [
+          "Couple + 3 enfants = 4 parts. Avantage QF plafonne a 4 x 1 759 = 7 036 EUR"
+        ]
+      },
+      {
+        "title": "Plafond PER salarie",
+        "content": "Chaque annee, deduction possible des versements PER du revenu imposable, dans la limite d'un plafond. Formule: 10% x revenu net imposable, avec plancher et plafond.",
+        "concepts": [
+          {"term": "Plafond PER salarie", "definition": "10% du revenu net imposable, avec plancher de 4 806 EUR (10% PASS) et plafond de 38 448 EUR (10% x 8 PASS) en 2026.", "ref": "Art. 163 quatervicies CGI"},
+          {"term": "PASS 2026", "definition": "Plafond Annuel de la Securite Sociale = 48 060 EUR. Base de calcul des plafonds PER.", "ref": "Arrete du 19/12/2025"}
+        ],
+        "keyPoints": [
+          "Plancher: 4 806 EUR (meme si vos 10% donnent moins)",
+          "Plafond: 38 448 EUR (meme avec tres hauts revenus)",
+          "Le plafond figure sur votre avis d'imposition (derniere page)",
+          "SMIC a 21.6k brut -> plafond = plancher 4 806 EUR | Cadre 90k brut -> 6 075 EUR | Dirigeant 600k -> plafond 38 448 EUR"
+        ],
+        "warnings": [],
+        "examples": [
+          "Cadre senior 90k brut -> imposable 60 750 EUR -> plafond PER = 6 075 EUR"
+        ]
+      },
+      {
+        "title": "Plafond PER TNS - Double enveloppe",
+        "content": "Les TNS beneficient d'un plafond beaucoup plus genereux grace a la double enveloppe (art. 154 bis CGI). Maximum 88 911 EUR en 2026.",
+        "concepts": [
+          {"term": "Double enveloppe TNS", "definition": "Enveloppe 1 = 10% x min(benefice, 8 PASS) + Enveloppe 2 = 15% x (benefice - 1 PASS). Maximum total: 88 911 EUR (2026).", "ref": "Art. 154 bis CGI"},
+          {"term": "Justification", "definition": "Les TNS n'ont pas de retraite complementaire obligatoire aussi genereuse (AGIRC-ARRCO). Le legislateur compense par un plafond PER plus eleve."}
+        ],
+        "keyPoints": [
+          "TNS a 100k benefice: plafond PER = 17 791 EUR (vs 9 000 salarie equivalent)",
+          "TNS a 250k: plafond 55 291 EUR | A 384 480 EUR (8 PASS): maximum 88 911 EUR",
+          "Levier enorme a TMI 41-45% pour les TNS"
+        ],
+        "warnings": [
+          "L'enveloppe 2 (15%) ne s'applique qu'au-dela de 1 PASS de benefice"
+        ],
+        "examples": [
+          "TNS benefice 250k: Env1 = 25 000 + Env2 = 30 291 = 55 291 EUR de plafond PER"
+        ]
+      },
+      {
+        "title": "Reports et regle FIFO",
+        "content": "Plafond non utilise reportable 3 ans. Le fisc consomme les plafonds du plus ancien au plus recent (FIFO: First In, First Out).",
+        "concepts": [
+          {"term": "Report N-3", "definition": "Le plafond PER non utilise est reportable pendant 3 ans. Au-dela, il est perdu definitivement."},
+          {"term": "FIFO", "definition": "First In First Out. Lors d'un versement, le fisc consomme d'abord le plafond le plus ancien (N-3), puis N-2, N-1, et enfin N."}
+        ],
+        "keyPoints": [
+          "Le plafond N-3 expire le 31 decembre de l'annee en cours",
+          "Priorite absolue: utiliser le N-3 avant qu'il expire",
+          "Les plafonds glissent chaque annee: l'ancien N-2 devient N-3, etc."
+        ],
+        "warnings": [
+          "URGENT: verifiez votre plafond N-3 sur votre avis d'imposition. S'il reste un solde, versez avant le 31/12 ou il est perdu DEFINITIVEMENT"
+        ],
+        "examples": [
+          "Plafonds: N-3=5k, N-2=3k, N-1=2k, N=6k. Versement 7k -> consomme N-3(5k) + N-2(2k). Reste: N-2=1k, N-1=2k, N=6k"
+        ]
+      },
+      {
+        "title": "Economie d'impot et versement optimal",
+        "content": "Economie = Versement x TMI. Le versement le plus efficace est celui qui fait passer la TMI a la tranche inferieure.",
+        "concepts": [
+          {"term": "Economie d'impot PER", "definition": "Reduction d'impot egale au versement multiplie par la TMI. A 30% de TMI, 5 000 EUR verses = 1 500 EUR d'economie."},
+          {"term": "Versement optimal", "definition": "Montant qui fait passer exactement a la tranche inferieure. Au-dela, chaque euro supplementaire est deduit au taux inferieur."}
+        ],
+        "keyPoints": [
+          "TMI 0% -> economie 0 EUR (aucun interet) | TMI 11% -> 550 EUR/5k | TMI 30% -> 1 500 EUR/5k | TMI 41% -> 2 050 EUR/5k",
+          "Au-dela du versement optimal, le rendement fiscal baisse",
+          "Cout reel d'un versement de 5k a TMI 30% = 3 500 EUR (5k - 1.5k d'economie)"
+        ],
+        "warnings": [
+          "Ne versez PAS au-dela de votre plafond deductible: l'excedent non deductible sera quand meme impose a la sortie (double peine)"
+        ],
+        "examples": [
+          "Couple cadre 90k brut, 2 parts. Imposable 60 750. Par part: 30 375 (TMI 30%). Seuil 30%/11% = 58 630. Versement optimal = 60 750 - 58 630 = 2 120 EUR. Economie: 636 EUR"
+        ]
+      },
+      {
+        "title": "Fiscalite a la sortie",
+        "content": "Le PER est un DIFFERE d'impot, pas un cadeau. Ce qui est deduit a l'entree sera reimpose a la sortie. L'interet reside dans la difference de TMI entre entree et sortie.",
+        "concepts": [
+          {"term": "Sortie en capital", "definition": "Le capital (versements deduits) est soumis a l'IR au bareme progressif sans PS. Les plus-values sont soumises au PFU 30% (12.8% IR + 17.2% PS)."},
+          {"term": "Sortie en rente", "definition": "La rente est imposee comme une pension de retraite avec abattement 10%."},
+          {"term": "Accidents de vie", "definition": "Deblocage anticipe exonere d'IR: invalidite, deces conjoint, expiration droits chomage, surendettement, liquidation judiciaire. PV soumises a 17.2% PS uniquement."}
+        ],
+        "keyPoints": [
+          "Scenario gagnant: TMI entree 41% -> sortie 11% = gain 3 000 EUR sur 10k",
+          "Scenario neutre: TMI identique = gain nul sur le capital, mais rendement entre-temps",
+          "Scenario perdant: TMI entree 11% -> sortie 30% = perte 1 900 EUR sur 10k"
+        ],
+        "warnings": [
+          "Le PER n'est PAS un cadeau fiscal: c'est un report d'imposition",
+          "Si votre TMI reste identique ou augmente a la retraite, l'avantage est nul ou negatif"
+        ],
+        "examples": []
+      },
+      {
+        "title": "Deblocage residence principale",
+        "content": "Le PER peut etre debloque pour l'achat de la residence principale. Fiscalite identique a la sortie retraite: IR bareme sur le capital, PFU 30% sur les PV.",
+        "concepts": [
+          {"term": "Deblocage RP", "definition": "Sortie anticipee du PER pour achat residence principale. Le capital s'ajoute aux revenus de l'annee -> risque de saut de tranche."},
+          {"term": "Saut de tranche", "definition": "Le capital debloque s'ajoute aux revenus courants, pouvant faire passer a une TMI superieure. Peut effacer l'avantage fiscal initial."}
+        ],
+        "keyPoints": [
+          "Fiscalite RP = fiscalite retraite (IR bareme + PFU 30% sur PV)",
+          "Le capital debloque s'AJOUTE aux revenus de l'annee",
+          "Solutions: debloquer une annee de faibles revenus, ou fractionner (VEFA: acompte N, solde N+1)"
+        ],
+        "warnings": [
+          "PIEGE: debloquer 30k sur une annee de revenus normaux (60k) -> nouveau revenu 90k -> saut de tranche 30% a 41%",
+          "IR supplementaire peut atteindre 9 146 EUR + 2 400 PFU = 11 546 EUR sur 38k recuperes"
+        ],
+        "examples": [
+          "Cadre TMI 30%, verse 30k deduits sur 5 ans. PER vaut 38k (8k PV). Deblocage RP: IR supp ~9 146 + PFU 2 400 = 11 546 EUR. Net recupere: 26 454 EUR"
+        ]
+      },
+      {
+        "title": "Les 5 pieges a eviter",
+        "content": "Erreurs courantes qui annulent ou inversent l'avantage fiscal du PER.",
         "concepts": [],
-        "keyPoints": [],
+        "keyPoints": [
+          "Piege 1: Verser a TMI 0% ou 11% -> economie nulle/faible mais imposition a la sortie",
+          "Piege 2: Gros reports mais petit revenu -> si IR = 900 EUR, l'eco max est 900 EUR meme en versant 30k",
+          "Piege 3: Oublier la fiscalite de sortie -> le PER n'est gagnant que si TMI baisse",
+          "Piege 4: Saut de tranche au deblocage -> anticiper une annee de revenus faibles",
+          "Piege 5: Laisser expirer le N-3 -> perdu definitivement au 31/12"
+        ],
+        "warnings": [
+          "Ne versez JAMAIS sur un PER si votre TMI est inferieure a 30%",
+          "On ne peut pas avoir un impot negatif: l'excedent de deduction est perdu"
+        ],
+        "examples": []
+      },
+      {
+        "title": "Les 10 regles d'or du PER",
+        "content": "Synthese des bonnes pratiques pour optimiser le PER.",
+        "concepts": [],
+        "keyPoints": [
+          "1. Le PER est un differe d'impot, pas un cadeau fiscal",
+          "2. N'investissez que si TMI >= 30%",
+          "3. Visez le versement optimal (changement de tranche)",
+          "4. Utilisez le plafond N-3 en priorite (expire 31/12)",
+          "5. Verifiez votre plafond sur l'avis d'imposition (derniere page)",
+          "6. Anticipez la fiscalite de sortie (estimez TMI retraite)",
+          "7. Ne debloque jamais une grosse somme une annee de hauts revenus",
+          "8. TNS: profitez de la double enveloppe (jusqu'a 88 911 EUR)",
+          "9. Combinez PER (deduction entree) et assurance-vie (sortie defiscalisee apres 8 ans)",
+          "10. Ne versez pas au-dela du plafond deductible (double peine)"
+        ],
         "warnings": [],
         "examples": []
       }
     ]
   },
-  "enrichments": [],
+  "enrichments": [
+    {
+      "id": "enr-ia-001",
+      "date": "2026-03-12",
+      "source": {"type": "verification", "name": "Claude - verification initiale"},
+      "trigger": "import",
+      "summary": "Verification IA: baremes, articles de loi et calculs conformes. Points d'attention ajoutes sur les charges sociales (estimations) et la strategie PER selon TMI.",
+      "addedPoints": [
+        "Les taux de charges sociales sont des estimations moyennes - variables selon convention collective",
+        "Le PER Madelin (ancien regime TNS) a des regles legerement differentes du PER individuel",
+        "Strategie cle: combiner PER + AV pour optimiser entree ET sortie"
+      ]
+    }
+  ],
   "quiz": {
     "totalAttempts": 0,
     "history": [],
