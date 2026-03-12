@@ -1,4 +1,4 @@
-// StudyForge v14 - Expert priorities: cache + persist discussions + weakPoints expiry + auto-switch + toast
+// StudyForge v15 - Merged quiz fix + cleanup (expert review)
 
 // 0. MARKED.JS + STYLES
 (function(){
@@ -31,7 +31,6 @@ function renderMd(text) {
   try { const c = text.replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '').replace(/<iframe[^>]*>[\s\S]*?<\/iframe>/gi, ''); return '<div class="md-content">' + marked.parse(c) + '</div>'; } catch { return esc(text); }
 }
 
-// === TOAST NOTIFICATIONS ===
 function showToast(msg, isError) {
   const t = document.createElement('div');
   t.className = 'sf-toast ' + (isError ? 'sf-toast-err' : 'sf-toast-ok');
@@ -42,11 +41,10 @@ function showToast(msg, isError) {
 
 // === MEMORY CACHE ===
 const _cache = new Map();
-const CACHE_TTL = 5 * 60 * 1000; // 5 min
+const CACHE_TTL = 5 * 60 * 1000;
 
 const _origGhRead = ghRead;
 ghGet = async function(p) {
-  // Check cache
   const cached = _cache.get(p);
   if (cached && Date.now() - cached.ts < CACHE_TTL) return { content: cached.data, sha: cached.sha };
   try {
@@ -60,17 +58,14 @@ ghGet = async function(p) {
   } catch { return null; }
 };
 
-// Invalidate cache on write
 const _origGhPut = ghPut;
 ghPut = async function(path, content, msg, sha) {
-  // Validate fiche JSON
   if (path.endsWith('.json') && path.includes('/') && !path.endsWith('_meta.json') && !path.endsWith('index.json')) {
     const data = typeof content === 'string' ? JSON.parse(content) : content;
     const errors = validateFicheJSON(data);
     if (errors.length > 0) { console.error('BLOCKED ' + path + ':', errors); throw new Error('Validation: ' + errors.join(', ')); }
     console.log('OK: ' + path + ' v' + (data.metadata?.version || '?'));
   }
-  // Invalidate cache for this path and parent
   _cache.delete(path);
   const dir = path.substring(0, path.lastIndexOf('/'));
   _cache.forEach((v, k) => { if (k.startsWith(dir)) _cache.delete(k); });
@@ -113,7 +108,6 @@ function validateFicheJSON(data) {
   }
   if (!Array.isArray(data.enrichments)) data.enrichments = [];
   if (!data.quiz) data.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
-  // Init discussions array
   if (!Array.isArray(data.discussions)) data.discussions = [];
   return errors;
 }
@@ -133,6 +127,25 @@ function smartTruncateFiche(ficheJSON, maxLen) {
   } catch { return ficheJSON.slice(0, maxLen); }
 }
 
+// === QUIZ CONTEXT BUILDER (for large fiches) ===
+function buildQuizContext(fiche) {
+  const sections = fiche.base?.sections || [];
+  const wp = fiche.quiz?.weakPoints || [];
+  return sections.map(s => {
+    let summary = '## ' + s.title;
+    // Mark sections containing weak points
+    const hasWeak = wp.some(w => s.keyPoints?.some(kp => w.includes(kp?.slice(0, 20))) || s.title.toLowerCase().includes(w.slice(0, 15).toLowerCase()));
+    if (hasWeak) summary += ' [WEAK - insiste sur cette section]';
+    summary += '\n';
+    if (s.content) summary += s.content.slice(0, 300) + '\n';
+    if (s.concepts?.length) summary += 'Concepts: ' + s.concepts.map(c => c.term + ' = ' + (c.definition || '').slice(0, 80)).join(' | ') + '\n';
+    if (s.keyPoints?.length) summary += 'Points cles: ' + s.keyPoints.join(' | ') + '\n';
+    if (s.warnings?.length) summary += 'Pieges: ' + s.warnings.join(' | ') + '\n';
+    if (s.examples?.length) summary += 'Exemples: ' + s.examples.join(' | ') + '\n';
+    return summary;
+  }).join('\n');
+}
+
 // QUIZ STATE
 let qCount = 10, qLevel = 'modere', qAnalysis = null, qSuggestions = null;
 
@@ -145,26 +158,20 @@ document.body.appendChild(overlay);
 function showLoading(t) { document.getElementById('loading-text').textContent = t || 'Chargement...'; overlay.style.display = 'flex'; }
 function hideLoading() { overlay.style.display = 'none'; }
 
-// === WEAKPOINTS EXPIRATION ===
-// If a weakPoint question is answered correctly, increment its success counter
-// Remove from weakPoints after 2 consecutive successes
+// WEAKPOINTS EXPIRATION
 function updateWeakPoints(ficheData, qResults, type) {
   if (!ficheData.quiz) ficheData.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
-  if (!ficheData.quiz._wpSuccess) ficheData.quiz._wpSuccess = {}; // {question: consecutiveSuccessCount}
-  
+  if (!ficheData.quiz._wpSuccess) ficheData.quiz._wpSuccess = {};
   if (type === 'qcm') {
     qResults.forEach(r => {
       const q = r.question;
       if (r.ok) {
-        // Correct: increment success counter
         ficheData.quiz._wpSuccess[q] = (ficheData.quiz._wpSuccess[q] || 0) + 1;
-        // Remove from weakPoints if 2+ consecutive successes
         if (ficheData.quiz._wpSuccess[q] >= 2) {
           ficheData.quiz.weakPoints = ficheData.quiz.weakPoints.filter(wp => wp !== q);
           delete ficheData.quiz._wpSuccess[q];
         }
       } else {
-        // Wrong: reset counter, add to weakPoints if not there
         ficheData.quiz._wpSuccess[q] = 0;
         if (!ficheData.quiz.weakPoints.includes(q)) ficheData.quiz.weakPoints.push(q);
       }
@@ -172,28 +179,14 @@ function updateWeakPoints(ficheData, qResults, type) {
   }
 }
 
-// === PERSIST DISCUSSION ===
+// PERSIST DISCUSSION
 async function saveDiscussion(status) {
   if (!fiche || !selCat || !hasToken() || chatMsgs.length < 2) return;
   const u = JSON.parse(JSON.stringify(fiche));
   if (!u.discussions) u.discussions = [];
-  
-  // Check if current discussion already saved (by checking last msg)
-  const lastSaved = u.discussions[u.discussions.length - 1];
-  const currentSummary = chatMsgs.slice(0, 2).map(m => m.content.slice(0, 50)).join(' | ');
-  
-  u.discussions.push({
-    id: 'disc-' + Date.now(),
-    date: new Date().toISOString().split('T')[0],
-    status: status || 'open',
-    messageCount: chatMsgs.length,
-    preview: currentSummary,
-    messages: chatMsgs.map(m => ({ role: m.role, content: m.content.slice(0, 2000) })) // cap per message
-  });
-  
-  // Keep only last 5 discussions to avoid bloat
+  const preview = chatMsgs.slice(0, 2).map(m => m.content.slice(0, 50)).join(' | ');
+  u.discussions.push({ id: 'disc-' + Date.now(), date: new Date().toISOString().split('T')[0], status: status || 'open', messageCount: chatMsgs.length, preview, messages: chatMsgs.map(m => ({ role: m.role, content: m.content.slice(0, 2000) })) });
   if (u.discussions.length > 5) u.discussions = u.discussions.slice(-5);
-  
   try {
     const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
     const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
@@ -203,7 +196,6 @@ async function saveDiscussion(status) {
 }
 window.saveDiscussion = saveDiscussion;
 
-// Load previous discussion when opening fiche
 function loadPreviousDiscussion() {
   if (!fiche?.discussions?.length) return;
   const last = fiche.discussions[fiche.discussions.length - 1];
@@ -213,24 +205,36 @@ function loadPreviousDiscussion() {
   }
 }
 
-// QUIZ GEN (Haiku)
+// === QUIZ GEN (Haiku) - MERGED FIX for large fiches ===
 genQuiz = async function() {
   if (!fiche) return;
   showLoading('Generation de ' + qCount + ' questions (' + qLevel + ')...');
   qRes = null; qAns = {}; qFlip = {}; qAnalysis = null; qSuggestions = null;
-  const ct = JSON.stringify(fiche.base?.sections || []);
+
+  // Smart context: structured summary instead of raw JSON
+  const ctx = buildQuizContext(fiche);
   const en = (fiche.enrichments || []).map(e => (e.addedPoints || []).join(', ')).join(' | ');
-  const wp = (fiche.quiz?.weakPoints || []).slice(0, 10).join(', '); // Cap at 10 weakpoints in prompt
-  const levels = { basique: 'BASIQUE: memorisation, definitions.', modere: 'MODERE: application, comprehension.', expert: 'EXPERT: cas complexes, pieges, calculs.' };
+  const wp = (fiche.quiz?.weakPoints || []).slice(0, 10).join(', ');
+
+  // Adaptive max_tokens based on question count
+  const maxTok = qCount <= 10 ? 4000 : qCount <= 15 ? 6000 : 8000;
+
+  const levels = { basique: 'BASIQUE: memorisation, definitions. Pas de pieges.', modere: 'MODERE: application, comprehension, subtilites.', expert: 'EXPERT: cas pratiques complexes, pieges, calculs, articulations entre concepts.' };
   const pr = {
-    qcm: 'Genere exactement ' + qCount + ' QCM. Niveau ' + levels[qLevel] + ' Points faibles: ' + wp + '. JSON sans backticks: [{"id":1,"question":"","options":["A) ...","B) ...","C) ...","D) ..."],"correct":"A","explanation":""}]',
-    open: 'Genere exactement ' + qCount + ' questions ouvertes. Niveau ' + levels[qLevel] + ' JSON sans backticks: [{"id":1,"question":"","expectedPoints":["","",""],"difficulty":"' + qLevel + '","hint":""}]',
-    flashcard: 'Genere exactement ' + qCount + ' flashcards. Niveau ' + levels[qLevel] + ' JSON sans backticks: [{"id":1,"front":"","back":""}]'
+    qcm: 'Genere exactement ' + qCount + ' QCM. Niveau ' + levels[qLevel] + (wp ? ' Points faibles (insiste): ' + wp : '') + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"question":"","options":["A) ...","B) ...","C) ...","D) ..."],"correct":"A","explanation":""}]',
+    open: 'Genere exactement ' + qCount + ' questions ouvertes. Niveau ' + levels[qLevel] + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"question":"","expectedPoints":["","",""],"difficulty":"' + qLevel + '","hint":""}]',
+    flashcard: 'Genere exactement ' + qCount + ' flashcards. Niveau ' + levels[qLevel] + '. Reponds UNIQUEMENT avec un JSON array sans backticks: [{"id":1,"front":"","back":""}]'
   };
   try {
-    const r = await callClaude('Quiz patrimoine/fiscalite. JSON sans backticks. EXACTEMENT ' + qCount + '.', pr[qType] + '\nFiche:\n' + ct + '\nEnrichissements:\n' + en, HAIKU);
-    const p = parseJ(r); if (p) quiz = p; else setStatus('Erreur.');
-  } catch (e) { setStatus('Erreur: ' + e.message); }
+    const r = await callClaude(
+      'Tu generes des quiz pedagogiques patrimoine/fiscalite. Reponds UNIQUEMENT avec du JSON valide, sans backticks. EXACTEMENT ' + qCount + ' elements.',
+      pr[qType] + '\n\nCONTENU:\n' + ctx.slice(0, 8000) + (en ? '\nENRICHISSEMENTS: ' + en.slice(0, 1000) : ''),
+      HAIKU, maxTok
+    );
+    const p = parseJ(r);
+    if (p && Array.isArray(p)) { quiz = p; showToast(p.length + ' questions generees !'); }
+    else { console.error('Quiz parse fail:', r.slice(0, 500)); showToast('Erreur generation. Reessaie.', true); }
+  } catch (e) { console.error('Quiz error:', e); showToast('Erreur: ' + e.message, true); }
   hideLoading(); render();
 };
 
@@ -272,7 +276,7 @@ async function analyzeQuizErrors() {
 }
 window.analyzeQuizErrors = analyzeQuizErrors;
 
-// APPLY QUIZ IMPROVEMENTS + WEAKPOINTS EXPIRATION
+// APPLY QUIZ IMPROVEMENTS
 async function applyQuizImprovements() {
   if (!qSuggestions?.improvements?.length || !fiche || !selCat) return;
   requireToken(async function() {
@@ -289,12 +293,11 @@ async function applyQuizImprovements() {
       else if (imp.type==='keyPoint'&&imp.content) { t.keyPoints.push(imp.content); applied.push(imp.content); }
       else if (imp.type==='concept'&&imp.content) { t.concepts.push({ term: imp.content.split(':')[0]||imp.content, definition: imp.content, ref: '' }); applied.push(imp.content); }
     });
-    if (!applied.length) { setStatus('Aucune amelioration'); hideLoading(); return; }
+    if (!applied.length) { showToast('Aucune amelioration applicable', true); hideLoading(); return; }
     u.enrichments.push({ id: 'enr-qa-' + Date.now(), date: new Date().toISOString().split('T')[0], source: { type: 'quiz-analysis' }, trigger: 'quiz', summary: qSuggestions.summary || applied.length + ' ameliorations', addedPoints: applied });
     u.quiz.totalAttempts++; u.quiz.lastDate = new Date().toISOString().split('T')[0];
     if (qType === 'qcm' && qRes) {
       u.quiz.history.push({ date: u.quiz.lastDate, type: 'qcm', score: qRes.filter(r => r.ok).length + '/' + qRes.length, level: qLevel });
-      // WEAKPOINTS EXPIRATION
       updateWeakPoints(u, qRes, 'qcm');
     }
     u.metadata.version = (u.metadata.version || 1) + 1;
@@ -302,8 +305,7 @@ async function applyQuizImprovements() {
       const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
       const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
       await ghPut('data/' + selCat.id + '/' + slug + '.json', u, 'Quiz v' + u.metadata.version, ex?.sha);
-      fiche = u;
-      showToast('Fiche v' + u.metadata.version + ' amelioree !');
+      fiche = u; showToast('Fiche v' + u.metadata.version + ' amelioree !');
     } catch (e) { showToast('Erreur: ' + e.message, true); }
     hideLoading(); render();
   });
@@ -327,10 +329,10 @@ sendMsg = async function() {
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// APPLY DISCUSSION + AUTO-SWITCH TO FICHE
+// APPLY DISCUSSION + AUTO-SWITCH
 async function _doApplyChanges() {
   if (!fiche || !selCat) return;
-  if (chatMsgs.length < 1) { showToast('Discute d\'abord avec l\'IA', true); return; }
+  if (chatMsgs.length < 1) { showToast('Discute d\'abord', true); return; }
   showLoading('Application des modifications...');
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 15000);
   const disc = chatMsgs.map(m => (m.role === 'user' ? 'USER' : 'EXPERT') + ': ' + m.content).join('\n\n').slice(0, 8000);
@@ -338,7 +340,7 @@ async function _doApplyChanges() {
   try {
     const r = await callClaude(sys, 'FICHE:\n' + ficheJSON + '\n\nDISCUSSION:\n' + disc, SONNET, 8000);
     const p = parseJ(r);
-    if (!p) { console.error('PARSE:', r.slice(0,500)); showToast('JSON invalide - voir F12', true); hideLoading(); return; }
+    if (!p) { console.error('PARSE:', r.slice(0,500)); showToast('JSON invalide - F12', true); hideLoading(); return; }
     const err = validateFicheJSON(p);
     if (err.length) { showToast('Validation: ' + err.join(', '), true); hideLoading(); return; }
     p.metadata.version = (fiche.metadata?.version || 1) + 1;
@@ -346,10 +348,8 @@ async function _doApplyChanges() {
     const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
     await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discuss v' + p.metadata.version, ex?.sha);
     fiche = p;
-    // Save discussion as 'applied'
     await saveDiscussion('applied');
     showToast('Fiche v' + p.metadata.version + ' sauvegardee !');
-    // AUTO-SWITCH to Fiche view
     currentView = 'fiche';
   } catch (e) { showToast('Erreur: ' + e.message, true); }
   hideLoading(); render();
@@ -379,7 +379,7 @@ const _origSave = saveImportFiche;
 saveImportFiche = async function() {
   if (!hasToken()) { requireToken(saveImportFiche); return; }
   showLoading('Structuration...'); await _origSave(); hideLoading();
-  showToast('Fiche creee et sauvegardee !');
+  showToast('Fiche creee !');
 };
 const _origEnrich = enrichDoc;
 enrichDoc = async function() {
@@ -387,15 +387,13 @@ enrichDoc = async function() {
   showLoading('Analyse...'); await _origEnrich(); hideLoading();
 };
 
-// Override loadFiche to restore discussions
 const _origLoadFiche = loadFiche;
 loadFiche = async function(id) {
   await _origLoadFiche(id);
-  // After fiche is loaded, try to restore previous discussion
   loadPreviousDiscussion();
 };
 
-// RENDER + MARKDOWN + QUIZ CONTROLS + DISCUSSION APPLY
+// RENDER
 const _origRender = render;
 render = function() {
   _origRender();
@@ -453,7 +451,7 @@ render = function() {
     }
   }
 
-  // DISCUSSION: Apply + Save buttons
+  // DISCUSSION: Apply + Save
   if (currentView === 'discuss' && fiche) {
     const chatInput = content.querySelector('[id="chat-input"]');
     if (chatInput) {
@@ -471,4 +469,4 @@ render = function() {
   }
 };
 
-console.log('StudyForge v14: Cache + Persist discussions + WeakPoints expiry + Auto-switch + Toast');
+console.log('StudyForge v15: Merged quiz fix + cleanup');
