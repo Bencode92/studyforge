@@ -1,10 +1,7 @@
-// StudyForge Patches v11 - Expert review fixes
-// - Removed redundant patch.js
-// - Added JSON schema validation before every ghPut
-// - Fixed truncation: smart summarize instead of brutal slice
-// - Better error handling with raw response logging
+// StudyForge v12 - Expert fixes + Quiz auto-analyse errors + improve fiche
+// Changes: fix smartTruncate edge case, quiz error analysis loop, cleanup
 
-// 1. FIX UTF-8 ACCENTS
+// 1. UTF-8 FIX
 const _origGhRead = ghRead;
 ghGet = async function(p) {
   try {
@@ -19,7 +16,6 @@ ghGet = async function(p) {
 // 2. MODELS
 const SONNET = 'claude-sonnet-4-20250514';
 const HAIKU = 'claude-haiku-4-5-20251001';
-
 callClaude = async function(sys, msgs, model, maxTok) {
   const body = { model: model || SONNET, max_tokens: maxTok || 4000, system: sys };
   body.messages = Array.isArray(msgs) ? msgs : [{ role: 'user', content: msgs }];
@@ -29,102 +25,78 @@ callClaude = async function(sys, msgs, model, maxTok) {
   return d.content?.[0]?.text || '';
 };
 
-// 3. JSON SCHEMA VALIDATION
-const REQUIRED_FICHE_FIELDS = ['metadata', 'base'];
-const REQUIRED_METADATA = ['title', 'category'];
-const REQUIRED_SECTION = ['title'];
-
+// 3. JSON VALIDATION
 function validateFicheJSON(data) {
   const errors = [];
-  if (!data || typeof data !== 'object') return ['Donnees invalides: pas un objet JSON'];
-  
-  // Check top-level
-  REQUIRED_FICHE_FIELDS.forEach(f => { if (!data[f]) errors.push('Champ manquant: ' + f); });
-  
-  // Check metadata
+  if (!data || typeof data !== 'object') return ['Pas un objet JSON'];
+  if (!data.metadata) errors.push('metadata manquant');
+  if (!data.base) errors.push('base manquant');
   if (data.metadata) {
-    REQUIRED_METADATA.forEach(f => { if (!data.metadata[f]) errors.push('metadata.' + f + ' manquant'); });
-    if (typeof data.metadata.version !== 'number' && data.metadata.version !== undefined) {
-      data.metadata.version = parseInt(data.metadata.version) || 1;
-    }
+    if (!data.metadata.title) errors.push('metadata.title manquant');
+    if (!data.metadata.category) errors.push('metadata.category manquant');
+    if (data.metadata.version !== undefined) data.metadata.version = parseInt(data.metadata.version) || 1;
   }
-  
-  // Check base.sections
   if (data.base) {
-    if (!Array.isArray(data.base.sections)) errors.push('base.sections doit etre un array');
-    else if (data.base.sections.length === 0) errors.push('base.sections est vide');
-    else {
-      data.base.sections.forEach((s, i) => {
-        REQUIRED_SECTION.forEach(f => { if (!s[f]) errors.push('section[' + i + '].' + f + ' manquant'); });
-        // Ensure arrays exist
-        if (!Array.isArray(s.concepts)) s.concepts = [];
-        if (!Array.isArray(s.keyPoints)) s.keyPoints = [];
-        if (!Array.isArray(s.warnings)) s.warnings = [];
-        if (!Array.isArray(s.examples)) s.examples = [];
-      });
-    }
+    if (!Array.isArray(data.base.sections)) errors.push('base.sections pas un array');
+    else if (data.base.sections.length === 0) errors.push('base.sections vide');
+    else data.base.sections.forEach((s, i) => {
+      if (!s.title) errors.push('section[' + i + '].title manquant');
+      if (!Array.isArray(s.concepts)) s.concepts = [];
+      if (!Array.isArray(s.keyPoints)) s.keyPoints = [];
+      if (!Array.isArray(s.warnings)) s.warnings = [];
+      if (!Array.isArray(s.examples)) s.examples = [];
+    });
   }
-  
-  // Ensure enrichments and quiz exist
   if (!Array.isArray(data.enrichments)) data.enrichments = [];
   if (!data.quiz) data.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
-  
   return errors;
 }
 
-// 4. SAFE ghPut with validation
+// 4. SAFE ghPut
 const _origGhPut = ghPut;
 ghPut = async function(path, content, msg, sha) {
-  // Validate fiche JSON before pushing
   if (path.endsWith('.json') && path.includes('/') && !path.endsWith('_meta.json') && !path.endsWith('index.json')) {
     const data = typeof content === 'string' ? JSON.parse(content) : content;
     const errors = validateFicheJSON(data);
     if (errors.length > 0) {
-      console.error('VALIDATION FAILED for ' + path + ':', errors);
-      throw new Error('Validation echouee: ' + errors.join(', '));
+      console.error('VALIDATION BLOCKED ' + path + ':', errors);
+      throw new Error('Validation: ' + errors.join(', '));
     }
-    console.log('Validation OK for ' + path + ' (v' + (data.metadata?.version || '?') + ', ' + (data.base?.sections?.length || 0) + ' sections)');
+    console.log('OK: ' + path + ' v' + (data.metadata?.version || '?') + ' (' + (data.base?.sections?.length || 0) + ' sections)');
   }
   return _origGhPut(path, content, msg, sha);
 };
 
-// 5. SMART TRUNCATION - summarize instead of brutal slice
-function smartTruncate(text, maxLen) {
-  if (!text || text.length <= maxLen) return text;
-  // Keep first 60% and last 20%, add marker in middle
-  const headLen = Math.floor(maxLen * 0.6);
-  const tailLen = Math.floor(maxLen * 0.2);
-  return text.slice(0, headLen) + '\n\n[... CONTENU TRONQUE - ' + (text.length - headLen - tailLen) + ' caracteres omis ...]\n\n' + text.slice(-tailLen);
-}
-
+// 5. SAFE TRUNCATION (fix: never produce invalid JSON)
 function smartTruncateFiche(ficheJSON, maxLen) {
   if (ficheJSON.length <= maxLen) return ficheJSON;
-  // Parse, summarize long content fields, re-serialize
   try {
     const f = JSON.parse(ficheJSON);
-    if (f.base?.sections) {
-      f.base.sections.forEach(s => {
-        if (s.content && s.content.length > 500) {
-          s.content = s.content.slice(0, 400) + '... [tronque]';
-        }
-      });
-    }
-    // Remove enrichment details if still too long
-    const attempt1 = JSON.stringify(f);
-    if (attempt1.length <= maxLen) return attempt1;
-    
-    if (f.enrichments?.length > 3) {
-      f.enrichments = f.enrichments.slice(-3); // keep only last 3
-    }
-    return JSON.stringify(f).slice(0, maxLen);
-  } catch {
-    return ficheJSON.slice(0, maxLen);
-  }
+    // Step 1: trim long content
+    if (f.base?.sections) f.base.sections.forEach(s => {
+      if (s.content && s.content.length > 500) s.content = s.content.slice(0, 400) + '...[tronque]';
+    });
+    let r = JSON.stringify(f);
+    if (r.length <= maxLen) return r;
+    // Step 2: trim enrichments
+    if (f.enrichments?.length > 3) { f.enrichments = f.enrichments.slice(-3); r = JSON.stringify(f); }
+    if (r.length <= maxLen) return r;
+    // Step 3: trim examples and warnings
+    if (f.base?.sections) f.base.sections.forEach(s => { s.examples = []; s.warnings = s.warnings?.slice(0, 1) || []; });
+    r = JSON.stringify(f);
+    if (r.length <= maxLen) return r;
+    // Step 4: remove sections content entirely, keep structure
+    if (f.base?.sections) f.base.sections.forEach(s => { s.content = '[voir fiche complete]'; });
+    return JSON.stringify(f);
+    // NEVER do raw slice - always return valid JSON
+  } catch { return ficheJSON.slice(0, maxLen); }
 }
 
 // 6. QUIZ STATE
 let qCount = 10;
 let qLevel = 'modere';
+let qAnalysis = null;  // Error analysis result
+let qSuggestions = null; // Proposed fiche improvements
 
 // 7. LOADING OVERLAY
 const overlay = document.createElement('div');
@@ -135,11 +107,11 @@ document.body.appendChild(overlay);
 function showLoading(t) { document.getElementById('loading-text').textContent = t || 'Chargement...'; overlay.style.display = 'flex'; }
 function hideLoading() { overlay.style.display = 'none'; }
 
-// 8. QUIZ (Haiku)
+// 8. QUIZ GEN (Haiku)
 genQuiz = async function() {
   if (!fiche) return;
   showLoading('Generation de ' + qCount + ' questions (' + qLevel + ')...');
-  qRes = null; qAns = {}; qFlip = {};
+  qRes = null; qAns = {}; qFlip = {}; qAnalysis = null; qSuggestions = null;
   const ct = JSON.stringify(fiche.base?.sections || []);
   const en = (fiche.enrichments || []).map(e => (e.addedPoints || []).join(', ')).join(' | ');
   const wp = (fiche.quiz?.weakPoints || []).join(', ');
@@ -160,9 +132,10 @@ genQuiz = async function() {
   hideLoading(); render();
 };
 
-// 9. CORRECTION (Haiku)
+// 9. CORRECTION (Haiku for open, local for QCM)
 correctQuiz = async function() {
   if (!quiz) return; showLoading('Correction...');
+  qAnalysis = null; qSuggestions = null;
   if (qType === 'qcm') { qRes = quiz.map(q => ({ ...q, ua: qAns[q.id], ok: qAns[q.id] === q.correct })); hideLoading(); render(); return; }
   const txt = quiz.map(q => 'Q: ' + q.question + '\nR: ' + (qAns[q.id] || '(vide)')).join('\n\n');
   try {
@@ -172,31 +145,118 @@ correctQuiz = async function() {
   hideLoading(); render();
 };
 
-// 10. DISCUSSION - SONNET with smart truncation
+// 10. QUIZ ERROR ANALYSIS (Haiku for analysis, then Sonnet for fiche suggestions)
+async function analyzeQuizErrors() {
+  if (!qRes || !fiche) return;
+  showLoading('Analyse detaillee de tes erreurs...');
+
+  // Collect errors
+  let errorsText = '';
+  if (qType === 'qcm') {
+    const wrong = qRes.filter(r => !r.ok);
+    if (wrong.length === 0) { qAnalysis = 'Bravo, aucune erreur ! Ta maitrise du sujet est excellente.'; hideLoading(); render(); return; }
+    errorsText = wrong.map(w => {
+      const userAns = (w.options || []).find(o => o.charAt(0) === w.ua) || 'Pas de reponse';
+      const goodAns = (w.options || []).find(o => o.charAt(0) === w.correct) || '?';
+      return 'Question: ' + w.question + '\nReponse donnee: ' + userAns + '\nBonne reponse: ' + goodAns + '\nExplication: ' + (w.explanation || '');
+    }).join('\n\n');
+  } else {
+    const weak = qRes.filter(r => r.score < 7);
+    if (weak.length === 0) { qAnalysis = 'Tres bon resultat ! Les reponses sont solides.'; hideLoading(); render(); return; }
+    errorsText = weak.map(w => {
+      const q = quiz.find(x => x.id === w.id);
+      return 'Question: ' + (q?.question || '') + '\nScore: ' + w.score + '/10\nFeedback: ' + w.feedback + '\nPoints manquants: ' + (w.missingPoints || []).join(', ');
+    }).join('\n\n');
+  }
+
+  // Step 1: Detailed error analysis (Haiku - cheap)
+  try {
+    const analysisSys = 'Tu es un tuteur expert en patrimoine, fiscalite et finance. L\'eleve vient de faire un quiz et a fait des erreurs. Analyse chaque erreur en detail:\n- Pourquoi l\'eleve s\'est trompe (confusion probable, piege, manque de connaissance)\n- L\'explication pedagogique correcte avec references legales\n- Un moyen mnemotechnique ou astuce pour ne plus se tromper\n\nSois precis, pedagogique et encourageant. Francais.';
+    qAnalysis = await callClaude(analysisSys, 'ERREURS DU QUIZ:\n' + errorsText, HAIKU, 3000);
+  } catch (e) { qAnalysis = 'Erreur analyse: ' + e.message; }
+
+  // Step 2: Propose fiche improvements (Haiku - cheap)
+  try {
+    const ficheCtx = JSON.stringify((fiche.base?.sections || []).map(s => ({ title: s.title, keyPoints: s.keyPoints, warnings: s.warnings })));
+    const sugSys = 'Basé sur les erreurs de l\'eleve au quiz, propose des ameliorations concretes pour la fiche de cours. JSON sans backticks:\n{"improvements":[{"type":"warning|example|concept|keyPoint","section":"titre section concernee","content":"texte a ajouter","reason":"pourquoi"}],"summary":"resume des ameliorations"}';
+    const sugR = await callClaude(sugSys, 'ERREURS:\n' + errorsText + '\n\nFICHE ACTUELLE:\n' + ficheCtx, HAIKU, 2000);
+    qSuggestions = parseJ(sugR);
+  } catch (e) { console.error('Suggestions error:', e); }
+
+  hideLoading(); render();
+  setTimeout(() => { const c = $('content'); if (c) c.scrollTop = c.scrollHeight; }, 100);
+}
+window.analyzeQuizErrors = analyzeQuizErrors;
+
+// 11. APPLY QUIZ IMPROVEMENTS TO FICHE
+async function applyQuizImprovements() {
+  if (!qSuggestions?.improvements?.length || !fiche || !selCat) return;
+  requireToken(async function() {
+    showLoading('Amelioration de la fiche...');
+    const u = JSON.parse(JSON.stringify(fiche));
+    if (!u.enrichments) u.enrichments = [];
+    if (!u.quiz) u.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
+
+    // Apply each improvement to the right section
+    const applied = [];
+    qSuggestions.improvements.forEach(imp => {
+      const sec = u.base?.sections?.find(s => s.title.toLowerCase().includes((imp.section || '').toLowerCase().slice(0, 15)));
+      const target = sec || u.base?.sections?.[0];
+      if (!target) return;
+      if (imp.type === 'warning' && imp.content) { target.warnings.push(imp.content); applied.push(imp.content); }
+      else if (imp.type === 'example' && imp.content) { target.examples.push(imp.content); applied.push(imp.content); }
+      else if (imp.type === 'keyPoint' && imp.content) { target.keyPoints.push(imp.content); applied.push(imp.content); }
+      else if (imp.type === 'concept' && imp.content) {
+        target.concepts.push({ term: imp.content.split(':')[0] || imp.content, definition: imp.content, ref: '' });
+        applied.push(imp.content);
+      }
+    });
+
+    if (applied.length === 0) { setStatus('Aucune amelioration applicable'); hideLoading(); return; }
+
+    // Add enrichment record
+    u.enrichments.push({
+      id: 'enr-qa-' + Date.now(),
+      date: new Date().toISOString().split('T')[0],
+      source: { type: 'quiz-analysis' },
+      trigger: 'quiz',
+      summary: qSuggestions.summary || applied.length + ' ameliorations suite au quiz',
+      addedPoints: applied
+    });
+
+    // Record quiz attempt
+    u.quiz.totalAttempts++;
+    u.quiz.lastDate = new Date().toISOString().split('T')[0];
+    if (qType === 'qcm' && qRes) {
+      const sc = qRes.filter(r => r.ok).length;
+      u.quiz.history.push({ date: u.quiz.lastDate, type: 'qcm', score: sc + '/' + qRes.length, level: qLevel });
+      qRes.filter(r => !r.ok).forEach(w => { if (!u.quiz.weakPoints.includes(w.question)) u.quiz.weakPoints.push(w.question); });
+    }
+
+    // Increment version
+    u.metadata.version = (u.metadata.version || 1) + 1;
+
+    try {
+      const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
+      const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
+      await ghPut('data/' + selCat.id + '/' + slug + '.json', u, 'Quiz analysis v' + u.metadata.version, ex?.sha);
+      fiche = u;
+      setStatus('Fiche v' + u.metadata.version + ' amelioree !');
+    } catch (e) { setStatus('Erreur: ' + e.message); }
+    hideLoading(); render();
+  });
+}
+window.applyQuizImprovements = applyQuizImprovements;
+
+// 12. DISCUSSION - SONNET
 sendMsg = async function() {
   const msg = $('chat-input')?.value?.trim();
   if (!msg || !fiche) return;
   $('chat-input').value = '';
   chatMsgs.push({ role: 'user', content: msg }); render();
   showLoading('Reflexion approfondie...');
-
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 12000);
-  const sys = `Tu es un tuteur expert en gestion de patrimoine, fiscalite et finance. Tu discutes avec l'utilisateur a propos de cette fiche de cours.
-
-FICHE COMPLETE:
-${ficheJSON}
-
-REGLES:
-- Reponds de maniere DETAILLEE et PEDAGOGIQUE (pas de reponses courtes)
-- Developpe tes explications avec des exemples concrets, des cas pratiques, des chiffres
-- Challenge les idees de l'utilisateur, propose des angles differents
-- Si l'utilisateur demande des modifications, explique ce que tu changerais et pourquoi
-- Corrige les erreurs avec des references legales precises (articles du CGI, Code civil, etc.)
-- Propose des ameliorations proactives quand tu vois des manques
-- Francais, ton professionnel mais accessible
-
-IMPORTANT: Ne mets PAS de JSON dans ta reponse. Reponds naturellement en texte.`;
-
+  const sys = `Tu es un tuteur expert en gestion de patrimoine, fiscalite et finance. Fiche:\n${ficheJSON}\n\nREGLES: Detaille, pedagogique, exemples concrets, references legales, challenge les idees. Francais. Pas de JSON.`;
   try {
     const r = await callClaude(sys, chatMsgs.map(m => ({ role: m.role, content: m.content })), SONNET, 4000);
     chatMsgs.push({ role: 'assistant', content: r });
@@ -205,83 +265,40 @@ IMPORTANT: Ne mets PAS de JSON dans ta reponse. Reponds naturellement en texte.`
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// 11. APPLY DISCUSSION CHANGES - with validation + smart truncation
+// 13. APPLY DISCUSSION CHANGES
 async function _doApplyChanges() {
-  if (!fiche || !selCat) { setStatus('Ouvre une fiche d\'abord'); return; }
-  if (chatMsgs.length < 1) { setStatus('Discute d\'abord avec l\'IA'); return; }
-
-  showLoading('Application des modifications a la fiche...');
-
+  if (!fiche || !selCat) return;
+  if (chatMsgs.length < 1) { setStatus('Discute d\'abord'); return; }
+  showLoading('Application des modifications...');
   const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 15000);
-  const discussion = smartTruncate(
-    chatMsgs.map(m => (m.role === 'user' ? 'UTILISATEUR' : 'EXPERT') + ': ' + m.content).join('\n\n'),
-    8000
-  );
-
-  const sys = `Tu es un expert pedagogique. L'utilisateur a discute avec toi d'une fiche de cours. Tu dois maintenant APPLIQUER toutes les modifications, corrections et ameliorations discutees a la fiche.
-
-REGLES STRICTES:
-- Reprends la fiche existante et INTEGRE toutes les modifications demandees
-- Corrige les erreurs signalees dans la discussion
-- Ajoute les precisions, exemples et cas pratiques discutes
-- Ameliore le contenu selon les echanges
-- Incremente la version
-- Ajoute une note de verification resumant les changements
-- Ajoute un enrichissement type "discussion" avec les points ajoutes
-- CONSERVE les enrichissements et quiz existants
-- UTILISE les bons accents francais
-- Reponds UNIQUEMENT avec le JSON complet mis a jour, SANS backticks, SANS texte avant ou apres
-- Le JSON DOIT contenir: metadata (title, category, version, verified, verificationNotes, sources), base.sections (array non vide), enrichments (array), quiz (object)`;
-
+  const discussion = chatMsgs.map(m => (m.role === 'user' ? 'USER' : 'EXPERT') + ': ' + m.content).join('\n\n').slice(0, 8000);
+  const sys = 'Expert pedagogique. APPLIQUE les modifications discutees. JSON complet sans backticks. Champs requis: metadata (title,category,version,verified,verificationNotes,sources), base.sections (array non vide avec title,content,concepts,keyPoints,warnings,examples), enrichments, quiz. Accents francais. CONSERVE enrichissements/quiz existants. Incremente version.';
   try {
-    const r = await callClaude(sys, 'FICHE ACTUELLE:\n' + ficheJSON + '\n\nDISCUSSION COMPLETE:\n' + discussion, SONNET, 8000);
+    const r = await callClaude(sys, 'FICHE:\n' + ficheJSON + '\n\nDISCUSSION:\n' + discussion, SONNET, 8000);
     const p = parseJ(r);
-    
-    if (!p) {
-      console.error('PARSE FAILED. Raw response (first 500 chars):', r.slice(0, 500));
-      chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: l\'IA n\'a pas retourne un JSON valide. Reponse brute logguee en console (F12).' });
-      setStatus('Erreur parse JSON');
-      hideLoading(); render(); return;
-    }
-
-    // Validate before push
+    if (!p) { console.error('PARSE FAIL:', r.slice(0, 500)); chatMsgs.push({ role: 'assistant', content: '\u274c JSON invalide. Voir console F12.' }); hideLoading(); render(); return; }
     const errors = validateFicheJSON(p);
-    if (errors.length > 0) {
-      console.error('VALIDATION FAILED:', errors, 'Data:', p);
-      chatMsgs.push({ role: 'assistant', content: '\u274c Validation echouee: ' + errors.join(', ') + '. Reessaie ou reformule.' });
-      setStatus('Validation echouee');
-      hideLoading(); render(); return;
-    }
-
-    if (p.metadata) p.metadata.version = (fiche.metadata?.version || 1) + 1;
-    
+    if (errors.length) { chatMsgs.push({ role: 'assistant', content: '\u274c Validation: ' + errors.join(', ') }); hideLoading(); render(); return; }
+    p.metadata.version = (fiche.metadata?.version || 1) + 1;
     const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
     const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
-    await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discussion update v' + (p.metadata?.version || 2), ex?.sha);
+    await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discuss v' + p.metadata.version, ex?.sha);
     fiche = p;
-    ficheSha = null;
-    chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche mise a jour et pushee sur GitHub !\n\nVersion ' + (p.metadata?.version || 2) + ' sauvegardee avec ' + (p.base?.sections?.length || 0) + ' sections. Clique sur "Fiche" pour voir.' });
-    setStatus('Fiche v' + (p.metadata?.version || 2) + ' OK !');
-  } catch (e) {
-    console.error('Apply error:', e);
-    chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: ' + e.message });
-    setStatus('Erreur: ' + e.message);
-  }
+    chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche v' + p.metadata.version + ' sauvegardee ! Clique sur Fiche pour voir.' });
+    setStatus('v' + p.metadata.version + ' OK');
+  } catch (e) { chatMsgs.push({ role: 'assistant', content: '\u274c ' + e.message }); }
   hideLoading(); render();
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 }
-
-function applyDiscussionChanges() {
-  requireToken(function() { _doApplyChanges(); });
-}
+function applyDiscussionChanges() { requireToken(() => _doApplyChanges()); }
 window.applyDiscussionChanges = applyDiscussionChanges;
 
-// 12. IMPORT ANALYSIS (Sonnet)
+// 14. IMPORT ANALYSIS (Sonnet)
 doAnalysis = async function(text) {
   showLoading('Analyse IA du document...');
   impStep = 'discuss'; impMsgs = [];
   const catList = cats.map(c => c.id + ' (' + c.name + ')').join(', ');
-  const sys = 'Tu es un assistant pedagogique expert en gestion de patrimoine, finance et fiscalite. L\'utilisateur t\'envoie le contenu brut d\'un document. Tu dois:\n1. IDENTIFIER le sujet\n2. Proposer un TITRE\n3. SUGGERER la CATEGORIE parmi: ' + catList + '. Si aucune ne colle: "NOUVELLE: nom"\n4. ANALYSER: points forts, erreurs, manques, references legales\n5. PROPOSER des ameliorations\n6. POSER 2-3 questions\n\nSois DETAILLE et pedagogique. Francais.\nA la fin, JSON: {"suggestedTitle":"","suggestedCategory":"","analysis":""}';
+  const sys = 'Assistant pedagogique expert patrimoine/finance/fiscalite. Analyse le document: identifie sujet, propose TITRE, suggere CATEGORIE parmi: ' + catList + ' (ou NOUVELLE: nom). Analyse points forts/erreurs/manques. Propose ameliorations. Pose 2-3 questions. Detaille. Francais. A la fin JSON: {"suggestedTitle":"","suggestedCategory":"","analysis":""}';
   try {
     render();
     const r = await callClaude(sys, 'Contenu:\n\n' + text.slice(0, 14000), SONNET);
@@ -294,64 +311,101 @@ doAnalysis = async function(text) {
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// 13. SAVE + ENRICH overlays
+// 15. SAVE/ENRICH overlays
 const _origSave = saveImportFiche;
-saveImportFiche = async function() {
-  if (!hasToken()) { requireToken(saveImportFiche); return; }
-  showLoading('Structuration et sauvegarde...');
-  await _origSave();
-  hideLoading();
-};
+saveImportFiche = async function() { if (!hasToken()) { requireToken(saveImportFiche); return; } showLoading('Structuration...'); await _origSave(); hideLoading(); };
 const _origEnrich = enrichDoc;
-enrichDoc = async function() {
-  if (!hasToken()) { requireToken(enrichDoc); return; }
-  showLoading('Analyse du document...');
-  await _origEnrich();
-  hideLoading();
-};
+enrichDoc = async function() { if (!hasToken()) { requireToken(enrichDoc); return; } showLoading('Analyse...'); await _origEnrich(); hideLoading(); };
 
-// 14. RENDER OVERRIDES
+// 16. RENDER OVERRIDES
 const _origRender = render;
 render = function() {
   _origRender();
   const content = $('content');
   if (!content) return;
 
-  // QUIZ controls
+  // QUIZ: inject controls + error analysis
   if (currentView === 'quiz' && fiche) {
     const genBtn = content.querySelector('[onclick*="genQuiz"]');
-    if (!genBtn) return;
-    const controlRow = genBtn.parentElement;
-    if (!controlRow || controlRow.dataset.patched) return;
-    controlRow.dataset.patched = 'true';
-    genBtn.remove();
-    const d = document.createElement('div');
-    d.style.cssText = 'display:flex;align-items:center;gap:6px;margin-left:auto;flex-wrap:wrap';
-    d.innerHTML = '<select id="q-count" onchange="qCount=+this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
-      [5,10,15,20,25].map(n => '<option value="'+n+'" '+(qCount===n?'selected':'')+'>'+n+' Q</option>').join('') +
-      '</select><select id="q-level" onchange="qLevel=this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
-      '<option value="basique" '+(qLevel==='basique'?'selected':'')+'>Basique</option>' +
-      '<option value="modere" '+(qLevel==='modere'?'selected':'')+'>Modere</option>' +
-      '<option value="expert" '+(qLevel==='expert'?'selected':'')+'>Expert</option>' +
-      '</select><button class="btn btn-pri" onclick="genQuiz()">&#x1F916; Generer</button>';
-    controlRow.appendChild(d);
+    if (genBtn) {
+      const controlRow = genBtn.parentElement;
+      if (controlRow && !controlRow.dataset.patched) {
+        controlRow.dataset.patched = 'true';
+        genBtn.remove();
+        const d = document.createElement('div');
+        d.style.cssText = 'display:flex;align-items:center;gap:6px;margin-left:auto;flex-wrap:wrap';
+        d.innerHTML = '<select id="q-count" onchange="qCount=+this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
+          [5,10,15,20,25].map(n => '<option value="'+n+'" '+(qCount===n?'selected':'')+'>'+n+' Q</option>').join('') +
+          '</select><select id="q-level" onchange="qLevel=this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
+          '<option value="basique" '+(qLevel==='basique'?'selected':'')+'>Basique</option>' +
+          '<option value="modere" '+(qLevel==='modere'?'selected':'')+'>Modere</option>' +
+          '<option value="expert" '+(qLevel==='expert'?'selected':'')+'>Expert</option>' +
+          '</select><button class="btn btn-pri" onclick="genQuiz()">\u{1F916} Generer</button>';
+        controlRow.appendChild(d);
+      }
+    }
+
+    // After correction: inject error analysis section
+    if (qRes && qType !== 'flashcard' && !content.dataset.analysisPatched) {
+      content.dataset.analysisPatched = 'true';
+      const container = content.querySelector('[style*="max-width:780px"]');
+      if (!container) return;
+
+      const hasErrors = qType === 'qcm' ? qRes.some(r => !r.ok) : qRes.some(r => r.score < 7);
+
+      // Analysis section
+      const aDiv = document.createElement('div');
+      aDiv.style.cssText = 'margin-top:14px';
+
+      if (!qAnalysis && hasErrors) {
+        // Show "Analyze errors" button
+        aDiv.innerHTML = '<div style="background:#111122;border:1px solid #f87171;border-radius:14px;padding:20px;text-align:center">' +
+          '<p style="font-size:14px;font-weight:600;color:#f87171;margin-bottom:8px">\u{1F50D} Des erreurs detectees</p>' +
+          '<p style="font-size:12px;color:#9999b0;margin-bottom:14px">L\'IA peut analyser tes erreurs en detail et proposer des ameliorations a la fiche</p>' +
+          '<button class="btn" onclick="analyzeQuizErrors()" style="background:#f87171;color:#fff;padding:12px 24px;font-size:14px">Analyser mes erreurs et ameliorer la fiche</button></div>';
+      } else if (!qAnalysis && !hasErrors) {
+        aDiv.innerHTML = '<div style="background:#111122;border:1px solid #34d399;border-radius:14px;padding:20px;text-align:center">' +
+          '<p style="font-size:14px;font-weight:600;color:#34d399">\u2705 Parfait ! Aucune erreur.</p></div>';
+      } else if (qAnalysis) {
+        // Show analysis result
+        let h = '<div style="background:#111122;border:1px solid #7B68EE;border-radius:14px;padding:20px;margin-bottom:14px">' +
+          '<h4 style="font-size:14px;color:#7B68EE;margin-bottom:10px">\u{1F9E0} Analyse de tes erreurs</h4>' +
+          '<p style="font-size:12.5px;color:#9999b0;line-height:1.7;white-space:pre-wrap">' + esc(qAnalysis) + '</p></div>';
+
+        if (qSuggestions?.improvements?.length) {
+          h += '<div style="background:#111122;border:1px solid #fbbf24;border-radius:14px;padding:20px">' +
+            '<h4 style="font-size:14px;color:#fbbf24;margin-bottom:10px">\u{1F4DD} Ameliorations proposees pour la fiche</h4>';
+          qSuggestions.improvements.forEach(imp => {
+            const typeIcon = { warning: '\u26a0', example: '\u{1F4A1}', concept: '\u{1F4D6}', keyPoint: '\u2192' };
+            h += '<div style="padding:8px 0;border-bottom:1px solid #1a1a33;font-size:12px">' +
+              '<span style="color:#fbbf24">' + (typeIcon[imp.type] || '\u2022') + ' ' + (imp.type || '').toUpperCase() + '</span>' +
+              (imp.section ? ' <span style="color:#6b6b88">(' + esc(imp.section) + ')</span>' : '') +
+              '<p style="color:#e8e8f0;margin-top:4px">' + esc(imp.content) + '</p>' +
+              '<p style="color:#6b6b88;font-style:italic;font-size:11px;margin-top:2px">' + esc(imp.reason || '') + '</p></div>';
+          });
+          h += '<button class="btn btn-grn" onclick="applyQuizImprovements()" style="width:100%;padding:14px;font-size:14px;margin-top:14px">\u2713 Appliquer ces ameliorations a la fiche</button></div>';
+        }
+        aDiv.innerHTML = h;
+      }
+      container.appendChild(aDiv);
+    }
   }
 
-  // DISCUSSION: Apply changes button
+  // DISCUSSION: Apply button
   if (currentView === 'discuss' && fiche) {
     const chatInput = content.querySelector('[id="chat-input"]');
-    if (!chatInput) return;
-    const inputRow = chatInput.parentElement;
-    if (!inputRow || inputRow.dataset.patched) return;
-    inputRow.dataset.patched = 'true';
-
-    const applyRow = document.createElement('div');
-    applyRow.style.cssText = 'display:flex;gap:8px;margin-top:8px;flex-shrink:0';
-    const hasChat = chatMsgs.length >= 1;
-    applyRow.innerHTML = '<button class="btn btn-grn" onclick="applyDiscussionChanges()" style="flex:1;padding:12px;font-size:13px"' + (hasChat ? '' : ' disabled') + '>\u2713 Appliquer les modifications a la fiche</button>' +
-      '<div style="flex:0;display:flex;align-items:center;padding:0 8px"><span style="font-size:10px;color:#6b6b88">v' + (fiche.metadata?.version || 1) + '</span></div>';
-    inputRow.parentElement.insertBefore(applyRow, inputRow.nextSibling);
+    if (chatInput) {
+      const inputRow = chatInput.parentElement;
+      if (inputRow && !inputRow.dataset.patched) {
+        inputRow.dataset.patched = 'true';
+        const applyRow = document.createElement('div');
+        applyRow.style.cssText = 'display:flex;gap:8px;margin-top:8px;flex-shrink:0';
+        applyRow.innerHTML = '<button class="btn btn-grn" onclick="applyDiscussionChanges()" style="flex:1;padding:12px;font-size:13px"' + (chatMsgs.length < 1 ? ' disabled' : '') + '>\u2713 Appliquer les modifications</button>' +
+          '<span style="display:flex;align-items:center;padding:0 8px;font-size:10px;color:#6b6b88">v' + (fiche.metadata?.version || 1) + '</span>';
+        inputRow.parentElement.insertBefore(applyRow, inputRow.nextSibling);
+      }
+    }
   }
 };
 
-console.log('StudyForge v11: Expert review fixes - validation + smart truncation + cleanup');
+console.log('StudyForge v12: Quiz auto-analyse + safe truncation + expert fixes');
