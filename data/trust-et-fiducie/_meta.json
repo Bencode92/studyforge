@@ -1,1 +1,10 @@
-{"name": "Trust et Fiducie", "icon": "🔐", "fiches": []}
+{
+  "name": "Trust et Fiducie",
+  "icon": "🔐",
+  "fiches": [
+    {
+      "id": "guide-expert-fiscalit-fran-aise-des-trusts-trangers-d-finitions-calculs-et-pi-ges-viter",
+      "title": "Guide expert : Fiscalité française des trusts étrangers - Définitions, calculs et pièges à éviter"
+    }
+  ]
+}
