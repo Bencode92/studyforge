@@ -20,7 +20,20 @@
       }
     ]
   },
-  "enrichments": [],
+  "enrichments": [
+    {
+      "id": "enr-d-1773321768291",
+      "date": "2026-03-12",
+      "source": {
+        "type": "discussion"
+      },
+      "trigger": "discussion",
+      "summary": "POINT CLÉ: L'usufruit ordinaire protège l'usufruitier mais impose des obligations; le quasi-usufruit crée un risque patrimonial pour l'usufruitier mais simplifie les biens consomptibles. La distinction est FONDAMENTALE en droit patrimonial et fiscalité.",
+      "addedPoints": [
+        "POINT CLÉ: L'usufruit ordinaire protège l'usufruitier mais impose des obligations; le quasi-usufruit crée un risque patrimonial pour l'usufruitier mais simplifie les biens consomptibles. La distinction est FONDAMENTALE en droit patrimonial et fiscalité."
+      ]
+    }
+  ],
   "quiz": {
     "totalAttempts": 0,
     "history": [],
