@@ -1,1 +1,10 @@
-{"name": "Finance", "icon": "💰", "fiches": []}
+{
+  "name": "Finance",
+  "icon": "ð°",
+  "fiches": [
+    {
+      "id": "per",
+      "title": "PER"
+    }
+  ]
+}
