@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>StudyForge</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<style>
+:root {
+  --bg:#060610; --sf:#0d0d1a; --card:#111122; --brd:#1a1a33; --brdL:#252545;
+  --acc:#7B68EE; --accD:#5B4BC9; --accG:#7B68EE33; --grn:#34d399; --grnD:#34d39922;
+  --red:#f87171; --redD:#f8717122; --org:#fbbf24; --orgD:#fbbf2422; --blu:#60a5fa;
+  --txt:#e8e8f0; --txD:#6b6b88; --txM:#9999b0;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font-family:'Outfit',system-ui,sans-serif;min-height:100vh;display:flex}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-thumb{background:var(--brd);border-radius:3px}
+input,textarea,select{font-family:inherit;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--acc)!important}
+option{background:var(--card);color:var(--txt)}
+@keyframes spin{to{transform:rotate(360deg)}}
+.btn{padding:8px 18px;border-radius:10px;border:none;cursor:pointer;font-weight:600;font-size:13px;font-family:inherit;transition:all .15s}
+.btn:disabled{opacity:.4;cursor:default}
+.btn-pri{background:var(--acc);color:#fff}
+.btn-sec{background:var(--brd);color:var(--txD)}
+.btn-sm{padding:5px 12px;font-size:11px}
+.card{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:20px;margin-bottom:14px}
+.card-glow{border-color:color-mix(in srgb,var(--acc) 30%,transparent)}
+.card-dash{border-style:dashed}
+.spinner{width:12px;height:12px;border:2px solid var(--acc);border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite;display:inline-block}
+#sidebar{width:250px;min-height:100vh;background:var(--sf);border-right:1px solid var(--brd);display:flex;flex-direction:column;flex-shrink:0;transition:width .2s;overflow:hidden}
+#sidebar.closed{width:0}
+#main{flex:1;display:flex;flex-direction:column;min-height:100vh}
+#topbar{padding:10px 24px;border-bottom:1px solid var(--brd);display:flex;align-items:center;gap:10px}
+#content{flex:1;overflow-y:auto;padding:24px}
+.cat-item{padding:9px 12px;border-radius:10px;cursor:pointer;font-size:12.5px;margin-bottom:2px;display:flex;align-items:center;gap:9px;color:var(--txM)}
+.cat-item:hover,.cat-item.active{background:var(--accG);color:var(--acc);font-weight:600}
+.concept{padding:10px 14px;margin:5px 0;border-radius:10px;background:var(--sf);border-left:3px solid var(--acc)}
+.tag{font-size:10px;padding:3px 8px;border-radius:5px;display:inline-block}
+.tag-grn{color:var(--grn);background:var(--grnD)}
+.tag-acc{color:var(--acc);background:var(--accG)}
+.tag-org{color:var(--org);background:var(--orgD)}
+.tag-red{color:var(--red);background:var(--redD)}
+.fiche-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px}
+.fiche-card{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:18px;cursor:pointer;transition:all .15s}
+.fiche-card:hover{border-color:var(--acc)}
+.chat-box{flex:1;overflow-y:auto;background:var(--sf);border-radius:14px;border:1px solid var(--brd);padding:14px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:85%;padding:11px 15px;border-radius:14px;font-size:12.5px;line-height:1.7;white-space:pre-wrap}
+.msg-user{margin-left:auto;background:var(--accG);border:1px solid color-mix(in srgb,var(--acc) 15%,transparent)}
+.msg-ai{background:var(--card);border:1px solid var(--brd)}
+.qcm-opt{padding:10px 14px;margin:4px 0;border-radius:10px;border:1px solid var(--brd);cursor:pointer;font-size:12.5px;transition:all .15s}
+.qcm-opt:hover{border-color:var(--acc)}
+.qcm-opt.selected{border-color:var(--acc);background:var(--brd)}
+.qcm-opt.correct{background:var(--grnD)}
+.qcm-opt.wrong{background:var(--redD)}
+.flash-card{background:var(--card);border:1px solid var(--brd);border-radius:14px;padding:18px;cursor:pointer;min-height:120px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transition:all .3s}
+.flash-card.flipped{background:var(--accG);border-color:color-mix(in srgb,var(--acc) 30%,transparent)}
+.hidden{display:none!important}
+</style>
+</head>
+<body>
+
+<!-- LOGIN SCREEN -->
+<div id="login-screen" style="width:100%;display:flex;align-items:center;justify-content:center">
+  <div class="card" style="max-width:460px;width:100%;text-align:center;padding:48px">
+    <div style="font-size:48px;margin-bottom:16px">📚</div>
+    <h1 style="font-size:28px;font-weight:800;margin-bottom:8px">StudyForge</h1>
+    <p style="color:var(--txD);font-size:13px;margin-bottom:32px">Connecte ton GitHub pour demarrer</p>
+    <input id="token-input" type="password" placeholder="GitHub Personal Access Token" style="width:100%;padding:14px 18px;border-radius:12px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:14px;margin-bottom:16px">
+    <button onclick="connectGH()" class="btn btn-pri" style="width:100%;padding:14px;font-size:15px">Connecter</button>
+    <p style="color:var(--txD);font-size:11px;margin-top:16px;line-height:1.6">github.com/settings/tokens → scope "repo"</p>
+    <p id="login-status" style="color:var(--acc);font-size:12px;margin-top:12px"></p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="hidden" style="display:flex;width:100%">
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div style="padding:20px 16px 12px;display:flex;align-items:center;gap:10px">
+      <div style="width:28px;height:28px;border-radius:8px;background:linear-gradient(135deg,var(--acc),var(--blu));display:flex;align-items:center;justify-content:center;font-size:13px">📚</div>
+      <span style="font-weight:800;font-size:15px">StudyForge</span>
+    </div>
+    <div style="padding:0 10px;flex:1;overflow-y:auto">
+      <p style="font-size:9px;font-weight:700;color:var(--txD);text-transform:uppercase;letter-spacing:1.5px;padding:12px 6px 6px">Categories</p>
+      <div id="cat-list"></div>
+    </div>
+    <div style="padding:10px;border-top:1px solid var(--brd)">
+      <button onclick="showView('newcat')" class="btn btn-pri" style="width:100%;margin-bottom:6px">+ Categorie</button>
+      <button onclick="showView('import')" class="btn btn-sec" style="width:100%;border:1px solid var(--brd)">+ Fiche</button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="topbar">
+      <button onclick="document.getElementById('sidebar').classList.toggle('closed')" style="background:none;border:none;color:var(--txD);cursor:pointer;font-size:16px;padding:4px">☰</button>
+      <div id="fiche-tabs" class="hidden" style="display:flex;gap:5px"></div>
+      <div style="flex:1"></div>
+      <div id="status-bar" class="hidden" style="display:flex;align-items:center;gap:8px"><div class="spinner"></div><span id="status-text" style="font-size:11px;color:var(--acc)"></span></div>
+      <span class="tag tag-grn">✓ GitHub</span>
+    </div>
+    <div id="content"></div>
+  </div>
+</div>
+
+<script>
+pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+
+// STATE
+let GH={token:'',owner:'Bencode92',repo:'studyforge'};
+let cats=[], selCat=null, ficheList=[], fiche=null, ficheSha=null;
+let quiz=null, qType='qcm', qAns={}, qRes=null, qFlip={};
+let chatMsgs=[], enrichTxt='';
+
+// GITHUB API
+async function ghApi(path,opts={}){
+  const r=await fetch('https://api.github.com'+path,{headers:{'Authorization':'token '+GH.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},...opts});
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||r.statusText)}
+  return r.status===204?null:r.json();
+}
+async function ghGet(p){try{const d=await ghApi('/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p);return{content:JSON.parse(atob(d.content)),sha:d.sha}}catch{return null}}
+async function ghPut(p,c,msg,sha){const b={message:msg,content:btoa(unescape(encodeURIComponent(JSON.stringify(c,null,2))))};if(sha)b.sha=sha;return ghApi('/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p,{method:'PUT',body:JSON.stringify(b)})}
+async function ghLs(p){try{const d=await ghApi('/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p);return Array.isArray(d)?d:[]}catch{return []}}
+
+// CLAUDE API
+async function callClaude(sys,msgs){
+  const body={model:'claude-sonnet-4-20250514',max_tokens:4000,system:sys};
+  body.messages=Array.isArray(msgs)?msgs:[{role:'user',content:msgs}];
+  const r=await fetch('https://api.anthropic.com/v1/messages',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});
+  const d=await r.json(); return d.content?.[0]?.text||'';
+}
+function parseJ(t){try{const m=t.match(/```json\s*([\s\S]*?)```/)||t.match(/(\[[\s\S]*\]|\{[\s\S]*\})/);return JSON.parse(m?m[1].trim():t.trim())}catch{return null}}
+
+// UI HELPERS
+function $(id){return document.getElementById(id)}
+function setStatus(txt,show=true){$('status-bar').classList.toggle('hidden',!show);$('status-text').textContent=txt}
+function showView(v){currentView=v;render()}
+let currentView='home';
+
+// CONNECT
+async function connectGH(){
+  GH.token=$('token-input').value.trim(); if(!GH.token)return;
+  $('login-status').textContent='Connexion...';
+  try{
+    const idx=await ghGet('data/index.json');
+    if(idx)cats=idx.content.categories||[];
+    $('login-screen').classList.add('hidden');
+    $('app').classList.remove('hidden');
+    $('app').style.display='flex';
+    renderCats();
+    showView('home');
+  }catch(e){$('login-status').textContent='Erreur: '+e.message}
+}
+
+// RENDER CATEGORIES
+function renderCats(){
+  $('cat-list').innerHTML=cats.map(c=>
+    `<div class="cat-item ${selCat?.id===c.id?'active':''}" onclick="loadCat('${c.id}')">
+      <span style="font-size:15px">${c.icon}</span>${c.name}
+    </div>`
+  ).join('');
+}
+
+// LOAD CATEGORY
+async function loadCat(id){
+  selCat=cats.find(c=>c.id===id); fiche=null; renderCats();
+  setStatus('Chargement...'); currentView='home';
+  try{
+    const meta=await ghGet('data/'+id+'/_meta.json');
+    if(meta?.content?.fiches?.length) ficheList=meta.content.fiches;
+    else{const fs=await ghLs('data/'+id);ficheList=fs.filter(f=>f.name.endsWith('.json')&&f.name!=='_meta.json').map(f=>({id:f.name.replace('.json',''),title:f.name.replace('.json','').replace(/-/g,' ')}))}
+  }catch{ficheList=[]}
+  setStatus('',false); render();
+}
+
+// LOAD FICHE
+async function loadFiche(id){
+  if(!selCat)return; setStatus('Chargement...');
+  try{const f=await ghGet('data/'+selCat.id+'/'+id+'.json');if(f){fiche=f.content;ficheSha=f.sha;chatMsgs=[];currentView='fiche'}}catch(e){setStatus('Erreur: '+e.message)}
+  setStatus('',false); render();
+}
+
+// EXTRACT PDF
+async function extractPdf(file){
+  setStatus('Extraction PDF...');
+  const buf=await file.arrayBuffer();
+  const pdf=await pdfjsLib.getDocument({data:buf}).promise;
+  let text='';
+  for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const ct=await pg.getTextContent();text+=ct.items.map(x=>x.str).join(' ')+'\n\n';setStatus('Page '+i+'/'+pdf.numPages)}
+  $('imp-text').value=text; $('imp-title').value=file.name.replace('.pdf','');
+  setStatus('Pret.',false); suggestCat(text);
+}
+async function suggestCat(text){
+  const catList=cats.map(c=>c.id+' ('+c.name+')').join(', ');
+  try{const r=await callClaude('Analyse ce texte. Categories: '+catList+'. JSON sans backticks: {"category":"id","reason":""}',text.slice(0,3000));
+  const p=parseJ(r);if(p){$('imp-sug').innerHTML='<span style="color:var(--acc);font-weight:600">Suggestion IA:</span> '+p.category+' ('+p.reason+')';$('imp-sug').classList.remove('hidden');$('imp-cat').value=p.category}}catch{}
+}
+
+// IMPORT FICHE
+async function importFiche(){
+  const text=$('imp-text').value,title=$('imp-title').value,cat=$('imp-cat').value;
+  if(!text||!title||!cat)return; setStatus('IA verifie et structure...');
+  const today=new Date().toISOString().split('T')[0];
+  const sys='Expert pedagogique patrimoine/fiscalite. Verifie les infos, corrige, ameliore, structure en JSON sans backticks: {"metadata":{"title":"","category":"","created":"'+today+'","version":1,"verified":true,"verificationNotes":[""],"sources":[]},"base":{"sections":[{"title":"","content":"","concepts":[{"term":"","definition":"","ref":""}],"keyPoints":[""],"warnings":[""],"examples":[""]}]},"enrichments":[],"quiz":{"totalAttempts":0,"history":[],"weakPoints":[]}}';
+  try{
+    const r=await callClaude(sys,'Titre: '+title+'\nCategorie: '+cat+'\n\n'+text.slice(0,14000));
+    const p=parseJ(r);
+    if(p){setStatus('Sauvegarde GitHub...');
+      const slug=title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
+      await ghPut('data/'+cat+'/'+slug+'.json',p,'Add: '+title);
+      const meta=await ghGet('data/'+cat+'/_meta.json');
+      if(meta){const nm={...meta.content};if(!nm.fiches)nm.fiches=[];nm.fiches.push({id:slug,title:p.metadata.title||title});await ghPut('data/'+cat+'/_meta.json',nm,'Update meta',meta.sha)}
+      setStatus('Fiche creee !'); await loadCat(cat); currentView='home'; render();
+    }else setStatus('Erreur structuration.')
+  }catch(e){setStatus('Erreur: '+e.message)}
+}
+
+// CREATE CATEGORY
+async function createCat(){
+  const name=$('newcat-name').value.trim(); if(!name)return;
+  const id=name.toLowerCase().replace(/[^a-z0-9]+/g,'-'); setStatus('Creation...');
+  try{
+    await ghPut('data/'+id+'/_meta.json',{name,icon:'📂',fiches:[]},'New: '+name);
+    const idx=await ghGet('data/index.json');const nc=[...(idx?.content.categories||cats),{id,name,icon:'📂'}];
+    await ghPut('data/index.json',{categories:nc,version:(idx?.content.version||0)+1},'Add cat',idx?.sha);
+    cats=nc;renderCats();setStatus('Categorie creee !');currentView='home';render();
+  }catch(e){setStatus('Erreur: '+e.message)}
+}
+
+// QUIZ
+async function genQuiz(){
+  if(!fiche)return; setStatus('Generation...'); qRes=null;qAns={};qFlip={};
+  const ct=JSON.stringify(fiche.base?.sections||[]);
+  const en=(fiche.enrichments||[]).map(e=>e.addedPoints?.join(', ')).join(' | ');
+  const wp=fiche.quiz?.weakPoints?.join(', ')||'';
+  const pr={qcm:'Genere 6 QCM varies. Points faibles: '+wp+'. JSON sans backticks: [{"id":1,"question":"","options":["A) ...","B) ...","C) ...","D) ..."],"correct":"A","explanation":""}]',open:'Genere 4 questions ouvertes. JSON sans backticks: [{"id":1,"question":"","expectedPoints":["","",""],"difficulty":"medium","hint":""}]',flashcard:'Genere 10 flashcards. JSON sans backticks: [{"id":1,"front":"","back":""}]'};
+  try{const r=await callClaude('Quiz pedagogique patrimoine. JSON sans backticks.',pr[qType]+'\nFiche:\n'+ct+'\nEnrichissements:\n'+en);const p=parseJ(r);if(p){quiz=p;setStatus('',false)}else setStatus('Erreur.')}catch(e){setStatus('Erreur: '+e.message)}
+  render();
+}
+async function correctQuiz(){
+  if(!quiz)return; setStatus('Correction...');
+  if(qType==='qcm'){qRes=quiz.map(q=>({...q,ua:qAns[q.id],ok:qAns[q.id]===q.correct}));setStatus('',false);render();return}
+  const txt=quiz.map(q=>'Q: '+q.question+'\nR: '+(qAns[q.id]||'(vide)')).join('\n\n');
+  try{const r=await callClaude('Corrige. JSON sans backticks: [{"id":1,"score":0,"feedback":"","missingPoints":[""],"suggestion":""}]',txt+'\nAttendus: '+JSON.stringify(quiz.map(q=>({id:q.id,pts:q.expectedPoints}))));const p=parseJ(r);if(p)qRes=p}catch(e){setStatus('Erreur: '+e.message)}
+  setStatus('',false);render();
+}
+async function enrichQuiz(){
+  if(!qRes||!fiche||!selCat)return;
+  const u=JSON.parse(JSON.stringify(fiche));if(!u.enrichments)u.enrichments=[];if(!u.quiz)u.quiz={totalAttempts:0,history:[],weakPoints:[]};
+  u.quiz.totalAttempts++;u.quiz.lastDate=new Date().toISOString().split('T')[0];
+  const pts=[];
+  if(qType==='qcm'){qRes.filter(r=>!r.ok).forEach(w=>{pts.push(w.explanation);if(!u.quiz.weakPoints.includes(w.question))u.quiz.weakPoints.push(w.question)});u.quiz.history.push({date:u.quiz.lastDate,type:'qcm',score:qRes.filter(r=>r.ok).length+'/'+qRes.length})}
+  else{qRes.filter(r=>r.score<7).forEach(w=>{(w.missingPoints||[]).forEach(m=>pts.push(m));if(w.suggestion)pts.push(w.suggestion)})}
+  if(pts.length)u.enrichments.push({id:'enr-q-'+Date.now(),date:u.quiz.lastDate,source:{type:'quiz'},trigger:'quiz',summary:'Points a revoir',addedPoints:pts});
+  setStatus('Sauvegarde...');
+  try{const slug=fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g,'-')||'f';const ex=await ghGet('data/'+selCat.id+'/'+slug+'.json');await ghPut('data/'+selCat.id+'/'+slug+'.json',u,'Quiz enrich',ex?.sha);fiche=u;setStatus('Enrichi !')}catch(e){setStatus('Erreur: '+e.message)}
+  render();
+}
+
+// DISCUSSION
+async function sendMsg(){
+  const msg=$('chat-input').value.trim();if(!msg||!fiche)return;$('chat-input').value='';
+  chatMsgs.push({role:'user',content:msg});render();setStatus('...');
+  const ctx=JSON.stringify((fiche.base?.sections||[]).map(s=>({title:s.title,concepts:s.concepts,keyPoints:s.keyPoints})));
+  const enCtx=(fiche.enrichments||[]).map(e=>e.addedPoints?.join(', ')).join(' | ');
+  const sys='Tuteur expert patrimoine/fiscalite. Fiche: '+ctx+' Enrichissements: '+enCtx+' Regles: pedagogique, challenge, corrige. Si point important: termine avec {"addToFiche":"le point"}. Francais.';
+  try{
+    const r=await callClaude(sys,chatMsgs.map(m=>({role:m.role,content:m.content})));
+    let text=r,note=null;const jm=r.match(/\{"addToFiche"\s*:\s*"([^"]+)"\}/);
+    if(jm){note=jm[1];text=r.replace(jm[0],'').trim()}
+    const am={role:'assistant',content:text};if(note)am.note=note;chatMsgs.push(am);
+    if(note&&fiche&&selCat){const u=JSON.parse(JSON.stringify(fiche));if(!u.enrichments)u.enrichments=[];u.enrichments.push({id:'enr-d-'+Date.now(),date:new Date().toISOString().split('T')[0],source:{type:'discussion'},trigger:'discussion',summary:note,addedPoints:[note]});const slug=fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g,'-')||'f';const ex=await ghGet('data/'+selCat.id+'/'+slug+'.json');await ghPut('data/'+selCat.id+'/'+slug+'.json',u,'Discuss enrich',ex?.sha);fiche=u}
+  }catch(e){chatMsgs.push({role:'assistant',content:'Erreur: '+e.message})}
+  setStatus('',false);render();
+  setTimeout(()=>{const cb=document.querySelector('.chat-box');if(cb)cb.scrollTop=cb.scrollHeight},100);
+}
+
+// ENRICHMENT
+async function enrichDoc(){
+  const txt=$('enrich-input')?.value?.trim();if(!txt||!fiche||!selCat)return;setStatus('Analyse...');
+  const ctx=JSON.stringify(fiche.base?.sections||[]);
+  try{
+    const r=await callClaude('Expert. Compare fiche et nouveau document. JSON sans backticks: {"newPoints":[""],"contradictions":[""],"summary":"","addedPoints":[""]}','FICHE:\n'+ctx+'\n\nNOUVEAU:\n'+txt.slice(0,10000));
+    const p=parseJ(r);
+    if(p){const u=JSON.parse(JSON.stringify(fiche));if(!u.enrichments)u.enrichments=[];u.enrichments.push({id:'enr-a-'+Date.now(),date:new Date().toISOString().split('T')[0],source:{type:'article'},trigger:'import',summary:p.summary,addedPoints:p.addedPoints||[],verified:true});const slug=fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g,'-')||'f';const ex=await ghGet('data/'+selCat.id+'/'+slug+'.json');await ghPut('data/'+selCat.id+'/'+slug+'.json',u,'Article enrich',ex?.sha);fiche=u;setStatus('Enrichi !');chatMsgs=[{role:'assistant',content:'Analyse:\n\n'+p.summary+'\n\nPoints nouveaux: '+(p.newPoints||[]).join(', ')+((p.contradictions||[]).length?'\n\nContradictions: '+p.contradictions.join(', '):'')}];currentView='discuss';render()}
+  }catch(e){setStatus('Erreur: '+e.message)}
+}
+
+// ═══════ MAIN RENDER ═══════
+function render(){
+  const C=$('content');
+  const tabs=$('fiche-tabs');
+  
+  // Tabs
+  if(fiche){
+    tabs.classList.remove('hidden');tabs.style.display='flex';
+    tabs.innerHTML=['fiche','quiz','discuss'].map(v=>`<button class="btn ${currentView===v?'btn-pri':'btn-sec'}" onclick="currentView='${v}';${v==='quiz'?'quiz=null;qRes=null;':''}render()">${v==='fiche'?'Fiche':v==='quiz'?'Quiz':'Discussion'}</button>`).join('');
+  }else{tabs.classList.add('hidden')}
+
+  // HOME
+  if(currentView==='home'&&!selCat){
+    C.innerHTML='<div style="text-align:center;padding-top:80px"><div style="font-size:56px;margin-bottom:12px">📚</div><h2 style="font-size:22px;font-weight:800">StudyForge</h2><p style="color:var(--txD);font-size:13px;margin-top:8px">Selectionne une categorie</p></div>';
+    return;
+  }
+  if(currentView==='home'&&selCat){
+    C.innerHTML=`<h2 style="font-size:20px;font-weight:800;margin-bottom:4px">${selCat.icon} ${selCat.name}</h2><p style="color:var(--txD);font-size:12px;margin-bottom:20px">${ficheList.length} fiche${ficheList.length!==1?'s':''}</p>`+
+    (ficheList.length===0?'<div class="card" style="text-align:center;padding:50px"><p style="color:var(--txD)">Aucune fiche</p></div>':
+    '<div class="fiche-grid">'+ficheList.map(f=>`<div class="fiche-card" onclick="loadFiche('${f.id}')"><h3 style="font-size:14px;font-weight:600;text-transform:capitalize;margin-bottom:4px">${f.title}</h3><p style="font-size:10px;color:var(--txD)">${f.id}</p></div>`).join('')+'</div>');
+    return;
+  }
+
+  // IMPORT
+  if(currentView==='import'){
+    C.innerHTML=`<div style="max-width:680px"><h2 style="font-size:20px;font-weight:800;margin-bottom:20px">Nouvelle fiche</h2>
+    <div class="card"><input type="file" id="pdf-file" accept=".pdf" onchange="extractPdf(this.files[0])" style="display:none"><button class="btn btn-pri" onclick="$('pdf-file').click()" style="margin-right:8px">PDF</button><span style="font-size:12px;color:var(--txD)">ou colle du texte</span>
+    <textarea id="imp-text" placeholder="Notes, chapitre, article..." style="width:100%;min-height:180px;background:var(--sf);border:1px solid var(--brd);border-radius:10px;padding:14px;color:var(--txt);font-size:13px;resize:vertical;margin-top:12px"></textarea></div>
+    <div class="card"><input id="imp-title" placeholder="Titre de la fiche" style="width:100%;padding:12px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:14px;margin-bottom:12px">
+    <div id="imp-sug" class="hidden" style="padding:8px 12px;border-radius:8px;background:var(--accG);margin-bottom:12px;font-size:11px"></div>
+    <select id="imp-cat" style="width:100%;padding:10px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:13px;margin-bottom:12px"><option value="">Section...</option>${cats.map(c=>'<option value="'+c.id+'">'+c.icon+' '+c.name+'</option>').join('')}</select>
+    <button class="btn btn-pri" onclick="importFiche()" style="width:100%;padding:14px;font-size:14px">Creer (verif IA + GitHub)</button></div></div>`;
+    return;
+  }
+
+  // NEW CAT
+  if(currentView==='newcat'){
+    C.innerHTML='<div style="max-width:480px"><h2 style="font-size:20px;font-weight:800;margin-bottom:20px">Nouvelle categorie</h2><div class="card"><input id="newcat-name" placeholder="Nom..." onkeydown="if(event.key===\'Enter\')createCat()" style="width:100%;padding:14px 18px;border-radius:12px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:15px;margin-bottom:16px"><button class="btn btn-pri" onclick="createCat()" style="width:100%;padding:14px">Creer</button></div></div>';
+    return;
+  }
+
+  // FICHE VIEW
+  if(currentView==='fiche'&&fiche){
+    let h=`<div style="max-width:780px"><div style="display:flex;justify-content:space-between;align-items:start;margin-bottom:16px"><div><h2 style="font-size:20px;font-weight:800;margin-bottom:3px">${fiche.metadata?.title||''}</h2><p style="font-size:11px;color:var(--txD)">${fiche.metadata?.category||''} | v${fiche.metadata?.version||1} | ${fiche.metadata?.created||''}</p></div><div style="display:flex;gap:5px">`;
+    if(fiche.metadata?.verified)h+='<span class="tag tag-grn">✓ Verifie</span>';
+    if(fiche.enrichments?.length)h+=`<span class="tag tag-acc">+${fiche.enrichments.length}</span>`;
+    h+='</div></div>';
+    if(fiche.metadata?.verificationNotes?.length){h+='<div class="card"><p style="font-size:11px;font-weight:600;color:var(--grn);margin-bottom:6px">✓ Verification IA</p>';fiche.metadata.verificationNotes.forEach(n=>{h+='<p style="margin:2px 0;font-size:11px;color:var(--txM)">'+n+'</p>'});h+='</div>'}
+    (fiche.base?.sections||[]).forEach(sec=>{
+      h+='<div class="card"><h3 style="font-size:16px;font-weight:700;margin-bottom:10px">'+sec.title+'</h3>';
+      if(sec.content)h+='<p style="font-size:12.5px;color:var(--txM);line-height:1.7;white-space:pre-wrap;margin-bottom:14px">'+sec.content+'</p>';
+      (sec.concepts||[]).forEach(c=>{h+='<div class="concept"><div style="display:flex;justify-content:space-between"><span style="font-weight:700;font-size:12.5px">'+c.term+'</span>'+(c.ref?'<span style="font-size:9px;color:var(--txD);font-style:italic">'+c.ref+'</span>':'')+'</div><p style="margin-top:3px;font-size:11.5px;color:var(--txM);line-height:1.5">'+c.definition+'</p></div>'});
+      (sec.keyPoints||[]).forEach(p=>{h+='<div style="padding:4px 0;font-size:12.5px;display:flex;gap:8px"><span style="color:var(--acc)">→</span> '+p+'</div>'});
+      (sec.warnings||[]).forEach(w=>{h+='<div style="margin-top:6px;padding:7px 12px;border-radius:8px;background:var(--orgD);font-size:11px;color:var(--org)">⚠ '+w+'</div>'});
+      (sec.examples||[]).forEach(ex=>{h+='<div style="margin-top:4px;padding:7px 12px;border-radius:8px;background:var(--accG);font-size:11px;color:var(--txM)">Ex: '+ex+'</div>'});
+      h+='</div>';
+    });
+    if(fiche.enrichments?.length){h+='<div class="card card-glow"><h4 style="font-size:13px;color:var(--acc);margin-bottom:10px">Enrichissements ('+fiche.enrichments.length+')</h4>';fiche.enrichments.forEach((e,i)=>{h+='<div style="padding:7px 0;'+(i<fiche.enrichments.length-1?'border-bottom:1px solid var(--brd)':'')+'">';h+='<div style="display:flex;gap:6px;align-items:center;margin-bottom:3px"><span style="font-size:9px;color:var(--txD)">'+e.date+'</span><span class="tag '+(e.trigger==='quiz'?'tag-org':e.trigger==='discussion'?'tag-acc':'tag-grn')+'">'+e.trigger+'</span></div>';h+='<p style="font-size:11.5px;color:var(--txM)">'+e.summary+'</p></div>'});h+='</div>'}
+    h+='<div class="card card-dash"><h4 style="font-size:13px;margin-bottom:6px">Enrichir cette fiche</h4><p style="font-size:11px;color:var(--txD);margin-bottom:10px">Colle un article ou document</p><textarea id="enrich-input" placeholder="Article, document..." style="width:100%;min-height:100px;background:var(--sf);border:1px solid var(--brd);border-radius:10px;padding:12px;color:var(--txt);font-size:12px;resize:vertical;margin-bottom:10px"></textarea><button class="btn btn-pri" onclick="enrichDoc()">Analyser et enrichir</button></div></div>';
+    C.innerHTML=h; return;
+  }
+
+  // QUIZ
+  if(currentView==='quiz'&&fiche){
+    let h=`<div style="max-width:780px"><h2 style="font-size:20px;font-weight:800;margin-bottom:14px">Quiz: ${fiche.metadata?.title||''}</h2><div style="display:flex;gap:6px;margin-bottom:14px;flex-wrap:wrap">`;
+    ['qcm','open','flashcard'].forEach(t=>{h+=`<button class="btn ${qType===t?'btn-pri':'btn-sec'}" onclick="qType='${t}';quiz=null;qRes=null;render()">${t==='qcm'?'QCM':t==='open'?'Ouvertes':'Flashcards'}</button>`});
+    if(fiche.quiz?.weakPoints?.length)h+='<span class="tag tag-org" style="align-self:center">'+fiche.quiz.weakPoints.length+' pts faibles</span>';
+    h+='<button class="btn btn-pri" onclick="genQuiz()" style="margin-left:auto">Generer</button></div>';
+    if(quiz&&qType==='qcm'){quiz.forEach(q=>{const r=qRes?.find(x=>x.id===q.id);h+='<div class="card"><p style="font-weight:600;font-size:13px;margin-bottom:10px">'+q.id+'. '+q.question+'</p>';(q.options||[]).forEach(o=>{const l=o.charAt(0),sel=qAns[q.id]===l;let cls='qcm-opt';if(sel)cls+=' selected';if(r){if(l===r.correct)cls+=' correct';else if(sel)cls+=' wrong'};h+='<div class="'+cls+'" onclick="if(!qRes){qAns['+q.id+']=\''+l+'\';render()}">'+o+'</div>'});if(r)h+='<p style="font-size:11px;color:var(--acc);margin-top:8px;padding:7px 12px;background:var(--accG);border-radius:8px">'+r.explanation+'</p>';h+='</div>'})}
+    if(quiz&&qType==='open'){quiz.forEach(q=>{const r=qRes?.find(x=>x.id===q.id);h+='<div class="card"><div style="display:flex;justify-content:space-between"><p style="font-weight:600;font-size:13px;margin-bottom:8px;flex:1">'+q.id+'. '+q.question+'</p><span class="tag" style="background:var(--brd);color:var(--txD);height:fit-content">'+q.difficulty+'</span></div>';if(q.hint)h+='<p style="font-size:10px;color:var(--txD);font-style:italic;margin-bottom:6px">Indice: '+q.hint+'</p>';h+='<textarea id="qa-'+q.id+'" placeholder="Reponse..." '+(qRes?'disabled':'')+' oninput="qAns['+q.id+']=this.value" style="width:100%;min-height:80px;background:var(--sf);border:1px solid var(--brd);border-radius:10px;padding:12px;color:var(--txt);font-size:12px;resize:vertical">'+(qAns[q.id]||'')+'</textarea>';if(r)h+='<div style="margin-top:10px;padding:12px;background:var(--accG);border-radius:10px;font-size:12px"><span style="font-size:22px;font-weight:700;color:'+(r.score>=6?'var(--grn)':'var(--red)')+'">'+r.score+'/10</span><p style="margin:6px 0;color:var(--acc)">'+r.feedback+'</p>'+(r.missingPoints?.length?'<p style="color:var(--org);font-size:11px">Manque: '+r.missingPoints.join(', ')+'</p>':'')+'</div>';h+='</div>'})}
+    if(quiz&&qType==='flashcard'){h+='<div class="fiche-grid">';quiz.forEach(fc=>{const fl=qFlip[fc.id];h+='<div class="flash-card '+(fl?'flipped':'')+'" onclick="qFlip['+fc.id+']=!qFlip['+fc.id+'];render()"><span style="font-size:8px;color:var(--txD);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:6px">'+(fl?'reponse':'question')+'</span><p style="font-size:12.5px;font-weight:'+(fl?'400':'600')+';line-height:1.6">'+(fl?fc.back:fc.front)+'</p></div>'});h+='</div>'}
+    if(quiz&&!qRes&&qType!=='flashcard')h+='<button class="btn btn-pri" onclick="correctQuiz()" style="width:100%;padding:14px;font-size:14px;margin-top:14px">Corriger</button>';
+    if(qRes&&qType!=='flashcard'){h+='<div style="display:flex;gap:8px;margin-top:14px">';if(qType==='qcm'){const sc=qRes.filter(r=>r.ok).length;h+='<div class="card" style="flex:1;text-align:center;margin-bottom:0"><span style="font-size:26px;font-weight:800;color:'+(sc>=qRes.length*.7?'var(--grn)':'var(--red)')+'">'+sc+'/'+qRes.length+'</span></div>'};h+='<button class="btn btn-pri" onclick="enrichQuiz()" style="flex:1;padding:14px">Enrichir fiche</button><button class="btn btn-sec" onclick="quiz=null;qRes=null;qAns={};render()" style="flex:1;padding:14px">Nouveau</button></div>'}
+    h+='</div>';C.innerHTML=h;return;
+  }
+
+  // DISCUSSION
+  if(currentView==='discuss'&&fiche){
+    let h=`<div style="max-width:780px;display:flex;flex-direction:column;height:calc(100vh - 150px)"><h2 style="font-size:16px;font-weight:800;margin-bottom:12px;flex-shrink:0">Discussion: ${fiche.metadata?.title||''}</h2><div class="chat-box">`;
+    if(!chatMsgs.length)h+='<div style="text-align:center;color:var(--txD);padding:40px;font-size:12px"><p>Pose une question sur cette fiche.</p></div>';
+    chatMsgs.forEach(m=>{h+='<div><div class="msg '+(m.role==='user'?'msg-user':'msg-ai')+'">'+m.content.replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</div>';if(m.note)h+='<div style="margin-top:3px;padding:3px 10px;border-radius:6px;background:var(--grnD);font-size:10px;color:var(--grn);display:inline-block">✔ '+m.note+'</div>';h+='</div>'});
+    h+='</div><div style="display:flex;gap:8px;margin-top:10px;flex-shrink:0"><input id="chat-input" placeholder="Question, point a soulever..." onkeydown="if(event.key===\'Enter\')sendMsg()" style="flex:1;padding:13px 16px;border-radius:12px;background:var(--card);border:1px solid var(--brd);color:var(--txt);font-size:12.5px"><button class="btn btn-pri" onclick="sendMsg()" style="padding:13px 22px">Envoyer</button></div></div>';
+    C.innerHTML=h;return;
+  }
+}
+</script>
+</body>
+</html>
