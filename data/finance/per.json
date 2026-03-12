@@ -3,7 +3,7 @@
     "title": "Plan d'Epargne Retraite (PER) - Guide Complet",
     "category": "finance",
     "created": "2026-03-12",
-    "version": 4,
+    "version": 5,
     "verified": true,
     "verificationNotes": [
       "Bareme IR 2025 (revenus 2024) conforme au CGI",
@@ -41,16 +41,24 @@
           {
             "term": "Charges sociales",
             "definition": "Cotisations obligatoires deduites du brut : retraite, maladie, chomage. Taux variable selon statut."
+          },
+          {
+            "term": "PER individuel d'assurance vs PER individuel d'investissement",
+            "definition": "PER individuel d'assurance vs PER individuel d'investissement",
+            "ref": ""
           }
         ],
         "keyPoints": [
           "Salarie ~22% de charges, cadre ~25%, fonctionnaire ~17%, TNS ~45%",
           "Exemple cadre 80k brut: 80k - 25%(20k) = 60k net - 10%(6k) = 54k imposable",
-          "Le plafond PER se calcule sur le revenu NET imposable, pas le brut"
+          "Le plafond PER se calcule sur le revenu NET imposable, pas le brut",
+          "Le PER existe sous 3 formes: PER individuel (remplace PERP et Madelin), PER entreprise collectif (remplace PERCO), PER entreprise obligatoire (remplace article 83)",
+          "PER individuel ouvert à tous sans condition d'âge ou de situation (salariés, chômeurs, TNS)"
         ],
         "warnings": [
           "Les TNS n'ont PAS l'abattement 10% car ils deduisent leurs charges reelles directement",
-          "Les taux de charges sont des moyennes - verifiez votre bulletin de paie"
+          "Les taux de charges sont des moyennes - verifiez votre bulletin de paie",
+          "Depuis 2024: ouverture PER aux mineurs supprimée, remplacé par plan épargne 'avenir climat' pour moins de 21 ans"
         ],
         "examples": [
           "Cadre a 80k brut -> imposable 54k -> plafond PER = 10% x 54k = 5 400 EUR"
@@ -226,12 +234,18 @@
         "keyPoints": [
           "Scenario gagnant: TMI entree 41% -> sortie 11% = gain 3 000 EUR sur 10k",
           "Scenario neutre: TMI identique = gain nul sur le capital, mais rendement entre-temps",
-          "Scenario perdant: TMI entree 11% -> sortie 30% = perte 1 900 EUR sur 10k"
+          "Scenario perdant: TMI entree 11% -> sortie 30% = perte 1 900 EUR sur 10k",
+          "Gestion pilotée par défaut: actifs risqués quand retraite lointaine, sécurisation progressive à l'approche de la retraite",
+          "Information obligatoire du gestionnaire: à l'ouverture (caractéristiques, gestion, fiscalité) puis annuellement (évolution, performance, frais, conditions transfert)",
+          "À partir de la 5e année avant retraite: possibilité d'interroger le gestionnaire sur les modalités de sortie adaptées",
+          "Alimentation possible par transferts: intéressement/participation/abondement employeur, CET, versements obligatoires PER entreprise",
+          "Décès: plan clôturé, épargne reversée aux héritiers/bénéficiaires. Compte-titres intégré à succession, contrat assurance selon règles assurance-vie"
         ],
         "warnings": [
           "Le PER n'est PAS un cadeau fiscal: c'est un report d'imposition",
           "Si votre TMI reste identique ou augmente a la retraite, l'avantage est nul ou negatif",
-          "AJOUTER: 'Le PER n'est JAMAIS intéressant si TMI entrée ≤ TMI sortie. Si vous avez TMI 30% et que vous serez aussi à TMI 30% en retraite, le gain fiscal est NUL (zéro euro d'économie d'impôt à la retraite, hormis rendement de placement). Seuls les cas TMI 41%→11% créent un vrai gain.'"
+          "AJOUTER: 'Le PER n'est JAMAIS intéressant si TMI entrée ≤ TMI sortie. Si vous avez TMI 30% et que vous serez aussi à TMI 30% en retraite, le gain fiscal est NUL (zéro euro d'économie d'impôt à la retraite, hormis rendement de placement). Seuls les cas TMI 41%→11% créent un vrai gain.'",
+          "Transfert assurance-vie vers PER (doublement abattements) supprimé depuis 31/12/2022"
         ],
         "examples": []
       },
@@ -356,6 +370,27 @@
         "Example: Thomas, 28 ans, 90k€ brut (54k€ imposable) en TMI 30%. Verse",
         "Warning: Erreur jeunes actifs : verser le maximum au lieu du versemen",
         "Concept: Arbitrage temporel PER "
+      ]
+    },
+    {
+      "id": "enr-art-1773332563552",
+      "date": "2026-03-12",
+      "source": {
+        "type": "article"
+      },
+      "trigger": "import",
+      "summary": "L'article présente le cadre général du PER (3 formes, historique, souscription) et apporte des précisions sur la gestion pilotée, les obligations d'information du gestionnaire, les modalités d'alimentation par transferts et la fiscalité en cas de décès.",
+      "addedPoints": [
+        "📖 PER individuel d'assurance vs PER individuel d'investissement",
+        "→ Le PER existe sous 3 formes: PER individuel (remplace PERP et Madelin), PER entr",
+        "→ PER individuel ouvert à tous sans condition d'âge ou de situation (salariés, chô",
+        "⚠️ Depuis 2024: ouverture PER aux mineurs supprimée, remplacé par plan épargne 'ave",
+        "→ Gestion pilotée par défaut: actifs risqués quand retraite lointaine, sécurisatio",
+        "→ Information obligatoire du gestionnaire: à l'ouverture (caractéristiques, gestio",
+        "→ À partir de la 5e année avant retraite: possibilité d'interroger le gestionnaire",
+        "→ Alimentation possible par transferts: intéressement/participation/abondement emp",
+        "→ Décès: plan clôturé, épargne reversée aux héritiers/bénéficiaires. Compte-titres",
+        "⚠️ Transfert assurance-vie vers PER (doublement abattements) supprimé depuis 31/12/"
       ]
     }
   ],
