@@ -1,0 +1,229 @@
+{
+  "metadata": {
+    "title": "Guide expert - Démembrement de propriété immobilier (usufruit/nue-propriété)",
+    "category": "immobilier-detail",
+    "created": "2026-03-12",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document expert mis à jour janvier 2026",
+      "Intègre jurisprudence récente (Cass. 1re civ., 23 oct. 2024)",
+      "Périmètre : France, droit civil + IFI"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide expert - Démembrement de propriété immobilier (usufruit/nue-propriété)",
+        "date": "2026-03-12"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définitions fondamentales du démembrement",
+        "content": "Le démembrement de propriété divise la propriété immobilière en deux droits distincts : l'usufruit (droit de jouir du bien) et la nue-propriété (propriété résiduelle). L'usufruitier détient l'usus (usage) et le fructus (fruits/revenus), tandis que le nu-propriétaire conserve l'abusus (disposition) et récupère automatiquement la pleine propriété à l'extinction de l'usufruit.",
+        "concepts": [
+          {
+            "term": "Usufruit",
+            "definition": "Droit de jouir d'un bien appartenant à un autre 'comme le propriétaire', avec obligation de conserver la substance",
+            "ref": "Code civil, art. 578"
+          },
+          {
+            "term": "Nue-propriété",
+            "definition": "Droit résiduel permettant de récupérer automatiquement la pleine propriété à l'extinction de l'usufruit",
+            "ref": "Code civil"
+          },
+          {
+            "term": "Droit d'usage et d'habitation (DUH)",
+            "definition": "Droit plus étroit que l'usufruit, personnel, non cessible et non louable sauf aménagements encadrés",
+            "ref": "Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Usufruit viager : s'éteint au décès de l'usufruitier",
+          "Usufruit temporaire : s'éteint à une date fixée avec barème fiscal spécifique",
+          "Pas d'indivision : droits de nature différente évitant certains blocages",
+          "Répartition : usufruitier (usage + revenus) vs nu-propriétaire (disposition + propriété future)"
+        ],
+        "warnings": [
+          "Ne pas confondre avec l'indivision : mécanismes juridiques différents",
+          "Le DUH est plus restrictif que l'usufruit (non louable en principe)",
+          "Vérifier si usufruit viager ou temporaire pour la fiscalité"
+        ],
+        "examples": [
+          "Parents gardent l'usufruit de leur maison, enfants ont la nue-propriété",
+          "Usufruitier peut louer et percevoir les loyers, nu-propriétaire ne peut pas vendre seul"
+        ]
+      },
+      {
+        "title": "Matrice des pouvoirs : administration vs disposition",
+        "content": "La distinction clé oppose les actes d'administration (gestion courante par l'usufruitier) aux actes de disposition (qui touchent la substance, nécessitent souvent accord du nu-propriétaire). L'usufruitier gère l'usage normal, le nu-propriétaire intervient pour protéger la valeur à long terme.",
+        "concepts": [
+          {
+            "term": "Actes d'administration",
+            "definition": "Gestion courante du bien (location ≤9 ans, entretien, congés locatifs standard)",
+            "ref": "Jurisprudence et pratique"
+          },
+          {
+            "term": "Actes de disposition",
+            "definition": "Actes affectant durablement la substance ou valeur (vente, baux longs, hypothèques)",
+            "ref": "Doctrine civiliste"
+          }
+        ],
+        "keyPoints": [
+          "Baux d'habitation ≤9 ans : usufruitier seul peut signer",
+          "Baux >9 ans : opposabilité limitée au nu-propriétaire sans son accord",
+          "Baux commerciaux/ruraux : accord nu-propriétaire requis (nullité sinon)",
+          "Vente pleine propriété : accord obligatoire des deux parties",
+          "Travaux d'entretien : usufruitier décide et paye",
+          "Grosses réparations : usufruitier peut décider mais nu-propriétaire paye"
+        ],
+        "warnings": [
+          "Bail >9 ans signé par usufruitier seul : risque pour le locataire",
+          "Bail commercial sans nu-propriétaire : nullité relative possible",
+          "Convention de démembrement peut modifier ces règles par défaut",
+          "Prévoir mécanisme d'arbitrage pour éviter les blocages"
+        ],
+        "examples": [
+          "Bail habitation 11 ans : après usufruit, seules 9 années restantes s'imposent au nu-propriétaire",
+          "Travaux toiture complète : usufruitier peut décider mais nu-propriétaire finance"
+        ]
+      },
+      {
+        "title": "Régime des baux et locations",
+        "content": "Les règles de location dépendent de la durée et du type de bail. L'article 595 du Code civil organise la répartition des pouvoirs entre usufruitier et nu-propriétaire, avec des protections spécifiques selon la nature du bail.",
+        "concepts": [
+          {
+            "term": "Bail d'habitation",
+            "definition": "Usufruitier peut signer seul, mais opposabilité limitée au-delà de 9 ans",
+            "ref": "Code civil, art. 595"
+          },
+          {
+            "term": "Bail commercial",
+            "definition": "Accord du nu-propriétaire requis sous peine de nullité relative",
+            "ref": "Code civil, art. 595"
+          }
+        ],
+        "keyPoints": [
+          "Habitation ≤9 ans : usufruitier seul, pleine opposabilité",
+          "Habitation >9 ans : co-signature nu-propriétaire recommandée",
+          "Commercial/rural : accord nu-propriétaire obligatoire",
+          "Congés locatifs : usufruitier a souvent qualité de bailleur",
+          "Loyer doit être au prix de marché (risque de fraude sinon)"
+        ],
+        "warnings": [
+          "Bail anormal (loyer très bas) : contestation possible pour fraude",
+          "Absence accord nu-propriétaire sur bail commercial : nullité",
+          "Délai prescription nullité relative à surveiller",
+          "Prêt à usage gratuit : fragile, fin automatique extinction usufruit"
+        ],
+        "examples": [
+          "Bail commercial signé par usufruitier seul : nu-propriétaire peut demander nullité",
+          "Loyer manifestement sous-évalué : suspicion de libéralité déguisée"
+        ]
+      },
+      {
+        "title": "Copropriété et représentation en assemblée",
+        "content": "En copropriété, le lot démembré nécessite une organisation spécifique pour la représentation en assemblée générale. La loi de 1965 prévoit un mécanisme de mandataire commun en cas de désaccord.",
+        "concepts": [
+          {
+            "term": "Mandataire commun",
+            "definition": "Représentant unique du lot en AG, désigné par accord ou par défaut le nu-propriétaire",
+            "ref": "Loi 65-557, art. 23"
+          }
+        ],
+        "keyPoints": [
+          "Notifier le démembrement au syndic (coordonnées complètes)",
+          "Désigner mandataire commun par écrit pour éviter blocages",
+          "À défaut : nu-propriétaire représente, ou juge désigne si plusieurs NP",
+          "Qualifier résolutions : entretien vs travaux lourds",
+          "Organiser paiement charges courantes vs travaux exceptionnels"
+        ],
+        "warnings": [
+          "Règlement copropriété peut prévoir solidarité usufruitier/nu-propriétaire",
+          "Conserver PV et justificatifs pour IFI et preuve des avances",
+          "Anticiper trésorerie pour appels de fonds importants"
+        ],
+        "examples": [
+          "Travaux façade votés : nu-propriétaire paye mais usufruitier peut avancer",
+          "Charges courantes : usufruitier paye directement au syndic"
+        ]
+      },
+      {
+        "title": "Répartition revenus, charges et travaux",
+        "content": "La répartition suit le principe : revenus (fruits) à l'usufruitier, entretien à l'usufruitier, grosses réparations au nu-propriétaire. La distinction entretien/grosses réparations est cruciale et source de litiges.",
+        "concepts": [
+          {
+            "term": "Réparations d'entretien",
+            "definition": "Réparations courantes pour maintenir le bien en état normal d'usage",
+            "ref": "Code civil, art. 605"
+          },
+          {
+            "term": "Grosses réparations",
+            "definition": "Réparations touchant la structure (gros murs, toiture entière, charpente)",
+            "ref": "Code civil, art. 606"
+          }
+        ],
+        "keyPoints": [
+          "Loyers et fruits : usufruitier les perçoit intégralement",
+          "Entretien courant : usufruitier décide et finance",
+          "Grosses réparations : nu-propriétaire finance (sauf défaut entretien usufruitier)",
+          "Liste art. 606 : gros murs, voûtes, poutres, couvertures entières, digues, murs soutènement",
+          "Amélioration/extension : usufruitier finance sans indemnité future (art. 599)"
+        ],
+        "warnings": [
+          "Grosse réparation causée par défaut entretien : usufruitier paye",
+          "Qualification parfois délicate : toiture partielle vs complète",
+          "Isolation/mise aux normes : zone grise, prévoir accord écrit",
+          "Travaux d'amélioration : pas d'indemnité due au nu-propriétaire"
+        ],
+        "examples": [
+          "Peinture, sols, chauffe-eau : entretien = usufruitier",
+          "Réfection toiture complète, ravalement façade : grosse réparation = nu-propriétaire",
+          "ITE, extension, piscine : amélioration = usufruitier (si il décide)"
+        ]
+      },
+      {
+        "title": "Financement de travaux : créance ou libéralité ?",
+        "content": "Quand l'usufruitier finance des travaux normalement à la charge du nu-propriétaire, deux qualifications possibles : avance remboursable (créance) ou aide gratuite (libéralité). La jurisprudence récente renforce la vigilance sur les libéralités déguisées.",
+        "concepts": [
+          {
+            "term": "Avance/créance",
+            "definition": "Financement temporaire avec remboursement prévu (à la vente ou extinction usufruit)",
+            "ref": "Pratique notariale"
+          },
+          {
+            "term": "Libéralité déguisée",
+            "definition": "Financement sans contrepartie, requalifiable en donation indirecte",
+            "ref": "Cass. 1re civ., 23 oct. 2024, n° 22-20.879"
+          }
+        ],
+        "keyPoints": [
+          "Protocole sécurisé : 1) Qualifier 2) Décider 3) Documenter",
+          "Jurisprudence 2024 : financement travaux peut caractériser dépouillement libéral",
+          "Prévoir remboursement explicite si avance",
+          "Documenter : devis comparatifs, photos, justification technique",
+          "Seuils et co-signature pour travaux importants"
+        ],
+        "warnings": [
+          "Financement 'pour aider' sans formalisme : risque libéralité",
+          "Même travaux légaux usufruitier peuvent être requalifiés",
+          "Rapportabilité succession si libéralité caractérisée",
+          "Preuve intention libérale : faisceau d'indices"
+        ],
+        "examples": [
+          "Usufruitier finance isolation 50k€ : prévoir reconnaissance dette",
+          "Travaux urgents avancés : écrit + modalités remboursement",
+          "Don déguisé : travaux somptuaires sans justification technique"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  }
+}
