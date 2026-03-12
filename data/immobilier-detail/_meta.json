@@ -1,1 +1,10 @@
-{"name": "Immobilier detail", "icon": "📐", "fiches": []}
+{
+  "name": "Immobilier detail",
+  "icon": "📐",
+  "fiches": [
+    {
+      "id": "guide-expert-d-membrement-de-propri-t-immobilier-usufruit-nue-propri-t",
+      "title": "Guide expert - Démembrement de propriété immobilier (usufruit/nue-propriété)"
+    }
+  ]
+}
