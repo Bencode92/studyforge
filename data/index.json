@@ -1,0 +1,15 @@
+{
+  "categories": [
+    {"id": "finance", "name": "Finance", "icon": "💰"},
+    {"id": "economie", "name": "Economie", "icon": "📈"},
+    {"id": "fiscalite", "name": "Fiscalite", "icon": "📋"},
+    {"id": "concept", "name": "Concept", "icon": "💡"},
+    {"id": "sci", "name": "SCI", "icon": "🏠"},
+    {"id": "trust-et-fiducie", "name": "Trust et Fiducie", "icon": "🔐"},
+    {"id": "art", "name": "Art", "icon": "🎨"},
+    {"id": "optimisation-fiscale-etranger", "name": "Optimisation fiscale etranger", "icon": "🌍"},
+    {"id": "immobilier", "name": "Immobilier", "icon": "🏗"},
+    {"id": "immobilier-detail", "name": "Immobilier detail", "icon": "📐"}
+  ],
+  "version": 1
+}
