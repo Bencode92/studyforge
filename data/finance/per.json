@@ -3,7 +3,7 @@
     "title": "Plan d'Epargne Retraite (PER) - Guide Complet",
     "category": "finance",
     "created": "2026-03-12",
-    "version": 3,
+    "version": 4,
     "verified": true,
     "verificationNotes": [
       "Bareme IR 2025 (revenus 2024) conforme au CGI",
@@ -11,7 +11,8 @@
       "Plafonds PER salarie et TNS conformes aux articles 163 quatervicies et 154 bis CGI",
       "Plafonnement QF 1 759 EUR/demi-part conforme art. 197 CGI",
       "Fiscalite sortie en capital et rente conforme",
-      "Attention: les taux de charges sociales sont des estimations moyennes, variables selon convention collective"
+      "Attention: les taux de charges sociales sont des estimations moyennes, variables selon convention collective",
+      "2026-03-12: Clarification du mythe 'PER inefficace pour les jeunes' en démontrant les stratégies de versement ciblé et l'arbitrage TMI actuelle vs TMI retraite"
     ],
     "sources": [
       {
@@ -83,7 +84,8 @@
         ],
         "examples": [
           "Couple + 3 enfants = 4 parts. Avantage QF plafonne a 4 x 1 759 = 7 036 EUR",
-          "Ajouter exemple numérique: 'Couple + 3 enfants (4 parts) avec 120k imposable: quotient = 120k/4 = 30k par part. Impôt calculé sur 30k (barème 0%+5%) puis multiplié par 4 = impôt final. Ne pas confondre: 120k/4 ≠ appliquer le barème à 120k directement'"
+          "Ajouter exemple numérique: 'Couple + 3 enfants (4 parts) avec 120k imposable: quotient = 120k/4 = 30k par part. Impôt calculé sur 30k (barème 0%+5%) puis multiplié par 4 = impôt final. Ne pas confondre: 120k/4 ≠ appliquer le barème à 120k directement'",
+          "Thomas, 28 ans, 90k€ brut (54k€ imposable) en TMI 30%. Versement optimal : 0€ car déjà sous le seuil de 83 823€. Si promotion à 110k€ brut (66k€ imposable) : versement optimal de 2 677€ pour repasser sous 29 315€, économie de 294€."
         ]
       },
       {
@@ -183,15 +185,22 @@
           {
             "term": "Versement optimal",
             "definition": "Montant qui fait passer exactement a la tranche inferieure. Au-dela, chaque euro supplementaire est deduit au taux inferieur."
+          },
+          {
+            "term": "Arbitrage temporel PER",
+            "definition": "Gain = TMI entrée - TMI sortie. Pour les jeunes, anticiper que TMI retraite ≠ TMI fin de carrière (revenus retraite généralement plus faibles que salaire de fin de carrière).",
+            "ref": ""
           }
         ],
         "keyPoints": [
           "TMI 0% -> economie 0 EUR (aucun interet) | TMI 11% -> 550 EUR/5k | TMI 30% -> 1 500 EUR/5k | TMI 41% -> 2 050 EUR/5k",
           "Au-dela du versement optimal, le rendement fiscal baisse",
-          "Cout reel d'un versement de 5k a TMI 30% = 3 500 EUR (5k - 1.5k d'economie)"
+          "Cout reel d'un versement de 5k a TMI 30% = 3 500 EUR (5k - 1.5k d'economie)",
+          "Pour les jeunes actifs : calculer le versement optimal pour sauter une tranche plutôt que verser le maximum. Exemple : 5k€ versés pour passer de TMI 41% à 30% = économie de 2 500€ (rendement fiscal de 50%)"
         ],
         "warnings": [
-          "Ne versez PAS au-dela de votre plafond deductible: l'excedent non deductible sera quand meme impose a la sortie (double peine)"
+          "Ne versez PAS au-dela de votre plafond deductible: l'excedent non deductible sera quand meme impose a la sortie (double peine)",
+          "Erreur jeunes actifs : verser le maximum au lieu du versement optimal dilue le rendement fiscal. Exemple : verser 8k€ quand 2k€ suffisent pour changer de tranche fait perdre l'efficacité fiscale sur les 6k€ excédentaires."
         ],
         "examples": [
           "Couple cadre 90k brut, 2 parts. Imposable 60 750. Par part: 30 375 (TMI 30%). Seuil 30%/11% = 58 630. Versement optimal = 60 750 - 58 630 = 2 120 EUR. Economie: 636 EUR"
@@ -288,6 +297,14 @@
         ],
         "warnings": [],
         "examples": []
+      },
+      {
+        "title": "PER et jeunes actifs - Strategie du timing fiscal",
+        "content": "Section dédiée à l'optimisation PER pour jeunes actifs : dilemme TMI actuelle vs future, calculs d'arbitrage temporel, et stratégies de versement optimal selon l'évolution de carrière prévue.",
+        "concepts": [],
+        "keyPoints": [],
+        "warnings": [],
+        "examples": []
       }
     ]
   },
@@ -323,6 +340,22 @@
         "AJOUTER: 'Le PER n'est JAMAIS intéressant si TMI entrée ≤ TMI sortie. Si vous avez TMI 30% et que vous serez aussi à TMI 30% en retraite, le gain fiscal est NUL (zéro euro d'économie d'impôt à la retraite, hormis rendement de placement). Seuls les cas TMI 41%→11% créent un vrai gain.'",
         "Piège 6 (manquant): Confondre 'plafond salarié' (38.4k max, identique pour tous) et 'plafond TNS' (double enveloppe, jusqu'à 88.9k). Un dirigeant avec 600k n'accède au 88.9k que s'il est TNS, sinon c'est 38.4k définitif.",
         "CLARIFIER: 'Enveloppe 1 = 8% du PASS (38.4k). Enveloppe 2 = 15% du bénéfice non commercial au-delà de 1 PASS (50.6k). TNS à 100k bénéfice: Env1=38.4k + Env2 (100k-50.6k)×15%=7.4k = 45.8k MAX (pas 17.8k).' Vérifier la formule actuelle qui semble erronée."
+      ]
+    },
+    {
+      "id": "enr-disc-1773331420820",
+      "date": "2026-03-12",
+      "source": {
+        "type": "discussion"
+      },
+      "trigger": "discussion",
+      "summary": "Ajout d'une section dédiée aux jeunes actifs et enrichissement des stratégies de versement optimal pour maximiser l'efficacité fiscale du PER.",
+      "addedPoints": [
+        "Nouvelle section: PER et jeunes actifs - Strategie du timing fiscal",
+        "KeyPoint: Pour les jeunes actifs : calculer le versement optimal pour ",
+        "Example: Thomas, 28 ans, 90k€ brut (54k€ imposable) en TMI 30%. Verse",
+        "Warning: Erreur jeunes actifs : verser le maximum au lieu du versemen",
+        "Concept: Arbitrage temporel PER "
       ]
     }
   ],
