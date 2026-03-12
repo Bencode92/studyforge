@@ -1,4 +1,8 @@
-// StudyForge Patches v10 - Fix apply button + token prompt
+// StudyForge Patches v11 - Expert review fixes
+// - Removed redundant patch.js
+// - Added JSON schema validation before every ghPut
+// - Fixed truncation: smart summarize instead of brutal slice
+// - Better error handling with raw response logging
 
 // 1. FIX UTF-8 ACCENTS
 const _origGhRead = ghRead;
@@ -25,11 +29,104 @@ callClaude = async function(sys, msgs, model, maxTok) {
   return d.content?.[0]?.text || '';
 };
 
-// 3. QUIZ STATE
+// 3. JSON SCHEMA VALIDATION
+const REQUIRED_FICHE_FIELDS = ['metadata', 'base'];
+const REQUIRED_METADATA = ['title', 'category'];
+const REQUIRED_SECTION = ['title'];
+
+function validateFicheJSON(data) {
+  const errors = [];
+  if (!data || typeof data !== 'object') return ['Donnees invalides: pas un objet JSON'];
+  
+  // Check top-level
+  REQUIRED_FICHE_FIELDS.forEach(f => { if (!data[f]) errors.push('Champ manquant: ' + f); });
+  
+  // Check metadata
+  if (data.metadata) {
+    REQUIRED_METADATA.forEach(f => { if (!data.metadata[f]) errors.push('metadata.' + f + ' manquant'); });
+    if (typeof data.metadata.version !== 'number' && data.metadata.version !== undefined) {
+      data.metadata.version = parseInt(data.metadata.version) || 1;
+    }
+  }
+  
+  // Check base.sections
+  if (data.base) {
+    if (!Array.isArray(data.base.sections)) errors.push('base.sections doit etre un array');
+    else if (data.base.sections.length === 0) errors.push('base.sections est vide');
+    else {
+      data.base.sections.forEach((s, i) => {
+        REQUIRED_SECTION.forEach(f => { if (!s[f]) errors.push('section[' + i + '].' + f + ' manquant'); });
+        // Ensure arrays exist
+        if (!Array.isArray(s.concepts)) s.concepts = [];
+        if (!Array.isArray(s.keyPoints)) s.keyPoints = [];
+        if (!Array.isArray(s.warnings)) s.warnings = [];
+        if (!Array.isArray(s.examples)) s.examples = [];
+      });
+    }
+  }
+  
+  // Ensure enrichments and quiz exist
+  if (!Array.isArray(data.enrichments)) data.enrichments = [];
+  if (!data.quiz) data.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
+  
+  return errors;
+}
+
+// 4. SAFE ghPut with validation
+const _origGhPut = ghPut;
+ghPut = async function(path, content, msg, sha) {
+  // Validate fiche JSON before pushing
+  if (path.endsWith('.json') && path.includes('/') && !path.endsWith('_meta.json') && !path.endsWith('index.json')) {
+    const data = typeof content === 'string' ? JSON.parse(content) : content;
+    const errors = validateFicheJSON(data);
+    if (errors.length > 0) {
+      console.error('VALIDATION FAILED for ' + path + ':', errors);
+      throw new Error('Validation echouee: ' + errors.join(', '));
+    }
+    console.log('Validation OK for ' + path + ' (v' + (data.metadata?.version || '?') + ', ' + (data.base?.sections?.length || 0) + ' sections)');
+  }
+  return _origGhPut(path, content, msg, sha);
+};
+
+// 5. SMART TRUNCATION - summarize instead of brutal slice
+function smartTruncate(text, maxLen) {
+  if (!text || text.length <= maxLen) return text;
+  // Keep first 60% and last 20%, add marker in middle
+  const headLen = Math.floor(maxLen * 0.6);
+  const tailLen = Math.floor(maxLen * 0.2);
+  return text.slice(0, headLen) + '\n\n[... CONTENU TRONQUE - ' + (text.length - headLen - tailLen) + ' caracteres omis ...]\n\n' + text.slice(-tailLen);
+}
+
+function smartTruncateFiche(ficheJSON, maxLen) {
+  if (ficheJSON.length <= maxLen) return ficheJSON;
+  // Parse, summarize long content fields, re-serialize
+  try {
+    const f = JSON.parse(ficheJSON);
+    if (f.base?.sections) {
+      f.base.sections.forEach(s => {
+        if (s.content && s.content.length > 500) {
+          s.content = s.content.slice(0, 400) + '... [tronque]';
+        }
+      });
+    }
+    // Remove enrichment details if still too long
+    const attempt1 = JSON.stringify(f);
+    if (attempt1.length <= maxLen) return attempt1;
+    
+    if (f.enrichments?.length > 3) {
+      f.enrichments = f.enrichments.slice(-3); // keep only last 3
+    }
+    return JSON.stringify(f).slice(0, maxLen);
+  } catch {
+    return ficheJSON.slice(0, maxLen);
+  }
+}
+
+// 6. QUIZ STATE
 let qCount = 10;
 let qLevel = 'modere';
 
-// 4. LOADING OVERLAY
+// 7. LOADING OVERLAY
 const overlay = document.createElement('div');
 overlay.id = 'loading-overlay';
 overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,6,16,0.85);display:none;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:16px';
@@ -38,7 +135,7 @@ document.body.appendChild(overlay);
 function showLoading(t) { document.getElementById('loading-text').textContent = t || 'Chargement...'; overlay.style.display = 'flex'; }
 function hideLoading() { overlay.style.display = 'none'; }
 
-// 5. QUIZ (Haiku)
+// 8. QUIZ (Haiku)
 genQuiz = async function() {
   if (!fiche) return;
   showLoading('Generation de ' + qCount + ' questions (' + qLevel + ')...');
@@ -63,7 +160,7 @@ genQuiz = async function() {
   hideLoading(); render();
 };
 
-// 6. CORRECTION (Haiku)
+// 9. CORRECTION (Haiku)
 correctQuiz = async function() {
   if (!quiz) return; showLoading('Correction...');
   if (qType === 'qcm') { qRes = quiz.map(q => ({ ...q, ua: qAns[q.id], ok: qAns[q.id] === q.correct })); hideLoading(); render(); return; }
@@ -75,7 +172,7 @@ correctQuiz = async function() {
   hideLoading(); render();
 };
 
-// 7. DISCUSSION - SONNET
+// 10. DISCUSSION - SONNET with smart truncation
 sendMsg = async function() {
   const msg = $('chat-input')?.value?.trim();
   if (!msg || !fiche) return;
@@ -83,11 +180,11 @@ sendMsg = async function() {
   chatMsgs.push({ role: 'user', content: msg }); render();
   showLoading('Reflexion approfondie...');
 
-  const ficheJSON = JSON.stringify(fiche, null, 0);
+  const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 12000);
   const sys = `Tu es un tuteur expert en gestion de patrimoine, fiscalite et finance. Tu discutes avec l'utilisateur a propos de cette fiche de cours.
 
 FICHE COMPLETE:
-${ficheJSON.slice(0, 8000)}
+${ficheJSON}
 
 REGLES:
 - Reponds de maniere DETAILLEE et PEDAGOGIQUE (pas de reponses courtes)
@@ -108,15 +205,18 @@ IMPORTANT: Ne mets PAS de JSON dans ta reponse. Reponds naturellement en texte.`
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// 8. APPLY DISCUSSION CHANGES - FIXED: token prompt + works with any chat
+// 11. APPLY DISCUSSION CHANGES - with validation + smart truncation
 async function _doApplyChanges() {
   if (!fiche || !selCat) { setStatus('Ouvre une fiche d\'abord'); return; }
   if (chatMsgs.length < 1) { setStatus('Discute d\'abord avec l\'IA'); return; }
 
   showLoading('Application des modifications a la fiche...');
 
-  const ficheJSON = JSON.stringify(fiche);
-  const discussion = chatMsgs.map(m => (m.role === 'user' ? 'UTILISATEUR' : 'EXPERT') + ': ' + m.content).join('\n\n');
+  const ficheJSON = smartTruncateFiche(JSON.stringify(fiche), 15000);
+  const discussion = smartTruncate(
+    chatMsgs.map(m => (m.role === 'user' ? 'UTILISATEUR' : 'EXPERT') + ': ' + m.content).join('\n\n'),
+    8000
+  );
 
   const sys = `Tu es un expert pedagogique. L'utilisateur a discute avec toi d'une fiche de cours. Tu dois maintenant APPLIQUER toutes les modifications, corrections et ameliorations discutees a la fiche.
 
@@ -129,27 +229,41 @@ REGLES STRICTES:
 - Ajoute une note de verification resumant les changements
 - Ajoute un enrichissement type "discussion" avec les points ajoutes
 - CONSERVE les enrichissements et quiz existants
-- UTILISE les bons accents francais (e avec accent, etc.)
-- Reponds UNIQUEMENT avec le JSON complet mis a jour, SANS backticks, SANS texte avant ou apres`;
+- UTILISE les bons accents francais
+- Reponds UNIQUEMENT avec le JSON complet mis a jour, SANS backticks, SANS texte avant ou apres
+- Le JSON DOIT contenir: metadata (title, category, version, verified, verificationNotes, sources), base.sections (array non vide), enrichments (array), quiz (object)`;
 
   try {
-    const r = await callClaude(sys, 'FICHE ACTUELLE:\n' + ficheJSON.slice(0, 10000) + '\n\nDISCUSSION COMPLETE:\n' + discussion.slice(0, 6000), SONNET, 8000);
+    const r = await callClaude(sys, 'FICHE ACTUELLE:\n' + ficheJSON + '\n\nDISCUSSION COMPLETE:\n' + discussion, SONNET, 8000);
     const p = parseJ(r);
-    if (p) {
-      if (p.metadata) p.metadata.version = (fiche.metadata?.version || 1) + 1;
-      
-      const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
-      const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
-      await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discussion update v' + (p.metadata?.version || 2), ex?.sha);
-      fiche = p;
-      ficheSha = null;
-      chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche mise a jour et pushee sur GitHub !\n\nVersion ' + (p.metadata?.version || 2) + ' sauvegardee. Clique sur l\'onglet "Fiche" pour voir les modifications.' });
-      setStatus('Fiche v' + (p.metadata?.version || 2) + ' sauvegardee !');
-    } else {
-      chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: l\'IA n\'a pas pu structurer la fiche. Essaie de reformuler ou relance.' });
-      setStatus('Erreur structuration');
+    
+    if (!p) {
+      console.error('PARSE FAILED. Raw response (first 500 chars):', r.slice(0, 500));
+      chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: l\'IA n\'a pas retourne un JSON valide. Reponse brute logguee en console (F12).' });
+      setStatus('Erreur parse JSON');
+      hideLoading(); render(); return;
     }
+
+    // Validate before push
+    const errors = validateFicheJSON(p);
+    if (errors.length > 0) {
+      console.error('VALIDATION FAILED:', errors, 'Data:', p);
+      chatMsgs.push({ role: 'assistant', content: '\u274c Validation echouee: ' + errors.join(', ') + '. Reessaie ou reformule.' });
+      setStatus('Validation echouee');
+      hideLoading(); render(); return;
+    }
+
+    if (p.metadata) p.metadata.version = (fiche.metadata?.version || 1) + 1;
+    
+    const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
+    const ex = await ghGet('data/' + selCat.id + '/' + slug + '.json');
+    await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discussion update v' + (p.metadata?.version || 2), ex?.sha);
+    fiche = p;
+    ficheSha = null;
+    chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche mise a jour et pushee sur GitHub !\n\nVersion ' + (p.metadata?.version || 2) + ' sauvegardee avec ' + (p.base?.sections?.length || 0) + ' sections. Clique sur "Fiche" pour voir.' });
+    setStatus('Fiche v' + (p.metadata?.version || 2) + ' OK !');
   } catch (e) {
+    console.error('Apply error:', e);
     chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: ' + e.message });
     setStatus('Erreur: ' + e.message);
   }
@@ -157,13 +271,12 @@ REGLES STRICTES:
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 }
 
-// Wrapper that asks for token FIRST, then applies
 function applyDiscussionChanges() {
   requireToken(function() { _doApplyChanges(); });
 }
 window.applyDiscussionChanges = applyDiscussionChanges;
 
-// 9. IMPORT ANALYSIS (Sonnet)
+// 12. IMPORT ANALYSIS (Sonnet)
 doAnalysis = async function(text) {
   showLoading('Analyse IA du document...');
   impStep = 'discuss'; impMsgs = [];
@@ -181,7 +294,7 @@ doAnalysis = async function(text) {
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// 10. SAVE + ENRICH overlays
+// 13. SAVE + ENRICH overlays
 const _origSave = saveImportFiche;
 saveImportFiche = async function() {
   if (!hasToken()) { requireToken(saveImportFiche); return; }
@@ -197,7 +310,7 @@ enrichDoc = async function() {
   hideLoading();
 };
 
-// 11. RENDER OVERRIDES
+// 14. RENDER OVERRIDES
 const _origRender = render;
 render = function() {
   _origRender();
@@ -241,4 +354,4 @@ render = function() {
   }
 };
 
-console.log('StudyForge v10: Fixed apply button + token prompt');
+console.log('StudyForge v11: Expert review fixes - validation + smart truncation + cleanup');
