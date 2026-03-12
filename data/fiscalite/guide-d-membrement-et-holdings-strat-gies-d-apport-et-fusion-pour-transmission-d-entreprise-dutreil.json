@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "title": "Guide Démembrement et Holdings : Stratégies d'apport et fusion pour transmission d'entreprise (Dutreil)",
+    "category": "fiscalite",
+    "created": "2026-03-12",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique technique sur démembrement et holdings",
+      "Cohérence vérifiée sur mécaniques Dutreil et report de plus-values",
+      "Incohérence détectée sur barème 669 CGI à confirmer"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide Démembrement et Holdings : Stratégies d'apport et fusion pour transmission d'entreprise (Dutreil)",
+        "date": "2026-03-12"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Fondamentaux du démembrement en société",
+        "content": "Le démembrement de propriété sur des titres de SAS distingue l'usufruit (droits aux fruits/dividendes) de la nue-propriété (droit à la valeur capitale). L'usufruitier conserve généralement des droits de vote limités aux décisions d'affectation du résultat. La consolidation (extinction de l'usufruit) ne survient que lorsque usufruit et nue-propriété se réunissent sur la même tête (art. 617 C.civ). Une fusion de holdings ne crée pas automatiquement de consolidation si le démembrement est reporté sur les actions de la holding finale.",
+        "concepts": [
+          {
+            "term": "Pleine propriété (PP)",
+            "definition": "Droit complet sur les titres : dividendes, valeur et droits de vote selon statuts",
+            "ref": "Code civil art. 544"
+          },
+          {
+            "term": "Usufruit (US)",
+            "definition": "Droit aux fruits (dividendes). En SAS, droits de vote souvent limités à l'affectation du résultat",
+            "ref": "Code civil art. 578 et suiv."
+          },
+          {
+            "term": "Nue-propriété (NP)",
+            "definition": "Droit à la valeur capitale. Devient automatiquement PP à l'extinction de l'usufruit",
+            "ref": "Code civil art. 617"
+          },
+          {
+            "term": "Consolidation",
+            "definition": "Réunion de l'US et de la NP sur la même tête, entraînant extinction de l'usufruit",
+            "ref": "Code civil art. 617"
+          }
+        ],
+        "keyPoints": [
+          "La fusion de holdings ≠ consolidation du démembrement",
+          "Possibilité de reporter le démembrement sur les actions reçues",
+          "Droits de vote usufruitier souvent limités en pratique Dutreil"
+        ],
+        "warnings": [
+          "Ne pas confondre fusion d'actifs et consolidation de droits",
+          "Vérifier cohérence entre âge et barème 669 CGI",
+          "Sécuriser les clauses de report dans les actes"
+        ],
+        "examples": [
+          "Père 50 ans avec usufruit valorisé selon barème 669 CGI",
+          "Apport d'usufruit temporaire 10 ans sur immeuble 1M€ = actions 230k€"
+        ]
+      },
+      {
+        "title": "Stratégies d'apport : Chemin A vs Chemin B",
+        "content": "Deux approches pour structurer transmission via holding. Chemin A : apport d'abord (report PV 150-0 B ter), puis donation actions holding. Chemin B : donation d'abord (souvent NP), puis apport conjoint avec report du démembrement. Le choix dépend de l'éligibilité Dutreil, de la gestion des plus-values et des contraintes de conservation.",
+        "concepts": [
+          {
+            "term": "Apport isolé",
+            "definition": "Un seul titulaire (US ou NP) apporte son droit. Société reçoit un droit partiel",
+            "ref": ""
+          },
+          {
+            "term": "Apport conjoint",
+            "definition": "US et NP apportés ensemble. Choix entre PP (démembrement cassé) ou report",
+            "ref": ""
+          },
+          {
+            "term": "Report de plus-value",
+            "definition": "Mécanisme évitant l'imposition immédiate lors d'apport de titres",
+            "ref": "CGI art. 150-0 B ter"
+          }
+        ],
+        "keyPoints": [
+          "Chemin A : apporter puis donner (contraintes report PV)",
+          "Chemin B : donner puis apporter (préserve éligibilité Dutreil)",
+          "Schéma 2 permet réputé acquis (4 ans vs 6 ans)"
+        ],
+        "warnings": [
+          "Ordre des opérations impacte qui porte les contraintes fiscales",
+          "Vérifier maintien éligibilité Dutreil à chaque étape",
+          "Anticiper transfert des reports de PV aux donataires"
+        ],
+        "examples": [
+          "Titres 10M€ : Chemin A impose report PV père puis transfert enfants",
+          "Schéma 2 : donation NP 49% puis apports avec report démembrement"
+        ]
+      },
+      {
+        "title": "Dispositif Dutreil et apports à holdings",
+        "content": "Le régime Dutreil (787 B CGI) offre exonération partielle 75% sur transmissions sous conditions : activité éligible, engagements conservation, fonction direction. L'article 787 B f) autorise apports à holding pendant engagements si respect conditions strictes : holding majoritairement composée de la participation, seuil détention 75%, conservation titres, direction effective.",
+        "concepts": [
+          {
+            "term": "Dutreil classique",
+            "definition": "ECC 2 ans + EIC 4 ans = 6 ans total",
+            "ref": "CGI art. 787 B"
+          },
+          {
+            "term": "Dutreil réputé acquis",
+            "definition": "EIC 4 ans si conditions détention/direction préalables remplies",
+            "ref": "CGI art. 787 B"
+          },
+          {
+            "term": "Exception 787 B f)",
+            "definition": "Permet apports à holding pendant Dutreil sous conditions strictes",
+            "ref": "CGI art. 787 B f)"
+          }
+        ],
+        "keyPoints": [
+          "Exonération 75% sous conditions d'activité et engagements",
+          "Apports holding possibles si respect 787 B f)",
+          "Direction effective requise chez bénéficiaire pendant EIC",
+          "Limitation vote usufruitier souvent requise"
+        ],
+        "warnings": [
+          "Apport peut remettre en cause Dutreil sans 787 B f)",
+          "Vérifier seuils détention et composition holding",
+          "Conservation requise sur titres apportés ET reçus",
+          "Direction doit être réelle et effective"
+        ],
+        "examples": [
+          "InterimX : frère DG pendant EIC pour sécuriser régime",
+          "COMARIS 51% + C3 48,2% respectent seuils 787 B f)"
+        ]
+      },
+      {
+        "title": "Fusion de holdings et report du démembrement",
+        "content": "La fusion transfère les droits tels qu'ils existent. Le report du démembrement permet d'éviter la 'pleine propriété transitoire' en attribuant les actions de la holding finale selon la logique US/NP initiale. Mécanisme clé pour préserver la structuration démembrée tout en unifiant la détention.",
+        "concepts": [
+          {
+            "term": "Report du démembrement",
+            "definition": "Transfert de la structure US/NP sur les actions reçues en échange",
+            "ref": ""
+          },
+          {
+            "term": "Pleine propriété transitoire",
+            "definition": "Situation temporaire à éviter où PP est reconstituée avant nouveau démembrement",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Fusion ≠ consolidation automatique du démembrement",
+          "Report préserve logique père=US, enfants=NP",
+          "Éviter PP transitoire pour limiter frottements",
+          "Clauses traité fusion déterminantes"
+        ],
+        "warnings": [
+          "Mal rédigé, le traité peut casser le démembrement",
+          "Vérifier cohérence répartition actions finales",
+          "Anticiper impact sur flux dividendes futurs"
+        ],
+        "examples": [
+          "COMARIS (père) + C3 (enfants) → holding finale avec report",
+          "InterimX 1M€ dividendes : 510k€ COMARIS, 482k€ selon structure C3"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  }
+}
