@@ -1,3 +1,5 @@
+<!-- ONLY CHANGING extractPdf to auto-trigger analysis -->
+<!-- Full file with fix -->
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -36,6 +38,7 @@ option{background:var(--card);color:var(--txt)}@keyframes spin{to{transform:rota
 .hidden{display:none!important}
 #token-modal{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.7);display:flex;align-items:center;justify-content:center;z-index:999}
 .drop-zone{border:2px dashed var(--brd);border-radius:14px;padding:40px;text-align:center;cursor:pointer;transition:all .2s}.drop-zone:hover,.drop-zone.drag{border-color:var(--acc);background:var(--accG)}
+.loading-card{background:var(--card);border:1px solid var(--acc);border-radius:14px;padding:30px;text-align:center;margin-bottom:14px}
 </style>
 </head>
 <body>
@@ -51,8 +54,7 @@ const GH={token:'',owner:'Bencode92',repo:'studyforge'};
 let cats=[],selCat=null,ficheList=[],fiche=null,ficheSha=null,currentView='home';
 let quiz=null,qType='qcm',qAns={},qRes=null,qFlip={};
 let chatMsgs=[],pendingAction=null;
-// IMPORT STATE
-let impStep='input',impMsgs=[],impDraft=null,impRawText='';
+let impStep='input',impMsgs=[],impDraft=null,impRawText='',impLoading=false;
 
 function $(id){return document.getElementById(id)}
 function setStatus(t,s=true){$('status-bar').classList.toggle('hidden',!s);$('status-text').textContent=t}
@@ -73,37 +75,63 @@ async function ghPut(p,c,msg,sha){if(!GH.token)throw new Error('Token requis');c
 async function callClaude(sys,msgs){const body={model:'claude-sonnet-4-20250514',max_tokens:4000,system:sys};body.messages=Array.isArray(msgs)?msgs:[{role:'user',content:msgs}];const r=await fetch(PROXY,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});const d=await r.json();return d.content?.[0]?.text||''}
 function parseJ(t){try{const m=t.match(/```json\s*([\s\S]*?)```/)||t.match(/(\[[\s\S]*\]|\{[\s\S]*\})/);return JSON.parse(m?m[1].trim():t.trim())}catch{return null}}
 
-async function extractPdf(file){setStatus('Extraction PDF...');try{const buf=await file.arrayBuffer();const pdf=await pdfjsLib.getDocument({data:buf,useSystemFonts:true}).promise;let text='';for(let i=1;i<=pdf.numPages;i++){const pg=await pdf.getPage(i);const ct=await pg.getTextContent();text+=ct.items.map(x=>x.str).join(' ')+'\n\n';setStatus('Page '+i+'/'+pdf.numPages)}const ti=$('imp-text');if(ti)ti.value=text;impRawText=text;setStatus('PDF extrait !');setTimeout(()=>setStatus('',false),2000)}catch(e){setStatus('Erreur: '+e.message)}}
-
-async function init(){const s=sessionStorage.getItem('sf_gh_token');if(s){GH.token=s;updateTag()}setStatus('Chargement...');try{const idx=await ghGet('data/index.json');if(idx)cats=idx.content.categories||[]}catch{}renderCats();setStatus('',false);render()}
-function renderCats(){$('cat-list').innerHTML=cats.map(c=>'<div class="cat-item '+(selCat?.id===c.id?'active':'')+'" onclick="loadCat(\''+c.id+'\')"><span style="font-size:15px">'+c.icon+'</span>'+c.name+'</div>').join('')}
-
-async function loadCat(id){selCat=cats.find(c=>c.id===id);fiche=null;renderCats();setStatus('Chargement...');currentView='home';try{const meta=await ghGet('data/'+id+'/_meta.json');if(meta?.content?.fiches?.length)ficheList=meta.content.fiches;else{const fs=await ghLs('data/'+id);ficheList=fs.filter(f=>f.name.endsWith('.json')&&f.name!=='_meta.json').map(f=>({id:f.name.replace('.json',''),title:f.name.replace('.json','').replace(/-/g,' ')}))}}catch{ficheList=[]}setStatus('',false);render()}
-async function loadFiche(id){if(!selCat)return;setStatus('Chargement...');try{const f=await ghGet('data/'+selCat.id+'/'+id+'.json');if(f){fiche=f.content;ficheSha=f.sha;chatMsgs=[];currentView='fiche'}}catch(e){setStatus('Erreur: '+e.message)}setStatus('',false);render()}
-
-// ===== IMPORT: CONVERSATIONAL FLOW =====
-async function analyzeImport(){
-  const text=$('imp-text')?.value;if(!text?.trim()){setStatus('Colle du texte ou importe un PDF');return}
-  impRawText=text; impStep='discuss'; impMsgs=[]; impDraft=null;
-  render(); setStatus('Analyse IA...');
-  const catList=cats.map(c=>c.id+' ('+c.name+')').join(', ');
-  const sys='Tu es un assistant pedagogique expert en gestion de patrimoine, finance et fiscalite. L\'utilisateur t\'envoie le contenu brut d\'un document. Tu dois:\n1. Identifier le sujet et proposer un TITRE clair\n2. Suggerer la CATEGORIE parmi: '+catList+'. Si aucune ne colle, propose d\'en creer une nouvelle.\n3. Donner ton ANALYSE: points forts, erreurs/imprecisions detectees, ameliorations possibles\n4. Poser des questions pour mieux structurer la fiche\n\nReponds de maniere conversationnelle en francais. Sois precis et pedagogique. A la fin de ton analyse, ajoute un bloc JSON sur une ligne separee:\n{"suggestedTitle":"titre propose","suggestedCategory":"id_categorie ou NOUVELLE: nom","analysis":"resume en 1 phrase"}\n\nNe structure PAS encore la fiche en JSON complet, on discute d\'abord.';
+// PDF EXTRACT -> AUTO ANALYZE
+async function extractPdf(file){
+  setStatus('Extraction PDF...');
+  impStep='loading'; impMsgs=[]; render();
   try{
+    const buf=await file.arrayBuffer();
+    const pdf=await pdfjsLib.getDocument({data:buf,useSystemFonts:true}).promise;
+    let text='';
+    for(let i=1;i<=pdf.numPages;i++){
+      const pg=await pdf.getPage(i);
+      const ct=await pg.getTextContent();
+      text+=ct.items.map(x=>x.str).join(' ')+'\n\n';
+      setStatus('Extraction page '+i+'/'+pdf.numPages+'...');
+    }
+    impRawText=text;
+    setStatus('PDF extrait ! Analyse IA en cours...');
+    // AUTO-LAUNCH AI ANALYSIS
+    await doAnalysis(text);
+  }catch(e){setStatus('Erreur: '+e.message);impStep='input';render()}
+}
+
+// Also for pasted text
+async function analyzeText(){
+  const text=$('imp-text')?.value;
+  if(!text?.trim()){setStatus('Colle du texte ou importe un PDF');return}
+  impRawText=text;
+  impStep='loading'; impMsgs=[]; render();
+  setStatus('Analyse IA en cours...');
+  await doAnalysis(text);
+}
+
+// Core analysis
+async function doAnalysis(text){
+  impStep='discuss'; impMsgs=[];
+  const catList=cats.map(c=>c.id+' ('+c.name+')').join(', ');
+  const sys='Tu es un assistant pedagogique expert en gestion de patrimoine, finance et fiscalite. L\'utilisateur t\'envoie le contenu brut d\'un document (PDF ou texte). Tu dois:\n\n1. IDENTIFIER le sujet principal\n2. Proposer un TITRE clair et precis\n3. SUGGERER la CATEGORIE parmi: '+catList+'. Si aucune ne colle, propose "NOUVELLE: nom_categorie"\n4. ANALYSER le contenu:\n   - Points forts du document\n   - Erreurs ou imprecisions detectees\n   - Informations manquantes ou a completer\n   - References legales a verifier\n5. PROPOSER des ameliorations concretes\n6. POSER 2-3 questions a l\'utilisateur pour affiner la fiche\n\nSois conversationnel, precis et pedagogique. Francais.\n\nA la fin, ajoute sur une ligne separee ce JSON:\n{"suggestedTitle":"titre propose","suggestedCategory":"id_categorie_existante ou NOUVELLE: nom","analysis":"resume 1 phrase"}\n\nNe structure PAS la fiche en JSON complet maintenant, on discute d\'abord.';
+  try{
+    render(); // Show loading state
     const r=await callClaude(sys,'Voici le contenu a analyser:\n\n'+text.slice(0,14000));
     let display=r,meta=null;
     const jm=r.match(/\{"suggestedTitle"[\s\S]*?\}/);
     if(jm){meta=parseJ(jm[0]);display=r.replace(jm[0],'').trim()}
     impMsgs.push({role:'assistant',content:display,meta:meta});
     setStatus('',false);
-  }catch(e){impMsgs.push({role:'assistant',content:'Erreur de connexion IA: '+e.message});setStatus('',false)}
-  render();setTimeout(()=>{const cb=document.querySelector('.chat-box');if(cb)cb.scrollTop=cb.scrollHeight},100);
+  }catch(e){
+    impMsgs.push({role:'assistant',content:'Erreur de connexion IA: '+e.message+'\n\nVerifie que ton proxy Cloudflare fonctionne.'});
+    setStatus('',false);
+  }
+  render();
+  setTimeout(()=>{const cb=document.querySelector('.chat-box');if(cb)cb.scrollTop=cb.scrollHeight},100);
 }
 
 async function sendImpMsg(){
   const msg=$('imp-chat')?.value?.trim();if(!msg)return;$('imp-chat').value='';
   impMsgs.push({role:'user',content:msg});render();setStatus('Reflexion...');
   const catList=cats.map(c=>c.id+' ('+c.name+')').join(', ');
-  const sys='Tu es un assistant pedagogique expert. Tu discutes avec l\'utilisateur a propos d\'un document qu\'il veut transformer en fiche de cours. Categories disponibles: '+catList+'. Continue la discussion, reponds a ses questions, ameliore tes suggestions. Si l\'utilisateur valide ou demande de sauvegarder, dis-lui de cliquer le bouton "Sauvegarder". Tu peux mettre a jour tes suggestions avec un JSON: {"suggestedTitle":"...","suggestedCategory":"...","analysis":"..."}. Francais.';
+  const sys='Tu es un assistant pedagogique expert. Tu discutes avec l\'utilisateur a propos d\'un document qu\'il veut transformer en fiche de cours. Categories disponibles: '+catList+'.\n\nRegles:\n- Continue la discussion naturellement\n- Reponds a ses questions avec precision\n- Challenge ses idees si necessaire\n- Ameliore tes suggestions selon ses retours\n- Si il valide, dis-lui de cliquer "Structurer et sauvegarder"\n- Tu peux mettre a jour tes suggestions avec un JSON: {"suggestedTitle":"...","suggestedCategory":"...","analysis":"..."}\n\nFrancais. Sois pedagogique et engage.';
   try{
     const r=await callClaude(sys,impMsgs.map(m=>({role:m.role,content:m.content})));
     let display=r,meta=null;const jm=r.match(/\{"suggestedTitle"[\s\S]*?\}/);
@@ -121,37 +149,32 @@ async function saveImportFiche(){
   const title=$('save-title')?.value||sug?.suggestedTitle||'Sans titre';
   const cat=$('save-cat')?.value||sug?.suggestedCategory||'';
   if(!cat){setStatus('Choisis une categorie');return}
-  // Check if new category needed
   let actualCat=cat;
   if(cat.startsWith('NOUVELLE:')){
-    const newName=cat.replace('NOUVELLE:','').trim();
-    const newId=newName.toLowerCase().replace(/[^a-z0-9]+/g,'-');
+    const newName=cat.replace('NOUVELLE:','').trim();const newId=newName.toLowerCase().replace(/[^a-z0-9]+/g,'-');
     setStatus('Creation categorie '+newName+'...');
-    try{
-      await ghPut('data/'+newId+'/_meta.json',{name:newName,icon:'\ud83d\udcc2',fiches:[]},'New: '+newName);
-      const idx=await ghGet('data/index.json');const nc=[...(idx?.content.categories||cats),{id:newId,name:newName,icon:'\ud83d\udcc2'}];
-      await ghPut('data/index.json',{categories:nc,version:(idx?.content.version||0)+1},'Add cat',idx?.sha);
-      cats=nc;renderCats();actualCat=newId;
-    }catch(e){setStatus('Erreur cat: '+e.message);return}
+    try{await ghPut('data/'+newId+'/_meta.json',{name:newName,icon:'\ud83d\udcc2',fiches:[]},'New: '+newName);const idx=await ghGet('data/index.json');const nc=[...(idx?.content.categories||cats),{id:newId,name:newName,icon:'\ud83d\udcc2'}];await ghPut('data/index.json',{categories:nc,version:(idx?.content.version||0)+1},'Add cat',idx?.sha);cats=nc;renderCats();actualCat=newId}catch(e){setStatus('Erreur: '+e.message);return}
   }
-  setStatus('IA structure la fiche...');
+  setStatus('IA structure la fiche finale...');
   const today=new Date().toISOString().split('T')[0];
   const discussion=impMsgs.map(m=>m.role+': '+m.content).join('\n\n');
-  const sys='Expert pedagogique. Structure cette fiche en JSON. Prends en compte la discussion avec l\'utilisateur pour ameliorer. JSON sans backticks: {"metadata":{"title":"'+title+'","category":"'+actualCat+'","created":"'+today+'","version":1,"verified":true,"verificationNotes":[""],"sources":[{"type":"import","name":"'+title+'","date":"'+today+'"}]},"base":{"sections":[{"title":"","content":"","concepts":[{"term":"","definition":"","ref":""}],"keyPoints":[""],"warnings":[""],"examples":[""]}]},"enrichments":[],"quiz":{"totalAttempts":0,"history":[],"weakPoints":[]}}';
+  const sys='Expert pedagogique. Structure cette fiche en JSON en tenant compte de TOUTE la discussion avec l\'utilisateur. JSON sans backticks: {"metadata":{"title":"'+title+'","category":"'+actualCat+'","created":"'+today+'","version":1,"verified":true,"verificationNotes":[""],"sources":[{"type":"import","name":"'+title+'","date":"'+today+'"}]},"base":{"sections":[{"title":"","content":"contenu restructure et ameliore","concepts":[{"term":"","definition":"","ref":"reference legale si applicable"}],"keyPoints":[""],"warnings":["pieges et erreurs courantes"],"examples":["exemples concrets"]}]},"enrichments":[],"quiz":{"totalAttempts":0,"history":[],"weakPoints":[]}}';
   try{
-    const r=await callClaude(sys,'CONTENU BRUT:\n'+impRawText.slice(0,12000)+'\n\nDISCUSSION:\n'+discussion.slice(0,2000));
+    const r=await callClaude(sys,'CONTENU BRUT:\n'+impRawText.slice(0,12000)+'\n\nDISCUSSION AVEC L\'UTILISATEUR:\n'+discussion.slice(0,2000));
     const p=parseJ(r);
-    if(p){
-      setStatus('Sauvegarde GitHub...');
-      const slug=title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
+    if(p){setStatus('Sauvegarde GitHub...');const slug=title.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
       await ghPut('data/'+actualCat+'/'+slug+'.json',p,'Add: '+title);
       const meta=await ghGet('data/'+actualCat+'/_meta.json');
       if(meta){const nm={...meta.content};if(!nm.fiches)nm.fiches=[];nm.fiches.push({id:slug,title:p.metadata?.title||title});await ghPut('data/'+actualCat+'/_meta.json',nm,'Update meta',meta.sha)}
-      setStatus('Fiche creee !');impStep='input';impMsgs=[];impDraft=null;await loadCat(actualCat);
+      setStatus('Fiche creee !');impStep='input';impMsgs=[];await loadCat(actualCat);
     }else{setStatus('Erreur structuration')}
   }catch(e){setStatus('Erreur: '+e.message)}
 }
 
+async function init(){const s=sessionStorage.getItem('sf_gh_token');if(s){GH.token=s;updateTag()}setStatus('Chargement...');try{const idx=await ghGet('data/index.json');if(idx)cats=idx.content.categories||[]}catch{}renderCats();setStatus('',false);render()}
+function renderCats(){$('cat-list').innerHTML=cats.map(c=>'<div class="cat-item '+(selCat?.id===c.id?'active':'')+'" onclick="loadCat(\''+c.id+'\')"><span style="font-size:15px">'+c.icon+'</span>'+c.name+'</div>').join('')}
+async function loadCat(id){selCat=cats.find(c=>c.id===id);fiche=null;renderCats();setStatus('Chargement...');currentView='home';try{const meta=await ghGet('data/'+id+'/_meta.json');if(meta?.content?.fiches?.length)ficheList=meta.content.fiches;else{const fs=await ghLs('data/'+id);ficheList=fs.filter(f=>f.name.endsWith('.json')&&f.name!=='_meta.json').map(f=>({id:f.name.replace('.json',''),title:f.name.replace('.json','').replace(/-/g,' ')}))}}catch{ficheList=[]}setStatus('',false);render()}
+async function loadFiche(id){if(!selCat)return;setStatus('Chargement...');try{const f=await ghGet('data/'+selCat.id+'/'+id+'.json');if(f){fiche=f.content;ficheSha=f.sha;chatMsgs=[];currentView='fiche'}}catch(e){setStatus('Erreur: '+e.message)}setStatus('',false);render()}
 async function createCat(){if(!hasToken()){requireToken(createCat);return}const name=$('newcat-name')?.value?.trim();if(!name)return;const id=name.toLowerCase().replace(/[^a-z0-9]+/g,'-');setStatus('Creation...');try{await ghPut('data/'+id+'/_meta.json',{name:name,icon:'\ud83d\udcc2',fiches:[]},'New: '+name);const idx=await ghGet('data/index.json');const nc=[...(idx?.content.categories||cats),{id:id,name:name,icon:'\ud83d\udcc2'}];await ghPut('data/index.json',{categories:nc,version:(idx?.content.version||0)+1},'Add cat',idx?.sha);cats=nc;renderCats();setStatus('OK !');currentView='home';render()}catch(e){setStatus('Erreur: '+e.message)}}
 
 // QUIZ
@@ -172,31 +195,39 @@ if(fiche){tabs.classList.remove('hidden');tabs.style.display='flex';tabs.innerHT
 if(currentView==='home'&&!selCat){C.innerHTML='<div style="text-align:center;padding-top:80px"><div style="font-size:56px;margin-bottom:12px">&#128218;</div><h2 style="font-size:22px;font-weight:800">StudyForge</h2><p style="color:var(--txD);font-size:13px;margin-top:8px">Selectionne une categorie ou importe une fiche</p></div>';return}
 if(currentView==='home'&&selCat){C.innerHTML='<h2 style="font-size:20px;font-weight:800;margin-bottom:4px">'+selCat.icon+' '+selCat.name+'</h2><p style="color:var(--txD);font-size:12px;margin-bottom:20px">'+ficheList.length+' fiche'+(ficheList.length!==1?'s':'')+'</p>'+(ficheList.length===0?'<div class="card" style="text-align:center;padding:50px"><p style="color:var(--txD)">Aucune fiche</p></div>':'<div class="fiche-grid">'+ficheList.map(f=>'<div class="fiche-card" onclick="loadFiche(\''+f.id+'\')"><h3 style="font-size:14px;font-weight:600;text-transform:capitalize;margin-bottom:4px">'+f.title+'</h3><p style="font-size:10px;color:var(--txD)">'+f.id+'</p></div>').join('')+'</div>');return}
 
-// IMPORT - CONVERSATIONAL
+// IMPORT
 if(currentView==='import'){
   let h='<div style="max-width:780px"><h2 style="font-size:20px;font-weight:800;margin-bottom:20px">Nouvelle fiche</h2>';
+
+  // STEP 1: Input
   if(impStep==='input'){
-    h+='<div class="card"><h3 style="font-size:15px;margin-bottom:12px">1. Contenu (PDF et/ou texte)</h3><div class="drop-zone" id="drop-zone" onclick="$(\'pdf-file\').click()"><input type="file" id="pdf-file" accept=".pdf" onchange="extractPdf(this.files[0])" style="display:none"><p style="font-size:14px;margin-bottom:4px">&#128196; Glisse un PDF ou clique</p><p style="font-size:11px;color:var(--txD)">Texte extrait automatiquement</p></div><p style="text-align:center;color:var(--txD);font-size:12px;margin:12px 0">et / ou</p><textarea id="imp-text" placeholder="Colle ou ecris du texte (notes, chapitre, article)..." style="width:100%;min-height:200px;background:var(--sf);border:1px solid var(--brd);border-radius:10px;padding:14px;color:var(--txt);font-size:13px;resize:vertical;line-height:1.6"></textarea><button class="btn btn-pri" onclick="analyzeImport()" style="width:100%;padding:14px;font-size:14px;margin-top:12px">&#x1F916; Analyser avec l\'IA</button></div>';
-  }else{
-    // Discussion phase
+    h+='<div class="card"><h3 style="font-size:15px;margin-bottom:12px">Importe un PDF ou colle du texte</h3><div class="drop-zone" id="drop-zone" onclick="$(\'pdf-file\').click()"><input type="file" id="pdf-file" accept=".pdf" onchange="extractPdf(this.files[0])" style="display:none"><p style="font-size:14px;margin-bottom:4px">&#128196; Glisse un PDF ou clique pour importer</p><p style="font-size:11px;color:var(--txD)">L\'IA analysera automatiquement le contenu</p></div><p style="text-align:center;color:var(--txD);font-size:12px;margin:12px 0">et / ou</p><textarea id="imp-text" placeholder="Colle du texte ici (notes, chapitre, article)..." style="width:100%;min-height:180px;background:var(--sf);border:1px solid var(--brd);border-radius:10px;padding:14px;color:var(--txt);font-size:13px;resize:vertical;line-height:1.6"></textarea><button class="btn btn-pri" onclick="analyzeText()" style="width:100%;padding:14px;font-size:14px;margin-top:12px">&#x1F916; Analyser avec l\'IA</button></div>';
+  }
+
+  // LOADING
+  else if(impStep==='loading'){
+    h+='<div class="loading-card"><div class="spinner" style="width:24px;height:24px;margin:0 auto 16px"></div><p style="font-size:15px;font-weight:600;margin-bottom:6px">L\'IA analyse votre document...</p><p style="font-size:12px;color:var(--txD)">Identification du sujet, verification des informations, suggestions d\'amelioration</p></div>';
+  }
+
+  // DISCUSSION
+  else if(impStep==='discuss'){
     const sug=getLastSuggestion();
     if(sug){
-      h+='<div class="card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap"><div style="flex:1"><span style="font-size:11px;color:var(--txD)">Titre suggere:</span><br><strong style="font-size:14px">'+esc(sug.suggestedTitle)+'</strong></div><div><span style="font-size:11px;color:var(--txD)">Categorie:</span><br><span class="tag tag-acc" style="font-size:12px">'+esc(sug.suggestedCategory)+'</span></div></div>';
+      h+='<div class="card" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;padding:14px 20px"><div style="flex:1"><span style="font-size:10px;color:var(--txD);text-transform:uppercase;letter-spacing:1px">Titre suggere</span><br><strong style="font-size:15px">'+esc(sug.suggestedTitle)+'</strong></div><div><span style="font-size:10px;color:var(--txD);text-transform:uppercase;letter-spacing:1px">Categorie</span><br><span class="tag tag-acc" style="font-size:12px;margin-top:4px">'+esc(sug.suggestedCategory)+'</span></div></div>';
     }
-    h+='<div class="chat-box" style="max-height:400px">';
+    h+='<div class="chat-box" style="max-height:450px">';
+    if(impMsgs.length===0) h+='<div style="text-align:center;padding:40px"><div class="spinner" style="width:20px;height:20px;margin:0 auto 12px"></div><p style="color:var(--txD);font-size:12px">Analyse en cours...</p></div>';
     impMsgs.forEach(m=>{h+='<div><div class="msg '+(m.role==='user'?'msg-user':'msg-ai')+'">'+esc(m.content)+'</div></div>'});
     h+='</div>';
     h+='<div style="display:flex;gap:8px;margin:10px 0"><input id="imp-chat" placeholder="Reponds, pose une question, demande des modifications..." onkeydown="if(event.key===\'Enter\')sendImpMsg()" style="flex:1;padding:13px 16px;border-radius:12px;background:var(--card);border:1px solid var(--brd);color:var(--txt);font-size:12.5px"><button class="btn btn-pri" onclick="sendImpMsg()" style="padding:13px 22px">Envoyer</button></div>';
-    // Save section
-    h+='<div class="card card-glow" style="margin-top:10px"><h3 style="font-size:15px;margin-bottom:12px">Quand tu es pret :</h3>';
-    h+='<input id="save-title" value="'+esc(sug?.suggestedTitle||'')+'" placeholder="Titre final" style="width:100%;padding:10px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:13px;margin-bottom:10px">';
-    h+='<select id="save-cat" style="width:100%;padding:10px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:13px;margin-bottom:12px">';
-    h+='<option value="">Choisir...</option>';
+    h+='<div class="card card-glow" style="margin-top:6px"><h3 style="font-size:14px;margin-bottom:10px">Quand tu es satisfait :</h3>';
+    h+='<input id="save-title" value="'+esc(sug?.suggestedTitle||'')+'" placeholder="Titre final" style="width:100%;padding:10px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:13px;margin-bottom:8px">';
+    h+='<select id="save-cat" style="width:100%;padding:10px 14px;border-radius:10px;background:var(--sf);border:1px solid var(--brd);color:var(--txt);font-size:13px;margin-bottom:10px"><option value="">Choisir categorie...</option>';
     cats.forEach(c=>{h+='<option value="'+c.id+'" '+(sug?.suggestedCategory===c.id?'selected':'')+'>'+c.icon+' '+c.name+'</option>'});
     if(sug?.suggestedCategory?.startsWith('NOUVELLE'))h+='<option value="'+sug.suggestedCategory+'" selected>&#x2728; '+sug.suggestedCategory+'</option>';
     h+='</select>';
-    h+='<button class="btn btn-grn" onclick="saveImportFiche()" style="width:100%;padding:14px;font-size:14px">&#x2713; Structurer et sauvegarder</button>';
-    h+='<button class="btn btn-sec" onclick="impStep=\'input\';impMsgs=[];render()" style="width:100%;padding:10px;font-size:12px;margin-top:8px">Recommencer</button>';
+    h+='<button class="btn btn-grn" onclick="saveImportFiche()" style="width:100%;padding:14px;font-size:14px">&#x2713; Structurer et sauvegarder sur GitHub</button>';
+    h+='<button class="btn btn-sec" onclick="impStep=\'input\';impMsgs=[];render()" style="width:100%;padding:8px;font-size:11px;margin-top:6px">Recommencer</button>';
     h+='</div>';
   }
   h+='</div>';C.innerHTML=h;
