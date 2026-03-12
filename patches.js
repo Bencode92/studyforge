@@ -1,4 +1,4 @@
-// StudyForge Patches v9 - UTF-8 + Haiku quiz + Sonnet discussion + Apply changes
+// StudyForge Patches v10 - Fix apply button + token prompt
 
 // 1. FIX UTF-8 ACCENTS
 const _origGhRead = ghRead;
@@ -75,7 +75,7 @@ correctQuiz = async function() {
   hideLoading(); render();
 };
 
-// 7. DISCUSSION - SONNET, deeper, with apply changes
+// 7. DISCUSSION - SONNET
 sendMsg = async function() {
   const msg = $('chat-input')?.value?.trim();
   if (!msg || !fiche) return;
@@ -108,12 +108,11 @@ IMPORTANT: Ne mets PAS de JSON dans ta reponse. Reponds naturellement en texte.`
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 };
 
-// 8. APPLY DISCUSSION CHANGES TO FICHE
-async function applyDiscussionChanges() {
-  if (!fiche || !selCat || !hasToken() || chatMsgs.length < 2) {
-    setStatus('Discute d\'abord avec l\'IA avant d\'appliquer');
-    return;
-  }
+// 8. APPLY DISCUSSION CHANGES - FIXED: token prompt + works with any chat
+async function _doApplyChanges() {
+  if (!fiche || !selCat) { setStatus('Ouvre une fiche d\'abord'); return; }
+  if (chatMsgs.length < 1) { setStatus('Discute d\'abord avec l\'IA'); return; }
+
   showLoading('Application des modifications a la fiche...');
 
   const ficheJSON = JSON.stringify(fiche);
@@ -121,22 +120,22 @@ async function applyDiscussionChanges() {
 
   const sys = `Tu es un expert pedagogique. L'utilisateur a discute avec toi d'une fiche de cours. Tu dois maintenant APPLIQUER toutes les modifications, corrections et ameliorations discutees a la fiche.
 
-REGLES:
-- Reprends la fiche existante et INTEGRE toutes les modifications demandees dans la discussion
-- Corrige les erreurs signalees
-- Ajoute les precisions et exemples discutes
+REGLES STRICTES:
+- Reprends la fiche existante et INTEGRE toutes les modifications demandees
+- Corrige les erreurs signalees dans la discussion
+- Ajoute les precisions, exemples et cas pratiques discutes
 - Ameliore le contenu selon les echanges
-- Incremente la version de +1
+- Incremente la version
 - Ajoute une note de verification resumant les changements
-- Ajoute un enrichissement de type "discussion" resumant ce qui a change
-- Conserve les enrichissements et quiz existants
-- Reponds UNIQUEMENT avec le JSON complet de la fiche mise a jour, sans backticks`;
+- Ajoute un enrichissement type "discussion" avec les points ajoutes
+- CONSERVE les enrichissements et quiz existants
+- UTILISE les bons accents francais (e avec accent, etc.)
+- Reponds UNIQUEMENT avec le JSON complet mis a jour, SANS backticks, SANS texte avant ou apres`;
 
   try {
-    const r = await callClaude(sys, 'FICHE ACTUELLE:\n' + ficheJSON.slice(0, 10000) + '\n\nDISCUSSION:\n' + discussion.slice(0, 4000), SONNET, 8000);
+    const r = await callClaude(sys, 'FICHE ACTUELLE:\n' + ficheJSON.slice(0, 10000) + '\n\nDISCUSSION COMPLETE:\n' + discussion.slice(0, 6000), SONNET, 8000);
     const p = parseJ(r);
     if (p) {
-      // Ensure version increment
       if (p.metadata) p.metadata.version = (fiche.metadata?.version || 1) + 1;
       
       const slug = fiche.metadata?.title?.toLowerCase().replace(/[^a-z0-9]+/g, '-') || 'f';
@@ -144,20 +143,24 @@ REGLES:
       await ghPut('data/' + selCat.id + '/' + slug + '.json', p, 'Discussion update v' + (p.metadata?.version || 2), ex?.sha);
       fiche = p;
       ficheSha = null;
-      chatMsgs.push({ role: 'assistant', content: '✅ Fiche mise a jour et pushee sur GitHub !\n\nChangements appliques (v' + (p.metadata?.version || 2) + '). Retourne sur l\'onglet Fiche pour voir le resultat.' });
-      setStatus('Fiche mise a jour !');
+      chatMsgs.push({ role: 'assistant', content: '\u2705 Fiche mise a jour et pushee sur GitHub !\n\nVersion ' + (p.metadata?.version || 2) + ' sauvegardee. Clique sur l\'onglet "Fiche" pour voir les modifications.' });
+      setStatus('Fiche v' + (p.metadata?.version || 2) + ' sauvegardee !');
     } else {
-      chatMsgs.push({ role: 'assistant', content: 'Erreur: l\'IA n\'a pas pu generer le JSON. Reessaie ou reformule ta demande.' });
+      chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: l\'IA n\'a pas pu structurer la fiche. Essaie de reformuler ou relance.' });
       setStatus('Erreur structuration');
     }
   } catch (e) {
-    chatMsgs.push({ role: 'assistant', content: 'Erreur: ' + e.message });
+    chatMsgs.push({ role: 'assistant', content: '\u274c Erreur: ' + e.message });
     setStatus('Erreur: ' + e.message);
   }
   hideLoading(); render();
   setTimeout(() => { const cb = document.querySelector('.chat-box'); if (cb) cb.scrollTop = cb.scrollHeight; }, 100);
 }
-// Make it global
+
+// Wrapper that asks for token FIRST, then applies
+function applyDiscussionChanges() {
+  requireToken(function() { _doApplyChanges(); });
+}
 window.applyDiscussionChanges = applyDiscussionChanges;
 
 // 9. IMPORT ANALYSIS (Sonnet)
@@ -201,7 +204,7 @@ render = function() {
   const content = $('content');
   if (!content) return;
 
-  // QUIZ: inject count + level selectors
+  // QUIZ controls
   if (currentView === 'quiz' && fiche) {
     const genBtn = content.querySelector('[onclick*="genQuiz"]');
     if (!genBtn) return;
@@ -210,7 +213,7 @@ render = function() {
     controlRow.dataset.patched = 'true';
     genBtn.remove();
     const d = document.createElement('div');
-    d.style.cssText = 'display:flex;align-items:center;gap:6px;margin-left:auto';
+    d.style.cssText = 'display:flex;align-items:center;gap:6px;margin-left:auto;flex-wrap:wrap';
     d.innerHTML = '<select id="q-count" onchange="qCount=+this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
       [5,10,15,20,25].map(n => '<option value="'+n+'" '+(qCount===n?'selected':'')+'>'+n+' Q</option>').join('') +
       '</select><select id="q-level" onchange="qLevel=this.value" style="padding:6px 10px;border-radius:8px;background:#111122;border:1px solid #1a1a33;color:#e8e8f0;font-size:12px;font-family:inherit">' +
@@ -221,7 +224,7 @@ render = function() {
     controlRow.appendChild(d);
   }
 
-  // DISCUSSION: inject "Apply changes" button
+  // DISCUSSION: Apply changes button
   if (currentView === 'discuss' && fiche) {
     const chatInput = content.querySelector('[id="chat-input"]');
     if (!chatInput) return;
@@ -229,13 +232,13 @@ render = function() {
     if (!inputRow || inputRow.dataset.patched) return;
     inputRow.dataset.patched = 'true';
 
-    // Add apply button row after input
     const applyRow = document.createElement('div');
     applyRow.style.cssText = 'display:flex;gap:8px;margin-top:8px;flex-shrink:0';
-    applyRow.innerHTML = '<button class="btn btn-grn" onclick="applyDiscussionChanges()" style="flex:1;padding:12px;font-size:13px" ' + (chatMsgs.length < 2 ? 'disabled' : '') + '>&#x2713; Appliquer les modifications a la fiche</button>' +
+    const hasChat = chatMsgs.length >= 1;
+    applyRow.innerHTML = '<button class="btn btn-grn" onclick="applyDiscussionChanges()" style="flex:1;padding:12px;font-size:13px"' + (hasChat ? '' : ' disabled') + '>\u2713 Appliquer les modifications a la fiche</button>' +
       '<div style="flex:0;display:flex;align-items:center;padding:0 8px"><span style="font-size:10px;color:#6b6b88">v' + (fiche.metadata?.version || 1) + '</span></div>';
     inputRow.parentElement.insertBefore(applyRow, inputRow.nextSibling);
   }
 };
 
-console.log('StudyForge v9: Discussion Sonnet + Apply changes + Quiz custom');
+console.log('StudyForge v10: Fixed apply button + token prompt');
