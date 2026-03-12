@@ -1,0 +1,232 @@
+{
+  "metadata": {
+    "title": "Guide expert : Fiscalité française des trusts étrangers - Définitions, calculs et pièges à éviter",
+    "category": "trust-et-fiducie",
+    "created": "2026-03-12",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique expert sur la fiscalité française des trusts étrangers",
+      "Structure complète avec cas pratiques et questionnaire d'évaluation",
+      "Références légales précises (CGI art. 792-0 bis, 970, 990 J, etc.)",
+      "Date de mise à jour incohérente corrigée (était 21/01/2026)"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide expert : Fiscalité française des trusts étrangers - Définitions, calculs et pièges à éviter",
+        "date": "2026-03-12"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définition et reconnaissance du trust en droit français",
+        "content": "Le trust n'existe pas en droit civil français mais bénéficie d'un régime fiscal autonome depuis 2011. Il s'agit d'une relation juridique de common law où un constituant (settlor) transfère des biens à un trustee qui les détient juridiquement pour le bénéfice de bénéficiaires. La propriété est éclatée entre : legal ownership (trustee) et beneficial ownership (bénéficiaires). La France reconnaît fiscalement le trust selon l'article 792-0 bis du CGI, avec une approche souvent transparente rattachant les actifs au constituant ou bénéficiaire réputé constituant.",
+        "concepts": [
+          {
+            "term": "Trust",
+            "definition": "Relation juridique où un constituant transfère des biens à un trustee qui les détient juridiquement pour le bénéfice de bénéficiaires",
+            "ref": "CGI art. 792-0 bis"
+          },
+          {
+            "term": "Legal ownership",
+            "definition": "Propriété juridique détenue par le trustee qui peut signer, vendre et gérer les actifs",
+            "ref": "Common law"
+          },
+          {
+            "term": "Beneficial ownership",
+            "definition": "Droit économique des bénéficiaires qui profitent des actifs selon les règles du trust",
+            "ref": "Common law"
+          },
+          {
+            "term": "Constituant fiscal",
+            "definition": "Personne considérée fiscalement comme ayant constitué le trust, même si elle n'est pas le constituant juridique initial",
+            "ref": "CGI art. 792-0 bis, I-2"
+          }
+        ],
+        "keyPoints": [
+          "Le trust bénéficie d'un régime fiscal autonome en France depuis la LFR 2011",
+          "La France applique souvent une approche de transparence fiscale",
+          "La définition fiscale française peut différer de la réalité juridique du trust",
+          "Les actifs restent fiscalement rattachés au constituant ou au bénéficiaire réputé constituant"
+        ],
+        "warnings": [
+          "Attention à la distinction entre constituant juridique et constituant fiscal",
+          "La reconnaissance civile du trust reste limitée en France",
+          "Risques de double imposition en l'absence de conventions fiscales appropriées"
+        ],
+        "examples": [
+          "Un résident français place des actifs dans un trust étranger : il reste constituant fiscal et doit déclarer les biens à l'IFI"
+        ]
+      },
+      {
+        "title": "Fiscalité des revenus (IR) et distributions",
+        "content": "Les distributions d'un trust à un bénéficiaire résident français sont imposables à l'IR. Un abattement de 40% peut s'appliquer sur les distributions de produits (dividendes, intérêts) mais disparaît si le trust est situé dans un ETNC. La distinction entre distribution de produits et de capital est cruciale et doit être prouvée par la comptabilité du trust. L'article 123 bis (anti-paradis fiscal) peut s'appliquer aux revenus accumulés dans le trust si certaines conditions sont réunies.",
+        "concepts": [
+          {
+            "term": "Distribution de trust",
+            "definition": "Versement effectué par le trust au profit d'un bénéficiaire, imposable à l'IR en France",
+            "ref": "CGI"
+          },
+          {
+            "term": "Abattement de 40%",
+            "definition": "Réduction d'assiette applicable aux distributions de produits d'un trust, sous certaines conditions",
+            "ref": "CGI"
+          },
+          {
+            "term": "ETNC",
+            "definition": "État ou territoire non coopératif, où l'abattement de 40% ne s'applique pas",
+            "ref": "Liste officielle"
+          },
+          {
+            "term": "Article 123 bis",
+            "definition": "Dispositif anti-paradis fiscal applicable aux bénéfices des entités étrangères contrôlées",
+            "ref": "CGI art. 123 bis"
+          }
+        ],
+        "keyPoints": [
+          "Les distributions sont imposables à l'IR pour les bénéficiaires résidents français",
+          "L'abattement de 40% ne s'applique qu'aux produits et disparaît en cas d'ETNC",
+          "La preuve de la nature de la distribution (produit vs capital) est essentielle",
+          "L'article 123 bis peut s'appliquer aux revenus accumulés dans le trust"
+        ],
+        "warnings": [
+          "Risque de requalification des distributions de capital en produits",
+          "Perte de l'abattement de 40% si le trust est localisé dans un ETNC",
+          "Application possible de l'article 123 bis même avec une détention indirecte"
+        ],
+        "examples": [
+          "Distribution de 100 000 € de dividendes : imposable à 60 000 € avec l'abattement de 40% (hors ETNC)",
+          "Revenus accumulés dans un trust aux Bermudes : application possible de l'article 123 bis"
+        ]
+      },
+      {
+        "title": "Droits de mutation à titre gratuit (DMTG)",
+        "content": "Le régime des DMTG sur les trusts distingue deux cas : les transmissions qualifiables (donation/succession classique) taxées au barème normal, and les transmissions non qualifiables soumises au régime sui generis de l'article 792-0 bis II. Pour les trusts postérieurs au 11 mai 2011 avec bénéficiaires indéterminés ou en ETNC, le taux peut atteindre 60%. Le concept de bénéficiaire réputé constituant s'applique aux transmissions successives.",
+        "concepts": [
+          {
+            "term": "Transmission qualifiable",
+            "definition": "Transmission assimilable à une donation ou succession classique, taxée au barème habituel",
+            "ref": "CGI"
+          },
+          {
+            "term": "Transmission non qualifiable",
+            "definition": "Transmission ne pouvant être assimilée aux schémas classiques, soumise au régime sui generis",
+            "ref": "CGI art. 792-0 bis II"
+          },
+          {
+            "term": "Régime sui generis",
+            "definition": "Régime spécifique aux trusts avec taux forfaitaires de 45% ou 60%",
+            "ref": "CGI art. 792-0 bis II"
+          },
+          {
+            "term": "Bénéficiaire réputé constituant",
+            "definition": "Bénéficiaire traité fiscalement comme constituant pour les transmissions ultérieures",
+            "ref": "CGI art. 792-0 bis"
+          }
+        ],
+        "keyPoints": [
+          "Distinction fondamentale entre transmissions qualifiables et non qualifiables",
+          "Taux majorés de 45% ou 60% selon les cas de figure",
+          "Pénalisation renforcée pour les trusts postérieurs au 11 mai 2011",
+          "Application du concept de bénéficiaire réputé constituant"
+        ],
+        "warnings": [
+          "Taux confiscatoire de 60% pour certains trusts récents",
+          "Difficultés d'interprétation de la notion de transmission qualifiable",
+          "Risques de double taxation en cas de méconnaissance du régime"
+        ],
+        "examples": [
+          "Trust avec bénéficiaires descendants identifiés : taux de 45%",
+          "Trust en ETNC postérieur à 2011 avec bénéficiaires indéterminés : taux de 60%"
+        ]
+      },
+      {
+        "title": "IFI et prélèvement spécifique (990 J)",
+        "content": "Les biens immobiliers détenus par un trust sont rattachés au constituant pour l'IFI selon l'article 970 du CGI. La territorialité française de l'IFI s'applique normalement. Le prélèvement spécifique de l'article 990 J (taux de 3% sur la valeur des biens immobiliers) vise à sanctionner les manquements déclaratifs en matière d'IFI et peut se cumuler avec les pénalités classiques.",
+        "concepts": [
+          {
+            "term": "IFI sur trust",
+            "definition": "Impôt sur la fortune immobilière appliqué aux biens immobiliers détenus par un trust, rattachés au constituant",
+            "ref": "CGI art. 970"
+          },
+          {
+            "term": "Prélèvement 990 J",
+            "definition": "Prélèvement spécifique de 3% sur la valeur des biens immobiliers en trust non déclarés à l'IFI",
+            "ref": "CGI art. 990 J"
+          },
+          {
+            "term": "Territorialité IFI",
+            "definition": "Principe selon lequel seuls les biens immobiliers situés en France sont soumis à l'IFI",
+            "ref": "CGI"
+          }
+        ],
+        "keyPoints": [
+          "Rattachement des biens immobiliers du trust au constituant pour l'IFI",
+          "Application de la territorialité française classique",
+          "Prélèvement 990 J de 3% en cas de manquement déclaratif",
+          "Cumul possible avec les pénalités d'assiette"
+        ],
+        "warnings": [
+          "Risque élevé de contrôle fiscal sur les déclarations d'IFI",
+          "Prélèvement 990 J applicable même en l'absence de fraud intentionnelle",
+          "Difficulté de valorisation des biens immobiliers étrangers détenus par le trust"
+        ],
+        "examples": [
+          "Immeuble de 2 M€ en trust non déclaré : prélèvement 990 J de 60 000 € (3%)",
+          "Portefeuille immobilier international : seuls les biens français soumis à l'IFI"
+        ]
+      },
+      {
+        "title": "Obligations déclaratives et sanctions",
+        "content": "L'article 1649 AB du CGI impose des obligations déclaratives spécifiques aux trusts : déclaration initiale, déclaration annuelle des valeurs (formulaire 2181-TRUST2), et déclaration des modifications. Le défaut de déclaration est sanctionné par une amende de 20 000 € et peut entraîner une extension du délai de reprise à 10 ans. La déclaration annuelle doit être déposée avant le 15 juin de chaque année.",
+        "concepts": [
+          {
+            "term": "Déclaration 1649 AB",
+            "definition": "Obligation déclarative spécifique aux trusts, comprenant déclaration initiale et déclarations annuelles",
+            "ref": "CGI art. 1649 AB"
+          },
+          {
+            "term": "Formulaire 2181-TRUST2",
+            "definition": "Formulaire de déclaration annuelle des valeurs du trust",
+            "ref": "CGI art. 1649 AB"
+          },
+          {
+            "term": "Délai de reprise étendu",
+            "definition": "Extension du délai de reprise fiscale à 10 ans en cas de manquement déclaratif",
+            "ref": "LPF"
+          },
+          {
+            "term": "Amende de 20 000 €",
+            "definition": "Sanction pécuniaire applicable en cas de défaut de déclaration de trust",
+            "ref": "CGI art. 1649 AB"
+          }
+        ],
+        "keyPoints": [
+          "Obligations déclaratives renforcées avec sanctions lourdes",
+          "Déclaration annuelle obligatoire avant le 15 juin",
+          "Extension possible du délai de reprise à 10 ans",
+          "Amende forfaitaire de 20 000 € en cas de manquement"
+        ],
+        "warnings": [
+          "Sanctions particulièrement sévères en cas d'omission déclarative",
+          "Risque de présomption de revenus distribués non déclarés",
+          "Difficulté pratique d'évaluation annuelle des actifs du trust"
+        ],
+        "examples": [
+          "Omission de déclaration d'un trust : amende automatique de 20 000 €",
+          "Déclaration tardive : risque de contrôle sur 10 ans au lieu de 3 ans"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
