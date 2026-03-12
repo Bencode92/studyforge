@@ -388,5 +388,23 @@
       "Un entrepreneur TNS à TMI 41% songe à verser dans son PER. Son objectif est de passer à TMI 30% à la retraite. Quel est le gain fiscal net par 10 000 EUR versés (capital uniquement, PV non comptabilisées) ?": 1
     }
   },
-  "discussions": []
+  "discussions": [
+    {
+      "id": "disc-1773331421651",
+      "date": "2026-03-12",
+      "status": "applied",
+      "messageCount": 2,
+      "preview": "ok donc la le PER je trouvais ca interessant car p | # PER et jeunes actifs : la stratégie du timing fi",
+      "messages": [
+        {
+          "role": "user",
+          "content": "ok donc la le PER je trouvais ca interessant car pas d'impot mais au final de l'impot plus tard mais vu que je suis jeune j'espere que ma tranche va augmenter donc pas is bien que ca si ca ne me ait pas sauter une tranche"
+        },
+        {
+          "role": "assistant",
+          "content": "# PER et jeunes actifs : la stratégie du timing fiscal\n\nExcellent raisonnement ! Vous touchez au **cœur de la stratégie PER** : c'est un arbitrage temporel entre votre TMI d'aujourd'hui et celle de demain.\n\n## 🎯 Votre situation : le dilemme du jeune actif\n\n### Le principe de base du PER\n- **Aujourd'hui** : déduction à votre TMI actuelle\n- **Demain** (retraite) : imposition à votre TMI future\n- **Gain** = TMI entrée - TMI sortie\n\n### Votre analyse est juste... mais incomplète\n\nSi vous êtes aujourd'hui à **TMI 11% ou 30%** et que vous visez **TMI 41% en fin de carrière**, le PER semble contre-productif. \n\n**MAIS** attention à deux points cruciaux :\n\n## 📊 Point 1 : TMI retraite ≠ TMI fin de carrière\n\n### Vos revenus en retraite seront probablement plus faibles\n\n**Exemple concret :**\n- **Fin de carrière** : 120k€ → TMI 41%\n- **Retraite** : pension 60k€ → TMI 30%\n- **Gain PER** : 41% - 30% = **11 points de différence**\n\n### Calcul sur 10 000€ versés\n- Économie immédiate : 10k × 41% = **4 100€**\n- Impôt futur : 10k × 30% = **3 000€**\n- **Gain net : 1 100€** (+ rendement entre-temps)\n\n## 🎪 Point 2 : Le versement optimal pour sauter une tranche\n\nMême jeune, le PER peut être rentable si vous **visez juste** !\n\n### Stratégie du saut de tranche\n\n**Situation :** Vous gagnez 85k€ imposables (TMI 41%)\n\n| Revenus | Sans PER | Avec PER 5k€ | Gain |\n|---------|----------|--------------|------|\n| Imposable | 85 000€ | 80 000€ | |\n| TMI | 41% | 30% | |\n| Impôt total | 18 296€ | 15 796€ | **2 500€** |\n\nLe versement de 5k€ vous fait économiser **2 500€** d'impôt, soit un **rendement fiscal de 50%** !\n\n## 🧮 Calcul pratique : êtes-vous dans la zone ?\n\n### Seuils 2025 à retenir\n- **29 315€** : passage 11% → 30%\n- **83 823€** : passage 30% → 41%\n\n### Test simple\n1. **Votre revenu imposable actuel ?**\n2. **Combien faut-il déduire pour passer à la tranche inférieure ?**\n3. **Avez-vous le plafond PER suffisant ?**\n\n**Exemple :** 85k€ imposables\n- Pour passer sous 83 823€ → verser **1 177€ "
+        }
+      ]
+    }
+  ]
 }
