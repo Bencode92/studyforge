@@ -1,10 +1,14 @@
 {
   "name": "Fiscalite",
-  "icon": "ð",
+  "icon": "Ã°ÂÂÂ",
   "fiches": [
     {
       "id": "demembrement-usufruit-quasi-usufruit",
       "title": "Demembrement_usufruit_quasi_usufruit"
+    },
+    {
+      "id": "guide-d-membrement-et-holdings-strat-gies-d-apport-et-fusion-pour-transmission-d-entreprise-dutreil",
+      "title": "Guide Démembrement et Holdings : Stratégies d'apport et fusion pour transmission d'entreprise (Dutreil)"
     }
   ]
 }
