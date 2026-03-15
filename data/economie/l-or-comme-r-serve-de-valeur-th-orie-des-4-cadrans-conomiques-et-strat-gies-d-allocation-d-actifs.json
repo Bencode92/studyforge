@@ -1,0 +1,144 @@
+{
+  "metadata": {
+    "title": "L'Or comme Réserve de Valeur - Théorie des 4 Cadrans Économiques et Stratégies d'Allocation d'Actifs",
+    "category": "finance",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Vision théorique cohérente de Charles Gave mais nécessite nuances fiscales et réglementaires"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Charles Gave - L'Or, la Monnaie et les Marchés",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Les Trois Fonctions de la Monnaie et Place de l'Or",
+        "content": "La monnaie remplit trois fonctions essentielles : instrument d'échange (remplace le troc), unité de compte (fixe les prix et coordonne les décisions économiques), et réserve de valeur (transfert de pouvoir d'achat dans le temps). L'or tire sa valeur de sa rareté, ses propriétés physiques (durabilité, divisibilité), et surtout de son acceptation sociale millénaire. Historiquement monnaie puis étalon monétaire, l'or imposait une discipline via la limitation de création monétaire liée aux stocks physiques.",
+        "concepts": [
+          {
+            "term": "Réserve de valeur",
+            "definition": "Fonction monétaire permettant de conserver du pouvoir d'achat dans le temps et réduire l'incertitude future",
+            "ref": "economie-monetaire"
+          },
+          {
+            "term": "Étalon-or",
+            "definition": "Système monétaire où la quantité de monnaie en circulation est limitée par les réserves d'or, imposant une discipline anti-inflationniste",
+            "ref": "histoire-monetaire"
+          }
+        ],
+        "keyPoints": [
+          "L'or conserve ses propriétés de réserve de valeur depuis 5000 ans",
+          "La rareté et l'acceptation universelle sont les piliers de sa valeur",
+          "L'étalon-or limitait la création monétaire arbitraire"
+        ],
+        "warnings": [
+          "L'or ne génère aucun rendement intrinsèque contrairement aux actifs productifs"
+        ],
+        "examples": [
+          "Une pièce d'or reste échangeable contre des biens partout dans le monde"
+        ]
+      },
+      {
+        "title": "Théorie des 4 Cadrans Économiques",
+        "content": "Le framework de Charles Gave classe les environnements économiques selon deux axes : croissance/décroissance et inflation/déflation. Chaque cadran favorise des classes d'actifs spécifiques. 1) Boom déflationniste : actions growth/tech, obligations longues. 2) Boom inflationniste : matières premières, énergie, value, or. 3) Bust inflationniste (stagflation) : cash, défensives, utilities. 4) Bust déflationniste : obligations souveraines quality, ultra-défensives. Cette grille guide l'allocation tactique selon les cycles.",
+        "concepts": [
+          {
+            "term": "Stagflation",
+            "definition": "Situation économique combinant récession et inflation élevée, particulièrement défavorable aux actions et obligations nominales",
+            "ref": "macroeconomie"
+          },
+          {
+            "term": "Allocation tactique",
+            "definition": "Ajustement temporaire des pondérations d'actifs en fonction des cycles économiques anticipés",
+            "ref": "gestion-portefeuille"
+          }
+        ],
+        "keyPoints": [
+          "Chaque cadran économique favorise des classes d'actifs différentes",
+          "L'or performe surtout en phases inflationnistes",
+          "Les transitions entre cadrans génèrent des opportunités de rééquilibrage",
+          "Le cash devient stratégique en bust inflationniste"
+        ],
+        "warnings": [
+          "Les transitions entre cadrans sont difficiles à anticiper précisément",
+          "Risque de sur-optimisation tactique au détriment de la stratégie long terme"
+        ],
+        "examples": [
+          "2021-2022 : passage boom déflationniste → boom inflationniste avec surperformance énergie/matières premières"
+        ]
+      },
+      {
+        "title": "Or, Bitcoin et Crise des Monnaies Fiat",
+        "content": "L'accumulation de dette publique et la création monétaire massive détruisent la fonction de réserve de valeur des monnaies fiat. Face à cette dévaluation programmée, les investisseurs se tournent vers l'or (réserve de valeur historique) et le Bitcoin (expérience de monnaie privée). L'or ne 'monte' pas intrinsèquement : ce sont les monnaies qui se dégradent relativement. Cette dynamique s'accélère quand la crédibilité des dettes souveraines s'érode.",
+        "concepts": [
+          {
+            "term": "Monnaie fiat",
+            "definition": "Monnaie sans contrepartie physique, dont la valeur repose uniquement sur la confiance et le cours forcé imposé par l'État",
+            "ref": "theorie-monetaire"
+          },
+          {
+            "term": "Répression financière",
+            "definition": "Politique visant à maintenir les taux d'intérêt réels négatifs pour alléger le fardeau de la dette publique",
+            "ref": "politique-monetaire"
+          }
+        ],
+        "keyPoints": [
+          "L'or protège contre la dévaluation monétaire organisée",
+          "Bitcoin émerge comme alternative décentralisée aux monnaies d'État",
+          "La perte de crédibilité des dettes souveraines accélère la fuite vers les actifs réels"
+        ],
+        "warnings": [
+          "L'or peut subir des corrections importantes même en phase de dévaluation monétaire",
+          "Bitcoin reste très volatil et sans recul historique suffisant"
+        ],
+        "examples": [
+          "Période 1970s : échec dollar/or → hausse massive de l'or en réaction à l'inflation"
+        ]
+      },
+      {
+        "title": "Stratégies d'Allocation par Régime Économique",
+        "content": "L'allocation optimale varie radicalement selon le cadran économique. Boom déflationniste : 60% actions growth/tech, 30% obligations, 5% or, 5% cash. Boom inflationniste : 30% actions value/commodities, 15% obligations courtes, 40% or/matières premières, 15% cash. Bust inflationniste : 20% défensives, 10% obligations, 20% or, 50% cash. Bust déflationniste : 20% ultra-défensives, 60% obligations quality, 5% or, 15% cash. Rééquilibrages progressifs selon signaux macroéconomiques.",
+        "concepts": [
+          {
+            "term": "Pricing power",
+            "definition": "Capacité d'une entreprise à répercuter la hausse de ses coûts sur ses prix de vente sans perdre de clients",
+            "ref": "analyse-fondamentale"
+          },
+          {
+            "term": "Duration",
+            "definition": "Sensibilité du prix d'une obligation aux variations de taux d'intérêt",
+            "ref": "obligations"
+          }
+        ],
+        "keyPoints": [
+          "Chaque régime nécessite une allocation spécifique pour optimiser le couple rendement/risque",
+          "La diversification temporelle (rééquilibrage) est aussi importante que la diversification spatiale",
+          "Les secteurs avec pricing power surperforment en environnement inflationniste"
+        ],
+        "warnings": [
+          "Risque de market timing si les changements sont trop fréquents",
+          "Les coûts de transaction peuvent éroder les gains tactiques",
+          "Difficulté à identifier précisément les points de bascule entre régimes"
+        ],
+        "examples": [
+          "Secteurs énergie/mines : TotalEnergies, ArcelorMittal en boom inflationniste",
+          "Tech/croissance : ASML, LVMH en boom déflationniste"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
