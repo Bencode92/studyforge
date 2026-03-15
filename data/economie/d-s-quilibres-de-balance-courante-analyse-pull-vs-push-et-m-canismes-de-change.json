@@ -1,0 +1,145 @@
+{
+  "metadata": {
+    "title": "Déséquilibres de balance courante : analyse pull vs push et mécanismes de change",
+    "category": "economie",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document synthétique sur les déséquilibres externes avec approche pull/push validée"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Déséquilibres de balance courante : analyse pull vs push et mécanismes de change",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définitions et identités comptables",
+        "content": "La balance courante (CA) mesure le solde des échanges de biens, services, revenus et transferts avec l'extérieur. L'identité fondamentale CA = S - I établit qu'un déficit courant (CA < 0) signifie que l'investissement dépasse l'épargne nationale, nécessitant un financement externe. Cette identité implique qu'un pays déficitaire doit attirer des capitaux étrangers ou puiser dans ses réserves pour financer l'excès de ses dépenses sur ses revenus.",
+        "concepts": [
+          {
+            "term": "Balance courante",
+            "definition": "Solde des échanges de biens et services, des revenus (intérêts/dividendes) et des transferts courants avec le reste du monde",
+            "ref": "BPM6"
+          },
+          {
+            "term": "Identité épargne-investissement",
+            "definition": "CA = S - I, où CA est la balance courante, S l'épargne nationale et I l'investissement domestique",
+            "ref": "comptabilité nationale"
+          }
+        ],
+        "keyPoints": [
+          "Un déficit courant nécessite un financement externe",
+          "Les excédents des uns correspondent aux déficits des autres au niveau mondial",
+          "L'ajustement peut se faire par l'épargne, l'investissement ou les flux de capitaux"
+        ],
+        "warnings": [
+          "La somme mondiale des balances courantes n'est jamais exactement nulle en pratique (discordance statistique)"
+        ],
+        "examples": [
+          "CA < 0 : pays dépense plus que son revenu, doit attirer du financement",
+          "CA > 0 : pays épargne plus qu'il n'investit, place l'excédent à l'étranger"
+        ]
+      },
+      {
+        "title": "Facteurs pull : déséquilibre tiré par la demande interne",
+        "content": "Les facteurs pull correspondent à une situation où la demande de financement émane du pays déficitaire lui-même. Les ménages, entreprises ou État veulent consommer/investir au-delà du revenu courant. Le pays doit alors convaincre les investisseurs étrangers en offrant une rémunération attractive : taux plus élevés, actifs moins chers, ou monnaie plus faible. Cette dynamique génère des signaux de marché caractéristiques.",
+        "concepts": [
+          {
+            "term": "Facteur pull",
+            "definition": "Déséquilibre externe causé par une demande excessive de financement du pays déficitaire",
+            "ref": "littérature macro-financière"
+          },
+          {
+            "term": "Prime de risque",
+            "definition": "Rémunération supplémentaire exigée par les investisseurs pour compenser le risque perçu",
+            "ref": "finance internationale"
+          }
+        ],
+        "keyPoints": [
+          "Hausse des taux réels et spreads souverains/bancaires",
+          "Dépréciation nominale et réelle de la devise",
+          "Financement souvent fragile (court terme, en devise étrangère)",
+          "Ajustement récessif en cas de perte de confiance"
+        ],
+        "warnings": [
+          "Risque de spirale FX-inflation-taux en cas de dépréciation forte",
+          "Vulnérabilité au risque de refinancement (rollover risk)"
+        ],
+        "examples": [
+          "Turquie : déficit élevé → financement plus cher → pression sur la lire → compression des importations"
+        ]
+      },
+      {
+        "title": "Facteurs push : déséquilibre poussé par l'excès de liquidité",
+        "content": "Les facteurs push résultent d'un excès d'épargne ou de liquidité mondiale. Les capitaux cherchent des débouchés rentables et affluent vers certains pays, parfois au-delà de leurs besoins productifs. Cette abondance maintient les taux bas et alimente des bulles d'actifs. L'ajustement survient brutalement quand la liquidité se retire ('sudden stop'), provoquant des crises bancaires et immobilières.",
+        "concepts": [
+          {
+            "term": "Facteur push",
+            "definition": "Déséquilibre causé par un excès d'épargne/liquidité mondiale qui pousse les capitaux vers certains pays",
+            "ref": "littérature des crises financières"
+          },
+          {
+            "term": "Sudden stop",
+            "definition": "Arrêt brutal des entrées de capitaux étrangers, provoquant une crise de financement externe",
+            "ref": "Calvo (1998)"
+          }
+        ],
+        "keyPoints": [
+          "Taux réels bas malgré un déficit courant croissant",
+          "Boom du crédit et des prix d'actifs (immobilier notamment)",
+          "Pas forcément de dépréciation immédiate de la monnaie",
+          "Ajustement violent lors du retournement des flux"
+        ],
+        "warnings": [
+          "Risque de mauvaise allocation du capital vers des secteurs peu productifs",
+          "Vulnérabilité bancaire en cas d'effondrement des prix d'actifs"
+        ],
+        "examples": [
+          "Espagne pré-2008 : convergence euro → taux bas → boom immobilier → déficit courant sans prime de risque immédiate"
+        ]
+      },
+      {
+        "title": "Mécanismes de change et ajustement externe",
+        "content": "Le taux de change s'ajuste pour équilibrer l'offre et la demande de devises via trois canaux : commerce (export/import), finance (achats d'actifs) et anticipations/risque. Une dépréciation accompagne souvent un déficit courant car celui-ci crée un besoin de devises que les investisseurs peuvent être réticents à financer. L'effet J-curve montre que l'amélioration de la balance commerciale après dépréciation passe d'abord par la compression des importations avant une reprise des exportations.",
+        "concepts": [
+          {
+            "term": "Taux de change réel effectif (REER)",
+            "definition": "Taux de change ajusté de l'inflation relative et pondéré par les échanges commerciaux",
+            "ref": "BIS"
+          },
+          {
+            "term": "Effet J-curve",
+            "definition": "Dégradation temporaire de la balance commerciale après dépréciation avant amélioration",
+            "ref": "littérature commerce international"
+          }
+        ],
+        "keyPoints": [
+          "Trois moteurs du change : commerce, finance, anticipations",
+          "La dépréciation résulte d'entrées de capitaux insuffisantes",
+          "L'ajustement externe passe souvent d'abord par la compression des importations",
+          "Les exportations réagissent plus lentement (contraintes de capacité, intrants importés)"
+        ],
+        "warnings": [
+          "La dépréciation peut alimenter l'inflation et nécessiter des hausses de taux",
+          "En union monétaire, l'ajustement se fait via la compétitivité-prix interne"
+        ],
+        "examples": [
+          "Crise : baisse du pouvoir d'achat → moins d'importations → amélioration rapide du compte courant"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
