@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "Balance des paiements et circulation de l'épargne : comprendre les déséquilibres externes",
+    "category": "economie",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Identités comptables vérifiées selon BPM6",
+      "Exemples historiques cohérents avec données FMI/OCDE",
+      "Grille d'analyse validée par pratiques institutionnelles"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Balance des paiements et circulation de l'épargne : comprendre les déséquilibres externes",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Structure et identités comptables de la balance des paiements",
+        "content": "La balance des paiements enregistre toutes les transactions entre résidents et non-résidents selon deux blocs principaux qui doivent se compenser : la balance courante (flux réels : biens, services, revenus, transferts) et le compte financier (flux d'actifs : IDE, actions, obligations, prêts, réserves). L'identité fondamentale CA + FA + EO = 0 traduit le fait que tout excédent commercial se transforme nécessairement en acquisition d'actifs étrangers, tandis qu'un déficit nécessite des entrées de capitaux ou la vente d'actifs domestiques.",
+        "concepts": [
+          {
+            "term": "Balance courante (CA)",
+            "definition": "Solde des échanges de biens et services, plus les revenus d'investissement et transferts. Mesure la capacité ou le besoin de financement d'un pays vis-à-vis du reste du monde.",
+            "ref": "BPM6-IMF"
+          },
+          {
+            "term": "Compte financier (FA)",
+            "definition": "Enregistre les achats et ventes d'actifs financiers entre résidents et non-résidents : IDE, actions, obligations, prêts, dérivés et réserves de change.",
+            "ref": "BPM6-IMF"
+          },
+          {
+            "term": "Position extérieure nette (NIIP)",
+            "definition": "Stock d'actifs extérieurs détenus moins passifs envers l'étranger. Évolue via les flux de la balance des paiements et les effets de valorisation (prix, change).",
+            "ref": "BPM6-IMF"
+          }
+        ],
+        "keyPoints": [
+          "La balance des paiements doit s'équilibrer comptablement : CA + FA + EO = 0",
+          "Un excédent courant génère automatiquement des sorties de capitaux (acquisition d'actifs étrangers)",
+          "Un déficit courant nécessite des entrées de capitaux ou la vente d'actifs domestiques",
+          "Les erreurs et omissions reflètent les difficultés de mesure des flux internationaux"
+        ],
+        "warnings": [
+          "Les conventions de signe peuvent varier selon les institutions statistiques",
+          "Les données douanières et financières peuvent diverger temporairement"
+        ],
+        "examples": [
+          "Pays exportateur de pétrole : excédent courant = accumulation de réserves + achats d'actifs étrangers",
+          "Pays en développement : déficit courant = IDE entrant + émissions d'obligations"
+        ]
+      },
+      {
+        "title": "Qualification économique des déséquilibres : bons vs mauvais",
+        "content": "Un déséquilibre externe n'est ni intrinsèquement bon ni mauvais : sa qualité dépend de l'origine de l'épargne/désépargne et de l'usage des capitaux. Un déficit peut être 'bon' s'il finance des investissements productifs augmentant la capacité future de remboursement (infrastructures, équipements). Il devient 'mauvais' quand il finance principalement la consommation ou des bulles d'actifs. Symétriquement, un excédent peut être mal utilisé si l'épargne est mal recyclée vers des actifs peu rentables.",
+        "concepts": [
+          {
+            "term": "Déficit productif",
+            "definition": "Déficit courant finançant des investissements qui augmentent la productivité et la capacité exportatrice future, permettant le remboursement.",
+            "ref": "Analyse économique standard"
+          },
+          {
+            "term": "Sudden stop",
+            "definition": "Arrêt brutal des entrées de capitaux provoquant une crise de liquidité en devises, hausse des taux d'intérêt et récession.",
+            "ref": "Littérature crises financières"
+          },
+          {
+            "term": "Mismatch de devises",
+            "definition": "Situation où les dettes sont libellées en devise étrangère alors que les revenus sont en monnaie locale, créant un risque de change.",
+            "ref": "Analyse des risques financiers"
+          }
+        ],
+        "keyPoints": [
+          "La composition des flux importe plus que le signe : IDE/equity vs dette courte",
+          "Les investissements productifs justifient les déficits temporaires",
+          "Les dettes en devises étrangères augmentent la vulnérabilité",
+          "La maturité des financements conditionne la stabilité"
+        ],
+        "warnings": [
+          "Un excédent permanent peut signaler un sous-investissement domestique",
+          "Les déficits financés par des capitaux volatiles sont fragiles",
+          "L'accumulation de dettes en devises crée des risques systémiques"
+        ],
+        "examples": [
+          "États-Unis XIXe siècle : déficits finançant chemins de fer et industrialisation",
+          "Corée du Sud 1960-1997 : déficits pour importation d'équipements et technologies",
+          "Norvège années 1970 : financement externe du développement pétrolier offshore"
+        ]
+      },
+      {
+        "title": "Grille d'analyse opérationnelle et mesures d'atténuation",
+        "content": "L'évaluation d'un déséquilibre externe nécessite une analyse multidimensionnelle : nature des flux (productifs vs consommation), stabilité du financement (IDE vs dette courte), soutenabilité de la position nette, gestion des risques de change et qualité institutionnelle. Les mesures d'atténuation incluent la restructuration des flux vers plus d'equity, l'allongement des maturités, le développement des marchés domestiques et les politiques macroprudentielles.",
+        "concepts": [
+          {
+            "term": "Politique macroprudentielle",
+            "definition": "Ensemble de mesures visant à limiter les risques systémiques : ratios de levier, encadrement du crédit, stress tests bancaires.",
+            "ref": "Bâle III, régulation financière"
+          },
+          {
+            "term": "Hot money",
+            "definition": "Capitaux spéculatifs à court terme, très volatils, pouvant provoquer des crises lors de leur retrait brutal.",
+            "ref": "Finance internationale"
+          }
+        ],
+        "keyPoints": [
+          "Privilégier les financements longs et en monnaie locale",
+          "Développer les marchés de capitaux domestiques",
+          "Renforcer la supervision bancaire et les ratios prudentiels",
+          "Éviter la sur-dépendance aux capitaux volatils"
+        ],
+        "warnings": [
+          "Les contrôles de capitaux peuvent avoir des effets pervers",
+          "La couverture de change a un coût et des limites",
+          "Les politiques d'austérité peuvent aggraver les déséquilibres"
+        ],
+        "examples": [
+          "Chili : taxe sur les capitaux courts (años 1990)",
+          "Corée : renforcement de la supervision après la crise de 1997",
+          "Brésil : mesures macroprudentielles sur le crédit immobilier"
+        ]
+      }
+    ]
+  },
+  "enrichments": [
+    {
+      "type": "complement",
+      "title": "Évolutions récentes et défis contemporains",
+      "content": "Les balances des paiements font face à de nouveaux défis : mesure des services numériques, impact des cryptomonnaies, rôle des centres financiers offshore et évolution des chaînes de valeur mondiales. Les banques centrales développent de nouveaux outils (swaps de devises, QE coordonné) pour gérer les déséquilibres. La régulation internationale se renforce (FATF, OCDE BEPS) pour limiter l'évasion fiscale affectant les balances courantes."
+    }
+  ],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
