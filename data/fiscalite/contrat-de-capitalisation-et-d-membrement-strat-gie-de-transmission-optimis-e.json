@@ -1,0 +1,222 @@
+{
+  "metadata": {
+    "title": "Contrat de Capitalisation et Démembrement : Stratégie de Transmission Optimisée",
+    "category": "fiscalite",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document technique bien structuré avec cas pratique détaillé",
+      "Mise en garde appropriée sur les montages abusifs",
+      "Barème fiscal art. 669 CGI correctement intégré"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Contrat de Capitalisation et Démembrement : Stratégie de Transmission Optimisée",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Contrat de capitalisation vs Assurance-vie",
+        "content": "Le contrat de capitalisation est un produit d'épargne géré par un assureur, pouvant investir en fonds euros, unités de compte ou SCPI. Contrairement à l'assurance-vie, il peut être souscrit par une personne morale et entre dans l'actif successoral.\n\n**Différences clés :**\n- **Succession** : L'assurance-vie sort de la succession grâce à la clause bénéficiaire, le contrat de capitalisation y entre\n- **Abattement fiscal** : 152 500€ pour l'assurance-vie (art. 990 I CGI), aucun pour la capitalisation\n- **Donation** : Complexe pour l'assurance-vie, possible en nature pour la capitalisation\n- **Antériorité fiscale** : Perdue en assurance-vie si rachat puis donation, conservée en capitalisation\n- **Souscription société** : Impossible en assurance-vie, possible en capitalisation\n\nL'intérêt principal réside dans les possibilités de donation et démembrement, pas seulement comme complément de l'assurance-vie.",
+        "concepts": [
+          {
+            "term": "Contrat de capitalisation",
+            "definition": "Produit d'épargne géré par un assureur, pouvant être souscrit par personne physique ou morale, entrant dans l'actif successoral contrairement à l'assurance-vie",
+            "ref": ""
+          },
+          {
+            "term": "Antériorité fiscale",
+            "definition": "Conservation de la date de souscription pour l'application de la fiscalité avantageuse, maintenue lors d'une donation du contrat de capitalisation",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Le contrat de capitalisation entre dans la succession contrairement à l'assurance-vie",
+          "Possibilité de donation en nature avec conservation de l'antériorité fiscale",
+          "Souscription possible par les sociétés pour optimiser la trésorerie"
+        ],
+        "warnings": [
+          "Ne pas considérer uniquement comme un complément après les 152 500€ d'assurance-vie"
+        ],
+        "examples": [
+          "Holding souscrivant un contrat de capitalisation pour placer sa trésorerie excédentaire"
+        ]
+      },
+      {
+        "title": "Mécanisme du démembrement de propriété",
+        "content": "Le démembrement divise la pleine propriété en deux droits distincts :\n\n**Usufruit (US)** : Droit de jouir du bien, d'encaisser les revenus, de procéder à des rachats et d'effectuer des arbitrages\n\n**Nue-propriété (NP)** : Droit sur la substance du bien, qui devient automatiquement pleine propriété à l'extinction de l'usufruit\n\n**Extinction de l'usufruit :**\n- Décès de l'usufruitier (cas le plus fréquent)\n- Expiration du terme (usufruit temporaire)\n- Réunion des deux droits sur la même personne\n\nÀ l'extinction, la nue-propriété se transforme automatiquement en pleine propriété sans droits supplémentaires.",
+        "concepts": [
+          {
+            "term": "Démembrement de propriété",
+            "definition": "Division de la pleine propriété en usufruit (droit de jouir) et nue-propriété (droit sur la substance)",
+            "ref": ""
+          },
+          {
+            "term": "Extinction de l'usufruit",
+            "definition": "Cessation automatique de l'usufruit entraînant la transformation de la nue-propriété en pleine propriété",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "L'usufruit confère tous les droits de gestion et de jouissance",
+          "La nue-propriété devient automatiquement pleine propriété",
+          "Aucun droit supplémentaire à l'extinction de l'usufruit"
+        ],
+        "warnings": [],
+        "examples": [
+          "Parents conservant l'usufruit d'un contrat de capitalisation tout en donnant la nue-propriété aux enfants"
+        ]
+      },
+      {
+        "title": "Barème fiscal de valorisation",
+        "content": "La valeur fiscale de l'usufruit et de la nue-propriété dépend de l'âge de l'usufruitier selon l'article 669 du CGI :\n\n**Barème par tranches d'âge :**\n- Moins de 21 ans : US 90% / NP 10%\n- 21 à 30 ans : US 80% / NP 20%\n- 31 à 40 ans : US 70% / NP 30%\n- 41 à 50 ans : US 60% / NP 40%\n- **51 à 60 ans : US 50% / NP 50%**\n- 61 à 70 ans : US 40% / NP 60%\n- 71 à 80 ans : US 30% / NP 70%\n- 81 à 90 ans : US 20% / NP 80%\n- Plus de 91 ans : US 10% / NP 90%\n\nCe barème détermine la base taxable aux droits de donation lors du démembrement.",
+        "concepts": [
+          {
+            "term": "Article 669 CGI",
+            "definition": "Article fixant le barème de valorisation fiscale de l'usufruit et de la nue-propriété en fonction de l'âge de l'usufruitier",
+            "ref": "art. 669 CGI"
+          },
+          {
+            "term": "Valeur fiscale",
+            "definition": "Pourcentage de la valeur totale du bien attribué à l'usufruit ou à la nue-propriété pour le calcul des droits",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Le barème varie en fonction de l'âge de l'usufruitier",
+          "Plus l'usufruitier est jeune, plus l'usufruit a de valeur fiscale",
+          "La valorisation de la nue-propriété augmente avec l'âge de l'usufruitier"
+        ],
+        "warnings": [],
+        "examples": [
+          "À 52 ans, la nue-propriété représente 50% de la valeur totale du bien"
+        ]
+      },
+      {
+        "title": "Cas pratique : optimisation familiale",
+        "content": "**Situation :** Parents de 52 ans, 3 enfants, contrat de capitalisation de 350 000€\n\n**Application du barème :**\n- Âge 52 ans → Usufruit 50% / Nue-propriété 50%\n- Valeur fiscale NP = 350 000€ × 50% = **175 000€**\n- Par enfant = 175 000€ ÷ 3 = **58 333€** de NP reçue\n\n**Calcul des droits :**\n- Abattement disponible = 100 000€ par parent/enfant\n- Avec 2 parents : jusqu'à 200 000€ d'abattement total\n- **Résultat : 0€ de droits** si abattements non consommés\n\n**Évolution au décès :**\n- Extinction automatique de l'usufruit\n- NP → Pleine propriété sans droits supplémentaires\n- Exemple : contrat à 600 000€ → récupération intégrale\n- Croissance (250 000€) hors droits de succession",
+        "concepts": [
+          {
+            "term": "Abattement donation",
+            "definition": "Montant exonéré de droits de donation, soit 100 000€ par parent et par enfant, renouvelable tous les 15 ans",
+            "ref": ""
+          },
+          {
+            "term": "Gel de la base taxable",
+            "definition": "Technique consistant à fixer la valeur imposable au moment de la donation, excluant la croissance future",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Droits calculés sur la valeur de la nue-propriété au jour de la donation",
+          "Croissance future du contrat hors droits de succession",
+          "Possibilité d'utiliser les abattements de donation des deux parents"
+        ],
+        "warnings": [
+          "Vérifier la disponibilité des abattements (historique des donations)"
+        ],
+        "examples": [
+          "Contrat passant de 350k€ à 600k€ : seuls 175k€ étaient imposables"
+        ]
+      },
+      {
+        "title": "Paiement des droits et précautions",
+        "content": "**Principe :** Les droits de donation sont dus par le **donataire** (celui qui reçoit la nue-propriété).\n\n**Si les parents paient les droits :**\n- Peut constituer une **donation supplémentaire** (\"don des droits\")\n- Application de l'article 751 CGI\n- Nécessité d'intégrer cette donation dans le schéma global\n- Le notaire doit structurer l'acte en conséquence\n\n**Gestion pendant l'usufruit :**\n- Parents conservent tous droits de gestion\n- Supportent l'IR/PFU sur les produits retirés\n- Peuvent procéder à des rachats selon leurs besoins\n- Enfants n'ont qu'un droit futur sur ce qui restera",
+        "concepts": [
+          {
+            "term": "Don des droits",
+            "definition": "Situation où le donateur paie les droits de donation dus par le donataire, constituant une donation supplémentaire",
+            "ref": "art. 751 CGI"
+          },
+          {
+            "term": "Donataire",
+            "definition": "Personne qui reçoit la donation, légalement redevable des droits de donation",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Droits normalement à la charge du bénéficiaire de la donation",
+          "Paiement par les parents = donation supplémentaire à déclarer",
+          "Parents conservent la pleine gestion du contrat"
+        ],
+        "warnings": [
+          "Bien structurer l'acte si les parents paient les droits",
+          "Anticiper les besoins de liquidité des parents"
+        ],
+        "examples": [
+          "Acte de donation précisant qui supporte les droits et frais"
+        ]
+      },
+      {
+        "title": "Montages abusifs à éviter",
+        "content": "**Le montage risqué :** Holding prenant l'usufruit temporaire, personne physique la nue-propriété, dans l'espoir de récupérer la pleine propriété sans taxation.\n\n**Pourquoi c'est dangereux :**\n\n1. **Surveillance renforcée :** Usufruit temporaire + personne morale = montage ciblé par l'administration (maximum 30 ans, BOFiP)\n\n2. **Requalification en revenus distribués :** Si l'objectif est d'éviter la taxation des dividendes → dividendes déguisés\n\n3. **Abus de droit (L. 64 LPF) :** Montage à but principalement fiscal sans substance économique → redressement + pénalité jusqu'à 80%\n\n**Règle de prudence :**\n✅ Démembrement parents (usufruit) / enfants (nue-propriété) = schéma classique défendable\n❌ Démembrement holding (usufruit) / particulier (nue-propriété) = très fort risque fiscal",
+        "concepts": [
+          {
+            "term": "Abus de droit fiscal",
+            "definition": "Montage juridique ayant pour but exclusif ou principal d'éviter l'impôt, sanctionné par l'article L. 64 LPF",
+            "ref": "L. 64 LPF"
+          },
+          {
+            "term": "Usufruit temporaire",
+            "definition": "Usufruit limité dans le temps, souvent utilisé dans des montages d'optimisation fiscale surveillés par l'administration",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Montages holding/usufruit temporaire = danger fiscal majeur",
+          "Risque de requalification en dividendes déguisés",
+          "Pénalités pouvant atteindre 80% en cas d'abus de droit"
+        ],
+        "warnings": [
+          "Éviter absolument les montages holding/usufruit temporaire",
+          "Privilégier les schémas familiaux classiques"
+        ],
+        "examples": [
+          "Holding créée uniquement pour porter l'usufruit d'un contrat = montage abusif"
+        ]
+      },
+      {
+        "title": "Avantages et limites de la stratégie",
+        "content": "**✅ Avantages principaux :**\n\n- **Gel de la base taxable :** Droits calculés sur la nue-propriété aujourd'hui, pas sur la valeur future\n- **Croissance hors succession :** Plus-value du contrat échappe totalement aux droits\n- **Protection des parents :** Conservation des revenus et de la souplesse de gestion\n- **Équité familiale :** Répartition égalitaire de la nue-propriété entre les enfants\n\n**⚠️ Limites et risques :**\n\n- **Risque de marché :** Sous-performance possible → abattement \"gaspillé\" sur un actif qui ne croît pas\n- **Risque de consommation :** Parents peuvent consommer une partie importante (retraite, santé, dépendance)\n- **Horizon long :** À 52 ans, beaucoup d'aléas possibles avant l'extinction de l'usufruit\n- **Complexité juridique :** Nécessite un accompagnement professionnel de qualité",
+        "concepts": [
+          {
+            "term": "Gel patrimonial",
+            "definition": "Technique consistant à bloquer la valeur taxable d'un actif tout en permettant sa croissance future hors taxation",
+            "ref": ""
+          },
+          {
+            "term": "Horizon de placement",
+            "definition": "Durée prévisible de détention d'un actif, ici liée à l'espérance de vie des usufruitiers",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Technique très efficace sur le long terme",
+          "Nécessite une bonne santé financière des parents",
+          "Horizon d'investissement potentiellement très long",
+          "Complexité juridique nécessitant un accompagnement expert"
+        ],
+        "warnings": [
+          "Evaluer la capacité financière des parents sur le long terme",
+          "Prévoir les aléas de marché sur un horizon long",
+          "S'entourer de conseils juridiques et fiscaux compétents"
+        ],
+        "examples": [
+          "Contrat de 350k€ générant 250k€ de plus-value hors droits de succession"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
