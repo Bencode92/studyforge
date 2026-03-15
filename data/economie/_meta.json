@@ -1,1 +1,10 @@
-{"name": "Economie", "icon": "📈", "fiches": []}
+{
+  "name": "Economie",
+  "icon": "📈",
+  "fiches": [
+    {
+      "id": "l-or-comme-r-serve-de-valeur-th-orie-des-4-cadrans-conomiques-et-strat-gies-d-allocation-d-actifs",
+      "title": "L'Or comme Réserve de Valeur - Théorie des 4 Cadrans Économiques et Stratégies d'Allocation d'Actifs"
+    }
+  ]
+}
