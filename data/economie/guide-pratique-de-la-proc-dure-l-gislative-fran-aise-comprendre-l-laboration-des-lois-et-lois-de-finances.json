@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "title": "Guide pratique de la procédure législative française : comprendre l'élaboration des lois et lois de finances",
+    "category": "economie",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique bien structuré sur la procédure législative française",
+      "Focus pertinent sur les lois de finances avec délais constitutionnels",
+      "Exemples concrets facilitant la compréhension",
+      "Sources officielles citées et vérifiables"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique de la procédure législative française : comprendre l'élaboration des lois et lois de finances",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Les acteurs et types de textes législatifs",
+        "content": "Le système législatif français implique plusieurs acteurs clés avec des rôles distincts. Le Gouvernement dépose la plupart des projets de loi et pilote le calendrier législatif. L'Assemblée nationale (députés) examine, amende et vote les textes tout en contrôlant le Gouvernement. Le Sénat, en tant que seconde chambre et co-législateur, peut amender et proposer des versions différentes. Le Conseil constitutionnel contrôle la conformité des lois à la Constitution, tandis que le Président de la République promulgue les lois après contrôle éventuel.\n\nIl existe différents types de textes avec des procédures spécifiques :\n- Les lois ordinaires adoptées par le Parlement avec promulgation présidentielle\n- Les lois de finances (PLF) pour le budget de l'État avec des délais stricts de 70 jours\n- Les lois de financement de la sécurité sociale (PLFSS) pour l'équilibre de la Sécurité sociale avec des délais de 50 jours\n- Les décrets pris par le Gouvernement pour l'application des lois\n- Les ordonnances permettant au Gouvernement d'agir rapidement dans un cadre constitutionnel défini",
+        "concepts": [
+          {
+            "term": "Projet de loi",
+            "definition": "Texte législatif déposé par le Gouvernement devant le Parlement",
+            "ref": "Article 39 Constitution"
+          },
+          {
+            "term": "Proposition de loi",
+            "definition": "Texte législatif déposé par un parlementaire",
+            "ref": "Article 39 Constitution"
+          },
+          {
+            "term": "PLF",
+            "definition": "Projet de Loi de Finances déterminant les recettes et dépenses de l'État",
+            "ref": "Article 47 Constitution"
+          },
+          {
+            "term": "PLFSS",
+            "definition": "Projet de Loi de Financement de la Sécurité Sociale",
+            "ref": "Article 47-1 Constitution"
+          }
+        ],
+        "keyPoints": [
+          "Le Gouvernement et le Parlement sont les acteurs centraux de la procédure législative",
+          "Les lois de finances ont des procédures et délais spéciaux (70 jours pour PLF, 50 jours pour PLFSS)",
+          "Distinction importante entre projets (Gouvernement) et propositions de loi (Parlement)"
+        ],
+        "warnings": [
+          "Ne pas confondre les différents types de textes budgétaires",
+          "Les délais constitutionnels sont stricts et peuvent déclencher des procédures d'exception"
+        ],
+        "examples": [
+          "Loi ordinaire : loi sur le travail, les retraites",
+          "PLF : budget annuel de l'État",
+          "PLFSS : budget de la Sécurité sociale"
+        ]
+      },
+      {
+        "title": "Procédure législative standard",
+        "content": "La procédure législative ordinaire suit un cheminement précis en plusieurs étapes. Après le dépôt d'un projet ou d'une proposition de loi, le texte est examiné en commission où ont lieu auditions, analyses et premier tri des amendements. Puis vient la séance publique avec débat et vote article par article, suivi du vote sur l'ensemble du texte.\n\nLe principe fondamental est qu'une loi n'existe que quand l'Assemblée nationale et le Sénat adoptent exactement le même texte. En cas de désaccord, s'engage une navette parlementaire où le texte fait des allers-retours entre les deux chambres, chacune pouvant le modifier.\n\nSi le blocage persiste, une Commission Mixte Paritaire (CMP) composée de 7 députés et 7 sénateurs tente de trouver un compromis. En dernier recours, dans certains cas, l'Assemblée nationale peut avoir le dernier mot.\n\nLa procédure se termine par la promulgation présidentielle et la publication au Journal officiel, avec possibilité de contrôle constitutionnel.",
+        "concepts": [
+          {
+            "term": "Navette parlementaire",
+            "definition": "Procédure d'allers-retours du texte entre AN et Sénat jusqu'à adoption du même texte",
+            "ref": "Article 45 Constitution"
+          },
+          {
+            "term": "Commission Mixte Paritaire (CMP)",
+            "definition": "Commission de 7 députés et 7 sénateurs cherchant un compromis en cas de désaccord",
+            "ref": "Article 45 Constitution"
+          },
+          {
+            "term": "Dernier mot",
+            "definition": "Possibilité pour l'Assemblée nationale de statuer définitivement en cas d'échec de la CMP",
+            "ref": "Article 45 Constitution"
+          },
+          {
+            "term": "Promulgation",
+            "definition": "Acte du Président de la République rendant la loi applicable",
+            "ref": "Article 10 Constitution"
+          }
+        ],
+        "keyPoints": [
+          "Une loi n'existe que si AN et Sénat adoptent le même texte exactement",
+          "La navette permet de résoudre les désaccords par allers-retours",
+          "La CMP est un mécanisme de compromis (7+7 parlementaires)",
+          "L'AN peut avoir le dernier mot dans certaines conditions"
+        ],
+        "warnings": [
+          "Le Sénat n'est pas une simple chambre de validation mais un vrai co-législateur",
+          "Le 'dernier mot' de l'AN n'est pas automatique",
+          "Les procédures de sortie de crise dépendent du contexte"
+        ],
+        "examples": [
+          "Exemple de navette : un projet modifié par le Sénat retourne à l'AN",
+          "CMP réussie : accord trouvé sur un texte de compromis",
+          "Dernier mot AN : après échec de CMP sur loi ordinaire"
+        ]
+      },
+      {
+        "title": "Procédures spéciales des lois de finances",
+        "content": "Les lois de finances (PLF pour l'État, PLFSS pour la Sécurité sociale) suivent des procédures particulières avec des délais constitutionnels stricts pour éviter le blocage des finances publiques.\n\nPour le PLF (budget de l'État), le délai global est de 70 jours selon l'article 47 de la Constitution. L'Assemblée nationale dispose de 40 jours pour la première lecture, puis le Sénat de 15 jours, le reste du délai étant consacré aux lectures suivantes.\n\nPour le PLFSS (budget Sécurité sociale), l'article 47-1 prévoit un délai de 50 jours : 20 jours pour l'AN en première lecture, 15 jours pour le Sénat, le solde pour les lectures ultérieures.\n\nCes textes ont une structure particulière (première partie recettes, seconde partie dépenses) avec des règles de recevabilité des amendements spécifiques. En cas de dépassement des délais, certaines dispositions peuvent être mises en œuvre par ordonnance, mécanisme encadré constitutionnellement.",
+        "concepts": [
+          {
+            "term": "Délai constitutionnel",
+            "definition": "Délai impératif prévu par la Constitution pour l'adoption des lois de finances",
+            "ref": "Articles 47 et 47-1 Constitution"
+          },
+          {
+            "term": "Ordonnance budgétaire",
+            "definition": "Mécanisme permettant la mise en œuvre du budget en cas de dépassement des délais",
+            "ref": "Articles 47 et 47-1 Constitution"
+          },
+          {
+            "term": "Recevabilité budgétaire",
+            "definition": "Règles spéciales filtrant les amendements sur les textes financiers",
+            "ref": "Article 40 Constitution"
+          },
+          {
+            "term": "Structure budgétaire",
+            "definition": "Organisation du texte budgétaire en parties (recettes, dépenses, autorisations)",
+            "ref": "LOLF"
+          }
+        ],
+        "keyPoints": [
+          "Délais constitutionnels stricts : 70 jours (PLF), 50 jours (PLFSS)",
+          "Structure spécifique avec règles de recevabilité particulières",
+          "Mécanisme d'ordonnance en cas de dépassement des délais",
+          "Procédures accélérées pour éviter la paralysie budgétaire"
+        ],
+        "warnings": [
+          "Les délais sont impératifs et déclenchent des mécanismes automatiques",
+          "Les amendements budgétaires ont des règles de recevabilité strictes",
+          "Le dépassement des délais peut conduire à des ordonnances"
+        ],
+        "examples": [
+          "PLF 2024 : budget annuel de l'État voté avant le 31 décembre",
+          "PLFSS 2024 : budget de la Sécurité sociale avec ses délais spécifiques",
+          "Ordonnance budgétaire : mise en œuvre forcée en cas de blocage parlementaire"
+        ]
+      },
+      {
+        "title": "Outils procéduraux et mécanismes de contrôle",
+        "content": "Plusieurs outils permettent de faire évoluer ou débloquer la procédure législative. Le droit d'amendement constitue le moteur du travail parlementaire, permettant de modifier le texte par ajout, suppression ou reformulation, avec des règles de recevabilité (lien avec le texte, impact financier).\n\nL'article 49 alinéa 3 (49.3) est un outil majeur : le Gouvernement engage sa responsabilité sur un texte à l'Assemblée nationale, le texte étant réputé adopté sauf vote d'une motion de censure à la majorité des membres de l'AN.\n\nLes ordonnances permettent au Gouvernement de légiférer dans un cadre constitutionnel précis, notamment pour les budgets en cas de dépassement des délais.\n\nLe Conseil constitutionnel peut être saisi avant promulgation pour contrôler la conformité constitutionnelle, censurant éventuellement des dispositions hors sujet, mal adoptées ou contraires aux droits constitutionnels.",
+        "concepts": [
+          {
+            "term": "Amendement",
+            "definition": "Modification proposée à un texte législatif (ajout, suppression, reformulation)",
+            "ref": "Article 44 Constitution"
+          },
+          {
+            "term": "Article 49.3",
+            "definition": "Engagement de responsabilité du Gouvernement sur un texte, réputé adopté sauf censure",
+            "ref": "Article 49 Constitution"
+          },
+          {
+            "term": "Motion de censure",
+            "definition": "Procédure permettant à l'AN de renverser le Gouvernement",
+            "ref": "Article 49 Constitution"
+          },
+          {
+            "term": "Contrôle de constitutionnalité",
+            "definition": "Vérification de la conformité d'une loi à la Constitution par le Conseil constitutionnel",
+            "ref": "Article 61 Constitution"
+          }
+        ],
+        "keyPoints": [
+          "Le droit d'amendement est encadré par des règles de recevabilité",
+          "Le 49.3 lie adoption du texte et survie du Gouvernement",
+          "Les ordonnances sont un mécanisme constitutionnel encadré",
+          "Le Conseil constitutionnel contrôle procédure et fond"
+        ],
+        "warnings": [
+          "Le 49.3 ne s'applique qu'à l'Assemblée nationale",
+          "La motion de censure doit réunir la majorité absolue des députés",
+          "Le contrôle constitutionnel peut censurer tout ou partie d'une loi"
+        ],
+        "examples": [
+          "Amendement : modification d'un article de loi en commission",
+          "49.3 : adoption forcée d'une réforme controversée",
+          "Motion de censure : tentative d'opposition pour renverser le Gouvernement",
+          "Décision CC : censure de dispositions contraires à la Constitution"
+        ]
+      },
+      {
+        "title": "Exemples pratiques et cas d'étude",
+        "content": "L'analyse de cas concrets illustre le fonctionnement réel des procédures. La loi 2015-990 (dite 'loi Macron') montre une utilisation de la navette, puis d'une CMP, avec recours au 49.3 à l'Assemblée nationale lors de certaines lectures. Le Conseil constitutionnel a rendu une décision avant promulgation, censurant certains articles.\n\nLa LFSSR 2023 (Loi de Financement rectificative de la Sécurité Sociale) illustre l'application de l'article 47-1 avec ses délais stricts de 50 jours et sa procédure adaptée. Le Conseil constitutionnel a exercé son contrôle tant sur la procédure que sur le contenu.\n\nCes exemples montrent l'importance de comprendre les travaux préparatoires disponibles sur Légifrance, qui détaillent chronologiquement toutes les étapes : dépôts, rapports, discussions, CMP, et mentions explicites des outils utilisés (49.3, etc.).",
+        "concepts": [
+          {
+            "term": "Travaux préparatoires",
+            "definition": "Documentation officielle retraçant toutes les étapes d'adoption d'une loi",
+            "ref": "Légifrance"
+          },
+          {
+            "term": "Loi rectificative",
+            "definition": "Loi modifiant une loi de finances en cours d'exercice",
+            "ref": "LOLF"
+          },
+          {
+            "term": "Lecture définitive",
+            "definition": "Dernière lecture d'un texte avant adoption définitive",
+            "ref": "Règlement AN/Sénat"
+          },
+          {
+            "term": "Décision de conformité",
+            "definition": "Contrôle du Conseil constitutionnel validant ou censurant une loi",
+            "ref": "Article 61 Constitution"
+          }
+        ],
+        "keyPoints": [
+          "Les exemples concrets éclairent les mécanismes théoriques",
+          "Les travaux préparatoires sont accessibles et détaillés",
+          "Le contrôle constitutionnel est fréquent sur les textes financiers",
+          "La chronologie procédurale est traçable officiellement"
+        ],
+        "warnings": [
+          "Chaque cas a ses spécificités procédurales",
+          "Les délais budgétaires s'imposent même avec des blocages politiques",
+          "Le Conseil constitutionnel peut intervenir à tout moment avant promulgation"
+        ],
+        "examples": [
+          "Loi Macron 2015 : navette + CMP + 49.3 + contrôle constitutionnel",
+          "LFSSR 2023 : application délais 47-1 + contrôle CC",
+          "Dossier parlementaire : chronologie complète des étapes sur Légifrance"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
