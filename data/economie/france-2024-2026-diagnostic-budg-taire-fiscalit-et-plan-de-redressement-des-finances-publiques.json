@@ -1,0 +1,142 @@
+{
+  "metadata": {
+    "title": "France 2024-2026 : Diagnostic budgétaire, fiscalité et plan de redressement des finances publiques",
+    "category": "economie",
+    "created": "2026-03-15",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Données sourcées INSEE, Eurostat, DREES 2024-2025"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "France 2024-2026 : Diagnostic budgétaire, fiscalité et plan de redressement des finances publiques",
+        "date": "2026-03-15"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Situation budgétaire 2024 : état des lieux",
+        "content": "La France présente en 2024 un déficit public de -169,6 Md€ (5,8% du PIB) avec des dépenses publiques atteignant 1 670,2 Md€ (57,1% du PIB) pour des recettes de 1 500,6 Md€ (51,3% du PIB). La dette publique s'établit à 3 305 Md€, soit 113% du PIB. Cette situation résulte d'un déséquilibre structurel entre dépenses croissantes, notamment sociales (932,5 Md€ soit 31,9% du PIB), et recettes insuffisantes malgré une pression fiscale élevée.",
+        "concepts": [
+          {
+            "term": "Déficit public",
+            "definition": "Situation où les dépenses des administrations publiques excèdent leurs recettes sur une année donnée, nécessitant un financement par emprunt",
+            "ref": "INSEE 2024"
+          },
+          {
+            "term": "Pression fiscale",
+            "definition": "Part des prélèvements obligatoires (impôts et cotisations sociales) dans le PIB, mesurant le poids relatif des prélèvements publics dans l'économie",
+            "ref": "Eurostat"
+          }
+        ],
+        "keyPoints": [
+          "Déficit de 5,8% du PIB, bien au-dessus des critères européens (3%)",
+          "Dette publique à 113% du PIB, niveau critique pour la soutenabilité",
+          "Dépenses publiques représentant 57,1% du PIB, parmi les plus élevées d'Europe"
+        ],
+        "warnings": [
+          "Le déficit dépasse largement les critères de Maastricht (3% du PIB)",
+          "La charge de la dette (58 Md€) peut rapidement augmenter en cas de hausse des taux"
+        ],
+        "examples": [
+          "En 2024, pour chaque euro dépensé par l'État, seulement 90 centimes sont financés par les recettes courantes"
+        ]
+      },
+      {
+        "title": "Spécificités fiscales françaises et comparaisons européennes",
+        "content": "La France se caractérise par une pression fiscale de 45,3% du PIB en 2024, supérieure à l'Allemagne (40,9%) et à la moyenne UE (40,4%). Le point critique concerne les impôts de production payés par les sociétés : 2,9% du PIB contre 0,7% en Allemagne. Ces taxes, dues même sans bénéfice, pénalisent particulièrement l'industrie et l'investissement. La récente hausse de la CSG (9,2% à 10,6%) sur certains revenus du capital porte le PFU concerné à 31,4%.",
+        "concepts": [
+          {
+            "term": "Impôts de production",
+            "definition": "Taxes assises sur l'activité économique (masse salariale, foncier, valeur ajoutée) dues indépendamment du résultat de l'entreprise",
+            "ref": "FIPECO"
+          },
+          {
+            "term": "PFU (Prélèvement Forfaitaire Unique)",
+            "definition": "Système d'imposition à taux fixe pour certains revenus du capital, alternative au barème progressif de l'impôt sur le revenu",
+            "ref": "CGI"
+          }
+        ],
+        "keyPoints": [
+          "Pression fiscale française 4,9 points supérieure à la moyenne européenne",
+          "Écart de 2,2 points de PIB sur les impôts de production avec l'Allemagne",
+          "Hausse récente de la fiscalité du capital via la CSG"
+        ],
+        "warnings": [
+          "Les impôts de production élevés nuisent à la compétitivité industrielle",
+          "L'écart fiscal avec nos voisins peut favoriser les délocalisations"
+        ],
+        "examples": [
+          "Une entreprise industrielle française paie proportionnellement 4 fois plus d'impôts de production qu'en Allemagne"
+        ]
+      },
+      {
+        "title": "Structure des dépenses sociales : analyse des masses",
+        "content": "Les prestations sociales (932,5 Md€, 31,9% du PIB) sont dominées par deux postes : retraites (426,7 Md€, 45,8%) et santé (338,9 Md€, 36,3%), représentant ensemble 82% du total. Les autres prestations (famille, emploi, logement, exclusion) ne pèsent que 167 Md€ (17,9%). Cette structure révèle que les économies significatives ne peuvent provenir que d'une réforme des deux postes principaux, les ajustements sur les aides 'visibles' ayant un impact budgétaire limité.",
+        "concepts": [
+          {
+            "term": "Protection sociale",
+            "definition": "Ensemble des mécanismes de prévoyance collective permettant aux individus de faire face aux conséquences financières des risques sociaux",
+            "ref": "DREES"
+          },
+          {
+            "term": "Périmètre APU vs DREES",
+            "definition": "APU (comptes publics consolidés) diffère de DREES (focus protection sociale) dans le périmètre et la méthode de comptabilisation",
+            "ref": "INSEE/DREES"
+          }
+        ],
+        "keyPoints": [
+          "82% des prestations concentrées sur retraites et santé",
+          "Vieillissement démographique accentuant la pression structurelle",
+          "Impact limité des réformes focalisées uniquement sur RSA/chômage"
+        ],
+        "warnings": [
+          "Le basculement démographique de 2025 (décès > naissances) aggrave mécaniquement les coûts",
+          "Toute réforme significative doit traiter retraites et santé"
+        ],
+        "examples": [
+          "Supprimer entièrement le RSA générerait 12 Md€ d'économies, soit 7% de l'ajustement budgétaire nécessaire"
+        ]
+      },
+      {
+        "title": "Plan d'actions : trajectoire de redressement budgétaire",
+        "content": "Pour ramener le déficit de 5,8% à 3% du PIB, un ajustement de 82 Md€ est nécessaire. Le plan propose : retraites (26 Md€ via pilotage automatique), santé (18 Md€ par amélioration de l'organisation), simplification publique (12 Md€), recentrage des subventions (15 Md€) et autres mesures (12 Md€). Parallèlement, la baisse des impôts de production doit être financée soit par ces économies (option mixte) soit après stabilisation de la dette (option séquentielle).",
+        "concepts": [
+          {
+            "term": "Pilotage automatique des retraites",
+            "definition": "Mécanisme d'ajustement automatique des paramètres du système de retraite en fonction de l'évolution démographique et économique",
+            "ref": "Réformes structurelles"
+          },
+          {
+            "term": "Impôts de production ciblés",
+            "definition": "Réduction sélective des taxes sur la production, prioritairement pour l'industrie et l'export",
+            "ref": "FIPECO"
+          }
+        ],
+        "keyPoints": [
+          "Ajustement de 2,8 points de PIB nécessaire sur 3-5 ans",
+          "Approche séquentielle : stabilisation budgétaire puis baisse fiscale",
+          "Ciblage prioritaire industrie/export pour la compétitivité"
+        ],
+        "warnings": [
+          "Risque de récession si l'ajustement est trop rapide",
+          "Acceptabilité sociale critique pour les réformes retraites/santé"
+        ],
+        "examples": [
+          "Calendrier illustratif : audit 0-6 mois, réformes structurelles 6-24 mois, convergence fiscale 2-5 ans"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
