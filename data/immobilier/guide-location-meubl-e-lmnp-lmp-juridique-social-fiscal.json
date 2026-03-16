@@ -1,0 +1,167 @@
+{
+  "metadata": {
+    "title": "Guide Location Meublée — LMNP / LMP (juridique • social • fiscal)",
+    "category": "immobilier",
+    "created": "2024-12-28",
+    "version": 1,
+    "verified": false,
+    "verificationNotes": [
+      "Date du document source incohérente (2026)",
+      "Seuils à vérifier selon barèmes actuels",
+      "Section résidence secondaire incomplète"
+    ],
+    "sources": [
+      {
+        "type": "document",
+        "name": "Guide Location Meublée Version 4",
+        "date": "2024-12-28"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définition juridique de la location meublée",
+        "content": "Une location est qualifiée de meublée lorsque, au moment de l'entrée dans les lieux, la présence de meubles permet au locataire de vivre normalement avec ses seuls effets personnels. La qualification dépend de la cohérence du mobilier, de l'inventaire détaillé et des preuves documentaires.",
+        "concepts": [
+          {
+            "term": "Kit minimum légal",
+            "definition": "Ensemble d'équipements obligatoires défini par le Décret n°2015-981 pour les résidences principales meublées",
+            "ref": "Décret n°2015-981 du 31-07-2015"
+          },
+          {
+            "term": "Inventaire contradictoire",
+            "definition": "Document détaillé listant tous les meubles et équipements, signé par les parties, annexé au bail",
+            "ref": "Cass. 3e civ., 9-2-2005, n° 03-15.128"
+          }
+        ],
+        "keyPoints": [
+          "Literie complète (lit, matelas, couette)",
+          "Équipement cuisine (plaques, four/micro-ondes, frigo)",
+          "Vaisselle et ustensiles adaptés à l'occupation",
+          "Table, sièges et rangements suffisants",
+          "Dispositifs d'occultation dans les chambres"
+        ],
+        "warnings": [
+          "Sur-équiper ne protège pas sans inventaire solide",
+          "Équipement symbolique insuffisant (1 assiette, etc.)",
+          "Absence d'ustensiles = risque de requalification"
+        ],
+        "examples": [
+          "Studio : frigo table-top avec compartiment -6°C minimum",
+          "T2 : table + 4 chaises si capacité annoncée 4 personnes"
+        ]
+      },
+      {
+        "title": "Statuts LMNP et LMP - Triple définition",
+        "content": "Le statut de loueur meublé se décline en 3 qualifications indépendantes : juridique (activité habituelle), sociale (cotisations SSI) et fiscale (régime IR). Un même bailleur peut avoir des statuts différents selon chaque angle.",
+        "concepts": [
+          {
+            "term": "LMP juridique",
+            "definition": "Qualification d'activité habituelle de location de plusieurs logements meublés",
+            "ref": "Jurisprudence constante"
+          },
+          {
+            "term": "LMP social",
+            "definition": "Affiliation SSI si recettes foyer > 23 000 € + critères complémentaires",
+            "ref": "CSS art. L 611-1, 6° ; CSS art. L 311-3, 35°"
+          },
+          {
+            "term": "LMP fiscal",
+            "definition": "Recettes meublé > 23 000 € ET supérieures aux autres revenus professionnels du foyer",
+            "ref": "CGI art. 155 IV"
+          }
+        ],
+        "keyPoints": [
+          "Seuil unique de 23 000 € pour social et fiscal",
+          "LMP fiscal exige la prépondérance des recettes meublé",
+          "Courte durée = risque social accru même sous seuils",
+          "Option régime général possible sous conditions"
+        ],
+        "warnings": [
+          "Basculement LMP/LMNP possible d'une année sur l'autre",
+          "Affiliation sociale peut annuler optimisation fiscale",
+          "Location courte durée = critères différents"
+        ],
+        "examples": [
+          "30k€ meublé + 60k€ salaires = LMNP fiscal mais risque social",
+          "40k€ meublé + 20k€ salaires = LMP fiscal et social"
+        ]
+      },
+      {
+        "title": "Types de baux selon l'usage",
+        "content": "Le régime du bail dépend de l'usage prévu : résidence principale (Loi 1989), bail mobilité, résidence secondaire (droit commun) ou location touristique. Chaque régime a ses propres règles de durée, garantie et congé.",
+        "concepts": [
+          {
+            "term": "Bail résidence principale meublée",
+            "definition": "Contrat d'au moins 1 an régi par la loi de 1989, avec encadrement strict",
+            "ref": "Loi 6-7-1989 art. 25-3 à 25-11"
+          },
+          {
+            "term": "Bail mobilité",
+            "definition": "Bail de 1 à 10 mois non renouvelable pour profils spécifiques",
+            "ref": "Loi 6-7-1989 art. 25-12 à 25-18"
+          }
+        ],
+        "keyPoints": [
+          "Durée minimale 1 an (9 mois étudiant) en résidence principale",
+          "Dépôt de garantie plafonné à 2 mois en résidence principale",
+          "Bail mobilité interdit le dépôt de garantie",
+          "Congé locataire : 1 mois vs 3 mois bailleur en résidence principale"
+        ],
+        "warnings": [
+          "Erreur de régime = clauses réputées non écrites",
+          "Bail mobilité doit mentionner le motif précis",
+          "Pas de renouvellement possible en bail mobilité"
+        ],
+        "examples": [
+          "Étudiant Erasmus = bail mobilité 6 mois",
+          "Salarié en mission = bail mobilité jusqu'à 10 mois"
+        ]
+      },
+      {
+        "title": "Fiscalité et choix du régime",
+        "content": "Le choix entre micro-BIC et régime réel dépend de 3 variables : charges déductibles, amortissements possibles et stratégie de sortie. Le déficit LMNP n'est imputable que sur les revenus fonciers.",
+        "concepts": [
+          {
+            "term": "Micro-BIC",
+            "definition": "Régime simplifié avec abattement forfaitaire de 50% sur les recettes",
+            "ref": "CGI art. 50-0"
+          },
+          {
+            "term": "Régime réel",
+            "definition": "Déduction des charges réelles et amortissements, comptabilité obligatoire",
+            "ref": "CGI art. 38"
+          },
+          {
+            "term": "Déficit LMNP",
+            "definition": "Déficit imputable uniquement sur revenus fonciers sur 10 ans",
+            "ref": "CGI art. 155 IV"
+          }
+        ],
+        "keyPoints": [
+          "Micro-BIC : simplicité vs abattement forfaitaire 50%",
+          "Réel : déduction charges + amortissements mobilier et immobilier",
+          "Seuils micro-BIC à vérifier selon activité (tourisme/classique)",
+          "Amortissements impactent la plus-value à la revente"
+        ],
+        "warnings": [
+          "Déficit LMNP non imputable sur revenus globaux",
+          "Amortissements = reprise à la cession",
+          "Option régime réel irrévocable pendant 2 ans"
+        ],
+        "examples": [
+          "Charges 8k€ + amortissements 5k€ > abattement forfaitaire",
+          "Revente prévue : attention à l'impact amortissements"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
