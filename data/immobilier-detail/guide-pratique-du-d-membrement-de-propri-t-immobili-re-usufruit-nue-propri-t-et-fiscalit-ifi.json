@@ -1,0 +1,286 @@
+{
+  "metadata": {
+    "title": "Guide pratique du démembrement de propriété immobilière : usufruit, nue-propriété et fiscalité IFI",
+    "category": "immobilier-detail",
+    "created": "2026-03-16",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique officiel sur le démembrement de propriété",
+      "Références juridiques vérifiées (Code civil, CGI)",
+      "Jurisprudence récente intégrée (Cass. 1re civ., 23 oct. 2024)",
+      "Approche opérationnelle avec matrices et cas pratiques"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique du démembrement de propriété immobilière : usufruit, nue-propriété et fiscalité IFI",
+        "date": "2026-03-16"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Fondamentaux du démembrement de propriété",
+        "content": "Le démembrement de propriété divise la pleine propriété en deux droits distincts : l'usufruit et la nue-propriété. Cette technique juridique permet de séparer l'usage et la jouissance d'un bien (usufruit) de sa propriété résiduelle (nue-propriété). L'usufruitier peut occuper, louer et percevoir les revenus du bien, tandis que le nu-propriétaire conserve l'abusus et récupère automatiquement la pleine propriété à l'extinction de l'usufruit.",
+        "concepts": [
+          {
+            "term": "Usufruit",
+            "definition": "Droit de jouir d'un bien appartenant à un autre comme le propriétaire, mais avec l'obligation d'en conserver la substance (Code civil, art. 578)",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Nue-propriété",
+            "definition": "Droit résiduel du propriétaire qui conserve l'abusus et récupère automatiquement la pleine propriété à l'extinction de l'usufruit",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Usus",
+            "definition": "Droit d'usage du bien, appartenant à l'usufruitier qui peut occuper ou donner en location",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Fructus",
+            "definition": "Droit aux fruits et revenus du bien, permettant à l'usufruitier de percevoir les loyers",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Abusus",
+            "definition": "Droit de disposition appartenant au nu-propriétaire, incluant la vente de la nue-propriété",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Droit d'usage et d'habitation (DUH)",
+            "definition": "Droit plus restreint que l'usufruit, personnel, non cessible et non louable sauf aménagements encadrés",
+            "ref": "CC 625-636"
+          }
+        ],
+        "keyPoints": [
+          "Le démembrement crée deux droits de nature différente, évitant l'indivision",
+          "L'usufruit peut être viager (extinction au décès) ou temporaire (durée fixée)",
+          "L'usufruitier a l'obligation de conserver la substance du bien",
+          "La valeur fiscale suit des barèmes spécifiques selon le type d'usufruit",
+          "Le quasi-usufruit concerne les biens consomptibles avec obligation de restitution"
+        ],
+        "warnings": [
+          "Document pédagogique ne remplaçant pas un notaire ou avocat",
+          "Les règles et jurisprudence évoluent : vérification nécessaire avant engagement",
+          "Différence fondamentale avec l'indivision : nature juridique distincte des droits"
+        ],
+        "examples": [
+          "Usufruit viager : parent garde l'usufruit du logement familial, enfants ont la nue-propriété",
+          "Usufruit temporaire : donation avec réserve d'usufruit de 15 ans",
+          "DUH : droit d'habitation personnel d'un conjoint survivant"
+        ]
+      },
+      {
+        "title": "Répartition des pouvoirs entre usufruitier et nu-propriétaire",
+        "content": "La distinction fondamentale s'opère entre actes d'administration (gestion courante) relevant de l'usufruitier et actes de disposition (affectant la substance) nécessitant l'accord du nu-propriétaire. Cette matrice des pouvoirs détermine qui peut décider quoi dans la gestion du bien démembré.",
+        "concepts": [
+          {
+            "term": "Actes d'administration",
+            "definition": "Actes de gestion courante du bien que l'usufruitier peut accomplir seul",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Actes de disposition",
+            "definition": "Actes affectant durablement la valeur ou la substance du bien nécessitant accord du nu-propriétaire",
+            "ref": "CC 578"
+          },
+          {
+            "term": "Bail d'habitation simple",
+            "definition": "Bail de 9 ans maximum pouvant être signé par l'usufruitier seul",
+            "ref": "CC 595"
+          },
+          {
+            "term": "Bail commercial",
+            "definition": "Bail nécessitant obligatoirement l'accord du nu-propriétaire sous peine de nullité relative",
+            "ref": "CC 595"
+          }
+        ],
+        "keyPoints": [
+          "L'usufruitier gère seul les actes d'administration courante",
+          "Les baux d'habitation de plus de 9 ans ont une opposabilité limitée au nu-propriétaire",
+          "Les baux commerciaux et ruraux exigent l'accord du nu-propriétaire",
+          "La vente de la pleine propriété nécessite l'accord des deux parties",
+          "Une convention de démembrement peut organiser les pouvoirs différemment"
+        ],
+        "warnings": [
+          "Baux > 9 ans signés par l'usufruitier seul : opposabilité limitée au nu-propriétaire",
+          "Baux commerciaux sans accord du nu-propriétaire : nullité relative possible",
+          "Risque de fraude aux droits du nu-propriétaire pour les baux anormaux"
+        ],
+        "examples": [
+          "Bail habitation 11 ans : seules 9 années opposables au nu-propriétaire",
+          "Bail commercial signé sans le nu-propriétaire : nullité à sa demande",
+          "Location avec loyer très bas : risque de contestation pour fraude"
+        ]
+      },
+      {
+        "title": "Gestion des baux en présence d'usufruit",
+        "content": "Le régime des baux avec démembrement de propriété est encadré par l'article 595 du Code civil. L'enjeu principal est de sécuriser l'opposabilité du bail et d'éviter les contestations ultérieures. La durée du bail et sa nature déterminent les règles applicables.",
+        "concepts": [
+          {
+            "term": "Opposabilité limitée",
+            "definition": "Mécanisme par lequel un bail de plus de 9 ans signé par l'usufruitier seul n'engage le nu-propriétaire que pour 9 ans",
+            "ref": "CC 595"
+          },
+          {
+            "term": "Nullité relative",
+            "definition": "Nullité du bail commercial ou rural signé sans accord du nu-propriétaire, invocable par ce dernier",
+            "ref": "CC 595"
+          },
+          {
+            "term": "Bail anormal",
+            "definition": "Bail avec conditions disproportionnées (loyer très bas, avantages excessifs) exposant à contestation",
+            "ref": "Jurisprudence"
+          }
+        ],
+        "keyPoints": [
+          "Bail habitation ≤ 9 ans : usufruitier peut signer seul",
+          "Bail habitation > 9 ans : co-signature recommandée pour sécuriser",
+          "Bail commercial/rural : accord nu-propriétaire obligatoire",
+          "Prêt à usage : contrat fragile, fin à l'extinction de l'usufruit",
+          "Documentation des loyers de marché pour éviter la fraude"
+        ],
+        "warnings": [
+          "Bail > 9 ans sans nu-propriétaire : locataire non sécurisé en fin d'usufruit",
+          "Bail commercial sans accord : nullité à la demande du nu-propriétaire",
+          "Loyers anormalement bas : risque de requalification en fraude"
+        ],
+        "examples": [
+          "Bail habitation 11 ans signé seul : seules 9 années opposables",
+          "Bail commercial sans nu-propriétaire : demande de nullité possible",
+          "Bail familial gratuit : fin automatique à l'extinction de l'usufruit"
+        ]
+      },
+      {
+        "title": "Représentation en copropriété",
+        "content": "Lorsque le lot de copropriété est démembré, la loi du 10 juillet 1965 organise un mécanisme de représentation en assemblée générale. À défaut d'accord entre usufruitier et nu-propriétaire, ils sont représentés par un mandataire commun, le nu-propriétaire ayant priorité.",
+        "concepts": [
+          {
+            "term": "Mandataire commun",
+            "definition": "Personne désignée pour représenter usufruitier et nu-propriétaire en assemblée générale de copropriété",
+            "ref": "Loi 65-557 art. 23"
+          },
+          {
+            "term": "Représentation par défaut",
+            "definition": "À défaut d'accord, représentation assurée par le nu-propriétaire, ou mandataire désigné par le tribunal",
+            "ref": "Loi 65-557 art. 23"
+          }
+        ],
+        "keyPoints": [
+          "Notification obligatoire du démembrement au syndic",
+          "Désignation écrite d'un mandataire commun recommandée",
+          "Qualification nécessaire des résolutions selon leur impact financier",
+          "Solidarité possible entre usufruitier et nu-propriétaire selon le règlement",
+          "Conservation des justificatifs pour IFI et éviter requalification en libéralité"
+        ],
+        "warnings": [
+          "Clauses de solidarité possibles dans le règlement de copropriété",
+          "Impact financier différent selon la nature des travaux votés",
+          "Nécessité de prévoir la trésorerie en cas de solidarité"
+        ],
+        "examples": [
+          "Travaux d'entretien courant : charges de l'usufruitier",
+          "Travaux de ravalement : souvent grosses réparations",
+          "Mandataire commun : évite les blocages en assemblée"
+        ]
+      },
+      {
+        "title": "Répartition des charges et travaux",
+        "content": "La distinction fondamentale s'opère entre réparations d'entretien (à la charge de l'usufruitier) et grosses réparations (à la charge du nu-propriétaire), selon les articles 605-606 du Code civil. Cette répartition peut être source de conflits et nécessite une qualification précise des travaux.",
+        "concepts": [
+          {
+            "term": "Réparations d'entretien",
+            "definition": "Travaux courants de maintenance et de préservation du bien, à la charge de l'usufruitier",
+            "ref": "CC 605"
+          },
+          {
+            "term": "Grosses réparations",
+            "definition": "Travaux lourds de structure et de gros œuvre, à la charge du nu-propriétaire sauf défaut d'entretien",
+            "ref": "CC 606"
+          },
+          {
+            "term": "Défaut d'entretien",
+            "definition": "Négligence de l'usufruitier dans l'entretien ayant causé des grosses réparations, inversant la charge",
+            "ref": "CC 605"
+          },
+          {
+            "term": "Amélioration",
+            "definition": "Travaux d'amélioration du bien décidés par l'usufruitier, sans indemnité due au terme sauf convention",
+            "ref": "CC 599"
+          }
+        ],
+        "keyPoints": [
+          "L'usufruitier paie l'entretien courant, le nu-propriétaire les grosses réparations",
+          "Article 606 : liste légale des grosses réparations (murs, toiture, charpente)",
+          "Défaut d'entretien inverse la charge vers l'usufruitier",
+          "Amélioration par l'usufruitier : aucune indemnité due sauf convention",
+          "Travaux d'isolation : souvent qualifiés d'amélioration"
+        ],
+        "warnings": [
+          "Qualification délicate entre entretien et grosse réparation",
+          "Risque de blocage si nu-propriétaire refuse de financer",
+          "Défaut d'entretien peut inverser totalement la charge financière"
+        ],
+        "examples": [
+          "Entretien : peinture, chaudière, tuiles ponctuelles",
+          "Grosses réparations : toiture complète, ravalement, charpente",
+          "Zone grise : remplacement fenêtres, mise aux normes électriques"
+        ]
+      },
+      {
+        "title": "Financement des travaux par l'usufruitier : créance ou libéralité",
+        "content": "Quand l'usufruitier finance des travaux normalement à la charge du nu-propriétaire, deux qualifications sont possibles : avance remboursable (créance) ou libéralité. La jurisprudence récente rappelle les risques de requalification en donation indirecte, même pour des travaux légalement à la charge de l'usufruitier.",
+        "concepts": [
+          {
+            "term": "Avance remboursable",
+            "definition": "Financement par l'usufruitier avec obligation de remboursement à la vente ou à l'extinction",
+            "ref": "Pratique contractuelle"
+          },
+          {
+            "term": "Libéralité indirecte",
+            "definition": "Financement sans contrepartie caractérisant un dépouillement dans une intention libérale",
+            "ref": "Cass. 1re civ. 23 oct. 2024"
+          },
+          {
+            "term": "Dépouillement",
+            "definition": "Acte par lequel l'usufruitier appauvrit son patrimoine au profit du nu-propriétaire",
+            "ref": "Jurisprudence"
+          },
+          {
+            "term": "Intention libérale",
+            "definition": "Volonté de gratifier autrui sans contrepartie, caractérisant la donation",
+            "ref": "Droit des donations"
+          }
+        ],
+        "keyPoints": [
+          "Financement par l'usufruitier peut être requalifié en libéralité",
+          "Jurisprudence du 23 octobre 2024 : rappel des risques",
+          "Distinction créance/libéralité déterminante pour succession et fiscalité",
+          "Documentation indispensable : devis, protocole, justifications",
+          "Seuils et processus de validation à prévoir contractuellement"
+        ],
+        "warnings": [
+          "Risque de rapport à succession ou réduction pour donation",
+          "Requalification possible même pour travaux légalement à charge usufruitier",
+          "Défaut de documentation exposant à contestation ultérieure"
+        ],
+        "examples": [
+          "Usufruitier finance ravalement : créance si protocole écrit",
+          "Travaux sans justification : risque de donation indirecte",
+          "Documentation : devis comparatifs, photos, justification urgence"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
