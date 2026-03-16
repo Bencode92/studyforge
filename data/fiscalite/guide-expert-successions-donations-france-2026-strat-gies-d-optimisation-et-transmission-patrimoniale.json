@@ -1,0 +1,223 @@
+{
+  "metadata": {
+    "title": "Guide Expert Successions & Donations France 2026 - Stratégies d'optimisation et transmission patrimoniale",
+    "category": "fiscalite",
+    "created": "2026-03-16",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Barèmes 2026 vérifiés",
+      "Références Code civil et CGI actualisées",
+      "Document incomplet - s'arrête chapitre 7",
+      "Niveau expert confirmé par la complexité technique"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide Expert Successions & Donations France 2026 - Stratégies d'optimisation et transmission patrimoniale",
+        "date": "2026-03-16"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "L'ordre des héritiers et la dévolution légale",
+        "content": "En l'absence de testament, la loi désigne les héritiers selon un ordre de priorité strict basé sur le lien de parenté. Quatre ordres successifs : 1) Enfants et descendants (totalité à parts égales), 2) Parents + fratrie (parents 1/4 chacun, F/S le reste), 3) Ascendants (par fente 1/2 chaque branche), 4) Collatéraux ordinaires (oncles, tantes, cousins jusqu'au 6e degré). La réserve héréditaire garantit aux enfants une part minimale : 1/2 pour 1 enfant, 2/3 pour 2 enfants, 3/4 pour 3+ enfants. La quotité disponible reste libre de disposition. La représentation permet aux petits-enfants de prendre la place d'un parent prédécédé avec l'avantage fiscal de l'abattement 100k€ au lieu de 31 865€.",
+        "concepts": [
+          {
+            "term": "Ordre des héritiers",
+            "definition": "Hiérarchie légale désignant les bénéficiaires d'une succession en l'absence de testament, chaque ordre excluant le suivant",
+            "ref": "Art. 734-745 CC"
+          },
+          {
+            "term": "Réserve héréditaire",
+            "definition": "Part minimale du patrimoine garantie aux héritiers réservataires (enfants), variant de 50% à 75% selon le nombre d'enfants",
+            "ref": "Art. 912-913 CC"
+          },
+          {
+            "term": "Quotité disponible",
+            "definition": "Fraction du patrimoine dont le défunt peut disposer librement par testament ou donation, complément de la réserve",
+            "ref": "Art. 913 CC"
+          },
+          {
+            "term": "Représentation successorale",
+            "definition": "Mécanisme permettant aux descendants d'un héritier prédécédé de prendre sa place dans la succession",
+            "ref": "Art. 751-755 CC"
+          }
+        ],
+        "keyPoints": [
+          "Chaque ordre d'héritiers exclut complètement le suivant",
+          "La réserve héréditaire est d'ordre public et inviolable",
+          "La renonciation à succession permet l'optimisation fiscale par représentation",
+          "Le droit de retour des parents s'exerce en nature sur les biens donnés"
+        ],
+        "warnings": [
+          "La renonciation à succession est définitive et irrévocable",
+          "Sans testament, le partenaire PACS ne reçoit rien",
+          "La réserve ne peut être contournée que par pacte de famille"
+        ],
+        "examples": [
+          "Patrimoine 1M€, 2 enfants : réserve 666 667€, quotité disponible 333 333€",
+          "Grand-parent qui renonce : ses petits-enfants héritent avec abattement 100k€ chacun"
+        ]
+      },
+      {
+        "title": "Les droits du conjoint survivant",
+        "content": "Le statut matrimonial détermine les droits successoraux : mariage (héritage automatique, exonération totale, droit au logement), PACS (testament obligatoire, exonération totale, logement 1 an), concubinage (aucun droit automatique, abattement 152 500€ sur AV uniquement). La donation au dernier vivant (DDV) offre au conjoint marié 3 options : 100% usufruit, quotité disponible en pleine propriété, ou mix 25% PP + 75% usufruit. L'attribution préférentielle du logement est un droit automatique du conjoint marié. Pour les PACS, la stratégie de réversion d'usufruit compense l'absence de droit viager.",
+        "concepts": [
+          {
+            "term": "Donation au dernier vivant",
+            "definition": "Acte permettant au conjoint survivant de choisir entre 3 options d'héritage, améliore ses droits légaux",
+            "ref": "Art. 1094-1 CC"
+          },
+          {
+            "term": "Attribution préférentielle",
+            "definition": "Droit du conjoint marié d'obtenir prioritairement la résidence principale, même contre soulte",
+            "ref": "Art. 831-2 CC"
+          },
+          {
+            "term": "Réversion d'usufruit",
+            "definition": "Clause permettant à l'usufruitier de transmettre automatiquement son droit à un tiers désigné",
+            "ref": "Art. 949 CC"
+          }
+        ],
+        "keyPoints": [
+          "PACS : testament absolument obligatoire sinon aucun droit",
+          "Conjoint marié : exonération totale des droits de succession",
+          "DDV incontestable par les enfants, même d'un autre lit (limitée à 25% PP)",
+          "Réversion d'usufruit : stratégie clé pour les PACS mais irréversible"
+        ],
+        "warnings": [
+          "DDV limitée à 25% en pleine propriété si enfants d'un autre lit",
+          "Réversion d'usufruit irréversible même en cas de rupture PACS",
+          "Concubin : aucune exonération sur succession, taxation à 60%"
+        ],
+        "examples": [
+          "DDV 100% usufruit : conjoint > 60 ans, besoin de revenus, enfants attendent le 2nd décès",
+          "Réversion PACS : donation NP logement aux enfants + usufruit réversible au partenaire"
+        ]
+      },
+      {
+        "title": "Les abattements et barèmes fiscaux",
+        "content": "Les abattements varient selon le lien de parenté : enfant/parent 100k€, petit-enfant 31 865€ en donation/1 594€ en succession, conjoint/PACS exonération totale, frère/sœur 15 932€. Don familial 790 G : abattement supplémentaire 31 865€ pour dons d'argent (donateur <80 ans, bénéficiaire majeur, ligne directe), cumulable avec l'abattement classique. Exonération logement neuf 790 A bis : 100k€ par donateur jusqu'au 31/12/2026. Barème ligne directe progressif de 5% à 45%, autres liens de 35% à 60%.",
+        "concepts": [
+          {
+            "term": "Don familial de sommes d'argent",
+            "definition": "Abattement spécial de 31 865€ pour dons d'argent en ligne directe, cumulable avec l'abattement classique",
+            "ref": "Art. 790 G CGI"
+          },
+          {
+            "term": "Abattement personnel",
+            "definition": "Montant exonéré de droits selon le lien de parenté, renouvelable tous les 15 ans",
+            "ref": "Art. 779 CGI"
+          },
+          {
+            "term": "Exonération logement neuf",
+            "definition": "Dispositif temporaire d'exonération jusqu'à 100k€ pour donation de logement neuf ou VEFA",
+            "ref": "Art. 790 A bis CGI"
+          }
+        ],
+        "keyPoints": [
+          "Cumul maximum couple → 2 enfants : 527 460€ sans droits (131 865€ × 2 × 2)",
+          "Abattements renouvelables tous les 15 ans en donation",
+          "Handicap : +159 325€ d'abattement supplémentaire cumulable",
+          "Exonération logement neuf expire fin 2026 - urgence !"
+        ],
+        "warnings": [
+          "Petit-enfant : gros écart abattement donation (31 865€) vs succession (1 594€)",
+          "Don 790 G : conditions strictes âge donateur/donataire",
+          "790 A bis expire 31/12/2026 - dernière chance"
+        ],
+        "examples": [
+          "Parent → enfant : 100k€ + 31 865€ (790 G) = 131 865€ sans droits",
+          "Succession 600k€ après abattement : (600k-100k) × 20% - 1 806€ = 98 194€ de droits"
+        ]
+      },
+      {
+        "title": "L'assurance vie et le PER en succession",
+        "content": "L'assurance vie est hors succession avec abattement 152 500€ par bénéficiaire sur primes <70 ans. Au-delà : 20% jusqu'à 700k€ puis 31,25%. Primes >70 ans : abattement global 30 500€ partagé, gains exonérés. Le PER suit les mêmes règles depuis la loi PACTE mais ATTENTION : l'abattement 152 500€ est PARTAGÉ entre AV et PER, pas cumulé. Risque primes exagérées si >35% du patrimoine. Clause bénéficiaire à vérifier régulièrement. Le contrat de capitalisation conserve l'antériorité fiscale et permet la donation en nue-propriété.",
+        "concepts": [
+          {
+            "term": "Primes exagérées",
+            "definition": "Versements manifestement disproportionnés (seuil ±35% patrimoine) pouvant être réintégrés en succession",
+            "ref": "Jurisprudence"
+          },
+          {
+            "term": "Contrat de capitalisation",
+            "definition": "Support transmis en l'état au décès, conservant l'antériorité fiscale, utilisable pour optimisation",
+            "ref": "Art. 990 I CGI"
+          },
+          {
+            "term": "Clause bénéficiaire",
+            "definition": "Désignation des personnes recevant le capital décès, élément clé à maintenir à jour",
+            "ref": "Art. L132-8 Code assurances"
+          }
+        ],
+        "keyPoints": [
+          "AV hors succession = avantage majeur vs succession classique",
+          "PER = mêmes règles AV mais abattement PARTAGÉ (piège !)",
+          "Primes <70 ans : 152 500€ par bénéficiaire vs >70 ans : 30 500€ global",
+          "Capitalisation : stratégie quand abattement AV saturé"
+        ],
+        "warnings": [
+          "AV + PER = un seul abattement 152 500€ à partager",
+          "Clause bénéficiaire obsolète = risque de transmission non voulue",
+          "Primes exagérées : réintégration possible par héritiers réservataires"
+        ],
+        "examples": [
+          "AV 200k€ + PER 200k€ = 400k€ sur abattement unique 152 500€",
+          "Clause type : 'Mon conjoint, à défaut mes enfants nés ou à naître, par parts égales'"
+        ]
+      },
+      {
+        "title": "Les donations : anticiper pour optimiser",
+        "content": "Donation simple vs donation-partage : la première est réévaluée au décès (conflits possibles), la seconde fige la valeur (paix familiale). Donation en démembrement : transmettre la nue-propriété en gardant l'usufruit, économies importantes selon l'âge (45 ans = 40% de la valeur, 75 ans = 70%). Donation graduelle pour familles recomposées : bien transmis au conjoint puis obligatoirement aux enfants, le conjoint ne peut vendre (charge de conservation). La donation-partage conjonctive permet aux époux de donner ensemble les biens communs.",
+        "concepts": [
+          {
+            "term": "Donation-partage",
+            "definition": "Donation avec répartition immédiate entre bénéficiaires, valeur figée au jour de l'acte",
+            "ref": "Art. 1075 CC"
+          },
+          {
+            "term": "Démembrement de propriété",
+            "definition": "Division du droit de propriété entre usufruit (usage/revenus) et nue-propriété (propriétaire final)",
+            "ref": "Art. 578-624 CC"
+          },
+          {
+            "term": "Donation graduelle",
+            "definition": "Bien donné avec obligation de conservation et transmission ultérieure obligatoire à des seconds bénéficiaires",
+            "ref": "Art. 1048-1061 CC"
+          },
+          {
+            "term": "Barème fiscal démembrement",
+            "definition": "Valeurs forfaitaires usufruit/nue-propriété selon l'âge de l'usufruitier",
+            "ref": "Art. 669 CGI"
+          }
+        ],
+        "keyPoints": [
+          "Plus on donne tôt en démembrement, moins il y a de droits à payer",
+          "Donation-partage évite les conflits de réévaluation au décès",
+          "Donation graduelle = protection conjoint + garantie enfants du 1er lit",
+          "Usufruit s'éteint au décès : transmission automatique sans droits"
+        ],
+        "warnings": [
+          "Donation simple : risque de rapport réévalué créant des inégalités",
+          "Donation graduelle vs résiduelle : bien distinguer (vente possible ou non)",
+          "Démembrement irréversible : réfléchir aux conséquences"
+        ],
+        "examples": [
+          "Don NP 1M€ à 45 ans : droits sur 400k€ vs 700k€ à 75 ans",
+          "Donation graduelle : maison au conjoint puis aux enfants du 1er lit au 2nd décès"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
