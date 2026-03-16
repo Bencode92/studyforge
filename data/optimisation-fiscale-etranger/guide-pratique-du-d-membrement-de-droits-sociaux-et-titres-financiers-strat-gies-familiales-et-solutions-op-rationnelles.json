@@ -1,0 +1,205 @@
+{
+  "metadata": {
+    "title": "Guide pratique du démembrement de droits sociaux et titres financiers - Stratégies familiales et solutions opérationnelles",
+    "category": "optimisation-fiscale",
+    "created": "2026-01-16",
+    "version": 1,
+    "verified": false,
+    "verificationNotes": [
+      "Document incomplet (s'arrête au point 5)",
+      "Références juridiques à vérifier",
+      "Aspects fiscaux à compléter"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique du démembrement de droits sociaux et titres financiers",
+        "date": "2026-01-06"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Principe et objectifs du démembrement",
+        "content": "Le démembrement de propriété consiste à séparer l'usufruit (droit de jouissance) de la nue-propriété (droit sur le capital). Dans le contexte familial, cette technique permet une transmission progressive du patrimoine. L'objectif est de déterminer (i) qui décide, (ii) qui encaisse, (iii) qui supporte le risque, et (iv) comment éviter le blocage et le contentieux. La configuration type étudiée : père détenant 51% en pleine propriété plus l'usufruit sur 49% en nue-propriété répartie entre trois enfants.",
+        "concepts": [
+          {
+            "term": "Pleine propriété (PP)",
+            "definition": "Droit complet comprenant l'usus (usage), le fructus (jouissance) et l'abusus (disposition)",
+            "ref": "Article 544 du Code civil"
+          },
+          {
+            "term": "Nue-propriété (NP)",
+            "definition": "Droit sur le capital sans jouissance des revenus pendant la durée de l'usufruit",
+            "ref": "Articles 578 et suivants du Code civil"
+          },
+          {
+            "term": "Usufruit",
+            "definition": "Droit de percevoir les fruits (revenus) d'un bien sans en altérer la substance",
+            "ref": "Article 578 du Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Nu-propriété = capital ; usufruit = jouissance",
+          "Qualité d'associé appartient en principe au nu-propriétaire",
+          "L'usufruitier n'est pas associé mais peut agir sur les décisions affectant sa jouissance",
+          "Distinction cruciale entre fruits (revenus) et produits (capital)"
+        ],
+        "warnings": [
+          "Les statuts peuvent répartir certains droits différemment des règles légales",
+          "Risque de qualification différente selon la jurisprudence"
+        ],
+        "examples": [
+          "Père 51 ans détenant 51% PP + usufruit sur 49% NP répartie entre trois enfants"
+        ]
+      },
+      {
+        "title": "Gouvernance et droits de vote",
+        "content": "La gouvernance du démembrement distingue le droit de vote de la participation aux assemblées. Depuis 2019 (art. 1844 C.civ.), usufruitier et nu-propriétaire participent aux décisions collectives. Les règles de vote varient selon la forme sociale : en SCI/SARL/SAS, le nu-propriétaire vote sauf pour l'affectation des bénéfices ; en SA, l'usufruitier vote en AGO, le nu-propriétaire en AGE.",
+        "concepts": [
+          {
+            "term": "Droit de vote",
+            "definition": "Pouvoir de participer au résultat d'une résolution lors des décisions collectives",
+            "ref": "Articles 1844 C.civ. et dispositions spéciales selon la forme sociale"
+          },
+          {
+            "term": "Droit de participation",
+            "definition": "Droit d'être convoqué, recevoir les documents, poser des questions et s'exprimer",
+            "ref": "Article 1844 C.civ. (réforme 2019)"
+          },
+          {
+            "term": "Abus de droit",
+            "definition": "Exercice du droit d'usufruit ou de nue-propriété de manière excessive portant atteinte aux droits de l'autre",
+            "ref": "Articles 599 et 618 du Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Usufruitier et nu-propriétaire sont convoqués aux assemblées (ordre public)",
+          "Vote du nu-propriétaire par défaut, sauf affectation des bénéfices pour l'usufruitier",
+          "En SA : répartition AGO (usufruitier) / AGE (nu-propriétaire)",
+          "Possibilité d'aménagement statutaire dans certaines limites"
+        ],
+        "warnings": [
+          "Ne pas priver l'usufruitier de son vote sur l'affectation des bénéfices",
+          "Éviter les abus : dissolution opportuniste, consommation du capital sans base légale",
+          "Organiser le reporting pour éviter les conflits d'information"
+        ],
+        "examples": [
+          "Nu-propriétaire ne peut refuser arbitrairement la distribution de dividendes",
+          "Usufruitier ne peut consommer le prix de cession d'actions sans convention"
+        ]
+      },
+      {
+        "title": "Droits pécuniaires : fruits et produits",
+        "content": "La distinction fruits/produits est cruciale en matière de démembrement. Les fruits (revenus réguliers) reviennent à l'usufruitier, les produits (capital) au nu-propriétaire. Un bénéfice ne devient fruit qu'à la décision de distribution. Les flux exceptionnels (réserves, primes, ventes d'actifs) sont souvent qualifiés de produits avec possibilité de quasi-usufruit.",
+        "concepts": [
+          {
+            "term": "Fruits",
+            "definition": "Revenus réguliers produits par un bien sans altérer sa substance (dividendes, intérêts)",
+            "ref": "Article 583 du Code civil"
+          },
+          {
+            "term": "Produits",
+            "definition": "Sommes issues de la réalisation du capital ou portant atteinte à la substance du bien",
+            "ref": "Jurisprudence constante"
+          },
+          {
+            "term": "Quasi-usufruit",
+            "definition": "Usufruit sur un bien consomptible (argent) créant une dette de restitution",
+            "ref": "Article 587 du Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Bénéfice distribuable ≠ fruit : devient fruit à la décision de distribution",
+          "Dividende ordinaire (résultat courant) = fruit usufruitier",
+          "Réserves/primes/dividendes exceptionnels = souvent produit nu-propriétaire",
+          "Quasi-usufruit permet liquidité sans perdre juridiquement le capital"
+        ],
+        "warnings": [
+          "Qualifier précisément chaque flux avant distribution",
+          "Quasi-usufruit = risque de solvabilité et de preuve",
+          "Nécessité de conventions pour sécuriser les qualifications"
+        ],
+        "examples": [
+          "SCI vend immeuble 2M€ et distribue 400k€ : produit + quasi-usufruit recommandé",
+          "Dividende annuel récurrent : fruit usufruitier classique"
+        ]
+      },
+      {
+        "title": "Cas pratique - SCI et résultat exceptionnel",
+        "content": "Une SCI détient 2 immeubles (actif net 4M€) et vend l'immeuble A pour 2M€ (plus-value 650k€). Elle distribue 400k€ en 'dividende exceptionnel'. Trois traitements possibles : (1) Fruit usufruitier - simple mais contestable si atteinte à la substance, (2) Produit + quasi-usufruit - liquidité père avec dette de restitution, (3) Remploi - réinvestissement avec report du démembrement.",
+        "concepts": [
+          {
+            "term": "Résultat exceptionnel",
+            "definition": "Bénéfice non récurrent (plus-value de cession, indemnités) distinct du résultat courant",
+            "ref": "Plan comptable général"
+          },
+          {
+            "term": "Atteinte à la substance",
+            "definition": "Critère d'appréciation de la qualification fruit/produit selon l'impact sur le patrimoine social",
+            "ref": "Jurisprudence constante"
+          },
+          {
+            "term": "Remploi",
+            "definition": "Réinvestissement du produit de cession avec report du démembrement sur le nouvel actif",
+            "ref": "Article 1384 du Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Vente d'actif structurant = présomption de produit",
+          "Conservation patrimoine cohérent = argument contre atteinte substance",
+          "Convention nécessaire pour organiser quasi-usufruit",
+          "Remploi = protection optimale nu-propriétaire"
+        ],
+        "warnings": [
+          "Analyser au cas par cas selon la substance du patrimoine restant",
+          "Quasi-usufruit = risque solvabilité père envers enfants",
+          "Prévoir indexation et garanties pour dette restitution"
+        ],
+        "examples": [
+          "400k€ distribués après vente : père usage quasi-usufruitier + dette envers 3 enfants",
+          "Alternative remploi : SCI rachète immeuble ou place fonds dédiés"
+        ]
+      },
+      {
+        "title": "Portefeuille de valeurs mobilières",
+        "content": "Le démembrement d'un portefeuille-titres suit le principe d'universalité : l'usufruitier peut arbitrer librement mais ne peut extraire le cash pour usage personnel sans convention. La fiscalité des plus-values reste complexe selon le régime applicable. Le quasi-usufruit transforme un droit réel en créance avec risque de solvabilité.",
+        "concepts": [
+          {
+            "term": "Universalité",
+            "definition": "Principe permettant à l'usufruitier d'arbitrer librement les titres composant le portefeuille",
+            "ref": "Jurisprudence constante"
+          },
+          {
+            "term": "Subrogation réelle",
+            "definition": "Report automatique de l'usufruit sur les biens substitués (remplois)",
+            "ref": "Article 1384 du Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Usufruitier = droit d'arbitrage sur composition portefeuille",
+          "Cash de cession reste dans portefeuille sauf convention contraire",
+          "Plus-values de cession = débat fruit/produit selon contexte",
+          "Quasi-usufruit sur cash = solution mais attention solvabilité"
+        ],
+        "warnings": [
+          "Ne pas confondre droit d'arbitrage et droit de consommation du cash",
+          "Organiser traçabilité et reporting des opérations",
+          "Prévoir garanties en cas de quasi-usufruit"
+        ],
+        "examples": [
+          "Usufruitier vend actions A, achète actions B : autorisé",
+          "Usufruitier vend actions et utilise cash personnellement : abus sans convention"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
