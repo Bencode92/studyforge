@@ -1,0 +1,147 @@
+{
+  "metadata": {
+    "title": "Guide complet de la location nue - Résidence principale : De la sélection locataire à l'optimisation fiscale",
+    "category": "immobilier-detail",
+    "created": "2026-03-16",
+    "version": 1,
+    "verified": false,
+    "verificationNotes": [
+      "Document avec date future suspecte (10/02/2026)",
+      "Contenu incomplet - s'arrête au point 3.4",
+      "Exemples chiffrés à vérifier avec barèmes officiels actuels",
+      "Sources légales à compléter"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide de la location nue (résidence principale) - France Version 2",
+        "date": "2026-03-16"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Préparation avant mise en location",
+        "content": "Phase cruciale de préparation incluant vérification du cadre légal, création d'annonces conformes et sélection rigoureuse des locataires selon la réglementation stricte des pièces justificatives autorisées.",
+        "concepts": [
+          {
+            "term": "Zone tendue",
+            "definition": "Zone géographique définie par décret où s'appliquent des règles spécifiques d'encadrement des loyers et de protection renforcée des locataires",
+            "ref": "Décret zones tendues"
+          },
+          {
+            "term": "DPE (Diagnostic Performance Énergétique)",
+            "definition": "Document obligatoire évaluant la consommation énergétique d'un logement, impactant désormais les hausses de loyer autorisées (restrictions pour F/G)",
+            "ref": "Réforme DPE 2021"
+          },
+          {
+            "term": "DossierFacile",
+            "definition": "Service public de constitution de dossier locataire standardisé limitant les données sensibles et réduisant les fraudes documentaires",
+            "ref": "Service public numérique"
+          }
+        ],
+        "keyPoints": [
+          "Seules les pièces de la liste réglementaire (décret 5/11/2015) peuvent être exigées",
+          "Interdiction formelle de demander RIB, relevés bancaires, casier judiciaire",
+          "Documentation systématique pour constituer des preuves en cas de litige",
+          "Vérification obligatoire du statut de zone tendue et des règles d'encadrement"
+        ],
+        "warnings": [
+          "Demander des pièces non autorisées peut entraîner nullité et sanctions",
+          "Les logements DPE F/G subissent des restrictions de hausse de loyer"
+        ],
+        "examples": [
+          "Pièces autorisées : CNI, 3 dernières quittances, contrat de travail, bulletins salaire",
+          "Pièces interdites : photo seule, carte Vitale, casier judiciaire, relevés bancaires"
+        ]
+      },
+      {
+        "title": "Système de garanties locatives",
+        "content": "Panorama complet des garanties disponibles : dépôt de garantie, cautionnement (simple vs solidaire), assurance GLI et dispositif Visale, avec leurs mécanismes spécifiques et règles de non-cumul.",
+        "concepts": [
+          {
+            "term": "Dépôt de garantie",
+            "definition": "Somme versée par le locataire (max 1 mois de loyer HC) restituée dans les 1-2 mois selon conformité de l'état des lieux de sortie",
+            "ref": "Loi du 6 juillet 1989"
+          },
+          {
+            "term": "Cautionnement solidaire",
+            "definition": "Engagement d'une tierce personne permettant au bailleur de réclamer directement le paiement dès le premier impayé sans poursuivre d'abord le locataire",
+            "ref": "Code civil - articles sur le cautionnement"
+          },
+          {
+            "term": "GLI (Garantie Loyers Impayés)",
+            "definition": "Assurance couvrant loyers impayés, frais de contentieux et parfois dégradations, avec conditions strictes de sélection et franchises",
+            "ref": "Contrats d'assurance spécialisés"
+          },
+          {
+            "term": "Visale",
+            "definition": "Caution gratuite d'Action Logement couvrant impayés (36 mensualités max) et certaines dégradations, avec éligibilité encadrée",
+            "ref": "Action Logement - dispositif public"
+          }
+        ],
+        "keyPoints": [
+          "Règle de non-cumul : GLI généralement incompatible avec caution personne physique",
+          "Visale gratuit mais processus administratif à respecter scrupuleusement",
+          "GLI : coût ~2,5% loyer annuel avec conditions draconiennes d'acceptation",
+          "Déclarer les impayés dès le premier mois pour préserver ses droits"
+        ],
+        "warnings": [
+          "GLI : franchises et délais de carence souvent sous-estimés",
+          "Visale : déclaration tardive peut compromettre l'indemnisation",
+          "Caution durée indéterminée : possibilité de résiliation par la caution"
+        ],
+        "examples": [
+          "Loyer 1100€ → Dépôt max 1100€, restitution 750€ après déduction dégâts justifiés",
+          "GLI loyer 1200€/mois : prime ~360€/an, rentable dès 3 mois d'impayés indemnisés",
+          "Visale : déclaration J+5 pour impayé, procédure parallèle d'expulsion à maintenir"
+        ]
+      },
+      {
+        "title": "Fixation et révision des loyers",
+        "content": "Mécanismes de fixation libre initiale, révision annuelle selon IRL, et contraintes spécifiques des zones tendues avec les dispositifs d'encadrement ELAN et parisien.",
+        "concepts": [
+          {
+            "term": "IRL (Indice de Révision des Loyers)",
+            "definition": "Indice INSEE trimestriel utilisé pour plafonner les révisions annuelles de loyer selon une clause contractuelle spécifique",
+            "ref": "INSEE - publication trimestrielle"
+          },
+          {
+            "term": "Encadrement ELAN",
+            "definition": "Dispositif expérimental limitant les loyers dans certaines zones tendues avec références locales de marché",
+            "ref": "Loi ELAN 2018"
+          },
+          {
+            "term": "Zone tendue",
+            "definition": "28 agglomérations où s'appliquent restrictions : hausse à la relocation plafonnée, préavis réduit locataire, encadrement renforcé",
+            "ref": "Décret zones tendues actualisé"
+          }
+        ],
+        "keyPoints": [
+          "Fixation libre hors dispositifs d'encadrement spéciaux",
+          "Révision IRL : clause obligatoire + demande dans l'année sinon renonciation",
+          "Renouvellement : pas de renégociation libre contrairement aux idées reçues",
+          "Relocation : liberté limitée en zone tendue selon barèmes locaux"
+        ],
+        "warnings": [
+          "Logements DPE F/G : restrictions croissantes sur les hausses",
+          "Encadrement parisien très strict avec sanctions financières lourdes",
+          "Non-demande de révision IRL dans l'année = renonciation définitive"
+        ],
+        "examples": [
+          "Révision IRL : 900€ × (145,17/140,59) = 929,32€ soit +3,3%",
+          "Zone tendue : hausse relocation plafonnée souvent à IRL + complément limité",
+          "Paris : encadrement strict avec loyers de référence par secteur"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
