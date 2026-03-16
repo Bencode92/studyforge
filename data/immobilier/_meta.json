@@ -1,1 +1,10 @@
-{"name": "Immobilier", "icon": "🏗", "fiches": []}
+{
+  "name": "Immobilier",
+  "icon": "🏗",
+  "fiches": [
+    {
+      "id": "guide-location-meubl-e-lmnp-lmp-juridique-social-fiscal",
+      "title": "Guide Location Meublée — LMNP / LMP (juridique • social • fiscal)"
+    }
+  ]
+}
