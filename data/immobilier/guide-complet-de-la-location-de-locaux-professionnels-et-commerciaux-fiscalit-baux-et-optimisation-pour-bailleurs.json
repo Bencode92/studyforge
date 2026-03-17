@@ -1,0 +1,175 @@
+{
+  "metadata": {
+    "title": "Guide complet de la location de locaux professionnels et commerciaux - Fiscalité, baux et optimisation pour bailleurs",
+    "category": "immobilier",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique complet sur la location commerciale et professionnelle",
+      "Date source corrigée (2026-02-12 → version pédagogique)",
+      "Section micro-BIC incomplète identifiée",
+      "Références légales à renforcer"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide complet de la location de locaux professionnels et commerciaux - Fiscalité, baux et optimisation pour bailleurs",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Qualification juridique et fiscale des locaux",
+        "content": "La distinction entre local nu et aménagé constitue un élément fondamental pour déterminer le régime fiscal applicable. Un local nu permet au locataire d'exercer son activité en apportant ses propres moyens, tandis qu'un local aménagé comprend des équipements indispensables à l'exploitation. Cette qualification impacte directement l'application de la TVA et parfois le basculement vers les BIC.",
+        "concepts": [
+          {
+            "term": "Local nu",
+            "definition": "Immeuble mis à disposition sans aménagements indispensables à l'exploitation, le locataire peut exercer en apportant ses propres moyens",
+            "ref": "Section 1.1"
+          },
+          {
+            "term": "Local aménagé",
+            "definition": "Local livré avec des aménagements ou matériels sans lesquels l'activité ne peut pas fonctionner (cinéma équipé, salle de spectacle, courts de tennis)",
+            "ref": "Section 1.1"
+          },
+          {
+            "term": "Bail professionnel",
+            "definition": "Bail destiné aux professions libérales et activités non commerciales, durée usuelle 6 ans, cadre plus souple",
+            "ref": "Section 1.2"
+          },
+          {
+            "term": "Bail commercial",
+            "definition": "Bail pour activités commerciales, industrielles ou artisanales, durée 9 ans avec protection forte du locataire",
+            "ref": "Section 1.2"
+          }
+        ],
+        "keyPoints": [
+          "La qualification 'aménagé' ne dépend pas de l'esthétique mais du lien entre équipements et exploitation",
+          "Un plateau de bureaux rénové reste souvent 'nu' au sens fiscal",
+          "Le choix du type de bail dépend de l'activité du locataire et du niveau de protection souhaité",
+          "Les baux dérogatoires permettent de tester mais risquent la requalification"
+        ],
+        "warnings": [
+          "Attention à la requalification automatique des baux dérogatoires en baux commerciaux si maintien en place",
+          "La distinction nu/aménagé a des conséquences importantes sur la TVA de plein droit"
+        ],
+        "examples": [
+          "Salle de cinéma équipée = local aménagé → TVA de plein droit",
+          "Bureau avec simple rénovation = local nu → régime revenus fonciers par défaut"
+        ]
+      },
+      {
+        "title": "Types de baux et rédaction des clauses essentielles",
+        "content": "Le choix entre bail professionnel, commercial ou dérogatoire doit aligner l'activité du locataire, le niveau de protection accordé et la flexibilité souhaitée. Chaque type de bail a ses spécificités en termes de durée, renouvellement, résiliation et obligations. La rédaction des clauses essentielles (destination, loyer, charges, travaux, garanties) conditionne la sécurité juridique et financière de l'opération.",
+        "concepts": [
+          {
+            "term": "Bail dérogatoire",
+            "definition": "Bail de courte durée permettant de tester une situation, mais avec risque de basculement vers bail commercial",
+            "ref": "Section 2"
+          },
+          {
+            "term": "Indemnité d'éviction",
+            "definition": "Compensation due au locataire commercial en cas de non-renouvellement du bail sans motif légitime",
+            "ref": "Tableau section 2"
+          }
+        ],
+        "keyPoints": [
+          "Le bail professionnel offre plus de souplesse mais moins de protection au locataire",
+          "Le bail commercial protège fortement le locataire (droit au renouvellement, indemnité d'éviction)",
+          "Les clauses de destination doivent être précises pour éviter les changements d'activité non désirés",
+          "Un bail trop contraignant pour le locataire peut augmenter la vacance",
+          "L'équilibre contractuel est souvent plus efficace que le transfert maximal de risques"
+        ],
+        "warnings": [
+          "Les clauses abusives peuvent être invalidées, notamment en bail commercial",
+          "L'absence d'état des lieux détaillé génère des litiges à la sortie",
+          "Les baux dérogatoires non formalisés correctement peuvent basculer automatiquement"
+        ],
+        "examples": [
+          "Clause destination : 'Bureau d'études techniques uniquement, exclusion commerce et restauration'",
+          "Clause indexation : 'Indice IRL avec clause plancher à 95% du loyer initial'"
+        ]
+      },
+      {
+        "title": "Règles Pinel et répartition des charges",
+        "content": "Les règles issues de la réforme Pinel visent à rendre transparente la répartition des charges entre bailleur et locataire dans les baux commerciaux. Elles imposent des obligations d'information renforcées et encadrent les transferts de charges. La distinction entre charges récupérables et non récupérables doit être claire et justifiée.",
+        "concepts": [
+          {
+            "term": "Règles Pinel",
+            "definition": "Réforme renforçant la transparence dans la répartition des charges et travaux dans les baux commerciaux",
+            "ref": "Section 3"
+          },
+          {
+            "term": "Annexes obligatoires",
+            "definition": "Documents d'information sur charges, travaux et modalités de régularisation à joindre aux baux commerciaux",
+            "ref": "Section 3.1"
+          }
+        ],
+        "keyPoints": [
+          "Inventaire précis obligatoire des charges, impôts et taxes avec leur répartition",
+          "État récapitulatif des travaux sur 3 ans passés et prévisionnels sur 3 ans",
+          "Les charges courantes (eau, énergie, nettoyage) sont généralement récupérables",
+          "Les grosses réparations structurelles restent à la charge du bailleur",
+          "Les mises aux normes dépendent de leur origine (activité du locataire ou conformité générale)"
+        ],
+        "warnings": [
+          "Les clauses type 'toutes charges à la charge du locataire' sont source de contentieux",
+          "L'absence de justificatifs peut rendre les charges non récupérables",
+          "Les honoraires de gestion doivent être listés et justifiés pour être récupérables"
+        ],
+        "examples": [
+          "Charges récupérables : taxe ordures ménagères, eau parties communes, gardiennage",
+          "Charges non récupérables : grosses réparations toiture, assurance PNO du bailleur"
+        ]
+      },
+      {
+        "title": "Régimes fiscaux du bailleur et optimisation",
+        "content": "Le choix du régime fiscal (revenus fonciers, BIC, SCI à l'IS) dépend de la nature de la location et des objectifs du bailleur. La location nue relève généralement des revenus fonciers, mais peut basculer vers les BIC en cas de services significatifs ou de participation aux résultats. L'optimisation doit intégrer l'impact fiscal annuel, les possibilités d'amortissement et surtout les conséquences à la sortie (plus-value).",
+        "concepts": [
+          {
+            "term": "Revenus fonciers",
+            "definition": "Régime fiscal par défaut pour la location nue de locaux, imposé à l'IR avec déduction des charges",
+            "ref": "Section 4"
+          },
+          {
+            "term": "BIC (Bénéfices Industriels et Commerciaux)",
+            "definition": "Régime applicable en cas de location commerciale (local aménagé, services, participation aux résultats)",
+            "ref": "Section 4"
+          },
+          {
+            "term": "SCI à l'IS",
+            "definition": "Société civile immobilière ayant opté pour l'impôt sur les sociétés, permettant l'amortissement",
+            "ref": "Section 4"
+          }
+        ],
+        "keyPoints": [
+          "Le basculement vers les BIC se fait en cas de location d'établissement meublé/équipé ou de participation aux résultats",
+          "L'amortissement n'est possible qu'en BIC réel ou SCI à l'IS",
+          "Le meilleur régime intègre l'optimisation annuelle ET les conséquences de sortie",
+          "Les déficits fonciers sont imputables sur le revenu global (dans certaines limites)",
+          "La plus-value à la cession varie fortement selon le régime choisi"
+        ],
+        "warnings": [
+          "Attention aux montages 'optimisés' qui se retournent à la revente",
+          "Un loyer variable n'est pas automatiquement BIC, tout dépend de la participation aux aléas",
+          "L'option IS en SCI est souvent irréversible"
+        ],
+        "examples": [
+          "Location bureau nu → Revenus fonciers par défaut",
+          "Location restaurant équipé → Risque BIC si équipements indispensables",
+          "Loyer indexé sur CA avec seuil minimum → Analyse cas par cas selon le niveau de risque partagé"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
