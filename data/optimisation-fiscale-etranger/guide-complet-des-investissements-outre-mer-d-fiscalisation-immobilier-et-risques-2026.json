@@ -1,0 +1,197 @@
+{
+  "metadata": {
+    "title": "Guide complet des investissements outre-mer : défiscalisation, immobilier et risques 2026",
+    "category": "optimisation-fiscale-etranger",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document basé sur mise à jour février 2026",
+      "Références légales partielles - validation professionnelle requise",
+      "Barèmes et taux susceptibles d'évolution"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide complet des investissements outre-mer : défiscalisation, immobilier et risques 2026",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Introduction et vocabulaire essentiel",
+        "content": "La défiscalisation outre-mer regroupe plusieurs dispositifs permettant de réduire son impôt sur le revenu en contrepartie d'investissements dans les territoires ultramarins français. Ces mécanismes échangent complexité et risques de conformité contre avantages fiscaux significatifs.\n\nLes dispositifs principaux incluent le Girardin industriel (financement d'équipements productifs), les travaux de réhabilitation, le logement social, Denormandie ancien, Loc'Avantages et les FIP outre-mer. Chaque dispositif présente des contraintes spécifiques d'engagement, des plafonds et des risques de reprise fiscale en cas de non-conformité.\n\nL'approche fiscale ne doit jamais occulter l'analyse économique réelle : rendement locatif, liquidité, risques climatiques et marché local.",
+        "concepts": [
+          {
+            "term": "Réduction d'impôt",
+            "definition": "Déduction directe de l'impôt sur le revenu dû. Le surplus non imputé peut être reporté ou perdu selon le dispositif.",
+            "ref": "Art. 199 CGI"
+          },
+          {
+            "term": "Mise en service/Achèvement",
+            "definition": "Date pivot déclenchant l'imputation de la réduction d'impôt. Erreur fréquente causant des reprises fiscales.",
+            "ref": "BOFiP"
+          },
+          {
+            "term": "Rétrocession",
+            "definition": "Partie de l'avantage fiscal transférée au bénéficiaire final via loyers réduits ou prix de cession encadrés.",
+            "ref": "Art. 199 undecies CGI"
+          },
+          {
+            "term": "Reprise fiscale",
+            "definition": "Annulation a posteriori de l'avantage avec restitution de l'impôt économisé plus intérêts et pénalités possibles.",
+            "ref": "L. 169 LPF"
+          },
+          {
+            "term": "Plafond niches fiscales",
+            "definition": "Limitation globale des avantages fiscaux : 10 000 € standard, 18 000 € pour l'outre-mer dans certains cas.",
+            "ref": "Art. 200-0 A CGI"
+          }
+        ],
+        "keyPoints": [
+          "La défiscalisation outre-mer n'est pas un placement mais un échange risque/avantage fiscal",
+          "Vérifier systématiquement l'inscription registre et assurance du monteur",
+          "Calculer l'impôt disponible sur 3 ans avant tout engagement",
+          "Prévoir la conservation des justificatifs sur toute la durée d'engagement"
+        ],
+        "warnings": [
+          "Les montages sans substance économique exposent à des reprises intégrales",
+          "Les agréments préalables sont obligatoires pour certains seuils",
+          "Les sanctions peuvent égaler l'avantage fiscal indûment obtenu"
+        ],
+        "examples": [
+          "Checklist express : IR dû suffisant → choix one-shot vs projet long → vérification plafonds → due diligence opérateur"
+        ]
+      },
+      {
+        "title": "Girardin industriel (199 undecies B)",
+        "content": "Le Girardin industriel finance des investissements productifs outre-mer via des sociétés de portage, généralement des SNC. L'investisseur souscrit des parts, la société achète un actif (équipements industriels, énergies renouvelables) qu'elle loue à un exploitant local.\n\nLa réduction d'impôt est calculée sur le prix de revient de l'actif, déduction faite des subventions, selon des taux variables par zone et secteur. Une partie de l'avantage doit obligatoirement bénéficier à l'exploitant via la rétrocession.\n\nL'imputation se fait généralement l'année de mise en service effective. Les obligations de conservation et d'affectation s'étendent sur 5 à 7 ans selon les cas.",
+        "concepts": [
+          {
+            "term": "Société de portage",
+            "definition": "Structure juridique (souvent SNC) créée pour porter l'investissement et répartir l'avantage fiscal entre associés.",
+            "ref": "Art. 199 undecies B CGI"
+          },
+          {
+            "term": "Base de calcul",
+            "definition": "Prix de revient HT de l'actif, déduction faite des subventions publiques, soumis au taux de réduction.",
+            "ref": "BOFiP-BIC-RICI-40-10-20"
+          }
+        ],
+        "keyPoints": [
+          "Vérifier l'agrément préalable si requis selon le seuil d'investissement",
+          "S'assurer de la mise en service effective dans les délais",
+          "Auditer la solidité financière de l'exploitant locataire",
+          "Contrôler le respect des obligations de rétrocession"
+        ],
+        "warnings": [
+          "Défaillance de l'exploitant = risque de reprise fiscale intégrale",
+          "Non-respect des délais de mise en service = perte de l'avantage",
+          "Changement d'affectation de l'actif avant terme = reprise"
+        ],
+        "examples": [
+          "Simulation : réduction cible 10 000 € → base nécessaire environ 21 800 € à 26 100 € selon taux applicable (hors frais et rétrocession)"
+        ]
+      },
+      {
+        "title": "Travaux de réhabilitation (199 undecies A)",
+        "content": "Ce dispositif concerne les travaux de réhabilitation ou de confortation sismique/cyclonique sur des logements de plus de 20 ans situés outre-mer. Les travaux doivent être réalisés par une entreprise et faire l'objet de factures détaillées.\n\nL'engagement porte sur 5 ans avec affectation en résidence principale (propriétaire) ou location nue en résidence principale du locataire. La base est plafonnée au mètre carré (3 295 € HT/m² en 2025) et étalée sur 5 ans.\n\nLes taux varient selon la nature des travaux : 18% standard, 22% avec équipements énergies renouvelables, 26% en quartier prioritaire de la politique de la ville.",
+        "concepts": [
+          {
+            "term": "Confortation parasismique/paracyclonique",
+            "definition": "Travaux spécifiques de renforcement contre les risques naturels, éligibles au taux majoré.",
+            "ref": "Art. 199 undecies A CGI"
+          },
+          {
+            "term": "Étalement quinquennal",
+            "definition": "Répartition automatique de la base sur 5 ans (20% par an des sommes effectivement payées).",
+            "ref": "CGI art. 199 undecies A"
+          }
+        ],
+        "keyPoints": [
+          "Conserver toutes les factures d'entreprises avec détail matériaux/main-d'œuvre",
+          "Respecter le plafond au m² actualisé annuellement",
+          "Ne pas cumuler avec d'autres réductions sur les mêmes dépenses",
+          "Maintenir l'affectation pendant 5 ans minimum"
+        ],
+        "warnings": [
+          "Vente du bien avant 5 ans = reprise proportionnelle de la réduction",
+          "Démembrement interdit sauf exceptions strictes",
+          "Changement d'affectation (résidence principale → secondaire) = reprise"
+        ],
+        "examples": [
+          "Logement 80 m², travaux 192 000 € HT → base annuelle 38 400 € → réduction annuelle de 6 912 € à 9 984 € selon taux sur 5 ans"
+        ]
+      },
+      {
+        "title": "Logement social (199 undecies C)",
+        "content": "Le dispositif logement social finance l'acquisition, construction ou réhabilitation de logements destinés à être loués à des organismes de logement social. Ces derniers sous-louent aux ménages éligibles selon les plafonds de ressources.\n\nL'avantage fiscal peut être important mais une partie significative (souvent 60-70%) est rétrocédée via des loyers diminués et des conditions de cession encadrées. Le bail avec l'organisme dure au minimum 5 ans.\n\nCertains programmes nécessitent un agrément préalable, notamment au-delà de seuils d'investissement. La sortie (cession) est généralement prévue dès la structuration du montage.",
+        "concepts": [
+          {
+            "term": "Organisme de logement social",
+            "definition": "Structure agréée (OPH, ESH, coopératives) habilitée à gérer des logements sociaux selon les règles HLM.",
+            "ref": "Code de la construction"
+          },
+          {
+            "term": "Rétrocession différée",
+            "definition": "Mécanisme reportant une partie de l'avantage fiscal via les conditions de cession au terme du bail.",
+            "ref": "Art. 199 undecies C CGI"
+          }
+        ],
+        "keyPoints": [
+          "Analyser la solidité financière de l'organisme locataire",
+          "Vérifier les conditions de cession prévues contractuellement",
+          "S'assurer de la demande locative sur la zone géographique",
+          "Contrôler le respect des plafonds de loyers et ressources"
+        ],
+        "warnings": [
+          "Complexité juridique élevée nécessitant un conseil spécialisé",
+          "Liquidité très faible pendant toute la durée du montage",
+          "Risque de non-conformité sur les conditions de cession"
+        ],
+        "examples": [
+          "Prix de revient 200 000 €, réduction 50% = 100 000 €, rétrocession 70% → avantage net économique ≈ 30 000 € (ordre de grandeur)"
+        ]
+      },
+      {
+        "title": "Denormandie outre-mer et autres dispositifs",
+        "content": "Le Denormandie ancien s'applique outre-mer avec des spécificités : plafonds de loyers et ressources adaptés aux marchés locaux, obligation de terminer les travaux dans les 2 ans suivant l'acquisition.\n\nLes plafonds 2025 : base limitée à 300 000 € et 5 500 €/m², loyers DOM/Saint-Martin 12,02 €/m², Polynésie/Nouvelle-Calédonie 14,18 €/m². L'engagement locatif varie de 6 à 12 ans selon le taux choisi.\n\nLoc'Avantages propose une réduction sur les loyers bruts (15% à 65%) contre un loyer décoté via convention ANAH sur 6 ou 9 ans. Les FIP outre-mer financent les PME ultramarines avec blocage long et risque capital élevé.",
+        "concepts": [
+          {
+            "term": "Convention ANAH",
+            "definition": "Accord avec l'Agence nationale de l'habitat fixant loyer plafonné et durée d'engagement pour Loc'Avantages.",
+            "ref": "Code de la construction"
+          },
+          {
+            "term": "FIP outre-mer",
+            "definition": "Fonds d'investissement de proximité dédiés aux PME ultramarines, éligibles à réduction d'impôt spécifique.",
+            "ref": "Art. 199 terdecies-0 A CGI"
+          }
+        ],
+        "keyPoints": [
+          "Denormandie : vérifier la faisabilité des travaux dans les délais légaux",
+          "Loc'Avantages : analyser l'impact de la décote sur la rentabilité",
+          "FIP : accepter illiquidité et volatilité importantes",
+          "Tous : respecter les plafonds géographiques spécifiques"
+        ],
+        "warnings": [
+          "Plafonds de loyers parfois inférieurs au marché local",
+          "Pinel neuf : vérifier les dates d'acquisition éligibles (fin 2024)",
+          "Risques climatiques spécifiques (cyclones, séismes) à assurer"
+        ],
+        "examples": [
+          "Denormandie : plafond loyer DOM 12,02 €/m² peut limiter la rentabilité selon le marché local"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
