@@ -1,0 +1,253 @@
+{
+  "metadata": {
+    "title": "Guide pratique : Monuments Historiques vs Dispositif Malraux - Comparaison, calculs et stratégies d'investissement patrimonial",
+    "category": "fiscalite",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique complet sur les dispositifs MH et Malraux",
+      "Comparaison structurée avec exemples chiffrés",
+      "Attention à la date 2026 mentionnée - possiblement prospective"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique : Monuments Historiques vs Dispositif Malraux - Comparaison, calculs et stratégies d'investissement patrimonial",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Présentation générale des dispositifs",
+        "content": "Les dispositifs Monuments Historiques (MH) et Malraux constituent deux régimes fiscaux distincts d'investissement dans le patrimoine immobilier protégé. Le dispositif Malraux offre une réduction d'impôt de 22% ou 30% des dépenses éligibles (plafonnées à 400 000 EUR sur 4 ans) avec obligation de location 9 ans. Le régime MH propose une déduction de charges avec déficit imputable sur le revenu global sans limitation selon le mode d'exploitation, mais avec obligation de conservation 15 ans.",
+        "concepts": [
+          {
+            "term": "Monument Historique (MH)",
+            "definition": "Immeuble classé ou inscrit au titre des MH bénéficiant d'un régime de déduction fiscale spécifique",
+            "ref": "Art. 156 I-3° du CGI"
+          },
+          {
+            "term": "Site Patrimonial Remarquable (SPR)",
+            "definition": "Périmètre urbain ou villageois protégé pour son intérêt patrimonial, base du dispositif Malraux",
+            "ref": "Art. L621-30-1 du Code du patrimoine"
+          },
+          {
+            "term": "PSMV/PVAP",
+            "definition": "Documents de règles dans un SPR conditionnant le taux Malraux (22% vs 30%)",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Malraux : réduction d'impôt vs MH : déduction de charges",
+          "Durées d'engagement différentes : 9 ans (Malraux) vs 15 ans (MH)",
+          "Contraintes architecturales fortes dans les deux cas",
+          "Efficacité fiscale dépendante de la TMI pour les MH"
+        ],
+        "warnings": [
+          "Risque principal : surcôts et délais de chantier patrimoniaux",
+          "Prix d'achat souvent gonflés par l'effet défiscalisation",
+          "Autorisations administratives complexes (ABF, services culturels)"
+        ],
+        "examples": [
+          "SPR avec PSMV : taux Malraux 30%",
+          "Château classé MH : déduction totale des charges de restauration"
+        ]
+      },
+      {
+        "title": "Comparaison détaillée des avantages fiscaux",
+        "content": "L'avantage fiscal du dispositif Malraux correspond à une réduction d'impôt directe de 22% ou 30% des dépenses éligibles, plafonnée à 400 000 EUR sur 4 ans. Pour les MH, le gain fiscal approximatif équivaut à TMI × charges déductibles, particulièrement puissant pour les hautes tranches d'imposition avec gros travaux. Un investisseur à 45% de TMI réalisant 200 000 EUR de travaux MH obtiendrait environ 90 000 EUR d'économie fiscale contre 60 000 EUR en Malraux 30%.",
+        "concepts": [
+          {
+            "term": "Réduction d'impôt Malraux",
+            "definition": "Diminution directe de l'impôt sur le revenu de 22% ou 30% des dépenses éligibles",
+            "ref": "Art. 199 tervicies du CGI"
+          },
+          {
+            "term": "Déduction MH",
+            "definition": "Imputation des charges sur les revenus fonciers ou le revenu global selon le mode d'exploitation",
+            "ref": "Art. 156 I-3° du CGI"
+          },
+          {
+            "term": "Fenêtre de dépenses",
+            "definition": "Période de 4 ans maximum pour comptabiliser les dépenses Malraux à partir du permis",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Malraux : gain plafonné mais prévisible",
+          "MH : gain proportionnel à la TMI, potentiellement illimité",
+          "Efficacité MH croissante avec la TMI (30%, 41%, 45%)",
+          "Pas de cumul Malraux avec autres réductions (Pinel, Denormandie)"
+        ],
+        "warnings": [
+          "Calcul MH approximatif - situation réelle plus complexe",
+          "Assiette Malraux : uniquement dépenses éligibles (hors subventions)",
+          "Plafonnement niches fiscales à vérifier selon situations"
+        ],
+        "examples": [
+          "200k EUR travaux, TMI 41% : gain MH ≈ 82 000 EUR",
+          "200k EUR travaux Malraux 30% : gain = 60 000 EUR",
+          "Surcôt 30% = 260k EUR : gains augmentent mais cash aussi"
+        ]
+      },
+      {
+        "title": "Dépenses éligibles et mécaniques fiscales",
+        "content": "Pour le dispositif Malraux, l'assiette comprend les travaux de restauration complète imposés ou autorisés, certaines réparations, assurances et frais de gestion, déduction faite des subventions. Les intérêts d'emprunt et le mobilier sont exclus. Pour les MH, toutes les charges liées à un immeuble classé/inscrit sont déductibles selon le régime d'exploitation : location (revenus fonciers avec déficit imputable sur revenu global), jouissance (déduction directe du revenu global selon pourcentages), usage mixte (répartition selon clés).",
+        "concepts": [
+          {
+            "term": "Restauration complète",
+            "definition": "Travaux conduisant à une remise en état globale de l'immeuble, condition du Malraux",
+            "ref": ""
+          },
+          {
+            "term": "Charges déductibles MH",
+            "definition": "Ensemble des dépenses liées à la conservation et restauration d'un MH",
+            "ref": ""
+          },
+          {
+            "term": "Usage mixte",
+            "definition": "Affectation partielle du bien à différents usages nécessitant une clé de répartition",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Malraux : assiette limitée aux travaux prescrits + certaines dépenses",
+          "MH : déductibilité large de toutes les charges du bien classé",
+          "Subventions réduisent l'assiette Malraux (reste à charge)",
+          "Usage mixte MH : documentation indispensable (plans, factures)"
+        ],
+        "warnings": [
+          "Restauration partielle peut exclure du Malraux",
+          "Contrôle strict de l'éligibilité des dépenses",
+          "Répartition usage mixte doit être défendable"
+        ],
+        "examples": [
+          "Travaux façade + toiture + intérieur = restauration complète",
+          "ANAH 30k EUR sur 200k EUR travaux : assiette Malraux = 170k EUR",
+          "Château 50% visites/50% privé : clé de répartition 50/50"
+        ]
+      },
+      {
+        "title": "Engagements et contraintes temporelles",
+        "content": "Le dispositif Malraux impose un engagement de location de 9 ans minimum avec mise en location dans les 12 mois suivant l'achèvement des travaux. Le bien doit être la résidence principale du locataire. Pour les MH, l'engagement de conservation s'étend sur 15 ans à compter de l'acquisition, période pendant laquelle le bien ne peut être cédé sans perdre les avantages fiscaux. Ces durées d'engagement différentes conditionnent fortement les stratégies d'investissement et de sortie.",
+        "concepts": [
+          {
+            "term": "Engagement de location",
+            "definition": "Obligation de louer le bien Malraux pendant 9 ans minimum en résidence principale",
+            "ref": ""
+          },
+          {
+            "term": "Engagement de conservation",
+            "definition": "Obligation de conserver un MH pendant 15 ans sous peine de remise en cause fiscale",
+            "ref": ""
+          },
+          {
+            "term": "Délai de mise en location",
+            "definition": "12 mois maximum après achèvement des travaux pour bénéficier du Malraux",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Malraux : 9 ans de location obligatoire",
+          "MH : 15 ans de conservation obligatoire",
+          "Malraux : pas d'occupation personnelle possible",
+          "MH : usage personnel possible selon répartition"
+        ],
+        "warnings": [
+          "Non-respect engagements = remise en cause fiscale totale",
+          "Stratégie revente 7-10 ans incompatible avec MH",
+          "Contrôle effectif des engagements par l'administration"
+        ],
+        "examples": [
+          "Travaux finis en janvier 2024 : location avant janvier 2025",
+          "Achat MH en 2024 : conservation jusqu'en 2039 minimum",
+          "Cession MH année 8 : reprise de tous les avantages fiscaux"
+        ]
+      },
+      {
+        "title": "Analyse des risques et stress tests",
+        "content": "Les principaux risques ne sont pas fiscaux mais opérationnels : surcôts de chantier (15-30% fréquents), délais supplémentaires (6-12 mois), contraintes techniques patrimoniales, prix d'acquisition gonflé par l'effet défiscalisation. Un stress test sur 200 000 EUR de travaux montre qu'un surcôt de 30% (260 000 EUR) augmente le gain fiscal mais nécessite 60 000 EUR de cash supplémentaire. La qualité intrinsèque du bien (prix/m², loyers, vacance, liquidité) reste déterminante.",
+        "concepts": [
+          {
+            "term": "Stress test de chantier",
+            "definition": "Simulation d'impact des surcôts sur l'équilibre financier de l'opération",
+            "ref": ""
+          },
+          {
+            "term": "Effet défiscalisation",
+            "definition": "Surenchère sur les prix d'achat due à l'avantage fiscal espéré",
+            "ref": ""
+          },
+          {
+            "term": "Contraintes ABF",
+            "definition": "Prescriptions architecturales imposées par l'Architecte des Bâtiments de France",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Risque n°1 : dérive budgétaire des travaux patrimoniaux",
+          "Risque n°2 : prix d'achat intégrant déjà la défiscalisation",
+          "Risque n°3 : liquidité réduite à la revente",
+          "Gain fiscal croît avec les surcôts mais cash out aussi"
+        ],
+        "warnings": [
+          "Prévoir marges budgétaires +15-30% minimum",
+          "Vérifier prix/m² hors effet défiscalisation",
+          "Anticiper délais administratifs (6-18 mois)"
+        ],
+        "examples": [
+          "Budget initial 200k EUR → surcôt 30% = 260k EUR total",
+          "Gain Malraux 30% : 60k EUR → 78k EUR (+18k EUR)",
+          "Cash supplémentaire nécessaire : 60k EUR"
+        ]
+      },
+      {
+        "title": "Profils d'investisseurs et stratégies de choix",
+        "content": "Le choix entre MH et Malraux dépend du profil fiscal, de l'horizon d'investissement et de la tolérance au risque. Le Malraux convient aux investisseurs recherchant une réduction d'impôt prévisible, acceptant la location 9 ans, avec un IR suffisant pour absorber la réduction. Les MH s'adressent aux très imposés (TMI 41-45%), réalisant de gros travaux, avec un horizon 15 ans minimum et une forte tolérance aux contraintes patrimoniales et risques de chantier.",
+        "concepts": [
+          {
+            "term": "Profil gagnant Malraux",
+            "definition": "Investisseur recherchant réduction IR prévisible, acceptant location 9 ans",
+            "ref": ""
+          },
+          {
+            "term": "Profil gagnant MH",
+            "definition": "Très imposé, gros travaux, horizon long, tolère complexité et risques",
+            "ref": ""
+          },
+          {
+            "term": "Test anti-défiscalisation",
+            "definition": "Vérification de la qualité intrinsèque du bien sans avantage fiscal",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "TMI élevée + gros travaux = MH très efficace",
+          "IR important à absorber = orientation Malraux",
+          "Horizon 15 ans minimum indispensable pour MH",
+          "Test préalable : bien rentable sans défiscalisation ?"
+        ],
+        "warnings": [
+          "Ne jamais investir uniquement pour la défiscalisation",
+          "Vérifier absorption complète de la réduction Malraux",
+          "MH inadapté aux stratégies court/moyen terme"
+        ],
+        "examples": [
+          "TMI 45%, travaux 300k EUR : économie MH ≈ 135k EUR",
+          "IR 25k EUR/an : réduction Malraux 60k EUR sur 2-3 ans",
+          "Horizon 7 ans : Malraux possible, MH exclu"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
