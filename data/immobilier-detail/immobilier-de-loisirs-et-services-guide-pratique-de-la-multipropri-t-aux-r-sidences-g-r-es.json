@@ -1,0 +1,200 @@
+{
+  "metadata": {
+    "title": "Immobilier de loisirs et services : Guide pratique de la multipropriété aux résidences gérées",
+    "category": "immobilier-detail",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Date du document source corrigée de 2026 à 2024 pour cohérence temporelle",
+      "Références juridiques à actualiser (Loi 86-18, Code consommation)",
+      "Simulations financières à compléter avec impact fiscal"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Immobilier de loisirs et services : Guide pratique de la multipropriété aux résidences gérées",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Multipropriété et Attribution en Jouissance à Temps Partagé",
+        "content": "La multipropriété consiste en l'achat de parts d'une société donnant un droit de jouissance périodique (généralement une semaine par an) sur un local. Contrairement à un achat immobilier classique, l'investisseur acquiert des parts sociales, pas un titre de propriété directe.\n\nLe cadre juridique protège le consommateur via la Loi 86-18 du 6 janvier 1986 et le Code de la consommation : obligation d'information précontractuelle, contrat écrit, droit de rétractation de 14 jours, possibilité de retrait encadré.\n\nLes trois moteurs clés de performance sont :\n1. Les charges (entretien, services quasi-hôteliers) qui peuvent annuler l'avantage du prix d'entrée\n2. La valeur de la période (seules les périodes premium gardent une liquidité relative)\n3. La flexibilité via les bourses d'échange (jamais garantie, frais additionnels)\n\nLa multipropriété est avant tout un produit d'usage, pas un investissement financier classique.",
+        "concepts": [
+          {
+            "term": "Attribution en jouissance à temps partagé",
+            "definition": "Achat de parts d'une société donnant un droit de jouissance périodique sur un local, sans propriété directe du bien",
+            "ref": "Loi 86-18 du 6 janvier 1986"
+          },
+          {
+            "term": "Bourse d'échange",
+            "definition": "Mécanisme permettant d'échanger sa période avec d'autres propriétaires, souvent international, non garanti",
+            "ref": ""
+          },
+          {
+            "term": "Période premium",
+            "definition": "Créneaux haute saison ou emplacements privilégiés conservant une meilleure liquidité sur le marché secondaire",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "La multipropriété porte sur des parts sociales, non sur un titre de propriété directe",
+          "Protection du consommateur : 14 jours de rétractation, informations obligatoires",
+          "Les charges sont le principal destructeur de valeur à auditer",
+          "Liquidité faible : marché secondaire étroit, décotes fréquentes",
+          "Retrait de droit possible pour héritiers (succession < 2 ans)"
+        ],
+        "warnings": [
+          "Tester la liquidité avant d'acheter via l'analyse du marché secondaire",
+          "Les périodes non-premium se revendent souvent avec forte décote",
+          "Les bourses d'échange ajoutent des frais sans garantie de succès",
+          "Exiger l'historique des charges sur 3 ans minimum"
+        ],
+        "examples": [
+          "Simulation multipropriété ski : achat 8 000€, charges 600€/an, revente 2 000€ à 10 ans → IRR 5,4%",
+          "Avec charges +20% : NPV passe de +177€ à -749€, démontrant la sensibilité aux charges"
+        ]
+      },
+      {
+        "title": "Résidences Gérées et Formules de Propriété",
+        "content": "Les résidences gérées permettent l'acquisition en pleine propriété suivie d'un bail de longue durée (9-12 ans) à une société de gestion. L'investisseur délègue entièrement la gestion moyennant un loyer garanti.\n\nLe risque principal est le 'risque exploitant' : solvabilité du gestionnaire, qualité opérationnelle, renégociation au renouvellement, prise en charge des travaux. Le loyer garanti n'est fiable que si l'exploitant l'est.\n\nLe démembrement de propriété offre trois formules :\n- Nue-propriété : prix d'entrée réduit, récupération automatique à terme, idéal pour capitalisation long terme\n- Usufruit : exploitation et revenus pour l'usufruitier, grosses réparations souvent au nu-propriétaire\n- DUH (Droit d'Usage et d'Habitation) : droit restreint, l'usager ne peut ni louer ni céder\n\nLes produits 'packagés' peuvent subir une décote à la revente par rapport au résidentiel classique.",
+        "concepts": [
+          {
+            "term": "Bail de longue durée",
+            "definition": "Contrat de location généralement 9-12 ans entre propriétaire et société de gestion avec loyer garanti",
+            "ref": ""
+          },
+          {
+            "term": "Risque exploitant",
+            "definition": "Ensemble des risques liés à la solvabilité et performance opérationnelle du gestionnaire de la résidence",
+            "ref": ""
+          },
+          {
+            "term": "DUH - Droit d'Usage et d'Habitation",
+            "definition": "Droit réel restreint ne permettant ni location ni cession, fréquent en résidences seniors",
+            "ref": "Code civil"
+          },
+          {
+            "term": "Décote produit packagé",
+            "definition": "Moins-value potentielle à la revente due à la liquidité réduite des produits gérés vs résidentiel classique",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Le 'loyer garanti' dépend entièrement de la solidité financière de l'exploitant",
+          "Vérifier la solvabilité et les références du gestionnaire avant investissement",
+          "Le demembrement permet d'adapter le profil risque/rendement selon l'horizon",
+          "La nue-propriété convient aux horizons longs avec priorité capitalisation",
+          "Les résidences gérées peuvent imposer des travaux de mise aux normes"
+        ],
+        "warnings": [
+          "Auditer la santé financière de l'exploitant sur 3-5 ans",
+          "Prévoir une décote de 10-30% à la revente pour les produits packagés",
+          "Vérifier qui prend en charge les travaux de remise aux normes",
+          "La renégociation du bail peut être défavorable au propriétaire"
+        ],
+        "examples": [
+          "Résidence gérée : achat 240 000€, loyer 7 000€/an, revente 200 000€ → IRR 3,41%",
+          "Nue-propriété : achat 195 000€ (décote 35%), récupération 348 000€ à 10 ans → IRR 5,96%"
+        ]
+      },
+      {
+        "title": "TVA, Parahotellerie et Résidences de Services",
+        "content": "Les résidences de tourisme sont des établissements d'hébergement classés avec exploitation saisonnière ou permanente, locaux meublés et services communs sous gestion unique (Code du tourisme).\n\nLes résidences-services proposent des logements autonomes avec services non individualisables (accueil, sécurité) et services à la carte individualisables (CCH).\n\nLa TVA parahotellerie s'applique selon la durée des séjours et la fourniture d'au moins 3 services parmi : petit-déjeuner, nettoyage régulier, linge, réception. Les seuils et conditions évoluent - vérifier sur BOFiP.\n\nPoints de vigilance :\n- Les régimes TVA et LMNP reposent sur des conditions factuelles, pas seulement commerciales\n- Les travaux de maintien du classement peuvent être à la charge des propriétaires\n- La récupération de TVA impose des obligations de durée et peut être remise en cause",
+        "concepts": [
+          {
+            "term": "Résidence de tourisme",
+            "definition": "Établissement d'hébergement classé, exploitation saisonnière ou permanente avec services communs",
+            "ref": "Code du tourisme"
+          },
+          {
+            "term": "Résidence-services",
+            "definition": "Ensemble de logements autonomes avec services communs non individualisables et services à la carte",
+            "ref": "Code de la construction et de l'habitation"
+          },
+          {
+            "term": "TVA parahotellerie",
+            "definition": "Régime TVA applicable selon durée des séjours et fourniture d'au moins 3 services hôteliers spécifiques",
+            "ref": "BOFiP"
+          },
+          {
+            "term": "LMNP",
+            "definition": "Loueur Meublé Non Professionnel - régime fiscal spécifique pour location meublée",
+            "ref": "Code général des impôts"
+          }
+        ],
+        "keyPoints": [
+          "La TVA parahotellerie exige des conditions factuelles précises de services",
+          "Le classement résidence de tourisme impose des obligations d'exploitation",
+          "Les résidences-services combinent autonomie du logement et mutualisation des services",
+          "Vérifier l'éligibilité réelle aux régimes fiscaux au-delà des arguments commerciaux",
+          "Les travaux de mise aux normes peuvent être imposés aux propriétaires"
+        ],
+        "warnings": [
+          "Un 'pack' commercial ne garantit pas l'éligibilité fiscale",
+          "Vérifier sur BOFiP les conditions exactes de la TVA parahotellerie",
+          "Les obligations de durée de location peuvent contraindre la revente",
+          "Anticiper les travaux de maintien du classement dans le business plan"
+        ],
+        "examples": [
+          "3 services minimum pour TVA parahotellerie : petit-déjeuner + nettoyage + linge + réception",
+          "Obligation de location sur 9 ans minimum pour récupération TVA intégrale"
+        ]
+      },
+      {
+        "title": "Analyse Financière et Due Diligence",
+        "content": "L'analyse financière de l'immobilier de loisirs nécessite une approche spécifique intégrant liquidité réduite, charges importantes et risques opérationnels.\n\nCheck-list due diligence essentielle :\n\nSortie/liquidité : marché secondaire actif, décotes observées, frais de cession, clauses d'agrément\nCharges : historique 3 ans, base de répartition, services inclus, impayés, travaux programmés\nGouvernance : règles de vote, représentants, transparence budgétaire, contrôles\nUsage : période fixe/flottante, règles de réservation, assurance, règlement intérieur\n\nLa modélisation doit intégrer 3 scénarios : base, stress charges (+20%), stress revente (-20 à -30%). Pour les résidences gérées, ajouter le stress exploitant (défaillance, renégociation défavorable).\n\nLes métriques NPV et IRR restent pertinentes mais doivent intégrer fiscalité, frais cachés et provisions pour travaux.",
+        "concepts": [
+          {
+            "term": "Due diligence",
+            "definition": "Process d'audit préalable à l'investissement couvrant aspects juridiques, financiers et opérationnels",
+            "ref": ""
+          },
+          {
+            "term": "NPV - Net Present Value",
+            "definition": "Valeur actuelle nette, somme des flux futurs actualisés moins l'investissement initial",
+            "ref": ""
+          },
+          {
+            "term": "IRR - Internal Rate of Return",
+            "definition": "Taux de rendement interne, taux d'actualisation annulant la NPV",
+            "ref": ""
+          },
+          {
+            "term": "Stress test",
+            "definition": "Simulation de scénarios dégradés pour tester la robustesse de l'investissement",
+            "ref": ""
+          }
+        ],
+        "keyPoints": [
+          "Modéliser systématiquement 3 scénarios : base, stress charges, stress revente",
+          "La check-list due diligence doit couvrir liquidité, charges, gouvernance et usage",
+          "Les charges sont souvent le premier destructeur de valeur à auditer",
+          "Prévoir des provisions pour travaux et mise aux normes",
+          "Intégrer fiscalité, frais de notaire et TVA à reverser si revente anticipée"
+        ],
+        "warnings": [
+          "Ne jamais se contenter du scénario commercial optimiste",
+          "Tester une décote de revente de 10-30% minimum",
+          "Vérifier l'historique des charges sur au moins 3 ans",
+          "Anticiper les changements de réglementation et de fiscalité"
+        ],
+        "examples": [
+          "Multipropriété base : NPV +177€, avec charges +20% : NPV -749€",
+          "Résidence gérée : IRR 3,41% intégrant décote revente de 16,7%",
+          "Nue-propriété sur 10 ans : IRR 5,96% sans flux intermédiaires"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
