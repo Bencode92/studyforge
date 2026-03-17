@@ -1,0 +1,243 @@
+{
+  "metadata": {
+    "title": "Guide pratique : Investir dans un parking en France - Aspects juridiques, fiscaux et financiers",
+    "category": "immobilier-detail",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Guide complet et structuré sur l'investissement parking",
+      "Références juridiques et fiscales à jour",
+      "Méthodologie d'analyse comparative bien développée",
+      "Exemples chiffrés pertinents pour la prise de décision"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique : Investir dans un parking en France - Aspects juridiques, fiscaux et financiers",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Introduction et check-list express",
+        "content": "L'investissement dans un parking présente des spécificités juridiques et fiscales qu'il faut maîtriser avant tout achat. Cette check-list permet d'évaluer rapidement une opportunité :\n\n- **Mesurer la tension locale** : analyser les loyers réellement signés, le taux de vacance et les suppressions de places en voirie\n- **Identifier le droit acheté** : distinguer la pleine propriété (lot) des droits temporaires (concession/BEA/parts)\n- **Modéliser le rendement net** : intégrer charges, taxe foncière, vacance, frais d'acquisition et éventuelle TVA\n- **Vérifier le règlement** : s'assurer que la location est autorisée, l'accès 24h/24 garanti, la sécurité assurée\n- **Préparer la sortie** : évaluer la liquidité et les contraintes de cession\n\nCette approche analytique permet de comparer objectivement différentes opportunités avec le même format et les mêmes hypothèses.",
+        "concepts": [
+          {
+            "term": "Tension locative",
+            "definition": "Rapport entre l'offre et la demande de stationnement dans une zone, influençant les prix et la facilité de location",
+            "ref": "analyse-marche"
+          },
+          {
+            "term": "Droit temporaire",
+            "definition": "Droit d'usage limité dans le temps (concession, BEA, parts sociales) par opposition à la pleine propriété perpétuelle",
+            "ref": "montages-juridiques"
+          },
+          {
+            "term": "Rendement net",
+            "definition": "Rentabilité après déduction de toutes les charges (taxes, frais, vacance, gestion)",
+            "ref": "calcul-rentabilite"
+          }
+        ],
+        "keyPoints": [
+          "L'investissement parking nécessite une analyse spécialisée différente du logement",
+          "Tous les montages ne donnent pas les mêmes droits ni la même sécurité",
+          "Le rendement net peut être très différent du rendement brut affiché"
+        ],
+        "warnings": [
+          "Attention aux droits temporaires : la valeur finale peut être nulle",
+          "Vérifier impérativement le règlement de copropriété avant achat",
+          "La TVA peut s'appliquer selon les cas, impactant la compétitivité"
+        ],
+        "examples": [
+          "Check-list systématique avant achat pour éviter les mauvaises surprises",
+          "Comparaison standardisée de plusieurs opportunités sur les mêmes critères"
+        ]
+      },
+      {
+        "title": "Définitions essentielles",
+        "content": "**Emplacement** : Place matérialisée, souvent non close. Plus simple et parfois plus liquide, mais sécurité moindre.\n\n**Box/garage** : Local clos et couvert avec porte. Sécurité perçue comme meilleure, mais charges et travaux possibles (porte, ventilation).\n\n**Lot de copropriété** : Pleine propriété d'un lot avec tantièmes et règlement de copropriété. Droit solide et revente facilitée, mais charges et décisions collectives.\n\n**Volume/sous-volume** : Technique de division permettant d'isoler des ensembles (parking séparé des commerces). Utile dans les grands ensembles, vigilance sur servitudes.\n\n**Droit de jouissance** : Détention de parts/actions donnant usage d'un emplacement déterminé. Liquidité plus faible, dépend du montage.\n\n**Droit réel temporaire/BEA** : Droit réel limité dans le temps (12 à 99 ans). Décote croissante, valeur finale tendant vers zéro.\n\n**Concession** : Occupation autorisée du domaine public pour une durée donnée. Profil cash-flow plutôt qu'actif perpétuel.\n\n**Idée clé** : Un parking n'est pas toujours un actif immobilier perpétuel. Dans les montages temporaires, on achète une suite de cash-flows sur N années.",
+        "concepts": [
+          {
+            "term": "Lot de copropriété",
+            "definition": "Fraction de l'immeuble appartenant à un copropriétaire, avec quote-part des parties communes",
+            "ref": "copropriete"
+          },
+          {
+            "term": "BEA",
+            "definition": "Bail emphytéotique administratif, droit réel immobilier temporaire de longue durée",
+            "ref": "droit-reel-temporaire"
+          },
+          {
+            "term": "Concession",
+            "definition": "Autorisation d'occuper le domaine public, révocable et temporaire",
+            "ref": "domaine-public"
+          }
+        ],
+        "keyPoints": [
+          "Distinction fondamentale entre propriété perpétuelle et droits temporaires",
+          "La nature juridique du droit impacte directement la liquidité",
+          "Les charges et contraintes varient selon le type de montage"
+        ],
+        "warnings": [
+          "Les droits temporaires perdent de la valeur avec le temps",
+          "La gouvernance des montages sociétaux peut être complexe",
+          "Les servitudes peuvent limiter l'usage ou l'accès"
+        ],
+        "examples": [
+          "Lot de copropriété : pleine propriété, charges collectives",
+          "Parts de société : droit d'usage, durée limitée, liquidité réduite"
+        ]
+      },
+      {
+        "title": "Montages juridiques comparatifs",
+        "content": "| Montage | Ce que vous détenez | Durée | Liquidité | Risques clés |\n|---------|-------------------|--------|-----------|---------------|\n| **Lot de copropriété** | Pleine propriété | Illimitée | Souvent bonne | Charges copro, travaux votés, règlement |\n| **Volume/sous-volume** | Propriété d'un volume | Illimitée | Variable | Servitudes, complexité gestion, accès |\n| **Parts de société** | Droit de jouissance via parts | Limitée | Décroissante | Durée liée au bail, gouvernance, revente difficile |\n| **Droit réel temporaire** | Droit réel temporaire | Contractuelle | Forte décote | Valeur terminale faible, bien évaluer la durée |\n| **BEA/Bail à construction** | Droit réel long terme | 12-99 ans | Décote progressive | Obligations contractuelles, retour au bailleur |\n| **Concession publique** | Droit d'occupation | Durée contrat | Très variable | Précarité, révocabilité, dépendance au contrat |\n\n**Règle pratique** : Si le droit expire, raisonnez comme sur une annuité avec valeur finale proche de zéro, donc exigez un cash-flow net plus élevé.",
+        "concepts": [
+          {
+            "term": "Volume",
+            "definition": "Technique juridique permettant de diviser un immeuble en volumes autonomes avec leurs propres règles",
+            "ref": "division-volume"
+          },
+          {
+            "term": "Société d'attribution",
+            "definition": "Structure permettant l'attribution d'un droit d'usage via des parts sociales",
+            "ref": "montage-societaire"
+          },
+          {
+            "term": "Annuité",
+            "definition": "Approche financière considérant des flux réguliers avec amortissement du capital",
+            "ref": "calcul-financier"
+          }
+        ],
+        "keyPoints": [
+          "Chaque montage a ses propres contraintes et avantages",
+          "La durée du droit impacte directement sa valorisation",
+          "La liquidité varie énormément selon le montage choisi"
+        ],
+        "warnings": [
+          "Montages temporaires : valeur finale souvent nulle",
+          "Montages sociétaires : gouvernance et cession complexes",
+          "Concessions : risque de révocation par l'autorité publique"
+        ],
+        "examples": [
+          "Lot de copropriété : sécurité juridique maximale",
+          "BEA 30 ans : décote progressive jusqu'à l'échéance"
+        ]
+      },
+      {
+        "title": "Régimes de location",
+        "content": "**Parking accessoire au logement**\n- Régime : Bail d'habitation (l'accessoire suit le principal)\n- Liberté : Plus encadrée\n- À surveiller : Durée liée au bail principal, révision encadrée, sous-location\n\n**Parking loué seul**\n- Régime : Code civil (contractuel)\n- Liberté : Élevée\n- À surveiller : Préavis, dépôt de garantie, indexation, modalités d'accès\n\n**Parking lié à un local professionnel**\n- Régime : Bail professionnel ou clauses contractuelles\n- Liberté : Moyenne à élevée\n- À surveiller : Usage autorisé, horaires, responsabilité, assurance\n\n**Clauses utiles pour location Code civil** :\n- Objet précis avec plan annexé, usage exclusif stationnement\n- Durée 1 an renouvelable ou mois par mois, préavis 1 mois\n- Loyer indexé annuellement (IRL ou autre indice convenu)\n- Modalités d'accès et remise de télécommande/clé\n- Interdictions : stockage, travaux, sous-location sans accord\n- Assurance responsabilité civile du locataire obligatoire\n\n**Important** : Les aires de stationnement non closes sont exclues du statut des baux commerciaux (jurisprudence).",
+        "concepts": [
+          {
+            "term": "Bail accessoire",
+            "definition": "Contrat de location lié à un bail principal (logement ou local professionnel)",
+            "ref": "bail-habitation"
+          },
+          {
+            "term": "Location Code civil",
+            "definition": "Contrat de location de droit commun avec grande liberté contractuelle",
+            "ref": "droit-commun"
+          },
+          {
+            "term": "IRL",
+            "definition": "Indice de référence des loyers, utilisé pour réviser les loyers d'habitation et parking",
+            "ref": "indexation"
+          }
+        ],
+        "keyPoints": [
+          "Le régime juridique dépend du contexte de location",
+          "Grande liberté contractuelle pour les parkings loués seuls",
+          "Importance des clauses d'accès et de responsabilité"
+        ],
+        "warnings": [
+          "Parking accessoire : fin liée au bail principal",
+          "Bien définir l'usage autorisé et les interdictions",
+          "Prévoir l'assurance et la responsabilité du locataire"
+        ],
+        "examples": [
+          "Contrat type avec indexation IRL et préavis 1 mois",
+          "Clause d'interdiction de stockage et de sous-location"
+        ]
+      },
+      {
+        "title": "Fiscalité et taxes",
+        "content": "**TVA sur les loyers de parking**\n- Principe : La location d'emplacements de stationnement est taxable à 20%\n- Exception : Parking accessoire d'un bail exonéré (même parties, même ensemble)\n- Franchise en base : Pas de TVA si recettes sous les seuils (37 500/41 250 €)\n- Impact : Peut rendre le loyer TTC moins compétitif face aux particuliers\n\n**Catégorie de revenus**\n- Revenus fonciers : Location simple sans prestations\n- BIC : Bascule possible si prestations commerciales (gardiennage, lavage...)\n\n**Plus-value à la revente (patrimoine privé)**\n- Taux : 19% IR + 17,2% prélèvements sociaux\n- Abattements selon durée de détention\n- Seuil 15 000 € : Exonération si prix de cession ≤ 15 000 €\n\n**Autres taxes**\n- Taxe foncière : À la charge du propriétaire\n- Taxe d'habitation : Possible si dépendance d'une résidence secondaire (< 1 km)\n\n**Astuce pratique** : Intégrez dans votre modèle un 'switch TVA' et un 'switch droit temporaire' - ce sont les variables qui changent le plus le profil risque/rendement.",
+        "concepts": [
+          {
+            "term": "TVA sur parking",
+            "definition": "Taxe sur la valeur ajoutée applicable aux locations de stationnement, avec exceptions",
+            "ref": "tva-immobilier"
+          },
+          {
+            "term": "Revenus fonciers",
+            "definition": "Catégorie fiscale pour les revenus de location immobilière simple",
+            "ref": "fiscalite-revenus"
+          },
+          {
+            "term": "Franchise en base",
+            "definition": "Seuil en dessous duquel l'assujetti n'est pas redevable de la TVA",
+            "ref": "tva-franchise"
+          }
+        ],
+        "keyPoints": [
+          "TVA applicable sauf exceptions spécifiques",
+          "Distinction importante revenus fonciers/BIC",
+          "Plus-value avec abattements pour durée de détention"
+        ],
+        "warnings": [
+          "TVA peut impacter la compétitivité du loyer",
+          "Seuil de 15 000 € pour exonération plus-value",
+          "Taxe d'habitation possible sur résidences secondaires"
+        ],
+        "examples": [
+          "Parking à 100 €/mois : 120 € TTC si TVA applicable",
+          "Plus-value exonérée si vente à 14 000 € (seuil 15 000 €)"
+        ]
+      },
+      {
+        "title": "Méthode d'analyse comparative",
+        "content": "**Format standardisé pour comparer les opportunités** :\n\n| Critère | Contenu | Objectif |\n|---------|---------|----------|\n| **Localisation** | Ville/quartier/rue | Tension locative, transports, évolution |\n| **Produit** | Place ou box + caractéristiques | Accès 24h/24, sécurité, dimensions |\n| **Montage** | Type juridique et durée | Sécurité du droit, liquidité |\n| **Prix & frais** | Coût total acquisition | Base de calcul du rendement |\n| **Cash-flow** | Revenus - charges | Rentabilité nette réelle |\n| **Fiscalité** | TVA, régime fiscal | Impact sur la rentabilité |\n| **Sortie** | Liquidité et valeur terminale | Stratégie de sortie |\n\n**Objectif** : Scorer chaque opportunité sur les mêmes critères pour une décision objective.\n\n**Méthodologie** :\n1. Collecter les données sur le même format\n2. Calculer les rendements nets comparables\n3. Évaluer les risques spécifiques\n4. Simuler différents scenarii de sortie\n5. Classer par couple rendement/risque",
+        "concepts": [
+          {
+            "term": "Due diligence",
+            "definition": "Processus de vérification approfondie avant investissement",
+            "ref": "analyse-investissement"
+          },
+          {
+            "term": "Scoring",
+            "definition": "Méthode de notation permettant de comparer objectivement plusieurs opportunités",
+            "ref": "methodologie-analyse"
+          },
+          {
+            "term": "Couple rendement-risque",
+            "definition": "Relation entre la rentabilité attendue et les risques associés à un investissement",
+            "ref": "gestion-risques"
+          }
+        ],
+        "keyPoints": [
+          "Standardisation indispensable pour comparer efficacement",
+          "Prise en compte de tous les coûts réels",
+          "Évaluation systématique des risques de sortie"
+        ],
+        "warnings": [
+          "Ne pas se limiter au rendement brut affiché",
+          "Intégrer les spécificités de chaque montage juridique",
+          "Prévoir plusieurs scénarios de marché"
+        ],
+        "examples": [
+          "Grille d'analyse avec 7 critères standardisés",
+          "Comparaison de 3 parkings sur mêmes hypothèses"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
