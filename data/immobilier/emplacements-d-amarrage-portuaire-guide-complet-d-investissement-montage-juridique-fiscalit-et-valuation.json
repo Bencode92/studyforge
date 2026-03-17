@@ -1,0 +1,185 @@
+{
+  "metadata": {
+    "title": "Emplacements d'amarrage portuaire : Guide complet d'investissement - Montage juridique, fiscalité et évaluation",
+    "category": "immobilier",
+    "created": "2026-03-17",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document technique expert avec approche pragmatique",
+      "Aspects fiscaux détaillés et à jour",
+      "Méthodologie d'évaluation solide"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Emplacements d'amarrage portuaire : Guide complet d'investissement - Montage juridique, fiscalité et évaluation",
+        "date": "2026-03-17"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Vue d'ensemble et principe général",
+        "content": "L'emplacement d'amarrage portuaire est un investissement spécifique où l'acquéreur devient actionnaire d'une société concessionnaire du port. Ces titres confèrent un droit de jouissance privatif sur un poste d'amarrage (anneau) pour la durée de la concession.\n\nConstrainte structurante : l'emplacement étant situé sur le domaine public (inaliénable), il n'y a pas de propriété directe possible. La valeur dépend essentiellement de la durée résiduelle de concession et des règles de jouissance/cession.\n\nLa décision d'investissement doit être robuste : le deal doit rester acceptable même si la revente est faible (stress test). Si tout dépend d'une revente optimiste, l'investisseur spécule sur la concession et la liquidité.",
+        "concepts": [
+          {
+            "term": "Société d'attribution en jouissance",
+            "definition": "Société dont les titres sont affectés à un droit d'usage : chaque lot de titres correspond à un poste d'amarrage identifié, selon un règlement de jouissance",
+            "ref": "Montage juridique portuaire"
+          },
+          {
+            "term": "Concession portuaire",
+            "definition": "Contrat par lequel une collectivité confie à un opérateur l'aménagement et l'exploitation du port pour une durée donnée avec obligations, contrôles et modalités de fin de contrat",
+            "ref": "Droit public portuaire"
+          },
+          {
+            "term": "Domaine public",
+            "definition": "Biens affectés à l'usage du public ou à un service public, inaliénables par nature, excluant toute propriété privée directe sur l'anneau",
+            "ref": "Code général des collectivités territoriales"
+          }
+        ],
+        "keyPoints": [
+          "Pas de propriété directe mais droit de jouissance via des titres",
+          "Valeur dépendante de la durée résiduelle de concession",
+          "Nécessité d'un stress test avant investissement",
+          "Montage triangulaire : commune/société concessionnaire/investisseur"
+        ],
+        "warnings": [
+          "Spéculation sur concession/liquidité si justification uniquement par revente",
+          "Domaine public inaliénable = pas de propriété classique"
+        ],
+        "examples": [
+          "Acquisition d'actions d'une SEM portuaire donnant droit à un anneau de 12m"
+        ]
+      },
+      {
+        "title": "Check-list et due diligence",
+        "content": "Avant tout investissement, 10 points cruciaux doivent être vérifiés :\n\n1. Durée résiduelle de concession et clauses de fin (remise ouvrages, indemnités)\n2. Statuts + règlement de jouissance (place, dimensions, tirant d'eau, sous-location)\n3. Conditions de cession des titres (agrément, préemption, lots indivisibles, frais)\n4. Charges récurrentes sur 3 exercices (capitainerie, eau/électricité, gardiennage)\n5. Risque travaux et appels de fonds (dragage, pontons, mise aux normes)\n6. Liquidité : historique transactions et délais sur anneaux comparables\n7. Régime fiscal : transparence (CGI 1655 ter) ou IS avec dispositif 239 octies\n8. TVA entrée/sortie, particulièrement sur ouvrages récents\n9. Restrictions sous-location (autorisation, plafonds, commission, assurance)\n10. Simulation notariale des droits/impôts sur cession",
+        "concepts": [
+          {
+            "term": "Règlement de jouissance",
+            "definition": "Document contractuel fixant droits et obligations : dimensions bateau, sous-location, services, charges, sanctions",
+            "ref": "Droit des sociétés d'attribution"
+          },
+          {
+            "term": "Capex portuaire",
+            "definition": "Dépenses d'investissement (dragage, pontons, mise aux normes) pouvant déclencher des appels de fonds exceptionnels",
+            "ref": "Gestion portuaire"
+          }
+        ],
+        "keyPoints": [
+          "Due diligence en 10 étapes obligatoires",
+          "Vérification approfondie des charges sur 3 exercices",
+          "Évaluation critique de la liquidité du marché secondaire",
+          "Simulation fiscale personnalisée indispensable"
+        ],
+        "warnings": [
+          "Trois risques destructeurs de valeur : fin de concession, illiquidité, capex surprise",
+          "Question cruciale : 'Que vaut l'anneau si la concession n'est pas renouvelée ?'"
+        ],
+        "examples": [
+          "Dragage cyclique tous les 3-5 ans à modéliser comme capex récurrent"
+        ]
+      },
+      {
+        "title": "Montage juridique et formats d'investissement",
+        "content": "Le montage standard implique trois niveaux : la commune (autorité concédante), la société concessionnaire (SA/SEM/privée) et l'investisseur détenant actions/parts + règlement de jouissance.\n\nComparaison des formats disponibles :\n- Location portuaire : contrat annuel/saisonnier, pas de revente\n- AOT : autorisation administrative précaire et variable\n- Amodiation : droit d'usage 10-30 ans avec revente encadrée\n- Actions/parts + jouissance : durée de concession, revente possible\n- Marina privée : propriété/copropriété (rare)\n\nL'arbre de décision dépend de l'objectif : usage personnel (comparer au coût location), rendement (vérifier sous-location + charges), ou valeur/revente (durée concession + liquidité).",
+        "concepts": [
+          {
+            "term": "AOT (Autorisation d'Occupation Temporaire)",
+            "definition": "Autorisation administrative d'occuper le domaine public, souvent précaire et strictement encadrée",
+            "ref": "Droit du domaine public"
+          },
+          {
+            "term": "Amodiation portuaire",
+            "definition": "Droit d'usage de long terme (10-30 ans) avec règlement spécifique et possibilité de revente encadrée",
+            "ref": "Selon réglementation portuaire locale"
+          }
+        ],
+        "keyPoints": [
+          "Montage triangulaire avec commune au centre",
+          "Différents formats selon durée et droits",
+          "Choix fonction de l'objectif d'investissement",
+          "Règlement de jouissance détermine la réalité du droit"
+        ],
+        "warnings": [
+          "Confusion possible entre les différents formats",
+          "AOT particulièrement précaire"
+        ],
+        "examples": [
+          "SEM départementale concessionnaire avec actions nominatives de 1000€"
+        ]
+      },
+      {
+        "title": "Régime fiscal détaillé",
+        "content": "Deux régimes principaux selon l'objet social :\n\n**Transparence fiscale (CGI 1655 ter)** : si objet exclusif d'attribution de jouissance aux membres. Pas d'IS comme société commerciale, mais risque de perte si activité commerciale significative.\n\n**IS + dispositif 239 octies** : pour objets mixtes (exploitation + attribution). IS en principe mais avantage en nature neutralisé selon 239 octies jusqu'en 2026.\n\n**TVA complexe par flux** :\n- Souscription/achat actions : généralement non (accès au droit)\n- Services portuaires publics : oui (exploitation)\n- Services aux membres : exonération possible si strict remboursement charges communes\n- Travaux construction : TVA amont avec déduction limitée\n\n**Cession des titres** : TVA possible si moins de 5 ans après achèvement, sinon exonération optionnelle. Droits d'enregistrement selon traitement fiscal (éviter confusion 'TVA = 125€').",
+        "concepts": [
+          {
+            "term": "Transparence fiscale CGI 1655 ter",
+            "definition": "Régime fiscal spécial évitant la double imposition pour sociétés à objet exclusif d'attribution de jouissance",
+            "ref": "Code général des impôts article 1655 ter"
+          },
+          {
+            "term": "Dispositif 239 octies",
+            "definition": "Mécanisme fiscal neutralisant l'avantage en nature pour objets mixtes, prorogé jusqu'en 2026",
+            "ref": "Code général des impôts article 239 octies"
+          }
+        ],
+        "keyPoints": [
+          "Deux régimes selon objet social (exclusif vs mixte)",
+          "TVA différenciée par type de flux",
+          "Cession : régime temporel 5 ans post-achèvement",
+          "Droits enregistrement calculés au cas par cas"
+        ],
+        "warnings": [
+          "Perte transparence si activité commerciale significative",
+          "Dispositif 239 octies temporaire (fin 2026)",
+          "Confusion fréquente sur droits de cession"
+        ],
+        "examples": [
+          "Société transparente : charges déductibles directement chez l'associé",
+          "Cession 70k€ hors TVA : ~3500-4200€ de droits selon département"
+        ]
+      },
+      {
+        "title": "Charges, travaux et fiscalité locale",
+        "content": "Structure des charges récurrentes :\n- Redevance domaniale : payée par société, refacturée via charges\n- Exploitation (capitainerie, gardiennage, fluides) : budget associés\n- Assurances/sécurité : société + associés selon répartition\n- Gros travaux : appels de fonds possibles (risque majeur)\n- Frais de cession : selon clauses contractuelles\n\nFiscalité locale spécifique :\n- Taxe foncière : établie au nom propriétaire domaine avec refacturation possible\n- Redevance d'occupation : due par concessionnaire selon calcul et révision contractuels\n\nMéthodologie due diligence : analyser PV d'AG et plan pluriannuel travaux, modéliser dragage cyclique comme capex récurrent.",
+        "concepts": [
+          {
+            "term": "Redevance domaniale",
+            "definition": "Somme versée par le concessionnaire à l'autorité publique pour occupation du domaine, généralement refacturée aux porteurs",
+            "ref": "Droit des concessions"
+          },
+          {
+            "term": "Capex récurrent",
+            "definition": "Investissements cycliques prévisibles (dragage, renouvellement pontons) à intégrer dans la modélisation financière",
+            "ref": "Gestion financière portuaire"
+          }
+        ],
+        "keyPoints": [
+          "Charges multiples avec refacturation complexe",
+          "Gros travaux = risque n°1 de destruction de rendement",
+          "Fiscalité locale spécialisée à vérifier",
+          "Nécessité d'analyse historique des PV d'AG"
+        ],
+        "warnings": [
+          "Appels de fonds imprévisibles cassent la rentabilité",
+          "Redevances en hausse automatique selon indexation"
+        ],
+        "examples": [
+          "Dragage tous les 5 ans : provision 2000€/an sur anneau 10m",
+          "Charges courantes 1500-3000€/an selon port et services"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
