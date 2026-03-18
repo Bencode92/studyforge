@@ -57,10 +57,14 @@ render = function() {
       if (GH.token) {
         loadDashboard(content);
       } else {
-        const btn = document.createElement('div');
-        btn.style.cssText = 'text-align:center;margin-top:20px';
-        btn.innerHTML = '<button class="btn btn-pri" onclick="requireToken(function(){loadDashboard(document.getElementById(\'content\'))})" style="padding:14px 28px;font-size:14px">📊 Voir le dashboard de révision</button>';
-        content.appendChild(btn);
+        // Pas de token → remplacer le placeholder par un message clair + bouton
+        content.innerHTML = '<div style="max-width:600px;margin:0 auto;text-align:center;padding-top:60px">' +
+          '<div style="font-size:48px;margin-bottom:12px">📚</div>' +
+          '<h2 style="font-size:22px;font-weight:800;margin-bottom:6px">StudyForge</h2>' +
+          '<p style="color:#6b6b88;font-size:13px;margin-bottom:28px">' + cats.length + ' catégories · Entre ton token GitHub pour voir le dashboard de révision</p>' +
+          '<button class="btn btn-pri" onclick="requireToken(function(){delete document.getElementById(\'content\').dataset.dashPatched;render()})" style="padding:14px 32px;font-size:15px;border-radius:14px">🔑 Connecter GitHub</button>' +
+          '<p style="color:#44445a;font-size:11px;margin-top:16px">Token stocké en session uniquement</p>' +
+          '</div>';
       }
     }
   } else {
