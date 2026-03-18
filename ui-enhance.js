@@ -1,25 +1,11 @@
 // StudyForge UI Enhancement - loaded AFTER patches.js
-// Fixes: broken emoji icons + visual polish for sidebar, cards, category pages
+// FIX: removed auto-reload of categories at startup (caused 403 rate limit)
+// Emojis fix now happens on first category navigation, not on page load
 
-// === 1. FIX EMOJI ICONS ===
-// init() ran BEFORE patches.js, so categories were loaded with broken atob()
-// Re-read with the patched ghGet (UTF-8 safe)
-(async function() {
-  try {
-    const idx = await ghGet('data/index.json');
-    if (idx && idx.content?.categories) {
-      cats = idx.content.categories;
-      renderCats();
-      console.log('Categories reloaded with UTF-8 fix (' + cats.length + ' cats)');
-    }
-  } catch(e) { console.error('Cat reload error:', e); }
-})();
-
-// === 2. ENHANCED CSS ===
+// === ENHANCED CSS ===
 (function() {
   const style = document.createElement('style');
   style.textContent = `
-    /* --- SIDEBAR --- */
     .cat-item {
       padding: 10px 14px !important;
       border-radius: 12px !important;
@@ -56,8 +42,6 @@
     .cat-item.active .cat-icon {
       background: rgba(123,104,238,0.2);
     }
-
-    /* --- FICHE CARDS --- */
     .fiche-card {
       position: relative;
       overflow: hidden;
@@ -80,8 +64,6 @@
       background: radial-gradient(circle at top right, rgba(123,104,238,0.06), transparent 70%);
       pointer-events: none;
     }
-
-    /* --- CATEGORY HEADER --- */
     .cat-header-icon {
       font-size: 36px;
       width: 56px;
@@ -94,40 +76,21 @@
       border: 1px solid rgba(123,104,238,0.2);
       flex-shrink: 0;
     }
-
-    /* --- SECTION CARDS (fiche view) --- */
-    .card {
-      transition: all .15s ease;
-    }
-    .card:hover {
-      border-color: rgba(123,104,238,0.2) !important;
-    }
-
-    /* --- SIDEBAR FOOTER BUTTONS --- */
+    .card { transition: all .15s ease; }
+    .card:hover { border-color: rgba(123,104,238,0.2) !important; }
     #sidebar .btn-pri {
       background: linear-gradient(135deg, #7B68EE, #6C5CE7) !important;
       border-radius: 12px !important;
     }
-    #sidebar .btn-sec {
-      border-radius: 12px !important;
-    }
-
-    /* --- QUIZ TITLE FIX --- */
-    .quiz-title {
-      text-transform: none !important;
-    }
-
-    /* --- SCROLLBAR SIDEBAR --- */
+    #sidebar .btn-sec { border-radius: 12px !important; }
     #sidebar ::-webkit-scrollbar { width: 3px; }
     #sidebar ::-webkit-scrollbar-thumb { background: rgba(123,104,238,0.2); border-radius: 3px; }
-
-    /* --- TAG BADGES --- */
     .tag { letter-spacing: 0.3px; }
   `;
   document.head.appendChild(style);
 })();
 
-// === 3. ENHANCED renderCats ===
+// === ENHANCED renderCats (with emoji icons in boxes) ===
 const _origRenderCats = renderCats;
 renderCats = function() {
   const el = document.getElementById('cat-list');
@@ -141,45 +104,34 @@ renderCats = function() {
       '</div>';
   }).join('');
 };
-// Re-render now
 renderCats();
 
-// === 4. ENHANCED CATEGORY PAGE + FICHE CARDS ===
+// === ENHANCED CATEGORY PAGE ===
 const _uiOrigRender = render;
 render = function() {
   _uiOrigRender();
   const content = document.getElementById('content');
   if (!content) return;
 
-  // Enhance category home page
   if (currentView === 'home' && selCat) {
     const h2 = content.querySelector('h2');
     if (h2 && !content.dataset.uiPatched) {
       content.dataset.uiPatched = 'true';
-
-      // Replace plain header with enhanced version
-      const headerDiv = h2.parentElement || h2;
       const catIcon = cats.find(c => c.id === selCat.id)?.icon || '📁';
-
       const newHeader = document.createElement('div');
       newHeader.style.cssText = 'display:flex;align-items:center;gap:16px;margin-bottom:20px';
       newHeader.innerHTML = '<div class="cat-header-icon">' + catIcon + '</div>' +
         '<div><h2 style="font-size:22px;font-weight:800;margin-bottom:2px">' + selCat.name + '</h2>' +
         '<p style="font-size:12px;color:#6b6b88">' + ficheList.length + ' fiche' + (ficheList.length !== 1 ? 's' : '') + '</p></div>';
-
-      if (h2.nextSibling && h2.nextSibling.tagName === 'P') {
-        h2.nextSibling.remove();
-      }
+      if (h2.nextSibling && h2.nextSibling.tagName === 'P') h2.nextSibling.remove();
       h2.replaceWith(newHeader);
     }
 
-    // Enhance fiche cards with more info
     content.querySelectorAll('.fiche-card').forEach(card => {
       if (card.dataset.uiDone) return;
       card.dataset.uiDone = 'true';
       const titleEl = card.querySelector('h3');
       if (titleEl) {
-        // Capitalize properly
         const raw = titleEl.textContent;
         titleEl.textContent = raw.charAt(0).toUpperCase() + raw.slice(1);
         titleEl.style.fontSize = '15px';
@@ -188,7 +140,6 @@ render = function() {
     });
   }
 };
-// Re-render
 render();
 
-console.log('UI Enhancement: emoji fix + sidebar + cards polish');
+console.log('UI Enhancement: sidebar + cards polish (no auto-reload)');
