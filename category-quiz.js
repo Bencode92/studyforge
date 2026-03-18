@@ -39,7 +39,7 @@ function _injectQuizSection(container) {
   const scores = _getScores();
   let h = '<div id="daily-quiz-section" style="margin-bottom:32px">';
   h += '<h3 style="font-size:17px;font-weight:800;margin-bottom:4px">\uD83C\uDFAF Quiz journalier</h3>';
-  h += '<p style="font-size:11px;color:#6b6b88;margin-bottom:16px">10 questions par cat\u00e9gorie \u2014 teste tes connaissances chaque jour</p>';
+  h += '<p style="font-size:11px;color:#8888a8;margin-bottom:16px">10 questions par cat\u00e9gorie \u2014 teste tes connaissances chaque jour</p>';
   h += '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px">';
 
   cats.forEach(cat => {
@@ -48,7 +48,7 @@ function _injectQuizSection(container) {
     const doneToday = daily && daily.completed;
 
     let borderColor = '#1a1a44';
-    let scoreColor = '#6b6b88';
+    let scoreColor = '#8888a8';
     if (doneToday) {
       const pct = Math.round((daily.score / daily.total) * 100);
       borderColor = pct >= 80 ? '#34d399' : pct >= 60 ? '#fbbf24' : '#f87171';
@@ -68,11 +68,11 @@ function _injectQuizSection(container) {
 
     if (doneToday) {
       var pctD = Math.round((daily.score / daily.total) * 100);
-      h += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:' + scoreColor + '">' + pctD + '%</div><div style="font-size:9px;color:#6b6b88">aujourd\'hui</div></div>';
+      h += '<div style="text-align:center"><div style="font-size:20px;font-weight:800;color:' + scoreColor + '">' + pctD + '%</div><div style="font-size:9px;color:#8888a8">aujourd\'hui</div></div>';
     } else if (history.length > 0) {
       var last = history[history.length - 1];
       var pctL = Math.round((last.score / last.total) * 100);
-      h += '<div style="text-align:center;opacity:0.6"><div style="font-size:16px;font-weight:700;color:' + scoreColor + '">' + pctL + '%</div><div style="font-size:9px;color:#6b6b88">' + last.date.slice(5) + '</div></div>';
+      h += '<div style="text-align:center;opacity:0.6"><div style="font-size:16px;font-weight:700;color:' + scoreColor + '">' + pctL + '%</div><div style="font-size:9px;color:#8888a8">' + last.date.slice(5) + '</div></div>';
     }
     h += '</div>';
 
@@ -239,7 +239,7 @@ function _showCatQuizUI(catId, quizData) {
   h += '</div>';
 
   h += '<div class="card" style="padding:24px;margin-bottom:16px">';
-  h += '<div style="font-size:10px;color:#6b6b88;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">Question ' + progress + (q.source ? ' \u00b7 ' + esc(q.source) : '') + '</div>';
+  h += '<div style="font-size:10px;color:#8888a8;margin-bottom:8px;text-transform:uppercase;letter-spacing:0.5px">Question ' + progress + (q.source ? ' \u00b7 ' + esc(q.source) : '') + '</div>';
   h += '<p style="font-size:15px;font-weight:600;line-height:1.6">' + esc(q.question) + '</p>';
   h += '</div>';
 
@@ -250,7 +250,7 @@ function _showCatQuizUI(catId, quizData) {
       ? 'background:rgba(123,104,238,0.15);border-color:#7B68EE;color:#e8e8f0'
       : 'background:var(--card);border-color:var(--brd);color:var(--txt)';
     h += '<div onclick="selectCatQuizAnswer(\'' + catId + '\',' + q.id + ',\'' + letter + '\')" class="card" style="padding:14px 18px;margin-bottom:8px;cursor:pointer;' + style + ';transition:all .15s ease;display:flex;align-items:center;gap:12px">';
-    h += '<div style="width:30px;height:30px;border-radius:50%;border:2px solid ' + (isSelected ? '#7B68EE' : '#2a2a44') + ';display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;' + (isSelected ? 'background:#7B68EE;color:#fff' : 'color:#6b6b88') + '">' + letter + '</div>';
+    h += '<div style="width:30px;height:30px;border-radius:50%;border:2px solid ' + (isSelected ? '#7B68EE' : '#2a2a44') + ';display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;flex-shrink:0;' + (isSelected ? 'background:#7B68EE;color:#fff' : 'color:#8888a8') + '">' + letter + '</div>';
     h += '<span style="font-size:13px;line-height:1.5">' + esc(opt.slice(2).trim()) + '</span>';
     h += '</div>';
   });
@@ -323,7 +323,7 @@ function _showCatQuizCorrection(catId, d) {
   h += '<div style="font-size:42px;margin-bottom:8px">' + emoji + '</div>';
   h += '<div style="font-size:36px;font-weight:800;color:' + scoreColor + '">' + pct + '%</div>';
   h += '<div style="font-size:15px;font-weight:600;margin:6px 0">' + d.score + '/' + d.total + ' \u2014 ' + msg + '</div>';
-  h += '<div style="font-size:11px;color:#6b6b88">' + d.date + '</div>';
+  h += '<div style="font-size:11px;color:#8888a8">' + d.date + '</div>';
   h += '</div>';
 
   h += '<div style="display:flex;gap:8px;margin-bottom:24px">';
