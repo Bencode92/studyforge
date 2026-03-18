@@ -66,7 +66,7 @@ function confirmToken(){const t=$('modal-token').value.trim();if(!t)return;GH.to
 function cancelToken(){$('token-modal').classList.add('hidden');pendingAction=null}
 function updateTag(){$('gh-tag').className='tag '+(hasToken()?'tag-grn':'tag-acc');$('gh-tag').textContent=hasToken()?'\u2713 GitHub':'\ud83d\udcd6 Lecture'}
 
-async function ghRead(p){const r=await fetch('https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p,{headers:{'Accept':'application/vnd.github.v3+json'}});if(!r.ok)throw new Error(r.statusText);return r.json()}
+async function ghRead(p){const h={'Accept':'application/vnd.github.v3+json'};if(GH.token)h['Authorization']='token '+GH.token;const r=await fetch('https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p,{headers:h});if(!r.ok)throw new Error(r.status+' '+r.statusText);return r.json()}
 async function ghGet(p){try{const d=await ghRead(p);return{content:JSON.parse(atob(d.content)),sha:d.sha}}catch{return null}}
 async function ghLs(p){try{const d=await ghRead(p);return Array.isArray(d)?d:[]}catch{return[]}}
 async function ghPut(p,c,msg,sha){if(!GH.token)throw new Error('Token requis');const b={message:msg,content:btoa(unescape(encodeURIComponent(typeof c==='string'?c:JSON.stringify(c,null,2))))};if(sha)b.sha=sha;const r=await fetch('https://api.github.com/repos/'+GH.owner+'/'+GH.repo+'/contents/'+p,{method:'PUT',headers:{'Authorization':'token '+GH.token,'Accept':'application/vnd.github.v3+json','Content-Type':'application/json'},body:JSON.stringify(b)});if(!r.ok){const e=await r.json().catch(()=>({}));throw new Error(e.message||r.statusText)}return r.json()}
