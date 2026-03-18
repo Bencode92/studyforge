@@ -104,7 +104,7 @@ renderCats = function() {
       '</div>';
   }).join('');
 };
-renderCats();
+// renderCats() sera appelé par init() ci-dessous
 
 // === ENHANCED CATEGORY PAGE ===
 const _uiOrigRender = render;
@@ -140,6 +140,10 @@ render = function() {
     });
   }
 };
-render();
+// render() sera appelé par init() ci-dessous
 
 console.log('UI Enhancement: sidebar + cards polish (no auto-reload)');
+
+// init() appelé ici pour garantir que TOUS les scripts (patches, dashboard, ui-enhance)
+// ont overridé leurs fonctions AVANT le premier chargement de données
+init();
