@@ -193,6 +193,120 @@ render = function() {
 
 console.log('UI Enhancement: sidebar + cards polish (no auto-reload)');
 
+// === SEARCH ACROSS FICHES ===
+var _searchTimeout = null;
+function sfSearch(query) {
+  var resultsDiv = document.getElementById('sf-search-results');
+  var catList = document.getElementById('cat-list');
+  if (!resultsDiv) return;
+  if (!query || query.length < 2) {
+    resultsDiv.style.display = 'none';
+    if (catList) catList.style.display = '';
+    return;
+  }
+  var q = query.toLowerCase();
+  clearTimeout(_searchTimeout);
+  _searchTimeout = setTimeout(function() {
+    var results = [];
+    // Search through localStorage cache
+    for (var i = 0; i < localStorage.length; i++) {
+      var key = localStorage.key(i);
+      if (!key || !key.startsWith('sf_c_data/') || key.endsWith('index.json') || key.endsWith('_meta.json')) continue;
+      try {
+        var raw = JSON.parse(localStorage.getItem(key));
+        if (!raw || !raw.data) continue;
+        var f = raw.data;
+        var title = (f.metadata && f.metadata.title) ? f.metadata.title : '';
+        var catId = key.replace('sf_c_data/', '').split('/')[0];
+        var ficheId = key.replace('sf_c_data/' + catId + '/', '').replace('.json', '');
+        var cat = cats.find(function(c) { return c.id === catId; });
+
+        // Search in title
+        var matched = title.toLowerCase().indexOf(q) >= 0;
+        var matchContext = '';
+
+        // Search in sections content, concepts, keyPoints
+        if (!matched && f.base && f.base.sections) {
+          f.base.sections.forEach(function(s) {
+            if (matched) return;
+            if (s.title && s.title.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = s.title; }
+            if (!matched && s.content && s.content.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = s.content.slice(0, 80); }
+            if (!matched && s.concepts) s.concepts.forEach(function(c) {
+              if (matched) return;
+              if (c.term && c.term.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = c.term + ': ' + (c.definition || '').slice(0, 60); }
+              if (!matched && c.definition && c.definition.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = c.term + ': ' + c.definition.slice(0, 60); }
+              if (!matched && c.ref && c.ref.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = c.term + ' (' + c.ref + ')'; }
+            });
+            if (!matched && s.keyPoints) s.keyPoints.forEach(function(kp) {
+              if (!matched && kp.toLowerCase().indexOf(q) >= 0) { matched = true; matchContext = kp.slice(0, 80); }
+            });
+          });
+        }
+
+        if (matched) {
+          results.push({ title: title, catId: catId, ficheId: ficheId, cat: cat, context: matchContext });
+        }
+      } catch (e) {}
+    }
+
+    // Display results
+    if (results.length === 0) {
+      resultsDiv.innerHTML = '<div style="padding:12px;font-size:11px;color:var(--txD);text-align:center">Aucun resultat</div>';
+    } else {
+      var h = '';
+      results.slice(0, 10).forEach(function(r) {
+        h += '<div onclick="loadCat(\'' + r.catId + '\').then(function(){loadFiche(\'' + r.ficheId + '\')})" style="padding:10px 12px;cursor:pointer;border-radius:8px;margin-bottom:2px;font-size:12px;transition:background .15s" onmouseenter="this.style.background=\'var(--accG)\'" onmouseleave="this.style.background=\'transparent\'">';
+        h += '<div style="font-weight:600;color:var(--txt);margin-bottom:2px">' + esc(r.title) + '</div>';
+        h += '<div style="font-size:10px;color:var(--txD)">' + (r.cat ? r.cat.icon + ' ' + r.cat.name : r.catId) + '</div>';
+        if (r.context) h += '<div style="font-size:10px;color:var(--txM);margin-top:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(r.context) + '</div>';
+        h += '</div>';
+      });
+      if (results.length > 10) h += '<div style="padding:8px;font-size:10px;color:var(--txD);text-align:center">+ ' + (results.length - 10) + ' autres resultats</div>';
+      resultsDiv.innerHTML = h;
+    }
+    resultsDiv.style.display = 'block';
+    if (catList) catList.style.display = 'none';
+  }, 200);
+}
+window.sfSearch = sfSearch;
+
+// === PERSISTANCE REVISION DATA ===
+// Backup quiz results to localStorage when ghPut might fail
+var _origEnrichQuiz = typeof enrichQuiz === 'function' ? enrichQuiz : null;
+var _revKey = 'sf_revision_backup';
+
+function _getRevisionBackup() {
+  try { return JSON.parse(localStorage.getItem(_revKey)) || {}; } catch { return {}; }
+}
+function _saveRevisionBackup(catId, ficheId, data) {
+  var backup = _getRevisionBackup();
+  var key = catId + '/' + ficheId;
+  backup[key] = { date: new Date().toISOString().split('T')[0], quiz: data, ts: Date.now() };
+  // Keep max 100 entries
+  var keys = Object.keys(backup);
+  if (keys.length > 100) {
+    keys.sort(function(a, b) { return (backup[a].ts || 0) - (backup[b].ts || 0); });
+    keys.slice(0, keys.length - 100).forEach(function(k) { delete backup[k]; });
+  }
+  try { localStorage.setItem(_revKey, JSON.stringify(backup)); } catch {}
+}
+
+// Intercept enrichQuiz to also save locally
+if (_origEnrichQuiz) {
+  enrichQuiz = async function() {
+    // Save to localStorage backup before attempting GitHub save
+    if (fiche && selCat) {
+      var slug = (fiche.metadata && fiche.metadata.title) ? fiche.metadata.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') : 'f';
+      _saveRevisionBackup(selCat.id, slug, {
+        totalAttempts: (fiche.quiz && fiche.quiz.totalAttempts || 0) + 1,
+        lastDate: new Date().toISOString().split('T')[0],
+        score: qRes ? (qType === 'qcm' ? qRes.filter(function(r) { return r.ok; }).length + '/' + qRes.length : null) : null
+      });
+    }
+    return _origEnrichQuiz();
+  };
+}
+
 // init() appelé ici pour garantir que TOUS les scripts (patches, dashboard, ui-enhance)
 // ont overridé leurs fonctions AVANT le premier chargement de données
 init();
