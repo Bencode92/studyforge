@@ -74,103 +74,19 @@
     /* === FICHE LEARNING-OPTIMIZED STYLES ======= */
     /* ============================================ */
 
-    /* Section headers - numbered, colored bar, bigger */
-    .sf-section {
-      background: var(--card); border: 1px solid var(--brd); border-radius: 14px;
-      padding: 24px; margin-bottom: 16px;
-      border-left: 4px solid var(--acc);
-      position: relative;
-    }
-    .sf-section-header {
-      display: flex; align-items: center; gap: 12px;
-      margin-bottom: 16px; padding-bottom: 12px;
-      border-bottom: 1px solid var(--brd);
-    }
-    .sf-section-num {
-      width: 32px; height: 32px; border-radius: 10px;
-      background: linear-gradient(135deg, var(--acc), #6C5CE7);
-      color: #fff; font-size: 14px; font-weight: 800;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .sf-section-title {
-      font-size: 17px; font-weight: 800; color: var(--txt);
-      line-height: 1.3;
-    }
+    /* Accordion sections */
+    .sf-sec .sf-sec-body { display: none; }
+    .sf-sec.sf-sec-open .sf-sec-body { display: block; }
+    .sf-sec.sf-sec-open .sf-chevron { transform: rotate(90deg); }
+    .sf-sec:not(.sf-sec-open) { background: var(--card); }
+    .sf-sec.sf-sec-open { background: var(--card); border-color: rgba(123,104,238,0.2) !important; }
 
-    /* Body text - bigger, more readable */
-    .sf-body {
-      font-size: 14px; color: var(--txM); line-height: 1.8;
-      white-space: pre-wrap; margin-bottom: 16px;
-    }
+    /* TOC items hover */
+    .sf-toc-item:hover { background: var(--accG) !important; color: var(--acc) !important; border-color: rgba(123,104,238,0.3) !important; }
 
-    /* Concepts - distinct cards with colored left accent */
-    .sf-concept {
-      padding: 14px 16px; margin: 8px 0; border-radius: 12px;
-      background: linear-gradient(135deg, rgba(123,104,238,0.06), rgba(96,165,250,0.03));
-      border: 1px solid rgba(123,104,238,0.12);
-      border-left: 3px solid var(--acc);
-      transition: all .15s ease;
-    }
-    .sf-concept:hover { border-left-color: #60a5fa; background: rgba(123,104,238,0.08); }
-    .sf-concept-term {
-      font-weight: 700; font-size: 14px; color: var(--txt);
-      margin-bottom: 4px;
-    }
-    .sf-concept-ref {
-      font-size: 10px; color: var(--acc); font-style: italic;
-      opacity: 0.8;
-    }
-    .sf-concept-def {
-      font-size: 13px; color: var(--txM); line-height: 1.6;
-      margin-top: 4px;
-    }
-
-    /* Key points - bigger, with colored bullet */
-    .sf-keypoint {
-      display: flex; gap: 10px; align-items: flex-start;
-      padding: 8px 0; font-size: 14px; line-height: 1.6;
-      color: var(--txt);
-    }
-    .sf-keypoint-dot {
-      width: 22px; height: 22px; border-radius: 6px;
-      background: rgba(123,104,238,0.12); color: var(--acc);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 12px; flex-shrink: 0; margin-top: 2px;
-    }
-
-    /* Warnings - prominent, impossible to miss */
-    .sf-warning {
-      margin: 8px 0; padding: 12px 16px; border-radius: 10px;
-      background: linear-gradient(135deg, rgba(251,191,36,0.08), rgba(251,191,36,0.03));
-      border: 1px solid rgba(251,191,36,0.2);
-      border-left: 3px solid var(--org);
-      font-size: 13px; color: var(--org); line-height: 1.6;
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .sf-warning-icon {
-      font-size: 16px; flex-shrink: 0; margin-top: 1px;
-    }
-
-    /* Examples - visually distinct from content */
-    .sf-example {
-      margin: 6px 0; padding: 12px 16px; border-radius: 10px;
-      background: rgba(96,165,250,0.06);
-      border: 1px solid rgba(96,165,250,0.12);
-      border-left: 3px solid var(--blu);
-      font-size: 13px; color: var(--txM); line-height: 1.6;
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .sf-example-icon {
-      font-size: 14px; flex-shrink: 0; color: var(--blu);
-    }
-
-    /* Enrichments - cleaner */
-    .sf-enrichments {
-      background: var(--card); border: 1px solid var(--acc);
-      border-radius: 14px; padding: 20px;
-      margin-bottom: 16px;
-    }
+    /* Recall mode: blur definitions */
+    .sf-blurred { filter: blur(6px) !important; cursor: pointer !important; user-select: none !important; transition: filter .2s !important; }
+    .sf-blurred:hover { filter: blur(4px) !important; }
 
     /* Quiz options - bigger touch targets */
     .qcm-opt {
