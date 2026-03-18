@@ -150,7 +150,7 @@ function _renderResourcesView(data) {
   // Header
   h += '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px">';
   h += '<div><h2 style="font-size:18px;font-weight:800;margin-bottom:3px">\uD83D\uDD0D Ressources</h2>';
-  h += '<p style="font-size:11px;color:#6b6b88">' + esc(data._title || '') + ' \u00b7 ' + (data._searchDate || '') + '</p></div>';
+  h += '<p style="font-size:11px;color:#8888a8">' + esc(data._title || '') + ' \u00b7 ' + (data._searchDate || '') + '</p></div>';
   h += '<button class="btn btn-sec" onclick="delete _resCache[_resCacheKey()];searchResources()" style="padding:8px 16px;font-size:11px;border-radius:10px">\uD83D\uDD04 Actualiser</button>';
   h += '</div>';
 
@@ -174,7 +174,7 @@ function _renderResourcesView(data) {
       }
       h += '<div style="padding:12px 14px">';
       h += '<div style="font-size:13px;font-weight:600;line-height:1.4;margin-bottom:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">' + esc(v.title || '') + '</div>';
-      h += '<div style="font-size:10px;color:#6b6b88;display:flex;align-items:center;gap:6px">';
+      h += '<div style="font-size:10px;color:#8888a8;display:flex;align-items:center;gap:6px">';
       h += '<span style="color:#f87171">\u25CF</span> ' + esc(v.channel || 'YouTube');
       h += '</div>';
       if (v.description) h += '<p style="font-size:11px;color:#9999b0;margin-top:6px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden">' + esc(v.description) + '</p>';
@@ -192,7 +192,7 @@ function _renderResourcesView(data) {
       h += '<div style="width:36px;height:36px;border-radius:10px;background:rgba(96,165,250,0.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">\uD83D\uDCF0</div>';
       h += '<div style="flex:1;min-width:0">';
       h += '<div style="font-size:13px;font-weight:600;line-height:1.4;margin-bottom:3px">' + esc(a.title || '') + '</div>';
-      h += '<div style="font-size:10px;color:#6b6b88;display:flex;gap:8px;margin-bottom:4px">';
+      h += '<div style="font-size:10px;color:#8888a8;display:flex;gap:8px;margin-bottom:4px">';
       h += '<span style="color:#60a5fa">' + esc(a.source || 'Web') + '</span>';
       if (a.date) h += '<span>' + esc(a.date) + '</span>';
       h += '</div>';
@@ -221,7 +221,7 @@ function _renderResourcesView(data) {
   }
 
   if ((!data.youtube || data.youtube.length === 0) && (!data.articles || data.articles.length === 0) && (!data.legal || data.legal.length === 0)) {
-    h += '<div style="text-align:center;padding:40px;color:#6b6b88"><p>Aucune ressource trouv\u00e9e. Clique "Actualiser" pour r\u00e9essayer.</p></div>';
+    h += '<div style="text-align:center;padding:40px;color:#8888a8"><p>Aucune ressource trouv\u00e9e. Clique "Actualiser" pour r\u00e9essayer.</p></div>';
   }
 
   h += '</div>';
@@ -258,7 +258,7 @@ render = function() {
       content.innerHTML = '<div style="max-width:780px;text-align:center;padding-top:60px">' +
         '<div style="font-size:42px;margin-bottom:12px">\uD83D\uDD0D</div>' +
         '<h2 style="font-size:20px;font-weight:800;margin-bottom:6px">Ressources</h2>' +
-        '<p style="color:#6b6b88;font-size:13px;margin-bottom:24px">Vid\u00e9os YouTube, articles d\'actualit\u00e9 et r\u00e9f\u00e9rences l\u00e9gales pour cette fiche</p>' +
+        '<p style="color:#8888a8;font-size:13px;margin-bottom:24px">Vid\u00e9os YouTube, articles d\'actualit\u00e9 et r\u00e9f\u00e9rences l\u00e9gales pour cette fiche</p>' +
         '<button class="btn btn-pri" onclick="searchResources()" style="padding:14px 32px;font-size:14px;border-radius:14px">\uD83D\uDD0D Rechercher des ressources</button>' +
         '</div>';
     }
@@ -277,7 +277,7 @@ render = function() {
         '<div style="width:40px;height:40px;border-radius:10px;background:rgba(96,165,250,0.1);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0">\uD83D\uDD0D</div>' +
         '<div style="flex:1">' +
         '<h4 style="font-size:13px;font-weight:700;margin-bottom:2px">Trouver des ressources</h4>' +
-        '<p style="font-size:11px;color:#6b6b88">Vid\u00e9os YouTube, articles, r\u00e9f\u00e9rences l\u00e9gales</p>' +
+        '<p style="font-size:11px;color:#8888a8">Vid\u00e9os YouTube, articles, r\u00e9f\u00e9rences l\u00e9gales</p>' +
         '</div>' +
         '<div style="color:#60a5fa;font-size:20px">\u2192</div>' +
         '</div>';
