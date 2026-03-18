@@ -267,7 +267,7 @@ render = function() {
   // Also add a small resource indicator on fiche view
   if (currentView === 'fiche' && fiche && !content.dataset.resPatched) {
     content.dataset.resPatched = 'true';
-    var enrichCard = content.querySelector('.card-dash');
+    var enrichCard = content.querySelector('div[style*="border-style:dashed"]');
     if (enrichCard) {
       var resCard = document.createElement('div');
       resCard.className = 'card';
