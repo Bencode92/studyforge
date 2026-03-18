@@ -88,29 +88,28 @@
     .sf-blurred { filter: blur(6px) !important; cursor: pointer !important; user-select: none !important; transition: filter .2s !important; }
     .sf-blurred:hover { filter: blur(4px) !important; }
 
-    /* Quiz options - bigger touch targets */
-    .qcm-opt {
-      padding: 14px 18px !important;
-      font-size: 14px !important;
-      border-radius: 12px !important;
-      line-height: 1.5 !important;
-      min-height: 48px;
-    }
+    /* === TYPOGRAPHY: 3-level scale (12/15/20) + 15px body === */
+    #content { font-size: 15px; line-height: 1.75; }
+    .qcm-opt { padding: 14px 18px !important; font-size: 15px !important; border-radius: 12px !important; line-height: 1.5 !important; min-height: 48px; }
+    .flash-card { min-height: 160px !important; border-radius: 16px !important; }
+    .flash-card p { font-size: 15px !important; }
+    .msg { font-size: 15px !important; line-height: 1.75 !important; }
 
-    /* Flashcards - more visual */
-    .flash-card {
-      min-height: 160px !important;
-      border-radius: 16px !important;
-    }
-    .flash-card p { font-size: 14px !important; }
-
-    /* Chat messages - more readable */
-    .msg { font-size: 14px !important; line-height: 1.7 !important; }
-
-    /* Topbar breadcrumb transition */
+    /* Topbar breadcrumb */
     #breadcrumb { transition: opacity .2s ease; }
     #breadcrumb span { transition: color .15s ease; }
     #breadcrumb span[style*="cursor:pointer"]:hover { text-decoration: underline; }
+
+    /* === MOBILE === */
+    @media (max-width: 768px) {
+      #sidebar { width: 220px; }
+      #content { padding: 16px; font-size: 15px; }
+      .btn { min-height: 44px; }
+      .qcm-opt { min-height: 48px !important; padding: 16px !important; }
+      .sf-toc-item { padding: 8px 12px !important; font-size: 13px !important; }
+      .cat-item { padding: 12px 14px !important; min-height: 44px; }
+      .fiche-card { padding: 16px !important; }
+    }
   `;
   document.head.appendChild(style);
 })();
@@ -307,6 +306,9 @@ if (_origEnrichQuiz) {
   };
 }
 
-// init() appelé ici pour garantir que TOUS les scripts (patches, dashboard, ui-enhance)
-// ont overridé leurs fonctions AVANT le premier chargement de données
-init();
+// Vérifier la validité du cache (cross-device) puis init
+if (typeof _checkCacheValidity === 'function') {
+  _checkCacheValidity().then(function() { init(); });
+} else {
+  init();
+}
