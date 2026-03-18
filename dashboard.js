@@ -8,7 +8,7 @@ function calculateReviewPriority(ficheData) {
   const now = Date.now();
 
   if (history.length === 0) {
-    return { level: 'new', label: 'Nouvelle', color: '#6b6b88', emoji: '⚪', score: null, daysSince: null, priority: 50 };
+    return { level: 'new', label: 'Nouvelle', color: '#8888a8', emoji: '⚪', score: null, daysSince: null, priority: 50 };
   }
 
   let totalScore = 0, totalMax = 0;
@@ -61,7 +61,7 @@ render = function() {
         content.innerHTML = '<div style="max-width:600px;margin:0 auto;text-align:center;padding-top:60px">' +
           '<div style="font-size:48px;margin-bottom:12px">📚</div>' +
           '<h2 style="font-size:22px;font-weight:800;margin-bottom:6px">StudyForge</h2>' +
-          '<p style="color:#6b6b88;font-size:13px;margin-bottom:28px">' + cats.length + ' catégories · Entre ton token GitHub pour voir le dashboard de révision</p>' +
+          '<p style="color:#8888a8;font-size:13px;margin-bottom:28px">' + cats.length + ' catégories · Entre ton token GitHub pour voir le dashboard de révision</p>' +
           '<button class="btn btn-pri" onclick="requireToken(function(){delete document.getElementById(\'content\').dataset.dashPatched;render()})" style="padding:14px 32px;font-size:15px;border-radius:14px">🔑 Connecter GitHub</button>' +
           '<p style="color:#44445a;font-size:11px;margin-top:16px">Token stocké en session uniquement</p>' +
           '</div>';
@@ -73,33 +73,63 @@ render = function() {
 };
 
 async function loadDashboard(container) {
-  showLoading('Chargement du dashboard...');
+  // Skeleton immédiat au lieu de l'overlay bloquant
+  if (typeof showDashSkeleton === 'function') showDashSkeleton(container);
+  else showLoading('Chargement du dashboard...');
   const allFiches = [];
-  for (const cat of cats) {
+
+  // Phase 1: charger tous les _meta.json en parallèle
+  const metaResults = await Promise.all(cats.map(async (cat) => {
     try {
       const meta = await ghGet('data/' + cat.id + '/_meta.json');
-      let ids = meta?.content?.fiches || [];
+      let ids = (meta && meta.content && meta.content.fiches) ? meta.content.fiches : [];
       if (ids.length === 0) {
         const files = await ghLs('data/' + cat.id);
-        ids = files.filter(f => f.name.endsWith('.json') && f.name !== '_meta.json').map(f => ({ id: f.name.replace('.json', ''), title: f.name.replace('.json', '').replace(/-/g, ' ') }));
+        ids = files.filter(f => f.name.endsWith('.json') && f.name !== '_meta.json')
+          .map(f => ({ id: f.name.replace('.json', ''), title: f.name.replace('.json', '').replace(/-/g, ' ') }));
       }
-      for (const f of ids) {
-        try {
-          const ficheData = await ghGet('data/' + cat.id + '/' + f.id + '.json');
-          if (ficheData?.content) {
-            const review = calculateReviewPriority(ficheData.content);
-            allFiches.push({ id: f.id, title: ficheData.content.metadata?.title || f.title || f.id, category: cat, review, sections: ficheData.content.base?.sections?.length || 0, enrichments: ficheData.content.enrichments?.length || 0, version: ficheData.content.metadata?.version || 1 });
-          }
-        } catch (e) {}
-      }
-    } catch (e) {}
+      return { cat, ids };
+    } catch (e) { return { cat, ids: [] }; }
+  }));
+
+  // Phase 2: charger toutes les fiches en parallèle (batch de 6)
+  const ficheTasks = [];
+  metaResults.forEach(function(mr) {
+    mr.ids.forEach(function(f) {
+      ficheTasks.push({ cat: mr.cat, fiche: f });
+    });
+  });
+
+  // Batched parallel fetch
+  var BATCH = 6;
+  for (var i = 0; i < ficheTasks.length; i += BATCH) {
+    var batch = ficheTasks.slice(i, i + BATCH);
+    var results = await Promise.all(batch.map(async function(task) {
+      try {
+        var ficheData = await ghGet('data/' + task.cat.id + '/' + task.fiche.id + '.json');
+        if (ficheData && ficheData.content) {
+          var review = calculateReviewPriority(ficheData.content);
+          return {
+            id: task.fiche.id,
+            title: (ficheData.content.metadata && ficheData.content.metadata.title) || task.fiche.title || task.fiche.id,
+            category: task.cat, review: review,
+            sections: (ficheData.content.base && ficheData.content.base.sections) ? ficheData.content.base.sections.length : 0,
+            enrichments: ficheData.content.enrichments ? ficheData.content.enrichments.length : 0,
+            version: (ficheData.content.metadata && ficheData.content.metadata.version) || 1
+          };
+        }
+      } catch (e) {}
+      return null;
+    }));
+    results.forEach(function(r) { if (r) allFiches.push(r); });
   }
+
   allFiches.sort((a, b) => b.review.priority - a.review.priority);
   const counts = { urgent: 0, review: 0, refresh: 0, ok: 0, new: 0 };
   allFiches.forEach(f => counts[f.review.level]++);
 
   let h = '<div style="max-width:900px;margin:0 auto">';
-  h += '<div style="text-align:center;margin-bottom:28px"><div style="font-size:42px;margin-bottom:8px">📚</div><h2 style="font-size:24px;font-weight:800;margin-bottom:4px">StudyForge</h2><p style="color:#6b6b88;font-size:13px">' + allFiches.length + ' fiches · ' + cats.length + ' catégories</p></div>';
+  h += '<div style="text-align:center;margin-bottom:28px"><div style="font-size:42px;margin-bottom:8px">📚</div><h2 style="font-size:24px;font-weight:800;margin-bottom:4px">StudyForge</h2><p style="color:#8888a8;font-size:13px">' + allFiches.length + ' fiches · ' + cats.length + ' catégories</p></div>';
 
   if (allFiches.length > 0) {
     h += '<div style="display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap;justify-content:center">';
@@ -107,7 +137,7 @@ async function loadDashboard(container) {
     if (counts.review > 0) h += '<div style="background:#fbbf2422;border:1px solid #fbbf2433;border-radius:12px;padding:12px 20px;text-align:center;min-width:100px"><div style="font-size:24px;font-weight:800;color:#fbbf24">' + counts.review + '</div><div style="font-size:10px;color:#fbbf24;font-weight:600">À REVOIR</div></div>';
     if (counts.refresh > 0) h += '<div style="background:#34d39922;border:1px solid #34d39933;border-radius:12px;padding:12px 20px;text-align:center;min-width:100px"><div style="font-size:24px;font-weight:800;color:#34d399">' + counts.refresh + '</div><div style="font-size:10px;color:#34d399;font-weight:600">RAFRAÎCHIR</div></div>';
     if (counts.ok > 0) h += '<div style="background:#7B68EE22;border:1px solid #7B68EE33;border-radius:12px;padding:12px 20px;text-align:center;min-width:100px"><div style="font-size:24px;font-weight:800;color:#7B68EE">' + counts.ok + '</div><div style="font-size:10px;color:#7B68EE;font-weight:600">MAÎTRISÉ</div></div>';
-    if (counts.new > 0) h += '<div style="background:#1a1a33;border:1px solid #1a1a44;border-radius:12px;padding:12px 20px;text-align:center;min-width:100px"><div style="font-size:24px;font-weight:800;color:#6b6b88">' + counts.new + '</div><div style="font-size:10px;color:#6b6b88;font-weight:600">NOUVELLES</div></div>';
+    if (counts.new > 0) h += '<div style="background:#1a1a33;border:1px solid #1a1a44;border-radius:12px;padding:12px 20px;text-align:center;min-width:100px"><div style="font-size:24px;font-weight:800;color:#8888a8">' + counts.new + '</div><div style="font-size:10px;color:#8888a8;font-weight:600">NOUVELLES</div></div>';
     h += '</div>';
   }
 
@@ -122,24 +152,24 @@ async function loadDashboard(container) {
   groups.forEach(g => {
     const fiches = allFiches.filter(f => f.review.level === g.level);
     if (fiches.length === 0) return;
-    h += '<div style="margin-bottom:20px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">' + g.title + '</h3><p style="font-size:11px;color:#6b6b88;margin-bottom:12px">' + g.desc + '</p>';
+    h += '<div style="margin-bottom:20px"><h3 style="font-size:15px;font-weight:700;margin-bottom:4px">' + g.title + '</h3><p style="font-size:11px;color:#8888a8;margin-bottom:12px">' + g.desc + '</p>';
     fiches.forEach(f => {
       h += '<div class="card" style="padding:14px 18px;margin-bottom:8px;cursor:pointer;display:flex;align-items:center;gap:14px;border-left:3px solid ' + f.review.color + '" onclick="loadCat(\'' + f.category.id + '\').then(()=>loadFiche(\'' + f.id + '\'))">';
       h += '<div style="flex:1;min-width:0"><div style="display:flex;align-items:center;gap:8px;margin-bottom:3px"><span style="font-size:14px">' + (f.category.icon || '📁') + '</span><span style="font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">' + esc(f.title) + '</span></div>';
-      h += '<div style="display:flex;gap:8px;align-items:center;font-size:10px;color:#6b6b88"><span>' + f.category.name + '</span><span>·</span><span>' + f.sections + ' sections</span>';
+      h += '<div style="display:flex;gap:8px;align-items:center;font-size:10px;color:#8888a8"><span>' + f.category.name + '</span><span>·</span><span>' + f.sections + ' sections</span>';
       if (f.enrichments > 0) h += '<span>· +' + f.enrichments + ' enrichissements</span>';
       h += '</div></div>';
       h += '<div style="display:flex;gap:10px;align-items:center;flex-shrink:0">';
       if (f.review.weakCount > 0) h += '<span class="tag tag-org" style="font-size:9px">' + f.review.weakCount + ' pts faibles</span>';
-      if (f.review.score !== null) { const sc = f.review.score >= 80 ? '#34d399' : f.review.score >= 60 ? '#fbbf24' : '#f87171'; h += '<div style="text-align:center"><div style="font-size:18px;font-weight:800;color:' + sc + '">' + f.review.score + '%</div><div style="font-size:9px;color:#6b6b88">' + f.review.attempts + ' quiz</div></div>'; }
-      if (f.review.daysSince !== null) h += '<div style="text-align:center;min-width:40px"><div style="font-size:12px;font-weight:600;color:#9999b0">' + f.review.daysSince + 'j</div><div style="font-size:9px;color:#6b6b88">depuis</div></div>';
+      if (f.review.score !== null) { const sc = f.review.score >= 80 ? '#34d399' : f.review.score >= 60 ? '#fbbf24' : '#f87171'; h += '<div style="text-align:center"><div style="font-size:18px;font-weight:800;color:' + sc + '">' + f.review.score + '%</div><div style="font-size:9px;color:#8888a8">' + f.review.attempts + ' quiz</div></div>'; }
+      if (f.review.daysSince !== null) h += '<div style="text-align:center;min-width:40px"><div style="font-size:12px;font-weight:600;color:#9999b0">' + f.review.daysSince + 'j</div><div style="font-size:9px;color:#8888a8">depuis</div></div>';
       h += '</div></div>';
     });
     h += '</div>';
   });
 
   if (allFiches.length === 0) {
-    h += '<div style="text-align:center;padding:40px;color:#6b6b88"><p style="font-size:14px">Aucune fiche</p><p style="font-size:12px;margin-top:8px">Clique sur "+ Fiche" pour importer</p></div>';
+    h += '<div style="text-align:center;padding:40px;color:#8888a8"><p style="font-size:14px">Aucune fiche</p><p style="font-size:12px;margin-top:8px">Clique sur "+ Fiche" pour importer</p></div>';
   }
   h += '</div>';
   container.innerHTML = h;
