@@ -54,11 +54,17 @@ render = function() {
   if (currentView === 'home' && !selCat && !fiche) {
     if (cats.length > 0 && !content.dataset.dashPatched) {
       content.dataset.dashPatched = 'true';
-      const btn = document.createElement('div');
-      btn.style.cssText = 'text-align:center;margin-top:20px';
-      btn.innerHTML = '<button class="btn btn-pri" onclick="requireToken(function(){loadDashboard(document.getElementById(\'content\'))})" style="padding:14px 28px;font-size:14px">📊 Voir le dashboard de révision</button>';
-      content.appendChild(btn);
+      if (GH.token) {
+        loadDashboard(content);
+      } else {
+        const btn = document.createElement('div');
+        btn.style.cssText = 'text-align:center;margin-top:20px';
+        btn.innerHTML = '<button class="btn btn-pri" onclick="requireToken(function(){loadDashboard(document.getElementById(\'content\'))})" style="padding:14px 28px;font-size:14px">📊 Voir le dashboard de révision</button>';
+        content.appendChild(btn);
+      }
     }
+  } else {
+    delete content.dataset.dashPatched;
   }
 };
 
