@@ -50,7 +50,7 @@ function getFichePath() { return (selCat && ficheSlug) ? 'data/' + selCat.id + '
 
 const _cache = new Map();
 const CACHE_TTL = 5 * 60 * 1000;
-const LS_CACHE_TTL = 30 * 60 * 1000; // 30 min localStorage
+const LS_CACHE_TTL = 3 * 60 * 60 * 1000; // 3h localStorage (fiches changent ~1-2x/semaine)
 const LS_PREFIX = 'sf_c_';
 
 function _lsGet(p) {
@@ -68,6 +68,38 @@ function _lsSet(p, data, sha) {
 function _lsDel(p) {
   try { localStorage.removeItem(LS_PREFIX + p); } catch {}
 }
+// Invalidate cache if index.json changed on another device
+async function _checkCacheValidity() {
+  try {
+    const lsIdx = _lsGet('data/index.json');
+    if (!lsIdx) return; // no cache, nothing to invalidate
+    const d = await _origGhRead('data/index.json');
+    if (d.sha !== lsIdx.sha) {
+      console.log('Cache invalidated: index.json sha changed');
+      // Clear all localStorage cache
+      var keys = [];
+      for (var i = 0; i < localStorage.length; i++) {
+        var k = localStorage.key(i);
+        if (k && k.startsWith(LS_PREFIX)) keys.push(k);
+      }
+      keys.forEach(function(k) { localStorage.removeItem(k); });
+      _cache.clear();
+    }
+  } catch (e) { /* network error, keep cache */ }
+}
+// Force refresh function (exposed globally)
+function forceRefreshCache() {
+  var keys = [];
+  for (var i = 0; i < localStorage.length; i++) {
+    var k = localStorage.key(i);
+    if (k && k.startsWith(LS_PREFIX)) keys.push(k);
+  }
+  keys.forEach(function(k) { localStorage.removeItem(k); });
+  _cache.clear();
+  showToast('Cache vide ! Rechargement...');
+  setTimeout(function() { location.reload(); }, 500);
+}
+window.forceRefreshCache = forceRefreshCache;
 
 const _origGhRead = ghRead;
 ghGet = async function(p) {
