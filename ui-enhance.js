@@ -113,6 +113,30 @@ render = function() {
   const content = document.getElementById('content');
   if (!content) return;
 
+  // === BREADCRUMB ===
+  const bc = document.getElementById('breadcrumb');
+  if (bc) {
+    var parts = [];
+    parts.push('<span style="cursor:pointer;color:var(--acc)" onclick="selCat=null;fiche=null;currentView=\'home\';var c=document.getElementById(\'content\');if(c)delete c.dataset.dashPatched;renderCats();render()">Dashboard</span>');
+    if (selCat) {
+      parts.push('<span style="color:var(--txD)">\u203A</span>');
+      parts.push('<span style="cursor:pointer;color:var(--acc)" onclick="loadCat(\'' + selCat.id + '\')">' + (selCat.icon || '') + ' ' + selCat.name + '</span>');
+    }
+    if (fiche && fiche.metadata) {
+      parts.push('<span style="color:var(--txD)">\u203A</span>');
+      parts.push('<span style="color:var(--txt)">' + esc(fiche.metadata.title || '') + '</span>');
+    }
+    if (currentView === 'import') {
+      parts.push('<span style="color:var(--txD)">\u203A</span>');
+      parts.push('<span style="color:var(--txt)">Import</span>');
+    }
+    if (currentView === 'newcat') {
+      parts.push('<span style="color:var(--txD)">\u203A</span>');
+      parts.push('<span style="color:var(--txt)">Nouvelle cat\u00e9gorie</span>');
+    }
+    bc.innerHTML = parts.join('');
+  }
+
   if (currentView === 'home' && selCat) {
     const h2 = content.querySelector('h2');
     if (h2 && !content.dataset.uiPatched) {
@@ -122,7 +146,7 @@ render = function() {
       newHeader.style.cssText = 'display:flex;align-items:center;gap:16px;margin-bottom:20px';
       newHeader.innerHTML = '<div class="cat-header-icon">' + catIcon + '</div>' +
         '<div><h2 style="font-size:22px;font-weight:800;margin-bottom:2px">' + selCat.name + '</h2>' +
-        '<p style="font-size:12px;color:#6b6b88">' + ficheList.length + ' fiche' + (ficheList.length !== 1 ? 's' : '') + '</p></div>';
+        '<p style="font-size:12px;color:#8888a8">' + ficheList.length + ' fiche' + (ficheList.length !== 1 ? 's' : '') + '</p></div>';
       if (h2.nextSibling && h2.nextSibling.tagName === 'P') h2.nextSibling.remove();
       h2.replaceWith(newHeader);
     }
