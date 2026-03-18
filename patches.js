@@ -44,10 +44,37 @@ function getFichePath() { return (selCat && ficheSlug) ? 'data/' + selCat.id + '
 
 const _cache = new Map();
 const CACHE_TTL = 5 * 60 * 1000;
+const LS_CACHE_TTL = 30 * 60 * 1000; // 30 min localStorage
+const LS_PREFIX = 'sf_c_';
+
+function _lsGet(p) {
+  try {
+    const raw = localStorage.getItem(LS_PREFIX + p);
+    if (!raw) return null;
+    const d = JSON.parse(raw);
+    if (Date.now() - d.ts > LS_CACHE_TTL) { localStorage.removeItem(LS_PREFIX + p); return null; }
+    return d;
+  } catch { return null; }
+}
+function _lsSet(p, data, sha) {
+  try { localStorage.setItem(LS_PREFIX + p, JSON.stringify({ data, sha, ts: Date.now() })); } catch {}
+}
+function _lsDel(p) {
+  try { localStorage.removeItem(LS_PREFIX + p); } catch {}
+}
+
 const _origGhRead = ghRead;
 ghGet = async function(p) {
+  // 1. In-memory cache
   const cached = _cache.get(p);
   if (cached && Date.now() - cached.ts < CACHE_TTL) return { content: cached.data, sha: cached.sha };
+  // 2. localStorage cache (fast startup)
+  const lsCached = _lsGet(p);
+  if (lsCached) {
+    _cache.set(p, { data: lsCached.data, sha: lsCached.sha, ts: Date.now() });
+    return { content: lsCached.data, sha: lsCached.sha };
+  }
+  // 3. Network fetch
   try {
     const d = await _origGhRead(p);
     const b = atob(d.content);
@@ -55,6 +82,7 @@ ghGet = async function(p) {
     for (let i = 0; i < b.length; i++) bytes[i] = b.charCodeAt(i);
     const parsed = JSON.parse(new TextDecoder('utf-8').decode(bytes));
     _cache.set(p, { data: parsed, sha: d.sha, ts: Date.now() });
+    _lsSet(p, parsed, d.sha);
     return { content: parsed, sha: d.sha };
   } catch { return null; }
 };
@@ -67,8 +95,9 @@ ghPut = async function(path, content, msg, sha) {
     if (errors.length > 0) { console.error('BLOCKED ' + path + ':', errors); throw new Error('Validation: ' + errors.join(', ')); }
   }
   _cache.delete(path);
+  _lsDel(path);
   const dir = path.substring(0, path.lastIndexOf('/'));
-  _cache.forEach((v, k) => { if (k.startsWith(dir)) _cache.delete(k); });
+  _cache.forEach((v, k) => { if (k.startsWith(dir)) { _cache.delete(k); _lsDel(k); } });
   return _origGhPut(path, content, msg, sha);
 };
 
@@ -131,11 +160,47 @@ let qCount = 10, qLevel = 'modere', qAnalysis = null, qSuggestions = null;
 
 const overlay = document.createElement('div');
 overlay.id = 'loading-overlay';
-overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,6,16,0.85);display:none;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:16px';
-overlay.innerHTML = '<div style="width:40px;height:40px;border:3px solid #7B68EE;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite"></div><p id="loading-text" style="color:#a29bfe;font-size:15px;font-weight:600;font-family:Outfit,sans-serif">Chargement...</p><p style="color:#6b6b88;font-size:11px;font-family:Outfit,sans-serif">Powered by Claude AI</p>';
+overlay.style.cssText = 'position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(6,6,16,0.5);display:none;align-items:center;justify-content:center;z-index:1000;flex-direction:column;gap:16px;backdrop-filter:blur(2px)';
+overlay.innerHTML = '<div style="width:40px;height:40px;border:3px solid #7B68EE;border-top-color:transparent;border-radius:50%;animation:spin .7s linear infinite"></div><p id="loading-text" style="color:#a29bfe;font-size:15px;font-weight:600;font-family:Outfit,sans-serif">Chargement...</p><p style="color:#8888a8;font-size:11px;font-family:Outfit,sans-serif">Powered by Claude AI</p>';
 document.body.appendChild(overlay);
-function showLoading(t) { document.getElementById('loading-text').textContent = t || 'Chargement...'; overlay.style.display = 'flex'; }
-function hideLoading() { overlay.style.display = 'none'; }
+
+// Progress bar en haut de page (non bloquante)
+const _progBar = document.createElement('div');
+_progBar.id = 'sf-progress';
+_progBar.style.cssText = 'position:fixed;top:0;left:0;width:0;height:3px;background:linear-gradient(90deg,#7B68EE,#60a5fa);z-index:1001;transition:width .3s ease;display:none';
+document.body.appendChild(_progBar);
+const _progStyle = document.createElement('style');
+_progStyle.textContent = '@keyframes sf-prog{0%{width:0}50%{width:70%}100%{width:95%}}.sf-prog-anim{animation:sf-prog 8s ease-out forwards;display:block!important}';
+document.head.appendChild(_progStyle);
+
+// Skeleton shimmer CSS
+const _skelStyle = document.createElement('style');
+_skelStyle.textContent = '@keyframes sf-shimmer{0%{background-position:-200px 0}100%{background-position:200px 0}}.sf-skel{background:linear-gradient(90deg,var(--card) 25%,#1a1a33 50%,var(--card) 75%);background-size:400px 100%;animation:sf-shimmer 1.5s infinite;border-radius:10px}';
+document.head.appendChild(_skelStyle);
+
+function showLoading(t) {
+  document.getElementById('loading-text').textContent = t || 'Chargement...';
+  overlay.style.display = 'flex';
+  _progBar.className = 'sf-prog-anim';
+}
+function hideLoading() {
+  overlay.style.display = 'none';
+  _progBar.style.width = '100%';
+  _progBar.className = '';
+  setTimeout(function() { _progBar.style.display = 'none'; _progBar.style.width = '0'; }, 300);
+}
+// Skeleton helper for dashboard
+function showDashSkeleton(container) {
+  var h = '<div style="max-width:900px;margin:0 auto">';
+  h += '<div style="text-align:center;margin-bottom:28px"><div class="sf-skel" style="width:48px;height:48px;border-radius:12px;margin:0 auto 12px"></div><div class="sf-skel" style="width:160px;height:24px;margin:0 auto 8px"></div><div class="sf-skel" style="width:120px;height:14px;margin:0 auto"></div></div>';
+  h += '<div style="display:flex;gap:10px;margin-bottom:24px;justify-content:center">';
+  for (var i = 0; i < 4; i++) h += '<div class="sf-skel" style="width:100px;height:60px"></div>';
+  h += '</div>';
+  h += '<div class="sf-skel" style="width:200px;height:18px;margin-bottom:16px"></div>';
+  for (var j = 0; j < 4; j++) h += '<div class="sf-skel" style="width:100%;height:64px;margin-bottom:8px"></div>';
+  h += '</div>';
+  container.innerHTML = h;
+}
 
 function updateWeakPoints(ficheData, qResults, type) {
   if (!ficheData.quiz) ficheData.quiz = { totalAttempts: 0, history: [], weakPoints: [] };
