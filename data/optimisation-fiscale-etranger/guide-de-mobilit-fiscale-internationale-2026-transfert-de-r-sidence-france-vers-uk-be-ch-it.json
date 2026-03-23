@@ -1,0 +1,176 @@
+{
+  "metadata": {
+    "title": "Guide complet de mobilité fiscale internationale : transfert de résidence France vers UK/BE/CH/IT",
+    "category": "optimisation-fiscale-etranger",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document source daté du 28/01/2026 - références récentes",
+      "Attention : évolution rapide des règles fiscales internationales",
+      "Vérifier exit tax et seuils avant application pratique"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide de mobilité fiscale internationale 2026 : transfert de résidence France vers UK/BE/CH/IT",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Cadre juridique et critères de résidence fiscale française",
+        "content": "La résidence fiscale française est déterminée par l'article 4B du CGI selon quatre critères alternatifs : foyer d'habitation, séjour principal, activité professionnelle non accessoire, et centre des intérêts économiques. Un seul critère suffit pour établir la domiciliation fiscale en France. La jurisprudence et l'administration fiscale analysent les indices factuels pour déterminer où se situe réellement le centre de gravité de la vie du contribuable.",
+        "concepts": [
+          {
+            "term": "Foyer d'habitation",
+            "definition": "Lieu où la personne vit habituellement et où se situe le centre des intérêts familiaux (conjoint, enfants)",
+            "ref": "CGI art. 4B"
+          },
+          {
+            "term": "Centre des intérêts économiques",
+            "definition": "Lieu des principaux investissements, d'où provient la majorité des revenus, et/ou d'où sont administrés les biens",
+            "ref": "CGI art. 4B"
+          },
+          {
+            "term": "Tie-breaker",
+            "definition": "Mécanisme conventionnel OCDE pour départager les conflits de résidence entre deux États : foyer permanent, centre des intérêts vitaux, séjour habituel, nationalité",
+            "ref": "Convention OCDE"
+          }
+        ],
+        "keyPoints": [
+          "Les quatre critères de l'article 4B sont alternatifs, un seul suffit",
+          "L'administration examine les indices factuels de présence et d'attaches",
+          "Le délai de reprise peut être étendu à 10 ans en cas de fausse domiciliation",
+          "Les conventions fiscales peuvent primer sur le droit interne pour éviter la double imposition"
+        ],
+        "warnings": [
+          "Conserver conjoint et enfants en France constitue un risque majeur de requalification",
+          "Garder un logement disponible en France peut caractériser un foyer permanent",
+          "Diriger une société française depuis la France maintient le centre des intérêts économiques"
+        ],
+        "examples": [
+          "Profil à risque : cadre dirigeant gardant famille, logement et gestion d'entreprise en France tout en prétendant résider à Londres",
+          "Situation conforme : déménagement effectif du foyer familial avec activité réelle à l'étranger et réduction des liens français"
+        ]
+      },
+      {
+        "title": "Exit tax : mécanisme et calcul des plus-values latentes",
+        "content": "L'exit tax (CGI art. 167 bis) impose certaines plus-values latentes lors du transfert de domicile fiscal hors de France. Elle vise à éviter qu'un résident français ne cède ses titres 'hors impôt' après son départ. Le mécanisme s'applique sous conditions de seuils et de durée de résidence préalable, avec possibilité de sursis dans certains pays.",
+        "concepts": [
+          {
+            "term": "Plus-value latente",
+            "definition": "Différence entre la valeur vénale des titres au départ et leur prix d'acquisition",
+            "ref": "CGI art. 167 bis"
+          },
+          {
+            "term": "Seuil de déclenchement",
+            "definition": "Participation ≥ 50% ou valeur totale des titres > 800 000 € au moment du départ",
+            "ref": "CGI art. 167 bis"
+          },
+          {
+            "term": "Sursis de paiement",
+            "definition": "Report du paiement de l'exit tax, souvent automatique en UE, ailleurs sur demande avec garanties",
+            "ref": "CGI art. 167 bis"
+          }
+        ],
+        "keyPoints": [
+          "Condition de résidence : 6 années sur les 10 précédant le départ",
+          "Taux d'imposition : PFU 30% (12,8% IR + 17,2% PS) par défaut",
+          "Dégrèvement possible après 2-5 ans sans cession selon conditions",
+          "Valorisation des titres non cotés selon méthodes de droit commun"
+        ],
+        "warnings": [
+          "La valorisation des titres non cotés peut faire l'objet de contrôles approfondis",
+          "Les garanties exigées pour le sursis varient selon les pays de destination",
+          "Les événements déclencheurs de la purge doivent être respectés scrupuleusement"
+        ],
+        "examples": [
+          "Dirigeant avec 1M€ de titres : exit tax de 300k€ sur 500k€ de plus-value latente",
+          "Sursis automatique vers l'Allemagne, garantie bancaire requise vers Dubaï"
+        ]
+      },
+      {
+        "title": "Destinations fiscales : UK, Belgique, Suisse, Italie",
+        "content": "Chaque pays d'accueil présente des spécificités fiscales distinctes. Le Royaume-Uni modifie son régime non-dom, la Suisse offre le forfait fiscal (avec limites conventionnelles), la Belgique pratique le précompte mobilier, et l'Italie propose une flat tax pour nouveaux résidents. L'analyse comparative doit intégrer tous les types de revenus et la fiscalité patrimoniale.",
+        "concepts": [
+          {
+            "term": "Remittance basis (UK)",
+            "definition": "Ancien système permettant d'imposer seulement les revenus transférés au UK (en voie de suppression)",
+            "ref": "UK Tax Law"
+          },
+          {
+            "term": "Forfait fiscal suisse",
+            "definition": "Imposition forfaitaire basée sur les dépenses de vie, avec exclusion partielle de la convention FR-CH",
+            "ref": "Convention FR-CH"
+          },
+          {
+            "term": "Flat tax italienne",
+            "definition": "Forfait de 100k€/an sur revenus étrangers pour nouveaux résidents (15 ans max)",
+            "ref": "Législation italienne"
+          }
+        ],
+        "keyPoints": [
+          "UK : fin progressive du régime non-dom, réforme en cours",
+          "Suisse : forfait fiscal exclu de la protection conventionnelle avec la France",
+          "Belgique : précompte mobilier de 30% sur dividendes et intérêts",
+          "Italie : flat tax attractive mais limitée dans le temps"
+        ],
+        "warnings": [
+          "Les réformes fiscales en cours peuvent modifier substantiellement les avantages",
+          "La substance économique réelle est exigée dans tous les pays",
+          "Les conventions peuvent limiter les bénéfices des régimes préférentiels"
+        ],
+        "examples": [
+          "Comparaison sur profil 120k€ salaire + 40k€ revenus mobiliers : économies variables selon destination",
+          "Forfait suisse inefficace si requalifié résident français par la convention"
+        ]
+      },
+      {
+        "title": "Stratégies de mise en œuvre et gestion des risques",
+        "content": "Le succès d'un transfert de résidence fiscale nécessite une préparation minutieuse et une exécution irréprochable. Il faut constituer un dossier de preuves solide, respecter un calendrier strict, et éviter les situations à risque de requalification. La documentation des liens avec le nouveau pays de résidence est aussi importante que la rupture des liens avec la France.",
+        "concepts": [
+          {
+            "term": "Dossier de preuves",
+            "definition": "Ensemble documentaire démontrant la réalité du transfert de résidence et du nouveau centre de vie",
+            "ref": "Doctrine administrative"
+          },
+          {
+            "term": "Red flags",
+            "definition": "Situations à haut risque de requalification par l'administration fiscale française",
+            "ref": "Jurisprudence"
+          },
+          {
+            "term": "Période probatoire",
+            "definition": "Délai pendant lequel l'administration peut contester la réalité du transfert (jusqu'à 10 ans)",
+            "ref": "CGI"
+          }
+        ],
+        "keyPoints": [
+          "Constituer des preuves dans tous les domaines : logement, famille, activité, finances",
+          "Réduire progressivement les attaches françaises avant le départ officiel",
+          "Documenter la substance réelle de l'installation à l'étranger",
+          "Prévoir une stratégie de défense en cas de contrôle fiscal"
+        ],
+        "warnings": [
+          "Les contrôles fiscaux peuvent survenir plusieurs années après le départ",
+          "L'administration croise de nombreuses bases de données (douanes, télécom, bancaires)",
+          "Une requalification peut avoir des conséquences financières lourdes avec pénalités"
+        ],
+        "examples": [
+          "Checklist : bail étranger, comptes locaux, scolarisation enfants, médecin traitant, etc.",
+          "Planning : 6 mois de préparation minimum avant le transfert officiel"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
