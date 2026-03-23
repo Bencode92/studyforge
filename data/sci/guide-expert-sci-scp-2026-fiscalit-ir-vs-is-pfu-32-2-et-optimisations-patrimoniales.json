@@ -1,0 +1,186 @@
+{
+  "metadata": {
+    "title": "Guide Expert SCI/SCP 2026 - Fiscalité IR vs IS, PFU 32,2% et Optimisations Patrimoniales",
+    "category": "sci",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document de formation avec date fictive 2026 - Adapter aux règles fiscales en vigueur",
+      "Exemples avec TMI 30% simplifiés - Vérifier barème IR actuel",
+      "Références CGI incomplètes - Compléter avec articles précis"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide Expert SCI/SCP 2026 - Fiscalité IR vs IS, PFU 32,2% et Optimisations Patrimoniales",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Principe fondamental : Transparence IR vs Opacité IS",
+        "content": "La différence fondamentale entre IR et IS réside dans le moment et le niveau d'imposition. À l'IR (transparence) : l'associé est imposé chaque année sur sa quote-part du résultat, même sans distribution. La distribution ultérieure de réserve est neutre fiscalement (déjà taxée). À l'IS (opacité) : la société paie l'IS sur le résultat ; l'associé n'est imposé qu'en cas de distribution (dividendes) ou d'intérêts de CCA. L'IS est donc un outil de capitalisation mais peut devenir pénalisant à la sortie (plus-values 'pro', amortissements).",
+        "concepts": [
+          {
+            "term": "Transparence fiscale",
+            "definition": "Régime où les résultats de la société sont imposés directement chez les associés selon leur quote-part, indépendamment des distributions effectives",
+            "ref": "CGI art. 8"
+          },
+          {
+            "term": "Opacité fiscale",
+            "definition": "Régime où la société est imposée sur ses résultats, et les associés ne sont taxés qu'en cas de distribution effective",
+            "ref": "CGI art. 206"
+          }
+        ],
+        "keyPoints": [
+          "IR : Imposition annuelle obligatoire sur quote-part même sans distribution",
+          "IS : Double taxation (société + associé) mais différée dans le temps",
+          "Distribution de réserve IR : neutre fiscalement (déjà taxée)",
+          "Distribution IS : taxation comme dividende chez l'associé"
+        ],
+        "warnings": [
+          "Attention au décalage cash-flow/impôt en SCI IR",
+          "IS peut créer un 'effet retour de manivelle' sur les plus-values de sortie"
+        ],
+        "examples": [
+          "SCI IR réalise 30 000€ de résultat gardé en réserve → Associés imposés immédiatement sur leur quote-part",
+          "SCI IS réalise 30 000€ gardé en réserve → Seule la société paie l'IS, associés non imposés"
+        ]
+      },
+      {
+        "title": "Financement : Capital, CCA et Emprunt bancaire",
+        "content": "Une SCI/SCP peut renforcer ses fonds propres par trois leviers principaux : augmentation de capital (création de nouvelles parts ou élévation du nominal), avances en compte courant d'associé (CCA) générant des intérêts déductibles sous conditions, et emprunt bancaire (amortissable vs in fine selon stratégie de cash-flow).",
+        "concepts": [
+          {
+            "term": "Compte Courant d'Associé (CCA)",
+            "definition": "Prêt consenti par un associé à la société, comptabilisé en dette au passif, pouvant générer des intérêts déductibles sous conditions",
+            "ref": "CGI art. 39-1-3°"
+          },
+          {
+            "term": "Prime d'émission",
+            "definition": "Différence entre le prix d'émission des parts sociales nouvelles et leur valeur nominale, reflétant la valeur économique de la société",
+            "ref": "Code de commerce"
+          }
+        ],
+        "keyPoints": [
+          "Augmentation capital par émission = dilution possible des anciens associés",
+          "Augmentation par élévation nominal = pas de dilution si tous suivent",
+          "Intérêts CCA plafonnés fiscalement en IS (taux maximum fiscal annuel)",
+          "Emprunt in fine = trésorerie préservée mais coût total plus élevé"
+        ],
+        "warnings": [
+          "Taux CCA excessifs = risque de réintégration fiscale",
+          "Prime d'émission obligatoire si valeur économique > capital comptable",
+          "Emprunt in fine nécessite capacité de remboursement à l'échéance"
+        ],
+        "examples": [
+          "SCI capital 10k€, valeur 200k€ → Nouvel associé apporte 50k€ avec prime d'émission pour éviter dilution gratuite",
+          "Convention CCA à 3% avec clause 'trésorerie suffisante' pour différer les intérêts si besoin"
+        ]
+      },
+      {
+        "title": "PFU 30% et acompte 12,8% : Mécanisme et optimisation",
+        "content": "Le PFU (Prélèvement Forfaitaire Unique) de 30% se décompose en 12,8% d'IR et 17,2% de prélèvements sociaux. Pour les dividendes et intérêts, le 12,8% constitue un acompte non libératoire imputable l'année suivante. Une dispense d'acompte est possible selon le RFR N-2 du foyer fiscal.",
+        "concepts": [
+          {
+            "term": "Acompte non libératoire",
+            "definition": "Prélèvement anticipé d'impôt qui sera imputé sur l'IR dû l'année suivante, avec régularisation possible",
+            "ref": "CGI art. 117 quater"
+          },
+          {
+            "term": "RFR (Revenu Fiscal de Référence)",
+            "definition": "Revenu de référence calculé à partir du revenu net imposable, servant de base pour certains seuils fiscaux",
+            "ref": "CGI art. 1417"
+          }
+        ],
+        "keyPoints": [
+          "PFU = 12,8% IR + 17,2% prélèvements sociaux = 30% total",
+          "Dispense acompte dividendes : RFR N-2 < 50k€ (célibataire) / 75k€ (couple)",
+          "Dispense acompte intérêts : RFR N-2 < 25k€ (célibataire) / 50k€ (couple)",
+          "Option barème possible : abattement 40% sur dividendes + déductibilité CSG partielle"
+        ],
+        "warnings": [
+          "Acompte 12,8% dû même si option pour le barème l'année suivante",
+          "PFU s'applique sur le brut sans déduction de frais en pratique",
+          "Option barème irrévocable pour l'ensemble des RCM de l'année"
+        ],
+        "examples": [
+          "Dividende 1000€ : acompte 128€ + PS 172€ = 300€ prélevés, avec régularisation possible l'année suivante",
+          "Couple RFR 45k€ → Dispense acompte possible sur intérêts mais pas sur dividendes"
+        ]
+      },
+      {
+        "title": "Déductibilité des charges : Différences IR/IS",
+        "content": "La déductibilité des charges varie fortement entre IR et IS. En SCI IR (location nue), seules les charges foncières classiques sont déductibles (pas d'amortissement). En SCI IS, l'amortissement de l'immeuble devient un levier fiscal majeur mais crée un 'retour de manivelle' sur les plus-values de sortie. Pour les SCP, le régime IR limite drastiquement les charges déductibles sous PFU.",
+        "concepts": [
+          {
+            "term": "Charges foncières",
+            "definition": "Charges déductibles des revenus fonciers : intérêts d'emprunt, travaux d'entretien, taxes, frais de gestion, assurances",
+            "ref": "CGI art. 31"
+          },
+          {
+            "term": "Effet retour de manivelle",
+            "definition": "Phénomène où les amortissements pratiqués en IS réduisent la VNC, augmentant mécaniquement la plus-value imposable à la sortie",
+            "ref": "CGI art. 39 duodecies"
+          }
+        ],
+        "keyPoints": [
+          "SCI IR : intérêts d'emprunt déductibles si liés à l'immeuble, pas d'amortissement",
+          "SCI IS : amortissement immeuble déductible = levier fiscal majeur",
+          "SCP IR + PFU : charges pratiquement non déductibles (taxation sur brut)",
+          "SCP IS : large déductibilité (courtage, intérêts, provisions sous conditions)"
+        ],
+        "warnings": [
+          "Amortissements IS = plus-value de sortie majorée (VNC réduite)",
+          "Intérêts CCA plafonnés fiscalement en IS",
+          "Travaux d'amélioration : déductibles IR selon nature, immobilisés puis amortis en IS"
+        ],
+        "examples": [
+          "SCI IS : immeuble 500k€ amorti sur 20 ans = 25k€/an déductibles mais VNC réduite d'autant",
+          "SCP IR sous PFU : frais de courtage 100€ non déductibles, taxation sur dividende brut"
+        ]
+      },
+      {
+        "title": "Cas pratiques : SCI IR vs IS avec distribution",
+        "content": "L'analyse comparative IR/IS nécessite une vision sur deux exercices : l'année de réalisation du résultat (N) et l'année de distribution des réserves (N+1). En SCI IR, la distribution de réserve est neutre fiscalement car les revenus ont déjà été taxés. En SCI IS, la distribution génère une taxation dividende chez l'associé, créant une double imposition différée dans le temps.",
+        "concepts": [
+          {
+            "term": "Réserve",
+            "definition": "Bénéfices non distribués conservés dans la société, déjà taxés en IR (transparent) ou non encore taxés chez l'associé en IS",
+            "ref": "PCG"
+          },
+          {
+            "term": "Double imposition",
+            "definition": "Situation où le même bénéfice est taxé une fois au niveau société (IS) puis une seconde fois chez l'associé (dividende)",
+            "ref": "CGI art. 158-3-2°"
+          }
+        ],
+        "keyPoints": [
+          "SCI IR : imposition annuelle sur quote-part même sans distribution",
+          "Distribution réserve IR = neutre fiscalement (déjà taxée)",
+          "SCI IS : imposition société puis associé si distribution",
+          "Amortissements IS = économie immédiate mais plus-value sortie majorée"
+        ],
+        "warnings": [
+          "Décalage trésorerie/impôt important en SCI IR",
+          "IS favorable si capitalisation longue durée prévue",
+          "Plus-values sortie souvent plus taxées en IS qu'en IR"
+        ],
+        "examples": [
+          "SCI IR 24k€ résultat : associé 50% paie 5664€ d'impôts même si 0€ distribué",
+          "Même SCI à l'IS : société paie ~6k€ IS, associés 0€ tant que pas de distribution"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
