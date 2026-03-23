@@ -3,7 +3,7 @@
     "title": "Guide complet de mobilité fiscale internationale : transfert de résidence France vers UK/BE/CH/IT",
     "category": "optimisation-fiscale-etranger",
     "created": "2026-03-23",
-    "version": 1,
+    "version": 2,
     "verified": true,
     "verificationNotes": [
       "Document source daté du 28/01/2026 - références récentes",
@@ -44,7 +44,8 @@
           "Les quatre critères de l'article 4B sont alternatifs, un seul suffit",
           "L'administration examine les indices factuels de présence et d'attaches",
           "Le délai de reprise peut être étendu à 10 ans en cas de fausse domiciliation",
-          "Les conventions fiscales peuvent primer sur le droit interne pour éviter la double imposition"
+          "Les conventions fiscales peuvent primer sur le droit interne pour éviter la double imposition",
+          "Les conventions fiscales appliquent les critères dans l'ordre : foyer d'habitation permanent → centre des intérêts vitaux → séjour habituel → nationalité"
         ],
         "warnings": [
           "Conserver conjoint et enfants en France constitue un risque majeur de requalification",
@@ -80,7 +81,8 @@
           "Condition de résidence : 6 années sur les 10 précédant le départ",
           "Taux d'imposition : PFU 30% (12,8% IR + 17,2% PS) par défaut",
           "Dégrèvement possible après 2-5 ans sans cession selon conditions",
-          "Valorisation des titres non cotés selon méthodes de droit commun"
+          "Valorisation des titres non cotés selon méthodes de droit commun",
+          "L'immobilier français reste imposable en France même pour un non-résident"
         ],
         "warnings": [
           "La valorisation des titres non cotés peut faire l'objet de contrôles approfondis",
@@ -94,7 +96,7 @@
       },
       {
         "title": "Destinations fiscales : UK, Belgique, Suisse, Italie",
-        "content": "Chaque pays d'accueil présente des spécificités fiscales distinctes. Le Royaume-Uni modifie son régime non-dom, la Suisse offre le forfait fiscal (avec limites conventionnelles), la Belgique pratique le précompte mobilier, et l'Italie propose une flat tax pour nouveaux résidents. L'analyse comparative doit intégrer tous les types de revenus et la fiscalité patrimoniale.",
+        "content": "Chaque pays d'accueil présente des spécificités fiscales distinctes. Le Royaume-Uni modifie son régime non-dom, la Suisse offre le forfait fiscal (avec limites conventionnelles), la Belgique pratique le précompte mobilier, et l'Italie propose une flat tax pour nouveaux résidents. L'analyse comparative doit intégrer tous les types de revenus et la fiscalité patrimoniale.\n\nUK : nouveau régime FIG (Foreign Income and Gains) remplace le non-dom, exonération temporaire de 4 ans sur revenus étrangers pour nouveaux résidents",
         "concepts": [
           {
             "term": "Remittance basis (UK)",
@@ -116,16 +118,20 @@
           "UK : fin progressive du régime non-dom, réforme en cours",
           "Suisse : forfait fiscal exclu de la protection conventionnelle avec la France",
           "Belgique : précompte mobilier de 30% sur dividendes et intérêts",
-          "Italie : flat tax attractive mais limitée dans le temps"
+          "Italie : flat tax attractive mais limitée dans le temps",
+          "Italie : distinction entre deux régimes - neo-residenti (flat tax fixe sur revenus étrangers) et impatriati (réduction sur salaire italien)",
+          "Suisse : forfait fiscal = base imposable forfaitaire (7× loyer annuel ou 400k CHF minimum) puis application des taux ordinaires, pas un impôt fixe"
         ],
         "warnings": [
           "Les réformes fiscales en cours peuvent modifier substantiellement les avantages",
           "La substance économique réelle est exigée dans tous les pays",
-          "Les conventions peuvent limiter les bénéfices des régimes préférentiels"
+          "Les conventions peuvent limiter les bénéfices des régimes préférentiels",
+          "Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très élevés (seuil ~1M€ si flat tax 300k€)"
         ],
         "examples": [
           "Comparaison sur profil 120k€ salaire + 40k€ revenus mobiliers : économies variables selon destination",
-          "Forfait suisse inefficace si requalifié résident français par la convention"
+          "Forfait suisse inefficace si requalifié résident français par la convention",
+          "Forfait suisse : loyer 5000 CHF/mois → base 420k CHF → impôt 105-147k CHF selon canton (taux 25-35%)"
         ]
       },
       {
@@ -166,7 +172,26 @@
       }
     ]
   },
-  "enrichments": [],
+  "enrichments": [
+    {
+      "id": "enr-art-1774281444594",
+      "date": "2026-03-23",
+      "source": {
+        "type": "article"
+      },
+      "trigger": "import",
+      "summary": "L'article précise les mécanismes des régimes fiscaux spéciaux (forfait suisse, flat tax italienne, nouveau FIG britannique) et clarifie que l'immobilier français reste imposable même pour les non-résidents.",
+      "addedPoints": [
+        "→ Les conventions fiscales appliquent les critères dans l'ordre : foyer d'habitati",
+        "→ L'immobilier français reste imposable en France même pour un non-résident",
+        "📝 Contenu enrichi: Destinations fiscales : UK, Belgique, Suisse, Italie",
+        "→ Italie : distinction entre deux régimes - neo-residenti (flat tax fixe sur reven",
+        "→ Suisse : forfait fiscal = base imposable forfaitaire (7× loyer annuel ou 400k CH",
+        "⚠️ Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très",
+        "💡 Forfait suisse : loyer 5000 CHF/mois → base 420k CHF → impôt 105-147k CHF selon "
+      ]
+    }
+  ],
   "quiz": {
     "totalAttempts": 0,
     "history": [],
