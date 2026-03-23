@@ -1,0 +1,177 @@
+{
+  "metadata": {
+    "title": "Guide fiscal 2026 : Crédits d'impôt et TVA pour travaux logement - Bilan final des dispositifs adaptation, PPRT et bornes électriques",
+    "category": "fiscalite",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document présentant des incohérences temporelles (daté 2026 mais références à dispositifs expirés fin 2025)",
+      "Références BOFiP avec dates futures non vérifiables",
+      "Section TVA annoncée mais incomplète"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide fiscal 2026 : Crédits d'impôt et TVA pour travaux logement - Bilan final des dispositifs adaptation, PPRT et bornes électriques",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Vue d'ensemble des dispositifs fiscaux travaux logement",
+        "content": "Ce guide couvre trois crédits d'impôt spécialisés pour les travaux dans les logements : l'adaptation au handicap/perte d'autonomie (25%), les travaux PPRT contre les risques technologiques (40%) et les bornes de recharge électrique (75%). Chaque dispositif a ses propres conditions d'éligibilité, plafonds et échéances. Les taux de TVA réduits (5,5% et 10%) complètent ces avantages fiscaux selon la nature des travaux et l'ancienneté du logement.",
+        "concepts": [
+          {
+            "term": "Crédit d'impôt",
+            "definition": "Somme déduite de l'impôt sur le revenu, restituée si supérieure à l'impôt dû",
+            "ref": "CGI art. 200"
+          },
+          {
+            "term": "Résidence principale",
+            "definition": "Logement où le contribuable a son domicile habituel et effectif, centre de ses intérêts",
+            "ref": "BOFiP BOI-IR-RICI-290-10"
+          },
+          {
+            "term": "RFR",
+            "definition": "Revenu fiscal de référence servant aux conditions de ressources des dispositifs",
+            "ref": "CGI art. 1417"
+          }
+        ],
+        "keyPoints": [
+          "Trois crédits d'impôt distincts avec taux et plafonds différents",
+          "Obligation de résidence principale sauf exception PPRT (location 5 ans)",
+          "Prise en compte des subventions en déduction de la base",
+          "Fait générateur = paiement final des travaux"
+        ],
+        "warnings": [
+          "Échéances proches : adaptation et bornes électriques fin 2025, PPRT fin 2026",
+          "Conditions de ressources pour le crédit adaptation depuis 2024",
+          "Risque de requalification TVA 20% en cas d'absence de mentions obligatoires"
+        ],
+        "examples": [
+          "Couple avec 2 enfants : plafond adaptation = 10 800€ sur 5 ans (10 000 + 2×400)",
+          "Travaux PPRT 23 500€ TTC avec aides 2 000€ = crédit 8 000€ (40% de 20 000€)"
+        ]
+      },
+      {
+        "title": "Crédit d'impôt adaptation handicap/perte d'autonomie (25%)",
+        "content": "Ce crédit vise les équipements d'adaptation de la résidence principale pour les personnes en perte d'autonomie (GIR 1-4) ou handicapées (incapacité ≥50%). Le taux est de 25% des dépenses TTC, plafonné à 5 000€ (célibataire) ou 10 000€ (couple) + 400€/personne à charge sur 5 ans. Depuis 2024, des conditions de ressources s'appliquent (plancher et plafond selon RFR). Les dépenses doivent être facturées par une entreprise et correspondre aux équipements listés réglementairement.",
+        "concepts": [
+          {
+            "term": "GIR",
+            "definition": "Groupe iso-ressources évaluant le degré de perte d'autonomie (1=plus dépendant, 6=autonome)",
+            "ref": "Annexe IV art. 18 ter"
+          },
+          {
+            "term": "Plafond quinquennal",
+            "definition": "Limite de dépenses éligibles calculée sur une période glissante de 5 années consécutives",
+            "ref": "BOFiP BOI-IR-RICI-290-20"
+          },
+          {
+            "term": "Base nette",
+            "definition": "Dépenses TTC éligibles diminuées des aides/subventions liées aux travaux",
+            "ref": "CGI art. 200 quater A"
+          }
+        ],
+        "keyPoints": [
+          "Conditions cumulatives : résidence principale + GIR 1-4 ou incapacité ≥50% + ressources",
+          "Plafond sur 5 ans nécessitant un suivi historique des dépenses",
+          "Prise en compte possible des quotes-parts copropriété et usage mixte pro/habitation",
+          "Reprise possible en cas de remboursement dans les 5 ans"
+        ],
+        "warnings": [
+          "RFR hors bornes (trop faible ou trop élevé) = exclusion du dispositif",
+          "Facture non conforme aux équipements listés = rejet total",
+          "Plafond 5 ans consommé = aucun crédit supplémentaire même en changeant de logement"
+        ],
+        "examples": [
+          "Célibataire GIR 2, travaux 6 000€, aucune aide : crédit = 25% × 5 000€ = 1 250€",
+          "Usage mixte 40m² pro/120m² total : base × (80/120) puis crédit 25%",
+          "Remboursement 2 000€ après crédit initial : reprise = 25% × 2 000€ = 500€"
+        ]
+      },
+      {
+        "title": "Crédit d'impôt PPRT risques technologiques (40%)",
+        "content": "Ce crédit couvre les diagnostics et travaux prescrits par un Plan de Prévention des Risques Technologiques. Le taux est de 40% des dépenses, plafonné à 20 000€ par logement (crédit max 8 000€). Le logement doit être achevé avant l'approbation du PPRT et constituer soit la résidence principale du propriétaire, soit être loué 5 ans minimum en résidence principale. Les travaux doivent être strictement prescrits par le PPRT et réalisés par une entreprise. Échéance : dépenses payées jusqu'au 31/12/2026.",
+        "concepts": [
+          {
+            "term": "PPRT",
+            "definition": "Plan de Prévention des Risques Technologiques délimitant les zones exposées aux risques industriels",
+            "ref": "Code de l'environnement L515-15"
+          },
+          {
+            "term": "Travaux prescrits",
+            "definition": "Travaux obligatoires définis par le PPRT pour réduire les risques sur les bâtiments existants",
+            "ref": "BOFiP BOI-IR-RICI-290"
+          },
+          {
+            "term": "Engagement locatif",
+            "definition": "Obligation de louer le logement 5 ans minimum en résidence principale du locataire",
+            "ref": "CGI art. 200 quater A"
+          }
+        ],
+        "keyPoints": [
+          "Seuls les travaux prescrits par le PPRT sont éligibles (pas les travaux volontaires)",
+          "Diagnostic préalable inclus dans l'assiette du crédit",
+          "Plafond unique de 20 000€ par logement sur toute la durée",
+          "Possibilité de location sous engagement 5 ans"
+        ],
+        "warnings": [
+          "Travaux non prescrits = exclusion totale du crédit",
+          "Délais PPRT stricts à respecter selon les prescriptions",
+          "Articulation complexe avec les aides spécifiques PPRT (exploitants/collectivités)"
+        ],
+        "examples": [
+          "Diagnostic 1 500€ + travaux 22 000€ - aides 2 000€ = base 21 500€, crédit sur 20 000€ = 8 000€",
+          "Logement loué : bail + attestation occupation résidence principale obligatoires"
+        ]
+      },
+      {
+        "title": "Crédit d'impôt bornes de recharge électrique (75%)",
+        "content": "Ce crédit concerne l'installation de systèmes de charge pour véhicules électriques dans la résidence principale ou une résidence secondaire. Le taux est de 75% des dépenses, plafonné à 500€ par système de charge. Depuis 2024, seuls les systèmes pilotables sont éligibles. L'installation doit être réalisée par une entreprise et facturée. Le crédit s'applique aux dépenses payées jusqu'au 31/12/2025. Note : le document semble incomplet sur cette section.",
+        "concepts": [
+          {
+            "term": "Système pilotable",
+            "definition": "Borne permettant la modulation de la charge selon les besoins du réseau électrique",
+            "ref": "CGI art. 200 quater C"
+          },
+          {
+            "term": "Résidence secondaire",
+            "definition": "Exception au principe de résidence principale pour ce crédit spécifique",
+            "ref": "BOFiP"
+          },
+          {
+            "term": "Plafonnement par système",
+            "definition": "Limite de 500€ par point de charge installé",
+            "ref": "CGI art. 200 quater C"
+          }
+        ],
+        "keyPoints": [
+          "Exigence système pilotable depuis 2024 (évolution réglementaire)",
+          "Éligibilité résidence principale ET secondaire (exception aux autres crédits)",
+          "Plafond par système installé (possibilité plusieurs bornes)",
+          "Installation par entreprise obligatoire"
+        ],
+        "warnings": [
+          "Système non pilotable = exclusion totale depuis 2024",
+          "Achat matériel seul sans installation = non éligible",
+          "Plafonnement global si plusieurs résidences"
+        ],
+        "examples": [
+          "Installation borne pilotable 800€ TTC : crédit = 75% × 500€ = 375€",
+          "Deux bornes (RP + RS) : crédit max = 2 × 375€ = 750€"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
