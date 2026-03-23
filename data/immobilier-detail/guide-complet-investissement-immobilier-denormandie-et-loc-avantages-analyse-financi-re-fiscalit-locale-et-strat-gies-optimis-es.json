@@ -1,0 +1,168 @@
+{
+  "metadata": {
+    "title": "Guide complet : Investissement immobilier Denormandie et Loc'Avantages - Analyse financière, fiscalité locale et stratégies optimisées",
+    "category": "immobilier-detail",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document d'analyse pratique avec cas concret Boulogne-Billancourt",
+      "Simulations chiffrées Denormandie et Loc'Avantages",
+      "Attention : barèmes et taux à vérifier selon année d'application"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Mémo immobilier & fiscalité locale — synthèse personnalisée",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Résidence principale vs investissement locatif : les enjeux fiscaux",
+        "content": "La distinction fondamentale entre résidence principale et investissement locatif détermine l'accès aux dispositifs fiscaux avantageux. Pour une résidence principale, les dispositifs Denormandie et Loc'Avantages ne s'appliquent pas car ils visent exclusivement l'investissement locatif sous conditions strictes. Cette distinction oriente totalement la stratégie d'optimisation fiscale : qualité d'achat, financement, charges et fiscalité locale pour la résidence principale ; réductions d'impôt spécialisées pour l'investissement locatif.",
+        "concepts": [
+          {
+            "term": "Résidence principale",
+            "definition": "Logement occupé personnellement par le propriétaire à titre d'habitation principale, excluant les dispositifs d'investissement locatif",
+            "ref": "base-concepts"
+          },
+          {
+            "term": "Investissement locatif",
+            "definition": "Acquisition immobilière destinée à la mise en location, ouvrant droit aux dispositifs fiscaux spécialisés sous conditions",
+            "ref": "base-concepts"
+          }
+        ],
+        "keyPoints": [
+          "Les dispositifs Denormandie et Loc'Avantages sont exclusifs à l'investissement locatif",
+          "Une résidence principale ne génère pas de réduction d'impôt spécifique à l'investissement",
+          "L'optimisation fiscale diffère totalement selon le statut du bien"
+        ],
+        "warnings": [
+          "Ne pas confondre les stratégies d'optimisation selon le type d'occupation",
+          "Vérifier l'usage réel du bien avant de planifier les avantages fiscaux"
+        ],
+        "examples": [
+          "Appartement acheté pour habitation personnelle : pas d'accès aux dispositifs locatifs",
+          "Même bien loué dès l'acquisition : éligible aux dispositifs sous conditions"
+        ]
+      },
+      {
+        "title": "Dispositif Denormandie : mécanisme et stratégies 6/9/12 ans",
+        "content": "Le dispositif Denormandie vise l'investissement locatif dans l'ancien avec travaux, dans certaines communes éligibles. La différence entre 6, 9 et 12 ans provient de la durée d'engagement de location choisie : plus l'engagement est long, plus la réduction d'impôt totale est élevée. Le calcul s'effectue sur une base fiscale plafonnée, incluant prix d'acquisition et travaux éligibles. Dans l'exemple traité (45 m², 380k€ net vendeur, 423k€ coût total), la limite au m² (hypothèse 5500€/m² = 247 500€) devient le plafond contraignant avant même la distinction prix net/coût total.",
+        "concepts": [
+          {
+            "term": "Dispositif Denormandie",
+            "definition": "Réduction d'impôt pour investissement locatif dans l'ancien avec travaux, dans des communes éligibles, sous conditions de location et de durée d'engagement",
+            "ref": "denormandie-base"
+          },
+          {
+            "term": "Base fiscale éligible",
+            "definition": "Montant sur lequel s'applique la réduction, plafonné globalement et au m², incluant prix d'acquisition et travaux éligibles",
+            "ref": "calcul-base"
+          },
+          {
+            "term": "Durée d'engagement",
+            "definition": "Période minimale de location obligatoire déterminant le taux de réduction appliqué (6, 9 ou 12 ans)",
+            "ref": "engagement-duree"
+          }
+        ],
+        "keyPoints": [
+          "Plus la durée d'engagement est longue, plus le taux de réduction est élevé",
+          "La base de calcul est plafonnée par plusieurs limites (globale et au m²)",
+          "Les travaux doivent être éligibles et représenter un pourcentage minimal"
+        ],
+        "warnings": [
+          "Vérifier l'éligibilité de la commune avant tout engagement",
+          "S'assurer que les travaux respectent les critères réglementaires",
+          "Un engagement long augmente l'exposition aux risques (marché, fiscalité)"
+        ],
+        "examples": [
+          "Appartement 45 m² à 380k€ : base plafonnée à 247 500€ par la limite au m²",
+          "Réduction 9 ans à 18% = 44 550€ sur la durée (4 950€/an en moyenne)"
+        ]
+      },
+      {
+        "title": "Loc'Avantages et convention ANAH : fonctionnement pratique",
+        "content": "Loc'Avantages repose sur un échange : loyer plafonné et locataire sous plafond de ressources contre réduction d'impôt. Le dispositif propose plusieurs niveaux (Loc1, Loc2, Loc3) avec ou sans intermédiation, combinant différents taux d'avantage et niveaux de loyer. Plus le niveau est élevé, plus le taux de réduction augmente mais plus le loyer autorisé diminue. La rentabilité se juge sur le cash-flow net après impôt, pas uniquement sur le taux affiché. L'éligibilité dépend des plafonds de loyer calculés selon la zone, la surface et le coefficient applicable.",
+        "concepts": [
+          {
+            "term": "Loc'Avantages",
+            "definition": "Dispositif de réduction d'impôt pour location à loyer plafonné et locataires sous plafonds de ressources, avec convention ANAH",
+            "ref": "locavantages-base"
+          },
+          {
+            "term": "Intermédiation locative",
+            "definition": "Gestion du logement par un organisme ou association, augmentant souvent le taux de réduction mais réduisant le loyer perçu",
+            "ref": "intermediation"
+          },
+          {
+            "term": "Plafond de loyer",
+            "definition": "Loyer maximum autorisé calculé selon la zone géographique, la surface du logement et les coefficients réglementaires",
+            "ref": "plafond-loyer"
+          }
+        ],
+        "keyPoints": [
+          "Trois niveaux disponibles (Loc1, Loc2, Loc3) avec taux croissants",
+          "L'intermédiation peut améliorer le taux mais complexifie la gestion",
+          "Le calcul d'éligibilité nécessite les barèmes ANAH actualisés"
+        ],
+        "warnings": [
+          "Ne pas confondre taux élevé et rentabilité réelle",
+          "Vérifier systématiquement les plafonds de loyer avant engagement",
+          "Documenter rigoureusement les conditions pendant toute la durée"
+        ],
+        "examples": [
+          "Loc2 sans intermédiation : 760€/mois, taux 35%, réduction 3 192€/an",
+          "Loc3 avec intermédiation : 560€/mois, taux 65%, réduction 4 368€/an",
+          "À Boulogne-Billancourt 45 m² : loyer 1000€/mois possiblement au-dessus des plafonds"
+        ]
+      },
+      {
+        "title": "Fiscalité locale : taxes et redevabilité immobilière",
+        "content": "La fiscalité locale immobilière comprend plusieurs taxes aux logiques distinctes. La taxe foncière (TFPB) est due par le propriétaire au 1er janvier, non récupérable. La TEOM (ordures ménagères) est souvent récupérable sur le locataire. La taxe d'habitation sur résidences secondaires (THRS) vise les logements meublés non affectés à l'habitation principale. Les taxes sur logements vacants (TLV nationale, THLV communale) ciblent les logements durablement inoccupés selon des critères spécifiques. Il ne faut pas confondre vacance et résidence secondaire : ce sont deux régimes fiscaux différents avec leurs propres conditions d'application.",
+        "concepts": [
+          {
+            "term": "Taxe foncière (TFPB)",
+            "definition": "Impôt local annuel dû par le propriétaire ou usufruitier au 1er janvier, calculé sur la valeur locative cadastrale",
+            "ref": "tfpb-base"
+          },
+          {
+            "term": "THRS (Taxe d'habitation résidences secondaires)",
+            "definition": "Taxe sur les logements meublés non occupés à titre de résidence principale au 1er janvier",
+            "ref": "thrs-base"
+          },
+          {
+            "term": "Taxes sur logements vacants",
+            "definition": "TLV (nationale) et THLV (communale) visant les logements durablement inoccupés selon critères de durée et localisation",
+            "ref": "vacance-taxes"
+          }
+        ],
+        "keyPoints": [
+          "Chaque taxe a ses propres critères d'application et redevable",
+          "La situation au 1er janvier est généralement déterminante",
+          "Distinguer vacance, résidence secondaire et récupérabilité sur locataire"
+        ],
+        "warnings": [
+          "Ne pas confondre les différents régimes de taxation locale",
+          "Vérifier les conditions d'exonération et exceptions applicables",
+          "Documenter l'occupation réelle pour éviter les redressements"
+        ],
+        "examples": [
+          "Propriétaire paie TFPB, récupère TEOM sur locataire",
+          "Logement meublé vacant au 1er janvier : risque THRS + TLV/THLV",
+          "Location occasionnelle n'efface pas automatiquement la qualification fiscale"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
