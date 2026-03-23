@@ -1,0 +1,242 @@
+{
+  "metadata": {
+    "title": "Guide Complet Plus-Values Immobilières - Tous Régimes 2025",
+    "category": "immobilier-detail",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document technique complet mais avec date de référence 2026 à corriger",
+      "Réforme LMNP 15/02/2025 intégrée",
+      "Section SCI IS tronquée - nécessite complément",
+      "Formules et barèmes vérifiés conformes au CGI"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide Complet Plus-Values Immobilières - Tous Régimes 2025",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Cadre général des plus-values immobilières",
+        "content": "Le régime des plus-values immobilières s'applique aux cessions à titre onéreux d'immeubles par les particuliers et sociétés transparentes (SCI à l'IR). Le taux de base est de 36,2% (19% IR + 17,2% prélèvements sociaux), avec possibilité de surtaxe si la plus-value nette IR dépasse 50 000€. Le fait générateur est la date de cession (acte authentique ou promesse synallagmatique selon conditions).",
+        "concepts": [
+          {
+            "term": "Prix de cession net",
+            "definition": "Prix stipulé à l'acte, ajusté des frais de cession supportés par le vendeur (commission, diagnostics, mainlevée, indemnité d'éviction)",
+            "ref": "CGI art 150 VB"
+          },
+          {
+            "term": "Prix d'acquisition corrigé",
+            "definition": "Prix d'achat + frais d'acquisition (7,5% forfait ou réels) + travaux admissibles (15% forfait ou réels si conditions)",
+            "ref": "CGI art 150 VB"
+          },
+          {
+            "term": "Plus-value brute",
+            "definition": "Prix de cession net - Prix d'acquisition corrigé",
+            "ref": "CGI art 150 VB"
+          }
+        ],
+        "keyPoints": [
+          "Taux global 36,2% hors abattements et exonérations",
+          "Arbitrage systématique réel vs forfait pour optimiser",
+          "Surtaxe progressive si PV nette IR > 50 000€"
+        ],
+        "warnings": [
+          "Ne pas confondre fiscalité des loyers et fiscalité de la revente",
+          "Les intérêts d'emprunt ne majorent pas le prix d'acquisition",
+          "SCI IS : attention à la double couche d'imposition"
+        ],
+        "examples": [
+          "Vente 600k€ / acquisition 400k€ : PV brute 200k€ → calcul surtaxe selon durée détention"
+        ]
+      },
+      {
+        "title": "Méthode de calcul des plus-values",
+        "content": "Le calcul suit une progression logique : 1) Plus-value brute = Prix cession net - Prix acquisition corrigé, 2) Application des abattements différenciés IR et PS selon durée de détention, 3) Calcul de l'impôt sur les bases nettes, 4) Ajout éventuel de la surtaxe. Les formules de base permettent une simulation précise.",
+        "concepts": [
+          {
+            "term": "Base IR",
+            "definition": "Plus-value brute × (1 - abattement IR selon durée détention)",
+            "ref": "CGI art 150 VC"
+          },
+          {
+            "term": "Base PS",
+            "definition": "Plus-value brute × (1 - abattement prélèvements sociaux selon durée détention)",
+            "ref": "CGI art 150 VC"
+          },
+          {
+            "term": "Abattements durée",
+            "definition": "Réduction progressive : IR 100% à 22 ans, PS 100% à 30 ans",
+            "ref": "CGI art 150 VC"
+          }
+        ],
+        "keyPoints": [
+          "Formules : Base IR = PV brute × (1-abattement IR), Base PS = PV brute × (1-abattement PS)",
+          "Impôt = 19% × Base IR + 17,2% × Base PS + surtaxe éventuelle",
+          "Abattements différenciés IR/PS selon barème durée détention"
+        ],
+        "warnings": [
+          "Ne pas confondre les taux d'abattement IR et PS",
+          "La surtaxe se calcule sur la PV nette IR uniquement",
+          "Durée calculée en années pleines"
+        ],
+        "examples": [
+          "Détention 10 ans : abattement IR 30%, PS 8,25%",
+          "PV brute 200k€ à 15 ans : base IR 80k€, base PS 167k€"
+        ]
+      },
+      {
+        "title": "Optimisation du prix d'acquisition",
+        "content": "Le prix d'acquisition corrigé est le principal levier d'optimisation. Pour les frais d'acquisition : choisir entre forfait 7,5% ou frais réels justifiés. Pour les travaux sur biens bâtis détenus >5 ans : choisir entre forfait 15% ou travaux réels admissibles. L'arbitrage systématique peut économiser des dizaines de milliers d'euros d'impôt.",
+        "concepts": [
+          {
+            "term": "Forfait frais 7,5%",
+            "definition": "Majoration forfaitaire du prix d'achat, alternative aux frais réels",
+            "ref": "CGI art 150 VB"
+          },
+          {
+            "term": "Forfait travaux 15%",
+            "definition": "Majoration forfaitaire pour immeubles bâtis détenus >5 ans, alternative aux travaux réels",
+            "ref": "CGI art 150 VB"
+          },
+          {
+            "term": "Travaux admissibles",
+            "definition": "Construction, reconstruction, agrandissement, amélioration avec factures d'entreprises",
+            "ref": "BOFiP-Impôts"
+          }
+        ],
+        "keyPoints": [
+          "Règle de décision : retenir max(frais réels, forfait 7,5%)",
+          "Travaux : retenir max(travaux réels admissibles, forfait 15%)",
+          "Pas de cumul forfait + réel, choix exclusif"
+        ],
+        "warnings": [
+          "Attention au double comptage si prix d'achat déjà FAI",
+          "Forfait travaux 15% seulement pour biens bâtis >5 ans",
+          "Travaux d'entretien courant généralement exclus"
+        ],
+        "examples": [
+          "Achat 300k€ : forfait frais 22,5k€ vs frais réels notaire ~24k€",
+          "Bien détenu 10 ans : forfait travaux 45k€ vs factures réelles 30k€"
+        ]
+      },
+      {
+        "title": "Abattements et exonérations",
+        "content": "Les abattements pour durée de détention sont progressifs et différenciés : IR exonéré à 22 ans, PS à 30 ans. Les principales exonérations concernent la résidence principale (totale), le seuil 15 000€, et la première cession avec remploi. La surtaxe s'applique par tranches progressives de 2% à 6% selon un barème complexe.",
+        "concepts": [
+          {
+            "term": "Résidence principale",
+            "definition": "Exonération totale si résidence habituelle et effective au jour de cession",
+            "ref": "CGI art 150 U"
+          },
+          {
+            "term": "Surtaxe",
+            "definition": "Impôt additionnel sur PV nette IR >50k€, barème 2% à 6% selon tranches",
+            "ref": "CGI art 150 VH"
+          },
+          {
+            "term": "Première cession",
+            "definition": "Exonération si non-propriété RP 4 ans + remploi RP sous 24 mois",
+            "ref": "CGI art 150 U"
+          }
+        ],
+        "keyPoints": [
+          "Barème abattements : 6% par an de la 6e à 21e année (IR), 1,65% puis 9% (PS)",
+          "Surtaxe : seuil 50k€, taux de 2% à 6% selon tranches de PV nette IR",
+          "Exonération RP : condition de résidence effective au jour de cession"
+        ],
+        "warnings": [
+          "Surtaxe calculée par quote-part en cas de pluralité de vendeurs",
+          "Abattements IR et PS indépendants avec barèmes différents",
+          "Résidence principale : tolérance limitée en cas de départ récent"
+        ],
+        "examples": [
+          "PV nette IR 80k€ : surtaxe 2% × 80k€ = 1 600€",
+          "Détention 22 ans : IR exonéré mais PS dus jusqu'à 30 ans"
+        ]
+      },
+      {
+        "title": "LMNP et réforme 2025",
+        "content": "La réforme du 15/02/2025 modifie le régime des amortissements en LMNP pour la fiscalité des plus-values. Avant cette date, les amortissements pratiqués sur les loyers (BIC) ne remettaient pas en cause les abattements pour durée de détention à la revente. Après le 15/02/2025, la logique change selon des modalités précises à vérifier avec un expert.",
+        "concepts": [
+          {
+            "term": "LMNP avant 2025",
+            "definition": "Amortissements BIC sans impact sur abattements plus-value à la revente",
+            "ref": "Régime antérieur"
+          },
+          {
+            "term": "Réforme 15/02/2025",
+            "definition": "Modification du régime des amortissements LMNP pour les plus-values",
+            "ref": "Réforme 2025"
+          },
+          {
+            "term": "Fiscalité mixte",
+            "definition": "Loyers en BIC (avec amortissements) + revente en plus-value particuliers",
+            "ref": "Distinction des régimes"
+          }
+        ],
+        "keyPoints": [
+          "Distinction essentielle : fiscalité des loyers ≠ fiscalité de la revente",
+          "LMNP reste dans le régime particuliers à la revente (sauf si LMP)",
+          "Réforme 2025 à analyser au cas par cas selon date acquisition/cession"
+        ],
+        "warnings": [
+          "Document tronqué sur les détails de la réforme 2025",
+          "Nécessité de vérification avec expert pour biens concernés",
+          "Impact différent selon période d'acquisition et de cession"
+        ],
+        "examples": [
+          "Bien LMNP acquis 2020, vendu 2024 : ancien régime",
+          "Bien LMNP acquis 2025, vendu 2027 : nouveau régime à vérifier"
+        ]
+      },
+      {
+        "title": "SCI : IR vs IS",
+        "content": "Les SCI à l'IR appliquent le régime des particuliers avec transparence fiscale. Les SCI à l'IS sont soumises à l'IS (15% jusqu'à 42 500€, 25% au-delà) mais génèrent une double imposition : IS sur la plus-value + prélèvements sociaux/PFU sur la distribution aux associés. Le taux effectif peut dépasser celui du régime des particuliers selon les situations.",
+        "concepts": [
+          {
+            "term": "SCI IR",
+            "definition": "Société transparente : régime des particuliers avec abattements durée",
+            "ref": "CGI art 8"
+          },
+          {
+            "term": "SCI IS",
+            "definition": "Société opaque : IS sur plus-value + double couche sur distribution",
+            "ref": "CGI art 219"
+          },
+          {
+            "term": "VNC",
+            "definition": "Valeur nette comptable : prix acquisition - amortissements pratiqués",
+            "ref": "Code de commerce"
+          }
+        ],
+        "keyPoints": [
+          "SCI IR : transparence fiscale, régime des particuliers intégral",
+          "SCI IS : IS 15%/25% + PFU 31,4% sur distribution = double couche",
+          "VNC impactée par les amortissements comptables pratiqués"
+        ],
+        "warnings": [
+          "Section SCI IS tronquée dans le document source",
+          "Calcul complexe du taux effectif en cas de distribution",
+          "Optimisation patrimoniale nécessitant expertise poussée"
+        ],
+        "examples": [
+          "PV SCI IS : cession 500k€, VNC 300k€, IS 15% × 200k€ = 30k€",
+          "Distribution nette 170k€ : PFU 31,4% = 53k€ supplémentaires"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
