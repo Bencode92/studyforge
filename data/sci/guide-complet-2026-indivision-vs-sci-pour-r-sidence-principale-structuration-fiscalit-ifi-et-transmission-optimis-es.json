@@ -1,0 +1,211 @@
+{
+  "metadata": {
+    "title": "Guide complet 2026 : Indivision vs SCI pour résidence principale - Structuration, fiscalité IFI et transmission optimisées",
+    "category": "sci",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique complet mais nécessite mise à jour des taux fiscaux",
+      "Section sur le concubinage incomplète (coupée à 60%)",
+      "Références légales à compléter"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide complet 2026 : Indivision vs SCI pour résidence principale - Structuration, fiscalité IFI et transmission optimisées",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Structures juridiques : définitions et principes",
+        "content": "L'indivision permet à plusieurs personnes de posséder ensemble un bien, chacune pour une quote-part, sans découpage physique. Chaque indivisaire détient un droit sur la totalité, proportionnel à sa part. La SCI (société civile immobilière) crée une personne morale qui détient l'immeuble, les personnes détenant des parts. L'indivision légale survient par défaut (achat à deux, succession), tandis que l'indivision conventionnelle s'organise par contrat. La SCI peut opter pour l'IR (transparence fiscale) ou l'IS (imposition au niveau de la société).",
+        "concepts": [
+          {
+            "term": "Indivision",
+            "definition": "Situation juridique où plusieurs personnes possèdent ensemble un bien, chacune pour une quote-part déterminée",
+            "ref": "Art. 815 Code civil"
+          },
+          {
+            "term": "SCI à l'IR",
+            "definition": "SCI transparente fiscalement : les revenus fonciers remontent directement aux associés à l'impôt sur le revenu",
+            "ref": "Art. 8 CGI"
+          },
+          {
+            "term": "SCI à l'IS",
+            "definition": "SCI soumise à l'impôt sur les sociétés, permettant l'amortissement des immeubles (hors terrain)",
+            "ref": "Art. 206 CGI"
+          }
+        ],
+        "keyPoints": [
+          "Principe fondamental : 'nul ne peut être contraint à demeurer dans l'indivision' (art. 815)",
+          "En SCI, impossible de provoquer le partage de l'immeuble, seule la cession de parts est possible",
+          "La convention d'indivision peut stabiliser temporairement (5 ans max renouvelables)"
+        ],
+        "warnings": [
+          "L'indivision expose au risque de vente forcée à tout moment par un indivisaire minoritaire",
+          "La SCI nécessite un formalisme plus lourd (statuts, AG, comptabilité)",
+          "Le choix IR/IS impacte définitivement la fiscalité de sortie"
+        ],
+        "examples": [
+          "Couple achetant une résidence principale : indivision par défaut, SCI pour sécuriser la transmission",
+          "Famille avec plusieurs héritiers : SCI évite les blocages de l'unanimité en indivision"
+        ]
+      },
+      {
+        "title": "Gouvernance et prise de décision",
+        "content": "En indivision, les actes se classent en trois catégories : conservatoires (tout indivisaire peut agir), d'administration (majorité des 2/3), de disposition (unanimité souvent requise). Cette classification génère des blocages fréquents. En SCI, la gouvernance s'organise librement par les statuts : objet social, pouvoirs du gérant, majorités différenciées. Des clauses anti-blocage permettent d'éviter l'unanimité paralysante : médiation obligatoire, rachat forcé, majorités qualifiées pour les décisions importantes.",
+        "concepts": [
+          {
+            "term": "Actes conservatoires",
+            "definition": "Mesures urgentes de sauvegarde du bien (réparations d'urgence, assurance)",
+            "ref": "Art. 815-2 Code civil"
+          },
+          {
+            "term": "Actes d'administration",
+            "definition": "Gestion courante nécessitant l'accord des indivisaires détenant 2/3 des droits",
+            "ref": "Art. 815-3 Code civil"
+          },
+          {
+            "term": "Actes de disposition",
+            "definition": "Décisions affectant le capital (vente, hypothèque lourde, bail commercial)",
+            "ref": "Art. 815-3 Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Classification tripartite des actes en indivision selon leur impact",
+          "Règle des 2/3 pour l'administration courante en indivision",
+          "Liberté contractuelle totale pour organiser la gouvernance en SCI",
+          "Clauses de médiation et rachat forcé essentielles en SCI familiale"
+        ],
+        "warnings": [
+          "Les actes de disposition requièrent souvent l'unanimité en indivision",
+          "Statuts de SCI trop vagues = retour aux règles d'unanimité par défaut",
+          "L'occupation gratuite d'un bien par un associé doit être formalisée"
+        ],
+        "examples": [
+          "Travaux de 50 000€ : en indivision, besoin des 2/3 ; en SCI, majorité selon les statuts",
+          "Vente d'un immeuble : unanimité en indivision, possibilité de majorité qualifiée (3/4) en SCI"
+        ]
+      },
+      {
+        "title": "Fiscalité comparée IR vs IS",
+        "content": "La SCI à l'IR applique le régime des revenus fonciers : loyers moins charges égalent revenu imposable chez les associés (IR + prélèvements sociaux 17,2%). Le déficit foncier peut s'imputer sur revenus fonciers futurs ou sur revenu global (plafond annuel). La SCI à l'IS paie l'impôt sur les sociétés (taux réduit 15% jusqu'à 42 500€, puis 25%) et peut amortir les immeubles hors terrain. La sortie de trésorerie passe par dividendes (PFU 30%), remboursement de compte courant, ou cession de parts.",
+        "concepts": [
+          {
+            "term": "Déficit foncier",
+            "definition": "Excédent des charges déductibles sur les revenus fonciers, imputable sous conditions",
+            "ref": "Art. 156-I CGI"
+          },
+          {
+            "term": "Amortissement fiscal",
+            "definition": "Déduction annuelle correspondant à la dépréciation du bien (SCI IS uniquement)",
+            "ref": "Art. 39 CGI"
+          },
+          {
+            "term": "PFU",
+            "definition": "Prélèvement forfaitaire unique de 30% sur les dividendes (12,8% IR + 17,2% PS)",
+            "ref": "Art. 200 A CGI"
+          }
+        ],
+        "keyPoints": [
+          "SCI IR : transparence fiscale, déficit foncier possible",
+          "SCI IS : amortissement autorisé mais complexification de la sortie",
+          "IS réduit à 15% jusqu'à 42 500€ de bénéfice (conditions)",
+          "Extraction de cash en SCI IS : dividendes taxés au PFU 30%"
+        ],
+        "warnings": [
+          "L'amortissement en SCI IS augmente la plus-value de cession",
+          "Le déficit foncier sur revenu global est plafonné annuellement",
+          "Remboursement de compte courant : vérifier la déductibilité des intérêts"
+        ],
+        "examples": [
+          "Loyers 30k€, charges 10k€, intérêts 8k€ : résultat 12k€ (IR) vs amortissement possible (IS)",
+          "Déficit 15k€ : imputation possible sur revenus fonciers futurs (IR) vs réduction IS immédiate"
+        ]
+      },
+      {
+        "title": "Résidence principale selon le statut du couple",
+        "content": "La résidence principale bénéficie d'exonérations spécifiques (plus-value, IFI partiel) mais les risques varient selon le statut : concubinage (fiscalité défavorable, droits 60%), PACS (amélioration fiscale, droits du survivant limités), mariage (communauté/séparation de biens, droits du conjoint survivant). La détention via SCI modifie ces mécanismes : perte des droits automatiques du conjoint, nécessité d'organiser contractuellement la protection. L'occupation du logement familial via SCI nécessite une formalisation (bail, convention, droit statutaire).",
+        "concepts": [
+          {
+            "term": "Exonération résidence principale",
+            "definition": "Exonération de plus-value sur la vente de la résidence principale effective",
+            "ref": "Art. 150 U CGI"
+          },
+          {
+            "term": "Droits du conjoint survivant",
+            "definition": "Droits automatiques en cas de décès : usufruit ou propriété selon régime matrimonial",
+            "ref": "Art. 757 à 767 Code civil"
+          },
+          {
+            "term": "Tontine",
+            "definition": "Clause d'accroissement : le survivant est réputé seul propriétaire depuis l'origine",
+            "ref": "Jurisprudence constante"
+          }
+        ],
+        "keyPoints": [
+          "Fiscalité dégressive : concubinage < PACS < mariage pour la transmission",
+          "Résidence principale : exonération plus-value si occupation effective",
+          "SCI : perte des droits automatiques du conjoint survivant",
+          "Tontine : solution puissante pour concubins mais rigide"
+        ],
+        "warnings": [
+          "Détention SCI : perte de l'exonération IFI résidence principale (sauf usufruit)",
+          "Occupation gratuite en SCI : risquer d'être hors intérêt social",
+          "Tontine : risque de requalification si montage déséquilibré"
+        ],
+        "examples": [
+          "Concubins : tontine ou SCI avec legs/donation pour protéger le survivant",
+          "Époux : SCI évite l'indivision successorale mais supprime les droits automatiques"
+        ]
+      },
+      {
+        "title": "Transmission et optimisation patrimoniale",
+        "content": "La transmission immobilière bénéficie d'abattements (100 000€ parent/enfant), de décotes (démembrement, indivision), et de dispositifs spécifiques (CGI 751 pour immeubles loués). En SCI, la transmission porte sur les parts, permettant donations échelonnées et optimisation des abattements. Le démembrement sépare usufruit (revenus) et nue-propriété (capital), avec décotes importantes. Les SCI IS offrent des possibilités d'amortissement mais complexifient la transmission (réserves, plus-values latentes).",
+        "concepts": [
+          {
+            "term": "Abattement transmission",
+            "definition": "Abattement de 100 000€ renouvelable tous les 15 ans entre parent et enfant",
+            "ref": "Art. 779 CGI"
+          },
+          {
+            "term": "Décote démembrement",
+            "definition": "Minoration de la valeur selon l'âge de l'usufruitier (barème fiscal)",
+            "ref": "Art. 669 CGI"
+          },
+          {
+            "term": "CGI 751",
+            "definition": "Abattement de 30% sur immeubles loués détenus depuis plus de 15 ans",
+            "ref": "Art. 751-1 CGI"
+          }
+        ],
+        "keyPoints": [
+          "Donations échelonnées : optimisation des abattements via SCI",
+          "Démembrement : décotes importantes selon l'âge",
+          "CGI 751 : 30% d'abattement sur immeubles loués anciens",
+          "SCI : souplesse pour transmission progressive du patrimoine"
+        ],
+        "warnings": [
+          "Démembrement : vérifier la cohérence âge/objectif patrimonial",
+          "SCI IS : attention aux réserves et plus-values latentes",
+          "Pacte Dutreil immobilier : conditions strictes et engagement long"
+        ],
+        "examples": [
+          "Démembrement à 70 ans : décote usufruit 50%, nue-propriété 50%",
+          "Donation parts SCI échelonnée : 4 enfants × 100k€ abattement tous les 15 ans"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
