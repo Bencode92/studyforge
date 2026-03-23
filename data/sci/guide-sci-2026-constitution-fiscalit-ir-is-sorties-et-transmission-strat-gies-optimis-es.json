@@ -1,0 +1,263 @@
+{
+  "metadata": {
+    "title": "Guide SCI 2026 : Constitution, fiscalité IR/IS, sorties et transmission - Stratégies optimisées",
+    "category": "sci",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document structuré mais incomplet (s'arrête au mécanisme Quémener)",
+      "Références aux anciens RCS à actualiser (guichet unique 2023)",
+      "Taux d'abattement et exonérations à vérifier selon dernière jurisprudence"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide SCI 2026 : Constitution, fiscalité IR/IS, sorties et transmission - Stratégies optimisées",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Introduction et glossaire fondamental",
+        "content": "La SCI (Société Civile Immobilière) permet de détenir et gérer un patrimoine immobilier avec plusieurs associés. Le choix entre IR (transparent) et IS (opaque) détermine entièrement la fiscalité pendant la détention et surtout à la sortie. Vocabulaire essentiel : réserves (bénéfices non distribués), VNC (valeur nette comptable), PFU (30% global), DMTO (frais de notaire), publicité foncière vs enregistrement parts.",
+        "concepts": [
+          {
+            "term": "SCI à l'IR",
+            "definition": "Régime transparent où le résultat est imposé directement chez l'associé, même sans distribution effective",
+            "ref": "Code général des impôts"
+          },
+          {
+            "term": "SCI à l'IS",
+            "definition": "Régime opaque où la société paie l'IS, l'associé étant imposé uniquement sur les distributions et cessions",
+            "ref": "Code général des impôts"
+          },
+          {
+            "term": "Mécanisme Quémener",
+            "definition": "Correction du prix de revient des parts pour éviter la double imposition des réserves déjà taxées en SCI IR",
+            "ref": "Jurisprudence administrative"
+          }
+        ],
+        "keyPoints": [
+          "IR = transparence fiscale, IS = double couche d'imposition",
+          "Distinction cruciale : vendre l'immeuble vs vendre des parts",
+          "Triple opposabilité : société, tiers, administration fiscale"
+        ],
+        "warnings": [
+          "L'IS peut coûter très cher à la sortie (effet amortissements)",
+          "Document d'aide à la décision uniquement - validation notaire obligatoire"
+        ],
+        "examples": [
+          "SCI IR : bénéfice 10k€ → imposé chez l'associé → reste en réserve → correction prix de revient à la cession"
+        ]
+      },
+      {
+        "title": "Comparatif fiscal IR vs IS : impacts pendant et après",
+        "content": "Le régime fiscal choisi impacte chaque étape : résultat annuel (imposé chez l'associé en IR vs IS société), réserves (déjà taxées en IR vs latentes en IS), distributions (neutres en IR vs dividendes taxés en IS), sorties (PV immobilière + prix corrigé en IR vs PV mobilière + décote en IS). Point clé : l'IS permet d'étaler l'imposition mais crée un impôt latent problématique à la sortie.",
+        "concepts": [
+          {
+            "term": "Réserves latentes",
+            "definition": "Bénéfices non distribués d'une société IS, non encore imposés chez l'associé",
+            "ref": "Code général des impôts"
+          },
+          {
+            "term": "Prix de revient corrigé",
+            "definition": "Prix d'acquisition initial + bénéfices déjà imposés non distribués (SCI IR)",
+            "ref": "Mécanisme Quémener"
+          },
+          {
+            "term": "Décote impôt latent",
+            "definition": "Réduction de prix négociée par l'acquéreur de parts IS pour tenir compte de l'impôt futur",
+            "ref": "Pratique notariale"
+          }
+        ],
+        "keyPoints": [
+          "SCI IR : bénéfices taxés sans cash, mais sorties facilitées",
+          "SCI IS : report d'imposition mais double couche à la sortie",
+          "VNC dégradée par amortissements = PV majorée en IS"
+        ],
+        "warnings": [
+          "Ne pas choisir l'IS uniquement pour reporter l'impôt",
+          "Prévoir la stratégie de sortie dès la constitution"
+        ],
+        "examples": [
+          "Vente immeuble après 10 ans d'amortissements IS : PV calculée sur VNC très dégradée"
+        ]
+      },
+      {
+        "title": "Constitution : étapes, statuts et clauses patrimoniales",
+        "content": "Méthode en 5 étapes : cadrage stratégique (IR/IS, nu/meublé, horizon), statuts avec clauses patrimoniales, structuration financière (capital/CCA/dette), formalités légales (immatriculation, RBE), exploitation (comptabilité, AG). Clauses recommandées : agrément étendu (nue-propriété incluse), préemption associés, limitations gérant, règles de démembrement précises.",
+        "concepts": [
+          {
+            "term": "Compte courant d'associé (CCA)",
+            "definition": "Avance remboursable consentie par l'associé à la société, généralement rémunérée",
+            "ref": "Code de commerce"
+          },
+          {
+            "term": "Agrément",
+            "definition": "Autorisation préalable requise pour céder des parts à un tiers non associé",
+            "ref": "Code civil art. 1861"
+          },
+          {
+            "term": "Bénéficiaires effectifs",
+            "definition": "Personnes physiques détenant plus de 25% ou exerçant un contrôle sur la société",
+            "ref": "Registre des bénéficiaires effectifs"
+          }
+        ],
+        "keyPoints": [
+          "Objet social précis pour sécuriser les financements",
+          "Agrément sur nue-propriété = contrôle renforcé",
+          "CCA encadré par les règles de domiciliation"
+        ],
+        "warnings": [
+          "Inaliénabilité temporaire bloque toute transmission",
+          "Pouvoirs gérant à limiter explicitement dans les statuts"
+        ],
+        "examples": [
+          "Clause type : 'La cession de nue-propriété de parts est soumise à agrément des associés à la majorité des 3/4'"
+        ]
+      },
+      {
+        "title": "Cession de parts : validité, agrément et opposabilité",
+        "content": "Triple exigence pour une cession valide : conditions légales (société immatriculée, parts cessibles, prix déterminé), agrément selon statuts (unanimité par défaut, majorité souvent préférée), opposabilité via triple formalisme (signification/acceptation pour la société, guichet unique pour les tiers, enregistrement fiscal obligatoire). Cas particuliers : couples (consentement conjoint), indivision (accord de tous), logement familial.",
+        "concepts": [
+          {
+            "term": "Opposabilité",
+            "definition": "Capacité juridique à faire valoir la cession contre la société et les tiers",
+            "ref": "Code civil art. 1865"
+          },
+          {
+            "term": "Signification",
+            "definition": "Notification officielle de la cession à la société par acte d'huissier ou LRAR",
+            "ref": "Code civil"
+          },
+          {
+            "term": "Inaliénabilité",
+            "definition": "Clause statutaire interdisant temporairement la cession de certaines parts",
+            "ref": "Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Prix déterminable acceptable (indexation ICC pour immobilier)",
+          "Nue-propriété = qualité d'associé = agrément requis",
+          "Refus d'agrément → rachat obligatoire ou dissolution possible"
+        ],
+        "warnings": [
+          "Cession parts communauté sans accord conjoint = nullité",
+          "Oubli enregistrement = sanctions et difficultés de preuve"
+        ],
+        "examples": [
+          "Cession 1000 parts à 100€ = 100k€, droits 3% = 3k€ à payer dans le mois"
+        ]
+      },
+      {
+        "title": "Droits et formalités : enregistrement vs publicité foncière",
+        "content": "Distinction fondamentale entre trois univers : immobilier direct (DMTO + publicité foncière payés par l'acheteur), parts sociales (droits d'enregistrement 3-5% + formalités RCS), publicité sociétaire (guichet unique pour changements associés). Point clé : vendre des parts SCI ≠ vendre l'immeuble sous-jacent, donc pas de publicité foncière ni de DMTO.",
+        "concepts": [
+          {
+            "term": "DMTO",
+            "definition": "Droits de mutation à titre onéreux, intégrés aux 'frais de notaire' lors d'achat immobilier",
+            "ref": "Code général des impôts"
+          },
+          {
+            "term": "Publicité foncière",
+            "definition": "Formalité au service de publicité foncière pour les transferts immobiliers",
+            "ref": "Code civil"
+          },
+          {
+            "term": "Guichet unique",
+            "definition": "Portail unifié remplaçant les formalités RCS depuis 2023",
+            "ref": "Réforme 2023"
+          }
+        ],
+        "keyPoints": [
+          "Parts = biens meubles → droits d'enregistrement uniquement",
+          "Immeubles = biens immeubles → DMTO + publicité foncière",
+          "Guichet unique obligatoire pour modifications sociétaires"
+        ],
+        "warnings": [
+          "Ne pas confondre vente immeuble et cession parts",
+          "Droits d'enregistrement dus même en cas d'exonération PV"
+        ],
+        "examples": [
+          "SCI détient immeuble 500k€, cession 50% parts = droits sur 250k€, pas de DMTO"
+        ]
+      },
+      {
+        "title": "Plus-values : régimes immobiliers, mobiliers et professionnels",
+        "content": "Trois régimes selon la nature : PV immobilière (vente directe, indivision, SCI IR) avec abattement durée (exonération IR 22 ans, PS 30 ans), PV mobilière (parts SCI IS, titres) au PFU 30% ou barème sur option, PV professionnelle (LMP, structures commerciales) avec exonérations de seuil. Taux usuels : 19% IR + 17,2% PS pour l'immobilier, 12,8% + 17,2% PFU pour le mobilier.",
+        "concepts": [
+          {
+            "term": "Abattement pour durée",
+            "definition": "Réduction progressive de l'imposition selon la durée de détention immobilière",
+            "ref": "CGI art. 150 VC"
+          },
+          {
+            "term": "PFU",
+            "definition": "Prélèvement forfaitaire unique à 30% (12,8% IR + 17,2% PS) sur les revenus mobiliers",
+            "ref": "CGI art. 200 A"
+          },
+          {
+            "term": "Option barème",
+            "definition": "Choix d'imposer les revenus mobiliers au barème progressif avec abattement de 40%",
+            "ref": "CGI art. 200 A"
+          }
+        ],
+        "keyPoints": [
+          "Immobilier : exonération complète après 30 ans de détention",
+          "Mobilier : PFU par défaut, option barème possible si avantageux",
+          "Professionnel : régimes dérogatoires avec seuils d'exonération"
+        ],
+        "warnings": [
+          "Option barème = choix global pour tous les revenus mobiliers",
+          "PV SCI IR sur parts = régime immobilier (prépondérance immo)"
+        ],
+        "examples": [
+          "Détention 15 ans : abattement IR = 6% × 9 ans = 54%, PS = 1,65% × 9 = 14,85%"
+        ]
+      },
+      {
+        "title": "Mécanisme Quémener : correction du prix de revient en SCI IR",
+        "content": "Problématique : en SCI IR transparente, les bénéfices non distribués augmentent la valeur des parts alors qu'ils ont déjà été imposés chez l'associé. Solution : reconstituer un prix de revient fiscal corrigé = prix acquisition initial + bénéfices imposés non distribués + autres éléments (frais, travaux, CCA intégrés). Cette correction évite la double imposition lors de la cession des parts.",
+        "concepts": [
+          {
+            "term": "Prix de revient corrigé",
+            "definition": "Prix d'acquisition majoré des éléments déjà imposés pour éviter la double taxation",
+            "ref": "Mécanisme Quémener"
+          },
+          {
+            "term": "Bénéfices mis en réserve",
+            "definition": "Résultats positifs conservés dans la société et déjà imposés chez l'associé en IR",
+            "ref": "Transparence fiscale"
+          },
+          {
+            "term": "Double imposition",
+            "definition": "Taxation du même élément de revenus à deux moments différents",
+            "ref": "Principe fiscal"
+          }
+        ],
+        "keyPoints": [
+          "Traçabilité comptable indispensable pour reconstituer le prix corrigé",
+          "Tous les éléments déjà imposés majorent le prix de revient",
+          "Mécanisme applicable uniquement aux sociétés transparentes (IR)"
+        ],
+        "warnings": [
+          "Tenue rigoureuse des comptes associés obligatoire",
+          "Documentation probante requise en cas de contrôle fiscal"
+        ],
+        "examples": [
+          "Achat parts 100k€ + 5 ans bénéfices 50k€ → prix revient corrigé 150k€ pour calcul PV"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
