@@ -1,0 +1,225 @@
+{
+  "metadata": {
+    "title": "Guide complet des sociétés civiles 2026 : constitution, gestion, fiscalité et transmission",
+    "category": "sci",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": false,
+    "verificationNotes": [
+      "Document incomplet - s'arrête au point 6.3",
+      "Certaines références datées 2026 nécessitent vérification"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide complet des sociétés civiles 2026 : constitution, gestion, fiscalité et transmission",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Panorama et cadre d'usage des sociétés civiles",
+        "content": "Une société civile (SCI pour l'immobilier, SC de portefeuille pour des titres) est un véhicule juridique conçu pour détenir et gérer un patrimoine sur un horizon long, avec une logique de gestion familiale et de transmission.\n\n**Les 4 cas d'usage optimaux :**\n- Détenir un ou plusieurs immeubles à plusieurs (couple, fratrie, parents/enfants) en évitant l'indivision « subie »\n- Organiser la gouvernance : gérant, règles de majorité, clauses d'agrément, droit de retrait/exclusion\n- Structurer une transmission progressive : donation de parts, démembrement des parts, intégration d'héritiers\n- Financer et arbitrer sur le long terme avec une lecture patrimoniale (et non « exploitation commerciale »)\n\n**Les 4 signaux d'inadéquation :**\n- Achat-revente rapide (logique marchand de biens) ou intermédiation\n- Activité d'exploitation (para-hôtellerie, services, accueil, conciergerie)\n- Attraction d'investisseurs nombreux, avec une logique proche d'une société commerciale\n- Besoin d'une comptabilité et fiscalité « business » (amortissements, résultat IS, management fees)",
+        "concepts": [
+          {
+            "term": "Société civile",
+            "definition": "Véhicule juridique de détention et gestion patrimoniale à caractère civil, distinct des sociétés commerciales",
+            "ref": "Art. 1845 Code civil"
+          },
+          {
+            "term": "Affectio societatis",
+            "definition": "Volonté réelle de s'associer et de collaborer dans l'intérêt commun de la société",
+            "ref": "Jurisprudence constante"
+          }
+        ],
+        "keyPoints": [
+          "Le critère central est civil vs commercial, pas immobilier vs non-immobilier",
+          "La SCI convient pour la gestion patrimoniale, pas pour l'exploitation commerciale",
+          "Structure adaptée aux transmissions familiales progressives"
+        ],
+        "warnings": [
+          "Une SCI utilisée pour une activité commerciale risque la requalification",
+          "La multiplication des associés peut tuer l'affectio societatis"
+        ],
+        "examples": [
+          "SCI familiale pour immeuble de rapport loué nu",
+          "SC de portefeuille pour détention de titres en famille"
+        ]
+      },
+      {
+        "title": "Composition et associés de la société civile",
+        "content": "Une société civile ne peut être constituée qu'avec au moins deux associés. Il n'existe pas de maximum légal, mais trop d'associés peut rendre la société ingérable.\n\n**Cas concret typique :**\nConstitution d'une SCI avec 2 associés : l'associé principal (99%) et un proche (1%) pour respecter la règle des 2. Ce proche peut être : conjoint, concubin, parent, ami, ou même une personne morale.\n\n**Situation d'associé unique :**\nUne fois la société constituée, la réunion de toutes les parts en une seule main n'entraîne pas automatiquement dissolution. En pratique, il faut néanmoins régulariser (réintégrer un second associé) pour éviter une demande de dissolution par un tiers intéressé.\n\n**Sécurisation recommandée :**\nPrévoir dès les statuts un mécanisme de « ré-ouverture » (cession/donation d'une part, clause d'agrément rapide) pour éviter de rester longtemps en mono-associé.",
+        "concepts": [
+          {
+            "term": "Associé unique",
+            "definition": "Situation où toutes les parts sont détenues par une seule personne, situation temporaire à régulariser",
+            "ref": "Art. 1844-5 Code civil"
+          },
+          {
+            "term": "Dissolution de plein droit",
+            "definition": "Dissolution automatique dans certains cas prévus par la loi ou les statuts",
+            "ref": "Art. 1844-7 Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Minimum légal de 2 associés pour la constitution",
+          "La réunion des parts en une main ne dissout pas automatiquement",
+          "Nécessité de régulariser rapidement la situation d'associé unique"
+        ],
+        "warnings": [
+          "Risque de demande de dissolution par un tiers si mono-associé prolongé",
+          "Prévoir les mécanismes de ré-ouverture dès la constitution"
+        ],
+        "examples": [
+          "SCI constituée entre époux (50/50)",
+          "SCI avec associé minoritaire symbolique (1%)"
+        ]
+      },
+      {
+        "title": "Statuts : forme et formalisme",
+        "content": "Le contrat de société doit être écrit. Sans écrit, on bascule vers une « société créée de fait », souvent source de contentieux et de non-sécurisation (pas de personnalité morale).\n\n**Choix entre acte sous seing privé et acte notarié :**\n\n| Situation | Sous seing privé | Notarié |\n|-----------|------------------|----------|\n| Apports uniquement mobiliers | Possible | Possible (mais plus coûteux) |\n| Apport d'immeuble/droit réel/bail > 12 ans | Non | Obligatoire |\n| SCI familiale avec futurs héritiers | Possible mais risqué | Fortement conseillé |\n\n**Signature et mandat :**\n- Tous les associés signent les statuts\n- Un associé peut signer via mandataire, mais mandat spécial (constitution) et contenant les éléments essentiels\n- Après constitution, chaque associé doit pouvoir obtenir une copie certifiée conforme des statuts",
+        "concepts": [
+          {
+            "term": "Société créée de fait",
+            "definition": "Société sans statuts écrits, reconnue par le comportement des parties mais sans personnalité morale",
+            "ref": "Art. 1873 Code civil"
+          },
+          {
+            "term": "Acte authentique",
+            "definition": "Acte reçu par un officier public compétent, ayant force probante renforcée",
+            "ref": "Art. 1369 Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Écrit obligatoire pour sécuriser la personnalité morale",
+          "Acte notarié obligatoire en cas d'apport immobilier",
+          "Tous les associés doivent signer ou donner mandat spécial"
+        ],
+        "warnings": [
+          "Société créée de fait = pas de personnalité morale",
+          "Risque de donation indirecte en structure familiale sans notaire",
+          "Mandat général insuffisant pour constituer une société"
+        ],
+        "examples": [
+          "Statuts sous seing privé pour SCI de portefeuille titres",
+          "Acte notarié pour SCI avec apport d'immeuble"
+        ]
+      },
+      {
+        "title": "Objet social : caractère civil versus commercial",
+        "content": "L'objet social décrit l'activité que la société se propose d'exercer. Il détermine : (1) la validité des actes du gérant, (2) le besoin de modifier les statuts, (3) les risques de requalification fiscale.\n\n**Règle structurante :** Une société civile doit avoir un objet civil. Si l'objet devient commercial, on sort de la logique SCI.\n\n**Classification des opérations immobilières :**\n\n| Opération | Qualification | SCI adaptée ? |\n|-----------|---------------|---------------|\n| Location nue (habitation, bureaux) | Civile | Oui |\n| Location meublée (résidentiel) | Commerciale fiscalement | Oui juridiquement, mais piégeux |\n| Location saisonnière + services | Commerciale | Non (risque fort) |\n| Achat-revente en l'état | Commerciale | Non |\n| Arbitrage ponctuel | Civil | Oui |\n| Intermédiation immobilière | Commerciale | Non |\n\n**Exemples concrets :**\n- **Civil :** SCI achète un immeuble (1M€), le loue nu, encaisse des loyers, revend après 15 ans\n- **Commercial déguisé :** SCI achète 4 appartements, rénove, revend en 6 mois avec marge, recommence\n\n**Rédaction optimale :**\nNi trop vague (« toute opération civile ») ni trop enfermant. Décrire détention/gestion/location + opérations connexes (acquisition, construction, rénovation, emprunt, vente ponctuelle) dans une logique patrimoniale.",
+        "concepts": [
+          {
+            "term": "Objet civil",
+            "definition": "Activité de nature civile, généralement de gestion patrimoniale, distincte du commerce",
+            "ref": "Art. 1845 Code civil"
+          },
+          {
+            "term": "Requalification",
+            "definition": "Changement de qualification juridique ou fiscale d'une opération selon sa réalité économique",
+            "ref": "Jurisprudence fiscale"
+          },
+          {
+            "term": "Marchand de biens",
+            "definition": "Activité commerciale d'achat-revente habituelle d'immeubles",
+            "ref": "Art. L. 211-1 CCH"
+          }
+        ],
+        "keyPoints": [
+          "Le critère est civil vs commercial, pas immobilier vs mobilier",
+          "L'activité réelle prime sur la qualification statutaire",
+          "Un objet trop large ou trop étroit pose des problèmes"
+        ],
+        "warnings": [
+          "Risque de requalification si activité commerciale réelle",
+          "La location meublée est fiscalement commerciale",
+          "L'achat-revente habituel exclut la forme civile"
+        ],
+        "examples": [
+          "Objet civil : acquisition, détention, gestion et location d'immeubles",
+          "Objet commercial déguisé : renovation-vente répétée"
+        ]
+      },
+      {
+        "title": "Location meublée : piège fiscal de la société civile",
+        "content": "**Idée fausse répandue :** « Si je touche un loyer, c'est civil ». En réalité, fiscalement, la location meublée est traitée comme une activité commerciale (BIC), ce qui peut faire basculer une SCI vers l'IS.\n\n**La tolérance fiscale de 10% :**\nL'administration admet qu'une société civile reste à l'IR si ses recettes commerciales accessoires restent < 10% des recettes totales HT.\n\n**Exemple de calcul :**\n- Recettes annuelles HT = 90k€ loyers nus + 8k€ meublé = 8,16% → tolérance possible\n- Si meublé = 12k€, total = 102k€ → 11,76% → risque d'assujettissement IS\n\n**Conséquences pratiques :**\n- Pour du meublé structuré (plusieurs lots, rotation forte) : SARL/SAS plus cohérente\n- Pour « 1 lot meublé » dans une SCI majoritairement en nu : surveiller le ratio 10% et documenter\n\n**Point technique :** Le basculement vers l'IS n'est pas automatique mais constitue un risque de requalification par l'administration fiscale.",
+        "concepts": [
+          {
+            "term": "BIC",
+            "definition": "Bénéfices Industriels et Commerciaux - régime fiscal des activités commerciales",
+            "ref": "Art. 34 CGI"
+          },
+          {
+            "term": "Activité accessoire",
+            "definition": "Activité secondaire qui ne remet pas en cause la qualification principale de la société",
+            "ref": "BOFiP-BIC"
+          },
+          {
+            "term": "Assujettissement IS",
+            "definition": "Soumission obligatoire à l'impôt sur les sociétés pour les activités commerciales",
+            "ref": "Art. 206 CGI"
+          }
+        ],
+        "keyPoints": [
+          "Location meublée = BIC même en société civile",
+          "Tolérance de 10% pour rester à l'IR",
+          "Au-delà : risque de bascule vers l'IS"
+        ],
+        "warnings": [
+          "La qualification juridique (civile) ne vaut pas qualification fiscale",
+          "Surveiller en permanence le ratio 10%",
+          "Documenter la nature accessoire de l'activité meublée"
+        ],
+        "examples": [
+          "SCI avec 90k€ nu + 8k€ meublé : OK",
+          "SCI avec 50k€ nu + 20k€ meublé : risque IS"
+        ]
+      },
+      {
+        "title": "Capital social et modalités de libération",
+        "content": "Le capital social est la somme des apports qui forment le capital (numéraire + nature). La souscription = promesse d'apporter. La libération = versement effectif/transfert effectif.\n\n**Trois stratégies de libération :**\n\n**Scénario A - Libération intégrale immédiate :**\n- Capital souscrit 100k€ → 100k€ versés à J0\n- Avantages : simplicité, apprécié par les banques, utile si SCI à l'IS\n- Inconvénient : immobilise du cash\n\n**Scénario B - Libération partielle puis appels de fonds :**\n- Capital souscrit 100k€ → 5k€ versés à J0 puis appels selon besoins\n- Avantage : flexibilité financière\n- Inconvénient : discipline de gestion requise (PV d'appel, suivi)\n\n**Scénario C - Libération par compensation :**\n- L'associé a une créance liquide et exigible sur la SCI (avances en compte courant)\n- Il compense et libère du capital sans sortie de cash\n- **Point technique :** possible uniquement après immatriculation (personnalité morale)\n\n**Sanctions en cas de non-libération :**\n- Intérêts de retard de plein droit\n- Dommages-intérêts si préjudice\n- Exclusion possible si prévue statutairement\n\n**Point fiscal important :** Pour les parts souscrites à la constitution, la date d'acquisition (pour les durées de détention) est la date de souscription, même si la libération intervient plus tard.\n\n**Vigilance SCI à l'IS :** Le taux réduit PME et la déduction des intérêts de comptes courants exigent souvent un capital intégralement libéré.",
+        "concepts": [
+          {
+            "term": "Libération du capital",
+            "definition": "Versement effectif des apports promis lors de la souscription",
+            "ref": "Art. 1843-3 Code civil"
+          },
+          {
+            "term": "Appel de fonds",
+            "definition": "Demande de versement du solde des apports non encore libérés",
+            "ref": "Statuts de la société"
+          },
+          {
+            "term": "Compensation",
+            "definition": "Extinction réciproque de deux dettes liquides et exigibles",
+            "ref": "Art. 1347 Code civil"
+          }
+        ],
+        "keyPoints": [
+          "Trois modalités : intégrale, progressive, par compensation",
+          "Date d'acquisition = date de souscription (pas de libération)",
+          "Compensation possible uniquement après immatriculation",
+          "Capital libéré souvent requis pour avantages fiscaux en IS"
+        ],
+        "warnings": [
+          "Sanctions automatiques en cas de retard de libération",
+          "La compensation avant immatriculation est impossible",
+          "SCI à l'IS : vérifier les conditions de libération pour les avantages fiscaux"
+        ],
+        "examples": [
+          "Libération progressive : 10k€ à la constitution, 40k€ à l'achat, 50k€ aux travaux",
+          "Compensation : 30k€ d'avances transformées en capital"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
