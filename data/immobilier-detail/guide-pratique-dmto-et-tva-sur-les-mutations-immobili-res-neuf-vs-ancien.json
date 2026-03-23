@@ -1,0 +1,158 @@
+{
+  "metadata": {
+    "title": "Guide pratique : DMTO et TVA sur les mutations immobilières - Neuf vs Ancien",
+    "category": "immobilier-detail",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document source daté du 19/02/2026 - date apparemment futuriste à corriger",
+      "Formule DMTO réduit à vérifier : 0,70% × (1 + 2,14%) semble erronée",
+      "Liste départements 5% incomplète en annexe A"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Guide pratique : DMTO et TVA sur les mutations immobilières - Neuf vs Ancien",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définitions fiscales essentielles",
+        "content": "La fiscalité immobilière française distingue plusieurs concepts clés qui déterminent l'application de la TVA et des droits de mutation (DMTO).\n\n**Immeuble neuf vs ancien :**\n- Neuf : achevé depuis 5 ans au plus → généralement TVA + DMTO réduit\n- Ancien : achevé depuis plus de 5 ans → généralement pas de TVA + DMTO plein\n\n**Terrain à bâtir (TAB) :** terrain constructible au moment de la livraison, condition déterminante pour l'application de la TVA (prix total vs marge) et le régime DMTO.\n\n**Assujetti TVA :** personne exerçant de façon indépendante une activité économique ET agissant en tant que telle dans l'opération (double condition).\n\n**TVA prix total vs marge :**\n- Prix total : TVA sur le prix HT de vente\n- Marge : TVA sur (prix de vente - prix d'achat) selon l'article 268 CGI",
+        "concepts": [
+          {
+            "term": "Immeuble neuf",
+            "definition": "Immeuble achevé depuis 5 ans au plus, généralement soumis à TVA si vendu par un assujetti",
+            "ref": "BOI-TVA-IMM-10-10-10-10"
+          },
+          {
+            "term": "DMTO",
+            "definition": "Droits de mutation à titre onéreux comprenant droit départemental + taxe communale + prélèvement État",
+            "ref": "BOI-ENR-DMTOI-10-40"
+          },
+          {
+            "term": "CSI",
+            "definition": "Contribution de sécurité immobilière de 0,10% (minimum 15€) s'ajoutant aux DMTO",
+            "ref": "Articles 1594-0 G et 1840 G bis CGI"
+          },
+          {
+            "term": "TVA sur marge",
+            "definition": "Régime TVA où la taxe s'applique sur la différence entre prix de vente et d'achat (art. 268 CGI)",
+            "ref": "BOI-TVA-IMM-10-10-10-20"
+          }
+        ],
+        "keyPoints": [
+          "La qualification neuf/ancien (seuil 5 ans) est déterminante pour le régime fiscal",
+          "L'assujetti doit agir 'en tant que tel' pour déclencher la TVA",
+          "Le terrain à bâtir suit des règles spécifiques (TVA prix total ou marge)",
+          "DMTO réduit (≈0,71%) avec TVA vs DMTO plein (≈5,81% à 6,32%) sans TVA"
+        ],
+        "warnings": [
+          "Risque de requalification si l'assujetti n'agit pas 'en tant que tel'",
+          "Date d'achèvement à vérifier précisément (délai de 5 ans)",
+          "Vérifier le taux départemental applicable (4,5% ou 5%)"
+        ],
+        "examples": [
+          "Promoteur vendant logement neuf : TVA 20% + DMTO réduit 0,71%",
+          "Particulier vendant résidence ancienne : pas de TVA + DMTO plein 5,81%",
+          "TAB avec TVA marge : double taxation (TVA marge + DMTO plein)"
+        ]
+      },
+      {
+        "title": "Taux et calculs DMTO",
+        "content": "Les droits de mutation varient selon le régime applicable et le département.\n\n**DMTO plein (immeubles anciens) :**\n- Taux départemental : 4,50% ou 5,00%\n- Taxe communale : 1,20%\n- Prélèvement État : 2,37% du taux départemental\n- Résultat : 5,80665% (dept 4,5%) ou 6,3185% (dept 5%)\n\n**DMTO réduit (immeubles neufs avec TVA) :**\n- Taxe de publicité foncière : 0,70%\n- Prélèvement État : 2,14%\n- Résultat : 0,71498% (pas de taxe communale)\n\n**CSI (contribution sécurité immobilière) :**\n- 0,10% du prix avec minimum 15€\n- S'ajoute toujours aux DMTO\n\n**Formules de calcul :**\n- DMTO plein = Base × [Taux dept + 1,20% + 2,37% × Taux dept]\n- DMTO réduit = Base × [0,70% + 2,14%]\n- CSI = max(Base × 0,10%, 15€)",
+        "concepts": [
+          {
+            "term": "DMTO plein",
+            "definition": "Régime normal avec taux global de 5,81% à 6,32% selon le département",
+            "ref": "Art. 663 et s. CGI"
+          },
+          {
+            "term": "DMTO réduit",
+            "definition": "Régime applicable aux immeubles neufs avec TVA, taux global 0,71%",
+            "ref": "Art. 719 CGI"
+          },
+          {
+            "term": "Taxe départementale",
+            "definition": "Composante principale des DMTO fixée par chaque département (4,5% ou 5%)",
+            "ref": "Art. 1594 D CGI"
+          },
+          {
+            "term": "Prélèvement État",
+            "definition": "Pourcentage du taux départemental prélevé par l'État (2,37% ou 2,14%)",
+            "ref": "Art. 663 CGI"
+          }
+        ],
+        "keyPoints": [
+          "83 départements appliquent le taux de 5% au lieu de 4,5%",
+          "Le DMTO réduit divise la fiscalité par 8 environ",
+          "La CSI s'applique dans tous les cas avec un minimum de 15€",
+          "Île-de-France : surtaxe de 0,60% sur bureaux/commercial/stockage"
+        ],
+        "warnings": [
+          "Vérifier le taux départemental exact avant tout calcul",
+          "La formule DMTO réduit du document source semble erronée",
+          "En IDF, ne pas oublier la taxe additionnelle de 0,60%"
+        ],
+        "examples": [
+          "Vente 300 000€ ancien (dept 4,5%) : 17 420€ DMTO + 300€ CSI = 17 720€",
+          "Vente 300 000€ HT neuf : 2 145€ DMTO + 360€ CSI = 2 505€",
+          "Bureaux IDF 2M€ : 126 370€ DMTO + 12 000€ taxe IDF + 2 000€ CSI = 140 370€"
+        ]
+      },
+      {
+        "title": "Comparaisons logement vs entreprise",
+        "content": "Les règles fiscales varient selon la nature du bien et le statut des parties.\n\n**LOGEMENT :**\n\n*Neuf (≤5 ans) vendu par assujetti :*\n- TVA 20% sur prix HT + DMTO réduit 0,71%\n- Coût total élevé si acheteur non déducteur TVA\n\n*Quasi-neuf (≤5 ans) revendu par particulier :*\n- Pas de TVA (principe) + DMTO plein\n- Évolution législative depuis 2013\n\n*Ancien (>5 ans) :*\n- Pas de TVA + DMTO plein 5,81% à 6,32%\n- Cas le plus fréquent\n\n**IMMOBILIER D'ENTREPRISE :**\n\n*Immeuble neuf ou TAB - TVA prix total :*\n- TVA potentiellement déductible si usage taxable\n- DMTO réduit : fiscalité optimisée\n\n*TAB - TVA sur marge :*\n- Double pénalité : TVA marge + DMTO plein\n- Régime le moins favorable\n\n*Immeuble ancien avec option TVA :*\n- TVA optionnelle mais DMTO reste plein\n- Intérêt limité sauf déduction TVA",
+        "concepts": [
+          {
+            "term": "Quasi-neuf",
+            "definition": "Immeuble de moins de 5 ans revendu par un particulier, normalement hors TVA",
+            "ref": "Loi 2012-1510 art. 64"
+          },
+          {
+            "term": "Option TVA",
+            "definition": "Possibilité pour certaines ventes d'ancien de devenir taxables à la TVA",
+            "ref": "Art. 260 CGI"
+          },
+          {
+            "term": "Usage taxable",
+            "definition": "Utilisation permettant la déduction de TVA (activité économique assujettie)",
+            "ref": "BOI-TVA-DED"
+          },
+          {
+            "term": "Taxe IDF",
+            "definition": "Surtaxe de 0,60% en Île-de-France sur bureaux, commerces et stockage",
+            "ref": "Art. 1594-0 G bis CGI"
+          }
+        ],
+        "keyPoints": [
+          "L'entreprise peut optimiser via la déduction de TVA",
+          "Le statut du vendeur (particulier/assujetti) est déterminant",
+          "L'option TVA sur ancien n'entraîne pas automatiquement DMTO réduit",
+          "La taxe IDF s'ajoute en région parisienne pour certains locaux"
+        ],
+        "warnings": [
+          "Vérifier l'éligibilité à la déduction TVA côté acquéreur",
+          "Option TVA : conditions strictes et engagement pluriannuel",
+          "Risque de requalification fiscale selon l'usage réel"
+        ],
+        "examples": [
+          "Entreprise achetant bureaux neufs : coût net = HT + DMTO réduit (si TVA déductible)",
+          "TAB marge : TVA 10 000€ + DMTO plein 17 420€ = friction maximale",
+          "Logement neuf 360k€ TTC : 60k€ TVA + 2 505€ DMTO/CSI = 62 505€ taxes"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
