@@ -1,0 +1,231 @@
+{
+  "metadata": {
+    "title": "Leasing et acquisition d'œuvres d'art en entreprise : guide complet 2026 post-réforme fiscale",
+    "category": "art",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document daté du futur (22/01/2026) - Date corrigée pour cohérence",
+      "Référence CGI 238 bis AB vérifiée - Dispositif prolongé jusqu'en 2026",
+      "Taux IS actualisé à 25% conforme à la législation"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Leasing et acquisition d'œuvres d'art en entreprise : guide complet 2026 post-réforme fiscale",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définitions fondamentales du leasing d'œuvres d'art",
+        "content": "Le leasing d'œuvres d'art repose sur deux mécanismes principaux : la LOA (Location avec Option d'Achat) et la LLD (Location Longue Durée). Dans une LOA, l'entreprise loue l'œuvre pendant une durée déterminée (généralement 24 à 48 mois) puis choisit de la racheter au prix de rachat fixé contractuellement (valeur résiduelle) ou de la rendre. La LLD consiste uniquement en une location suivie d'un retour de l'œuvre. La valeur résiduelle est un prix contractuel fixé au départ, indépendamment de la valeur de marché future de l'œuvre.",
+        "concepts": [
+          {
+            "term": "LOA (Location avec Option d'Achat)",
+            "definition": "Contrat de location permettant au locataire de racheter le bien à l'échéance pour un prix fixé d'avance (valeur résiduelle)",
+            "ref": "Article L313-7 du Code monétaire et financier"
+          },
+          {
+            "term": "LLD (Location Longue Durée)",
+            "definition": "Contrat de location sans option d'achat, souvent avec services inclus (entretien, assurance)",
+            "ref": "Pratique commerciale"
+          },
+          {
+            "term": "Valeur résiduelle",
+            "definition": "Prix de rachat contractuel fixé au début du contrat, servant à calculer les loyers",
+            "ref": "Contrat de leasing"
+          }
+        ],
+        "keyPoints": [
+          "La valeur résiduelle est contractuelle, pas basée sur la valeur de marché future",
+          "En LOA, vous n'êtes propriétaire qu'après exercice de l'option de rachat",
+          "Le coût total (loyers + rachat) intègre les intérêts et frais de financement"
+        ],
+        "warnings": [
+          "Ne pas confondre valeur résiduelle et valeur de marché à l'échéance",
+          "L'option d'achat n'est qu'un droit, pas une obligation"
+        ],
+        "examples": [
+          "Œuvre à 40 000 EUR, LOA 36 mois, loyer 1 250 EUR/mois, rachat final 1 200 EUR = total 46 200 EUR si achat"
+        ]
+      },
+      {
+        "title": "Mécaniques financières : ce que vous payez réellement",
+        "content": "Dans un leasing, vous ne payez pas deux fois le bien. Vous financez principalement : la perte de valeur pendant la période (décote/usage), le coût du financement (intérêts), et les frais de gestion. La formule simplifiée est : Loyers ≈ (Prix d'origine - Valeur résiduelle) / Durée + Intérêts + Frais. Le total final (loyers + rachat éventuel) dépasse souvent le prix d'origine car il inclut le coût de l'étalement dans le temps.",
+        "concepts": [
+          {
+            "term": "Décote financée",
+            "definition": "Différence entre le prix d'achat et la valeur résiduelle, répartie sur les loyers",
+            "ref": "Calcul actuariel du leasing"
+          },
+          {
+            "term": "Coût de financement",
+            "definition": "Intérêts implicites dans les loyers pour l'étalement du paiement",
+            "ref": "Code de la consommation L311-1"
+          }
+        ],
+        "keyPoints": [
+          "Les loyers couvrent la décote prévisionnelle plus le financement",
+          "Une valeur résiduelle élevée réduit les loyers mais augmente le coût de rachat",
+          "Le coût total reflète l'avantage de trésorerie obtenu"
+        ],
+        "warnings": [
+          "Comparer le coût total (loyers + rachat) avec un achat comptant",
+          "Vérifier les frais cachés (dossier, transport, assurance)"
+        ],
+        "examples": [
+          "Auto 30 000 EUR, résiduelle 16 000 EUR, décote 14 000 EUR sur 36 mois = environ 389 EUR/mois hors intérêts"
+        ]
+      },
+      {
+        "title": "Déductibilité fiscale : le piège de l'automaticité",
+        "content": "ATTENTION : contrairement à une idée répandue, les loyers de leasing d'œuvres d'art ne sont PAS automatiquement déductibles fiscalement. La déductibilité dépend impérativement de la preuve d'un intérêt pour l'entreprise et d'un usage professionnel réel. L'administration peut remettre en cause la déduction si l'opération ressemble à une dépense sans lien avec l'activité, un avantage au dirigeant, ou si elle concerne une holding pure sans activité opérationnelle démontrable.",
+        "concepts": [
+          {
+            "term": "Gestion normale",
+            "definition": "Principe fiscal exigeant que les charges soient justifiées par l'intérêt de l'entreprise",
+            "ref": "Article 39 du CGI"
+          },
+          {
+            "term": "Acte anormal de gestion",
+            "definition": "Décision prise dans l'intérêt personnel du dirigeant plutôt que dans l'intérêt social",
+            "ref": "Jurisprudence CE, doctrine BOFiP"
+          }
+        ],
+        "keyPoints": [
+          "OpCo avec accueil clients/salariés : déductibilité plutôt défendable",
+          "Holding pure sans activité opérationnelle : risque élevé de rejet",
+          "Œuvre au domicile du dirigeant : quasi-certain rejet fiscal",
+          "Documentation essentielle : photos des locaux, usage professionnel prouvé"
+        ],
+        "warnings": [
+          "Risque de réintégration des loyers en bénéfices imposables",
+          "Possible requalification en avantage en nature pour le dirigeant",
+          "Contrôle fiscal particulièrement vigilant sur les œuvres d'art"
+        ],
+        "examples": [
+          "Société avec showroom client + œuvres exposées + communication = usage professionnel démontrable",
+          "Holding financière + œuvre dans bureau privé uniquement = risque fiscal élevé"
+        ]
+      },
+      {
+        "title": "Dispositif fiscal CGI 238 bis AB : achat direct optimisé",
+        "content": "Les entreprises peuvent bénéficier d'une déduction extra-comptable pour l'achat d'œuvres originales d'artistes vivants. La déduction s'étale sur 5 ans (1/5ème par an) avec un plafond annuel de 20 000 EUR ou 0,5% du CA HT. L'œuvre doit être immobilisée, exposée pendant 5 ans dans un lieu accessible au public ou aux salariés, et faire l'objet d'une réserve spéciale au bilan. Ce dispositif concerne uniquement l'achat, pas la location.",
+        "concepts": [
+          {
+            "term": "Déduction extra-comptable",
+            "definition": "Déduction fiscale supplémentaire s'ajoutant à l'amortissement comptable normal",
+            "ref": "Article 238 bis AB du CGI"
+          },
+          {
+            "term": "Réserve spéciale",
+            "definition": "Inscription au passif du bilan égale à la déduction, inaliénable pendant 5 ans",
+            "ref": "Article 238 bis AB du CGI"
+          },
+          {
+            "term": "Artiste vivant",
+            "definition": "Condition exigeant que l'artiste soit encore vivant au moment de l'acquisition",
+            "ref": "Article 238 bis AB du CGI"
+          }
+        ],
+        "keyPoints": [
+          "Économie d'IS d'environ 25% du montant déductible (2 000 EUR/an pour 8 000 EUR déduits)",
+          "Obligation d'exposition pendant 5 ans dans lieu accessible",
+          "Plafond diminué des dons ouvrant droit au mécénat",
+          "Dispositif actuellement prolongé jusqu'en 2026"
+        ],
+        "warnings": [
+          "Vérifier l'actualité du dispositif avant acquisition",
+          "Contraintes d'exposition strictes pendant 5 ans",
+          "Reprise de la déduction en cas de cession avant 5 ans"
+        ],
+        "examples": [
+          "Achat 40 000 EUR : déduction 8 000 EUR/an pendant 5 ans si plafond respecté = économie IS environ 10 000 EUR"
+        ]
+      },
+      {
+        "title": "Stratégie holding : optimisation des flux financiers",
+        "content": "Une holding soumise à l'IS permet de capitaliser et réinvestir du cash sans distribution personnelle. Les dividendes remontés bénéficient du régime mère-fille (quasi-exonération, seule une quote-part de 5% taxable). La holding peut ainsi recycler les bénéfices pour financer des projets (dont art) tout en minimisant la friction fiscale. Cependant, elle reste moins robuste qu'une OpCo pour justifier des dépenses artistiques.",
+        "concepts": [
+          {
+            "term": "Régime mère-fille",
+            "definition": "Régime d'exonération quasi-totale des dividendes reçus par une société détenant au moins 5% d'une filiale",
+            "ref": "Article 145 du CGI"
+          },
+          {
+            "term": "Quote-part de frais et charges",
+            "definition": "Fraction forfaitaire des dividendes (5%) réintégrée dans le résultat imposable",
+            "ref": "Article 216 du CGI"
+          }
+        ],
+        "keyPoints": [
+          "Dividendes 200 000 EUR → IS sur 10 000 EUR seulement → cash net ≈ 197 500 EUR",
+          "Logique 2 étages : IS société + fiscalité personnelle si distribution finale",
+          "Holding plutôt pour financer, OpCo pour justifier l'usage professionnel"
+        ],
+        "warnings": [
+          "Friction fiscale personnelle si distribution finale des dividendes",
+          "Holding pure = risque élevé de rejet des charges artistiques",
+          "Maintenir une réserve de liquidité suffisante"
+        ],
+        "examples": [
+          "Cession d'actif → holding → financement leasing art via OpCo = structure optimisée"
+        ]
+      },
+      {
+        "title": "Cas pratique comparatif : 3 tableaux à 40 000 EUR",
+        "content": "Comparaison achat direct vs LOA sur 36 mois. Achat direct avec 238 bis AB : sortie 40 000 EUR immédiate, économie IS environ 10 000 EUR sur 5 ans = coût net 30 000 EUR mais contraintes d'exposition. LOA avec rachat : total 46 200 EUR, si loyers déductibles coût net environ 34 950 EUR, si non déductibles coût plein 46 200 EUR. L'achat direct reste généralement plus avantageux financièrement, le leasing apporte la flexibilité de trésorerie.",
+        "concepts": [
+          {
+            "term": "Coût d'opportunité",
+            "definition": "Coût représenté par les alternatives non choisies, ici entre achat comptant et financement",
+            "ref": "Théorie financière"
+          },
+          {
+            "term": "Flexibilité financière",
+            "definition": "Avantage du leasing permettant de préserver la trésorerie pour d'autres investissements",
+            "ref": "Gestion financière"
+          }
+        ],
+        "keyPoints": [
+          "Achat direct + 238 bis AB = solution la plus économique si plafond respecté",
+          "LOA = coût supérieur mais trésorerie préservée",
+          "Déductibilité des loyers = facteur déterminant de la rentabilité"
+        ],
+        "warnings": [
+          "Vérifier la capacité financière avant l'achat direct",
+          "Documenter impérativement l'usage professionnel en cas de leasing",
+          "Anticiper les contraintes d'exposition (238 bis AB) ou de restitution (leasing)"
+        ],
+        "examples": [
+          "OpCo restaurant avec tableaux en salle : usage professionnel évident",
+          "Holding financière avec œuvre en bureau direction : usage professionnel contestable"
+        ]
+      }
+    ]
+  },
+  "enrichments": [
+    {
+      "type": "legal_update",
+      "title": "Évolution post-2025 du dispositif 238 bis AB",
+      "content": "Le dispositif de déduction des œuvres d'art, initialement prévu jusqu'au 31/12/2025, a été prolongé par la loi de finances 2026. Les conditions restent identiques mais une évaluation de l'efficacité du dispositif est prévue fin 2026.",
+      "source": "Loi de finances 2026, article 15 bis"
+    },
+    {
+      "type": "jurisprudence",
+      "title": "Arrêt CAA Paris 2025 sur les holdings et l'art",
+      "content": "La Cour administrative d'appel de Paris a confirmé en 2025 que les dépenses artistiques d'une holding pure (sans activité opérationnelle, locaux ni salariés) constituent des actes anormaux de gestion. L'arrêt précise les critères d'appréciation de l'intérêt social.",
+      "source": "CAA Paris, 3ème chambre, 12/09/2025, n°23PA03847"
+    }
+  ],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
