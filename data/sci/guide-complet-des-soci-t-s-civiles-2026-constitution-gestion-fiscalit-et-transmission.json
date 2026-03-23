@@ -3,7 +3,7 @@
     "title": "Guide complet des sociétés civiles 2026 : constitution, gestion, fiscalité et transmission",
     "category": "sci",
     "created": "2026-03-23",
-    "version": 1,
+    "version": 2,
     "verified": false,
     "verificationNotes": [
       "Document incomplet - s'arrête au point 6.3",
@@ -32,16 +32,25 @@
             "term": "Affectio societatis",
             "definition": "Volonté réelle de s'associer et de collaborer dans l'intérêt commun de la société",
             "ref": "Jurisprudence constante"
+          },
+          {
+            "term": "SC de portefeuille pour détenir des titres (pas seulement SCI)",
+            "definition": "SC de portefeuille pour détenir des titres (pas seulement SCI)",
+            "ref": ""
           }
         ],
         "keyPoints": [
           "Le critère central est civil vs commercial, pas immobilier vs non-immobilier",
           "La SCI convient pour la gestion patrimoniale, pas pour l'exploitation commerciale",
-          "Structure adaptée aux transmissions familiales progressives"
+          "Structure adaptée aux transmissions familiales progressives",
+          "Structure adaptée au financement et arbitrage patrimonial sur le long terme",
+          "KeyPoints: Choix d'emprunt impacte déductibilité intérêts et profil de risque | Emprunt SCI = risque collectif, emprunt associé = risque individuel | Emprunt associé pour rachat parts = intérêts déductibles quote-part revenus fonciers | Emprunt SCI pour rachat parts = intérêts souvent non déductibles; Warnings: Dette personnelle associé n'apparaît pas au bilan SCI (mauvais alignement) | Vérifier conditions déductibilité intérêts selon qui emprunte; Concepts: Dette au bilan, Déductibilité intérêts, Quote-part revenus fonciers",
+          "KeyPoints: Enregistrement fiscal à vérifier selon les cas | Publication annonce légale obligatoire | Immatriculation nécessaire; Concepts: Enregistrement fiscal, Annonce légale, Immatriculation"
         ],
         "warnings": [
           "Une SCI utilisée pour une activité commerciale risque la requalification",
-          "La multiplication des associés peut tuer l'affectio societatis"
+          "La multiplication des associés peut tuer l'affectio societatis",
+          "Para-hôtellerie avec services hôteliers exclut la forme civile (exploitation commerciale)"
         ],
         "examples": [
           "SCI familiale pour immeuble de rapport loué nu",
@@ -74,7 +83,8 @@
         ],
         "examples": [
           "SCI constituée entre époux (50/50)",
-          "SCI avec associé minoritaire symbolique (1%)"
+          "SCI avec associé minoritaire symbolique (1%)",
+          "SCI constituée à 99%/1% pour respecter la règle des 2 associés tout en gardant le contrôle"
         ]
       },
       {
@@ -100,7 +110,8 @@
         "warnings": [
           "Société créée de fait = pas de personnalité morale",
           "Risque de donation indirecte en structure familiale sans notaire",
-          "Mandat général insuffisant pour constituer une société"
+          "Mandat général insuffisant pour constituer une société",
+          "Structure familiale peut léser héritiers non associés même avec acte notarié (répartition déséquilibrée)"
         ],
         "examples": [
           "Statuts sous seing privé pour SCI de portefeuille titres",
@@ -130,12 +141,14 @@
         "keyPoints": [
           "Le critère est civil vs commercial, pas immobilier vs mobilier",
           "L'activité réelle prime sur la qualification statutaire",
-          "Un objet trop large ou trop étroit pose des problèmes"
+          "Un objet trop large ou trop étroit pose des problèmes",
+          "Arbitrage ponctuel immobilier reste civil si non habituel et patrimonial"
         ],
         "warnings": [
           "Risque de requalification si activité commerciale réelle",
           "La location meublée est fiscalement commerciale",
-          "L'achat-revente habituel exclut la forme civile"
+          "L'achat-revente habituel exclut la forme civile",
+          "Intermédiation immobilière (agent) est commerciale et exclut la forme civile"
         ],
         "examples": [
           "Objet civil : acquisition, détention, gestion et location d'immeubles",
@@ -201,7 +214,8 @@
           "Trois modalités : intégrale, progressive, par compensation",
           "Date d'acquisition = date de souscription (pas de libération)",
           "Compensation possible uniquement après immatriculation",
-          "Capital libéré souvent requis pour avantages fiscaux en IS"
+          "Capital libéré souvent requis pour avantages fiscaux en IS",
+          "Date d'acquisition = date de souscription même si libération ultérieure (important pour durée détention)"
         ],
         "warnings": [
           "Sanctions automatiques en cas de retard de libération",
@@ -215,7 +229,29 @@
       }
     ]
   },
-  "enrichments": [],
+  "enrichments": [
+    {
+      "id": "enr-art-1774285682178",
+      "date": "2026-03-23",
+      "source": {
+        "type": "article"
+      },
+      "trigger": "import",
+      "summary": "L'article détaille le régime de la dette en SCI (qui emprunte et déductibilité des intérêts), précise les cas d'exclusion de la forme civile (para-hôtellerie, intermédiation) et ajoute les formalités post-constitution.",
+      "addedPoints": [
+        "📖 SC de portefeuille pour détenir des titres (pas seulement SCI)",
+        "→ Structure adaptée au financement et arbitrage patrimonial sur le long terme",
+        "⚠️ Para-hôtellerie avec services hôteliers exclut la forme civile (exploitation com",
+        "💡 SCI constituée à 99%/1% pour respecter la règle des 2 associés tout en gardant l",
+        "⚠️ Structure familiale peut léser héritiers non associés même avec acte notarié (ré",
+        "→ Arbitrage ponctuel immobilier reste civil si non habituel et patrimonial",
+        "⚠️ Intermédiation immobilière (agent) est commerciale et exclut la forme civile",
+        "→ Date d'acquisition = date de souscription même si libération ultérieure (importa",
+        "→ KeyPoints: Choix d'emprunt impacte déductibilité intérêts et profil de risque | ",
+        "→ KeyPoints: Enregistrement fiscal à vérifier selon les cas | Publication annonce "
+      ]
+    }
+  ],
   "quiz": {
     "totalAttempts": 0,
     "history": [],
