@@ -3,12 +3,13 @@
     "title": "Guide complet de mobilité fiscale internationale : transfert de résidence France vers UK/BE/CH/IT",
     "category": "optimisation-fiscale-etranger",
     "created": "2026-03-23",
-    "version": 2,
+    "version": 3,
     "verified": true,
     "verificationNotes": [
       "Document source daté du 28/01/2026 - références récentes",
       "Attention : évolution rapide des règles fiscales internationales",
-      "Vérifier exit tax et seuils avant application pratique"
+      "Vérifier exit tax et seuils avant application pratique",
+      "2026-03-23: Vérification des mécanismes des régimes forfaitaires (Suisse, Italie) et rappel que l'immobilier français reste imposable en France"
     ],
     "sources": [
       {
@@ -45,12 +46,14 @@
           "L'administration examine les indices factuels de présence et d'attaches",
           "Le délai de reprise peut être étendu à 10 ans en cas de fausse domiciliation",
           "Les conventions fiscales peuvent primer sur le droit interne pour éviter la double imposition",
-          "Les conventions fiscales appliquent les critères dans l'ordre : foyer d'habitation permanent → centre des intérêts vitaux → séjour habituel → nationalité"
+          "Les conventions fiscales appliquent les critères dans l'ordre : foyer d'habitation permanent → centre des intérêts vitaux → séjour habituel → nationalité",
+          "Les conventions fiscales appliquent les critères de départage dans un ordre hiérarchique précis : foyer d'habitation principal, lieu de séjour principal, puis nationalité ou accord amiable"
         ],
         "warnings": [
           "Conserver conjoint et enfants en France constitue un risque majeur de requalification",
           "Garder un logement disponible en France peut caractériser un foyer permanent",
-          "Diriger une société française depuis la France maintient le centre des intérêts économiques"
+          "Diriger une société française depuis la France maintient le centre des intérêts économiques",
+          "L'immobilier français reste imposable en France même après transfert de résidence fiscale (source française)"
         ],
         "examples": [
           "Profil à risque : cadre dirigeant gardant famille, logement et gestion d'entreprise en France tout en prétendant résider à Londres",
@@ -120,18 +123,22 @@
           "Belgique : précompte mobilier de 30% sur dividendes et intérêts",
           "Italie : flat tax attractive mais limitée dans le temps",
           "Italie : distinction entre deux régimes - neo-residenti (flat tax fixe sur revenus étrangers) et impatriati (réduction sur salaire italien)",
-          "Suisse : forfait fiscal = base imposable forfaitaire (7× loyer annuel ou 400k CHF minimum) puis application des taux ordinaires, pas un impôt fixe"
+          "Suisse : forfait fiscal = base imposable forfaitaire (7× loyer annuel ou 400k CHF minimum) puis application des taux ordinaires, pas un impôt fixe",
+          "Italie : distinction entre deux régimes - neo-residenti (flat tax fixe sur revenus étrangers) et régime de droit commun",
+          "Suisse : forfait fiscal basé sur une base imposable forfaitaire (7× loyer annuel ou minimum 400k CHF)"
         ],
         "warnings": [
           "Les réformes fiscales en cours peuvent modifier substantiellement les avantages",
           "La substance économique réelle est exigée dans tous les pays",
           "Les conventions peuvent limiter les bénéfices des régimes préférentiels",
-          "Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très élevés (seuil ~1M€ si flat tax 300k€)"
+          "Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très élevés (seuil ~1M€ si flat tax 300k€)",
+          "Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très élevés (coût fixe important)"
         ],
         "examples": [
           "Comparaison sur profil 120k€ salaire + 40k€ revenus mobiliers : économies variables selon destination",
           "Forfait suisse inefficace si requalifié résident français par la convention",
-          "Forfait suisse : loyer 5000 CHF/mois → base 420k CHF → impôt 105-147k CHF selon canton (taux 25-35%)"
+          "Forfait suisse : loyer 5000 CHF/mois → base 420k CHF → impôt 105-147k CHF selon canton (taux 25-35%)",
+          "Forfait suisse : loyer 5000 CHF/mois → base forfaitaire 420k CHF → impôt 105-147k CHF selon canton"
         ]
       },
       {
@@ -189,6 +196,23 @@
         "→ Suisse : forfait fiscal = base imposable forfaitaire (7× loyer annuel ou 400k CH",
         "⚠️ Flat tax italienne neo-residenti rentable uniquement pour revenus étrangers très",
         "💡 Forfait suisse : loyer 5000 CHF/mois → base 420k CHF → impôt 105-147k CHF selon "
+      ]
+    },
+    {
+      "id": "enr-disc-1774281467961",
+      "date": "2026-03-23",
+      "source": {
+        "type": "discussion"
+      },
+      "trigger": "discussion",
+      "summary": "Enrichissement de la fiche avec les mécanismes des régimes fiscaux spéciaux et clarifications sur les critères de résidence",
+      "addedPoints": [
+        "KeyPoint: Les conventions fiscales appliquent les critères de départag",
+        "Warning: L'immobilier français reste imposable en France même après t",
+        "KeyPoint: Italie : distinction entre deux régimes - neo-residenti (fla",
+        "KeyPoint: Suisse : forfait fiscal basé sur une base imposable forfaita",
+        "Warning: Flat tax italienne neo-residenti rentable uniquement pour re",
+        "Example: Forfait suisse : loyer 5000 CHF/mois → base forfaitaire 420k"
       ]
     }
   ],
