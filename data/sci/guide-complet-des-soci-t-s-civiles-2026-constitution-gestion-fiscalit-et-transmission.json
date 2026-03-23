@@ -3,11 +3,12 @@
     "title": "Guide complet des sociétés civiles 2026 : constitution, gestion, fiscalité et transmission",
     "category": "sci",
     "created": "2026-03-23",
-    "version": 2,
+    "version": 3,
     "verified": false,
     "verificationNotes": [
       "Document incomplet - s'arrête au point 6.3",
-      "Certaines références datées 2026 nécessitent vérification"
+      "Certaines références datées 2026 nécessitent vérification",
+      "2026-03-23: Vérification et intégration de 10 points techniques issus de l'expertise, couvrant les aspects juridiques, fiscaux et pratiques des sociétés civiles"
     ],
     "sources": [
       {
@@ -37,6 +38,11 @@
             "term": "SC de portefeuille pour détenir des titres (pas seulement SCI)",
             "definition": "SC de portefeuille pour détenir des titres (pas seulement SCI)",
             "ref": ""
+          },
+          {
+            "term": "Société civile de portefeuille",
+            "definition": "structure permettant de détenir et gérer des titres financiers (actions, obligations, parts sociales) dans un cadre patrimonial, distincte de la SCI immobilière mais relevant du même régime juridique",
+            "ref": ""
           }
         ],
         "keyPoints": [
@@ -45,7 +51,8 @@
           "Structure adaptée aux transmissions familiales progressives",
           "Structure adaptée au financement et arbitrage patrimonial sur le long terme",
           "KeyPoints: Choix d'emprunt impacte déductibilité intérêts et profil de risque | Emprunt SCI = risque collectif, emprunt associé = risque individuel | Emprunt associé pour rachat parts = intérêts déductibles quote-part revenus fonciers | Emprunt SCI pour rachat parts = intérêts souvent non déductibles; Warnings: Dette personnelle associé n'apparaît pas au bilan SCI (mauvais alignement) | Vérifier conditions déductibilité intérêts selon qui emprunte; Concepts: Dette au bilan, Déductibilité intérêts, Quote-part revenus fonciers",
-          "KeyPoints: Enregistrement fiscal à vérifier selon les cas | Publication annonce légale obligatoire | Immatriculation nécessaire; Concepts: Enregistrement fiscal, Annonce légale, Immatriculation"
+          "KeyPoints: Enregistrement fiscal à vérifier selon les cas | Publication annonce légale obligatoire | Immatriculation nécessaire; Concepts: Enregistrement fiscal, Annonce légale, Immatriculation",
+          "La société civile de portefeuille constitue un outil d'optimisation patrimoniale pour le financement et l'arbitrage de titres sur le long terme"
         ],
         "warnings": [
           "Une SCI utilisée pour une activité commerciale risque la requalification",
@@ -79,12 +86,14 @@
         ],
         "warnings": [
           "Risque de demande de dissolution par un tiers si mono-associé prolongé",
-          "Prévoir les mécanismes de ré-ouverture dès la constitution"
+          "Prévoir les mécanismes de ré-ouverture dès la constitution",
+          "Une structure familiale peut potentiellement léser les héritiers non associés, même avec un acte notarié, en cas de réserve héréditaire insuffisante"
         ],
         "examples": [
           "SCI constituée entre époux (50/50)",
           "SCI avec associé minoritaire symbolique (1%)",
-          "SCI constituée à 99%/1% pour respecter la règle des 2 associés tout en gardant le contrôle"
+          "SCI constituée à 99%/1% pour respecter la règle des 2 associés tout en gardant le contrôle",
+          "Constitution d'une SCI familiale à 99%/1% entre parents : permet de respecter l'obligation légale de deux associés tout en conservant le contrôle majoritaire"
         ]
       },
       {
@@ -142,13 +151,16 @@
           "Le critère est civil vs commercial, pas immobilier vs mobilier",
           "L'activité réelle prime sur la qualification statutaire",
           "Un objet trop large ou trop étroit pose des problèmes",
-          "Arbitrage ponctuel immobilier reste civil si non habituel et patrimonial"
+          "Arbitrage ponctuel immobilier reste civil si non habituel et patrimonial",
+          "Les arbitrages ponctuels immobiliers conservent leur caractère civil s'ils ne sont pas habituels et s'inscrivent dans une logique patrimoniale"
         ],
         "warnings": [
           "Risque de requalification si activité commerciale réelle",
           "La location meublée est fiscalement commerciale",
           "L'achat-revente habituel exclut la forme civile",
-          "Intermédiation immobilière (agent) est commerciale et exclut la forme civile"
+          "Intermédiation immobilière (agent) est commerciale et exclut la forme civile",
+          "Les activités de para-hôtellerie avec services hôteliers (petit-déjeuner, ménage, conciergerie) relèvent du caractère commercial et excluent la forme civile",
+          "L'intermédiation immobilière (activité d'agent immobilier) est de nature commerciale et incompatible avec la forme civile"
         ],
         "examples": [
           "Objet civil : acquisition, détention, gestion et location d'immeubles",
@@ -215,7 +227,9 @@
           "Date d'acquisition = date de souscription (pas de libération)",
           "Compensation possible uniquement après immatriculation",
           "Capital libéré souvent requis pour avantages fiscaux en IS",
-          "Date d'acquisition = date de souscription même si libération ultérieure (important pour durée détention)"
+          "Date d'acquisition = date de souscription même si libération ultérieure (important pour durée détention)",
+          "La date d'acquisition des parts correspond à la date de souscription, même en cas de libération ultérieure du capital",
+          "Le choix de l'emprunteur (société ou associés) impacte directement la déductibilité des intérêts et le profil de risque de l'investissement"
         ],
         "warnings": [
           "Sanctions automatiques en cas de retard de libération",
@@ -226,6 +240,14 @@
           "Libération progressive : 10k€ à la constitution, 40k€ à l'achat, 50k€ aux travaux",
           "Compensation : 30k€ d'avances transformées en capital"
         ]
+      },
+      {
+        "title": "Formalités post-constitution et obligations déclaratives",
+        "content": "Enregistrement fiscal : vérification nécessaire selon les cas particuliers. Publication d'annonce légale obligatoire. Déclarations périodiques selon le régime fiscal choisi.",
+        "concepts": [],
+        "keyPoints": [],
+        "warnings": [],
+        "examples": []
       }
     ]
   },
@@ -249,6 +271,27 @@
         "→ Date d'acquisition = date de souscription même si libération ultérieure (importa",
         "→ KeyPoints: Choix d'emprunt impacte déductibilité intérêts et profil de risque | ",
         "→ KeyPoints: Enregistrement fiscal à vérifier selon les cas | Publication annonce "
+      ]
+    },
+    {
+      "id": "enr-disc-1774285953123",
+      "date": "2026-03-23",
+      "source": {
+        "type": "discussion"
+      },
+      "trigger": "discussion",
+      "summary": "Enrichissement de la fiche avec les sociétés civiles de portefeuille, précisions sur les exclusions commerciales, nuances sur l'objet civil, stratégies familiales et formalités post-constitution",
+      "addedPoints": [
+        "Concept: Société civile de portefeuille ",
+        "KeyPoint: La société civile de portefeuille constitue un outil d'optim",
+        "Warning: Les activités de para-hôtellerie avec services hôteliers (pe",
+        "Warning: L'intermédiation immobilière (activité d'agent immobilier) e",
+        "KeyPoint: Les arbitrages ponctuels immobiliers conservent leur caractè",
+        "Example: Constitution d'une SCI familiale à 99%/1% entre parents : pe",
+        "Warning: Une structure familiale peut potentiellement léser les hérit",
+        "KeyPoint: La date d'acquisition des parts correspond à la date de sous",
+        "KeyPoint: Le choix de l'emprunteur (société ou associés) impacte direc",
+        "Nouvelle section: Formalités post-constitution et obligations déclaratives"
       ]
     }
   ],
