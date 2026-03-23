@@ -1,0 +1,252 @@
+{
+  "metadata": {
+    "title": "Fiscalité des revenus fonciers : Guide complet micro-foncier vs régime réel (France)",
+    "category": "fiscalite",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document pédagogique complet sur la fiscalité des revenus fonciers en France",
+      "Couvre les régimes micro-foncier et réel avec exemples pratiques",
+      "Date originale incohérente (2026) corrigée pour cohérence"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Fiscalité des revenus fonciers : Guide complet micro-foncier vs régime réel (France)",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définitions et champ d'application",
+        "content": "Les revenus fonciers correspondent aux revenus tirés de la location non meublée d'immeubles détenus à titre privé ou via une société de personnes transparente. Ils s'additionnent aux autres revenus du foyer et sont imposés à l'impôt sur le revenu selon le barème progressif, ainsi qu'aux prélèvements sociaux. Il faut distinguer : la location nue (revenus fonciers), la location meublée (BIC), l'immeuble à l'actif d'une entreprise (rattaché à l'activité), et la jouissance personnelle (pas de revenus imposables).",
+        "concepts": [
+          {
+            "term": "Revenus fonciers",
+            "definition": "Revenus tirés de la location non meublée d'immeubles détenus à titre privé",
+            "ref": "CGI art. 14"
+          },
+          {
+            "term": "Location nue",
+            "definition": "Location d'un bien immobilier sans mobilier, relevant de la fiscalité des revenus fonciers",
+            "ref": "CGI art. 14"
+          },
+          {
+            "term": "SCI transparente",
+            "definition": "Société civile immobilière soumise à l'impôt sur le revenu dont les associés déclarent leur quote-part de revenus fonciers",
+            "ref": "CGI art. 8"
+          }
+        ],
+        "keyPoints": [
+          "Location nue = revenus fonciers (formulaire 2044 au réel)",
+          "Location meublée = BIC (régime différent)",
+          "Territorialité : résident français = principe de déclaration mondiale",
+          "Non-résident = imposition française limitée aux immeubles français"
+        ],
+        "warnings": [
+          "Ne pas confondre location nue et meublée (régimes fiscaux différents)",
+          "Vérifier les conventions fiscales pour les non-résidents"
+        ],
+        "examples": [
+          "Location d'un appartement vide : revenus fonciers",
+          "Location d'un appartement meublé : BIC",
+          "SCI familiale à l'IR : chaque associé déclare sa quote-part en revenus fonciers"
+        ]
+      },
+      {
+        "title": "Micro-foncier vs régime réel",
+        "content": "Deux régimes d'imposition existent : le micro-foncier (simplifié) pour les revenus bruts ≤ 15 000 € avec abattement forfaitaire de 30%, et le régime réel (déduction des charges réelles) obligatoire au-delà ou par option. L'option pour le réel engage le foyer fiscal pour 3 ans et doit être simulée sur cette durée.",
+        "concepts": [
+          {
+            "term": "Micro-foncier",
+            "definition": "Régime simplifié avec abattement forfaitaire de 30% sur les revenus fonciers bruts ≤ 15 000 €",
+            "ref": "CGI art. 32"
+          },
+          {
+            "term": "Régime réel",
+            "definition": "Régime de déduction des charges réelles selon la règle de trésorerie (encaissements - décaissements)",
+            "ref": "CGI art. 28 à 31"
+          },
+          {
+            "term": "Verrou 3 ans",
+            "definition": "Option pour le régime réel irrévocable pendant 3 ans minimum",
+            "ref": "CGI art. 32"
+          }
+        ],
+        "keyPoints": [
+          "Seuil micro-foncier : 15 000 € de revenus bruts par foyer fiscal",
+          "Abattement micro-foncier : 30% forfaitaire, aucune autre déduction",
+          "Régime réel : déduction charges réelles, déficit foncier possible",
+          "Option réel = engagement 3 ans, simulation indispensable"
+        ],
+        "warnings": [
+          "Exclusions fréquentes du micro-foncier (monuments historiques, certaines SCI)",
+          "Pas de déficit possible au micro-foncier",
+          "Option réel = 3 ans minimum, bien anticiper travaux et charges"
+        ],
+        "examples": [
+          "12 000 € loyers, 2 000 € charges → Micro : (12 000 × 70%) = 8 400 € imposables",
+          "12 000 € loyers, 5 000 € charges → Réel : 7 000 € imposables",
+          "Gros travaux prévus → souvent favorable d'opter pour le réel"
+        ]
+      },
+      {
+        "title": "Recettes imposables",
+        "content": "Au régime réel, les recettes effectivement encaissées pendant l'année sont imposables (règle de trésorerie). Sont inclus : loyers, fermages, revenus accessoires, dépenses du bailleur mises à la charge du locataire, certaines indemnités. Le dépôt de garantie n'est imposable qu'en cas de conservation/utilisation.",
+        "concepts": [
+          {
+            "term": "Règle de trésorerie",
+            "definition": "Principe d'imposition selon les encaissements effectifs, indépendamment de la période concernée",
+            "ref": "CGI art. 28"
+          },
+          {
+            "term": "Revenus accessoires",
+            "definition": "Revenus liés au bien immobilier autres que les loyers (affichage, antennes, parkings...)",
+            "ref": "CGI art. 14"
+          }
+        ],
+        "keyPoints": [
+          "Encaissement effectif = critère d'imposition",
+          "Loyers impayés = non imposables tant que non encaissés",
+          "Loyers d'avance = imposables l'année d'encaissement",
+          "Dépôt de garantie = imposable uniquement si conservé"
+        ],
+        "warnings": [
+          "Attention aux décalages de trésorerie",
+          "Bien distinguer dépôt de garantie et loyers d'avance"
+        ],
+        "examples": [
+          "Loyer décembre N encaissé janvier N+1 = imposable en N+1",
+          "Dépôt 1 000 € conservé pour impayés = 1 000 € imposables",
+          "Antenne téléphonique 200 €/an = 200 € de revenus accessoires"
+        ]
+      },
+      {
+        "title": "Charges déductibles au régime réel",
+        "content": "Les charges sont déductibles si elles sont payées dans l'année, justifiées, et engagées pour acquérir ou conserver le revenu. Principales charges : frais de gestion, assurances, taxe foncière, entretien/réparation, intérêts d'emprunt. Les provisions de copropriété nécessitent une régularisation l'année suivante.",
+        "concepts": [
+          {
+            "term": "Charges déductibles",
+            "definition": "Dépenses payées, justifiées et liées à l'acquisition ou conservation du revenu foncier",
+            "ref": "CGI art. 31"
+          },
+          {
+            "term": "Provisions copropriété",
+            "definition": "Avances versées au syndic, déductibles l'année du versement avec régularisation N+1",
+            "ref": "BOFiP-BIC-CHG"
+          },
+          {
+            "term": "Forfait 20 euros",
+            "definition": "Déduction forfaitaire par local pour frais de correspondance et téléphone",
+            "ref": "CGI art. 31"
+          }
+        ],
+        "keyPoints": [
+          "Triple condition : payé + justifié + lié au revenu",
+          "Forfait 20 €/local sans justificatifs détaillés",
+          "Provisions copropriété : déduction immédiate, régularisation N+1",
+          "Intérêts d'emprunt toujours déductibles (même si déficit)"
+        ],
+        "warnings": [
+          "Conservation des justificatifs obligatoire",
+          "Attention aux charges récupérables sur le locataire",
+          "Régularisation copropriété peut créer des réintégrations"
+        ],
+        "examples": [
+          "Assurance PNO 300 € + taxe foncière 800 € = 1 100 € déductibles",
+          "Provision copro 2 000 € versée en N, utilisée à 70% pour charges non récupérables en N+1",
+          "Intérêts emprunt 3 000 € > loyers 2 000 € = déficit 1 000 € reportable"
+        ]
+      },
+      {
+        "title": "Travaux : qualification critique",
+        "content": "La qualification des travaux détermine leur déductibilité : réparation/entretien (déductible), amélioration (déductible en habitation), construction/reconstruction/agrandissement (non déductible). Le critère principal est la nature et l'importance des travaux, plus que leur coût. Les cas frontières nécessitent une documentation rigoureuse.",
+        "concepts": [
+          {
+            "term": "Réparation/entretien",
+            "definition": "Travaux maintenant ou remettant en bon état sans modifier consistance ni agencement",
+            "ref": "CGI art. 31 et BOFiP"
+          },
+          {
+            "term": "Amélioration",
+            "definition": "Travaux apportant confort ou équipement nouveau sans modification structurelle",
+            "ref": "CGI art. 31"
+          },
+          {
+            "term": "Construction/reconstruction",
+            "definition": "Création nouveaux locaux, modification gros œuvre, augmentation surface/volume",
+            "ref": "CGI art. 31"
+          },
+          {
+            "term": "Travaux indissociables",
+            "definition": "Ensemble de travaux techniquement liés dont la qualification s'apprécie globalement",
+            "ref": "Jurisprudence CE"
+          }
+        ],
+        "keyPoints": [
+          "Nature et importance des travaux = critère déterminant",
+          "Déductible : réparation, entretien, amélioration (habitation)",
+          "Non déductible : construction, reconstruction, agrandissement",
+          "Cas mixte : analyse globale, risque de rejet intégral"
+        ],
+        "warnings": [
+          "Principal risque de redressement fiscal",
+          "Travaux indissociables : qualification globale",
+          "Combles : attention à la création de nouveaux logements",
+          "Documentation indispensable : devis détaillés, photos, factures"
+        ],
+        "examples": [
+          "Réfection toiture à l'identique = réparation déductible",
+          "Création salle de bain = amélioration déductible",
+          "Surélévation = agrandissement non déductible",
+          "Aménagement combles inhabitables en logement = construction non déductible"
+        ]
+      },
+      {
+        "title": "Déficit foncier : mécanisme et imputation",
+        "content": "Le déficit foncier résulte de charges supérieures aux recettes au régime réel. Il se décompose en déficit 'intérêts' (reportable sur revenus fonciers futurs) et déficit 'autres charges' (imputable sur revenu global dans la limite de 10 700 € ou 21 400 € selon les cas, le surplus étant reportable). Des règles spécifiques s'appliquent selon la nature des charges et la durée de location.",
+        "concepts": [
+          {
+            "term": "Déficit foncier",
+            "definition": "Situation où les charges déductibles excèdent les revenus fonciers d'une année",
+            "ref": "CGI art. 156"
+          },
+          {
+            "term": "Déficit intérêts",
+            "definition": "Part du déficit correspondant aux intérêts d'emprunt, reportable uniquement sur revenus fonciers",
+            "ref": "CGI art. 156"
+          },
+          {
+            "term": "Imputation revenu global",
+            "definition": "Possibilité de déduire le déficit foncier (hors intérêts) du revenu global dans certaines limites",
+            "ref": "CGI art. 156"
+          }
+        ],
+        "keyPoints": [
+          "Déficit = charges > recettes au régime réel uniquement",
+          "Ventilation : déficit intérêts vs autres charges",
+          "Imputation revenu global : plafond 10 700 € (21 400 € cas spéciaux)",
+          "Reports possibles sur 10 ans"
+        ],
+        "warnings": [
+          "Règle des 3 ans : location effective obligatoire",
+          "Déficit intérêts : report limité aux revenus fonciers futurs",
+          "Plafonnement global déficit foncier"
+        ],
+        "examples": [
+          "2 000 € loyers, 4 000 € intérêts, 1 000 € autres charges = déficit 3 000 € (2 000 € intérêts reportables, 1 000 € imputables sur global)"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
