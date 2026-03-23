@@ -1,0 +1,209 @@
+{
+  "metadata": {
+    "title": "Sociétés écran, relais et tremplin (Luxembourg, Belgique, Pays-Bas) : mécanismes, risques et conformité pour résidents fiscaux français - Version complète 2026",
+    "category": "optimisation-fiscale-etranger",
+    "created": "2026-03-23",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Document technique analysant les mécanismes de sociétés intermédiaires avec approche pédagogique équilibrée"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "Sociétés écran, relais et tremplin (Luxembourg, Belgique, Pays-Bas) : mécanismes, risques et conformité pour résidents fiscaux français - Version complète 2026",
+        "date": "2026-03-23"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Introduction et concepts fondamentaux",
+        "content": "Les sociétés écran, relais et tremplin constituent des mécanismes d'interposition d'entités juridiques entre la source de revenus et le bénéficiaire final. Pour un résident fiscal français, ces structures ne suppriment pas les obligations fiscales françaises (PFU, IFI, déclarations) mais peuvent créer des risques juridiques significatifs.\n\nLes trois types principaux :\n- **Écran** : opacité sur le bénéficiaire effectif, risque de fictivité\n- **Relais** : transit de flux pour optimiser les retenues à la source\n- **Tremplin** : chaîne d'entités pour segmenter et complexifier\n\nL'efficacité fiscale est souvent illusoire si le taux final reste identique et si aucune retenue légitime n'est réduite.",
+        "concepts": [
+          {
+            "term": "Société écran",
+            "definition": "Entité interposée sans rôle économique autonome servant à masquer le bénéficiaire effectif ou le décideur réel",
+            "ref": "Section 3.1"
+          },
+          {
+            "term": "Société relais",
+            "definition": "Entité qui reçoit un flux et le retransfère pour viser un traitement fiscal plus favorable, notamment sur les retenues à la source",
+            "ref": "Section 3.2"
+          },
+          {
+            "term": "Société tremplin",
+            "definition": "Chaîne de plusieurs entités pour segmenter les flux et brouiller la traçabilité",
+            "ref": "Section 3.3"
+          },
+          {
+            "term": "Bénéficiaire effectif",
+            "definition": "Entité ou personne qui a la liberté d'utiliser le revenu pour son propre compte et n'est pas un simple 'passe-plat'",
+            "ref": "Section 2.1"
+          }
+        ],
+        "keyPoints": [
+          "Les gains fiscaux attendus sont souvent illusoires pour un résident français",
+          "Interposer une entité étrangère ne supprime pas le PFU ni les obligations déclaratives",
+          "La complexité doit être proportionnée à l'objectif économique réel",
+          "Absence de substance = risque de requalification"
+        ],
+        "warnings": [
+          "Risque pénal si dissimulation ou blanchiment",
+          "Direction effective en France = re-résidence française de l'entité",
+          "Multiplication des red flags avec les structures tremplin"
+        ],
+        "examples": [
+          "Source → ShellCo (domiciliation sans moyens) → Personne physique",
+          "Pays source → Relais (réduction WHT) → Redistribution rapide"
+        ]
+      },
+      {
+        "title": "Cadre fiscal français pour résidents",
+        "content": "Le résident fiscal français reste soumis à l'imposition française sur ses revenus mondiaux, même via des structures intermédiaires. Les règles anti-abus françaises visent spécifiquement ces montages.\n\n**Article 123 bis :** Dispositif imposant les revenus non distribués de structures étrangères à fiscalité privilégiée. Quatre étapes d'analyse :\n1. Qualification de la structure (pays, niveau d'imposition)\n2. Qualification de l'actif (principalement financier ?)\n3. Détention/contrôle (seuils, faits)\n4. Clause de sauvegarde UE (activité réelle, absence de montage artificiel)\n\n**Abus de droit (L64/L64A LPF) :** Écartement d'actes fictifs ou principalement fiscaux contraires à l'objectif du texte.\n\n**Direction effective :** Critère déterminant pour la résidence fiscale d'une société.",
+        "concepts": [
+          {
+            "term": "Article 123 bis",
+            "definition": "Dispositif français imposant certains revenus non distribués de structures étrangères à fiscalité privilégiée détenues/contrôlées par un résident français",
+            "ref": "Section 4.3"
+          },
+          {
+            "term": "PFU (Prélèvement Forfaitaire Unique)",
+            "definition": "Taux global de 30% applicable par défaut aux dividendes et plus-values mobilières des résidents français",
+            "ref": "Section 4.1"
+          },
+          {
+            "term": "IFI",
+            "definition": "Impôt français sur la fortune immobilière avec assiette mondiale pour les résidents (directe et indirecte)",
+            "ref": "Section 2.1"
+          },
+          {
+            "term": "Direction effective",
+            "definition": "Lieu où les décisions clés de gestion sont prises en réalité, peut déterminer la résidence fiscale d'une société",
+            "ref": "Section 2.1"
+          }
+        ],
+        "keyPoints": [
+          "La résidence fiscale française maintient l'imposition mondiale",
+          "L'article 123 bis vise l'accumulation offshore de revenus financiers",
+          "La clause de sauvegarde UE nécessite une activité réelle",
+          "Les preuves de direction effective sont essentielles"
+        ],
+        "warnings": [
+          "Omission déclarative = sanctions indépendantes du fond fiscal",
+          "Contrôle indirect peut neutraliser les seuils de détention",
+          "Procès-verbaux et décisions doivent être cohérents avec la résidence alléguée"
+        ],
+        "examples": [
+          "Holding Luxembourg avec direction effective en France → résidence française",
+          "SPF sans substance → exposition à l'article 123 bis"
+        ]
+      },
+      {
+        "title": "Analyse par juridiction : Luxembourg, Belgique, Pays-Bas",
+        "content": "Chaque juridiction offre des régimes spécifiques, mais leur utilisation par un résident français présente des limites structurelles.\n\n**Luxembourg :**\n- SOPARFI : holding avec accès UE/conventions si conditions de substance\n- SPF : véhicule patrimonial, souvent hors conventions, exposé au 123 bis\n- Gains légitimes : gouvernance de groupe, financement international\n\n**Belgique :**\n- RDT : évite la double imposition économique au niveau société, pas pour particuliers\n- Précompte mobilier : conventions peuvent réduire WHT sous conditions\n- Vigilance : substance et motif commercial requis\n\n**Pays-Bas :**\n- Participation exemption : exonération société sur participations qualifiées\n- Tests anti-abus stricts pour accès aux conventions\n- WHT sur dividendes sortants + PFU français maintenu",
+        "concepts": [
+          {
+            "term": "SOPARFI",
+            "definition": "Société de participations financières luxembourgeoise, holding imposable avec accès potentiel aux conventions",
+            "ref": "Section 5.1"
+          },
+          {
+            "term": "SPF",
+            "definition": "Société de gestion de patrimoine familial luxembourgeoise, logique patrimoniale, souvent hors conventions",
+            "ref": "Section 5.1"
+          },
+          {
+            "term": "RDT Belgique",
+            "definition": "Régime d'élimination de la double imposition économique sur dividendes au sein d'un groupe sous conditions",
+            "ref": "Section 6.1"
+          },
+          {
+            "term": "Participation exemption",
+            "definition": "Exonération au niveau société sur dividendes/plus-values sur participations qualifiées aux Pays-Bas",
+            "ref": "Section 7.1"
+          }
+        ],
+        "keyPoints": [
+          "Les régimes de groupe ne bénéficient pas directement aux particuliers",
+          "La substance est exigée dans les trois juridictions",
+          "L'accès aux conventions nécessite le statut de bénéficiaire effectif",
+          "Les retenues sortantes et le PFU français demeurent"
+        ],
+        "warnings": [
+          "Ne pas confondre régime de groupe et véhicule patrimonial",
+          "Frottements WHT possibles sur flux transfrontaliers",
+          "Complexité des chaînes = risque tremplin",
+          "IFI maintenu sur immobilier détenu via sociétés"
+        ],
+        "examples": [
+          "SOPARFI avec substance → gouvernance légitime de groupe international",
+          "SPF sans activité → risque 123 bis pour résident français",
+          "Chaîne BE-NL-LU sans justification → requalification probable"
+        ]
+      },
+      {
+        "title": "Analyses chiffrées et cas pratiques",
+        "content": "Sur 10 ans avec un rendement de 5%/an et PFU 30%, la comparaison directe vs holding montre une **neutralité fiscale** si tous les paramètres sont identiques : 8 804 525 € dans les deux cas.\n\n**Gains apparents :**\n- Réduction WHT de 25% à 5% sur 2M€/an = 400k€/an d'économie apparente\n- Mais conditionnée au statut de bénéficiaire effectif authentique\n\n**Frottements typiques :**\n- Double WHT 15% : flux 100 → net 72,25 avant impôt français\n- Coûts de structure vs gains réels\n\n**Cas fictif de requalification :**\nEntité sans substance créée année 0, flux pass-through années 1-6, contrôle année 7 révélant :\n- Boîte aux lettres, administrateur nominal\n- Absence de stratégie économique\n- Direction effective en France",
+        "concepts": [
+          {
+            "term": "Neutralité fiscale",
+            "definition": "Absence de gain fiscal réel quand le taux final et les conditions d'imposition restent identiques",
+            "ref": "Section 8.1"
+          },
+          {
+            "term": "Pass-through",
+            "definition": "Entité qui retransfère quasi intégralement les flux sans valeur ajoutée économique",
+            "ref": "Section 2.2"
+          },
+          {
+            "term": "WHT (Withholding Tax)",
+            "definition": "Retenue à la source : impôt prélevé par l'État source sur un paiement à un non-résident",
+            "ref": "Section 2.1"
+          },
+          {
+            "term": "Treaty shopping",
+            "definition": "Utilisation d'une entité relais pour bénéficier d'un traité fiscal plus favorable",
+            "ref": "Section 8.3"
+          }
+        ],
+        "keyPoints": [
+          "Gain réel = 0 si taux final identique et pas de réduction WHT légitime",
+          "Les seuils de détention (9% vs 10%) sont souvent neutralisés par le contrôle indirect",
+          "Les coûts de structure doivent être intégrés dans l'analyse",
+          "La jurisprudence privilégie la substance sur la forme"
+        ],
+        "warnings": [
+          "Gains apparents souvent illusoires pour résidents français",
+          "Accumulation de red flags avec structures complexes",
+          "Risque de double imposition en cas de requalification",
+          "Contrôles fiscaux renforcés sur montages transfrontaliers"
+        ],
+        "examples": [
+          "Direct 10 ans : 10M€ → 8,8M€ nets après PFU annuel",
+          "Holding puis PFU final : même résultat si taux identiques",
+          "Relais WHT : 2M€ x 20% d'économie = 400k€/an si bénéficiaire effectif valide"
+        ]
+      }
+    ]
+  },
+  "enrichments": [
+    {
+      "type": "jurisprudence",
+      "title": "Évolution jurisprudentielle sur le bénéficiaire effectif",
+      "content": "La jurisprudence européenne et française a renforcé l'exigence de substance pour les sociétés relais, notamment dans les affaires de treaty shopping et les montages purement fiscaux."
+    },
+    {
+      "type": "pratique",
+      "title": "Check-list substance économique",
+      "content": "Éléments à documenter : locaux dédiés, personnel qualifié, prise de décision locale, gestion des risques, fonction économique identifiable, cohérence avec la stratégie groupe."
+    }
+  ],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
