@@ -1,0 +1,166 @@
+{
+  "metadata": {
+    "title": "Fiche Pratique - Système d'Analyse de Produits Structurés StructBoard",
+    "category": "finance",
+    "created": "2026-04-03",
+    "version": 1,
+    "verified": true,
+    "verificationNotes": [
+      "Méthodologie quantitative validée (Kendall tau = 1.0)",
+      "Système en production avec 32 tests automatisés",
+      "Limitations connues documentées"
+    ],
+    "sources": [
+      {
+        "type": "import",
+        "name": "StructBoard Document de Reference Expert v6.2.0",
+        "date": "2026-04-03"
+      }
+    ]
+  },
+  "base": {
+    "sections": [
+      {
+        "title": "Définition et Types de Produits Structurés",
+        "content": "Un produit structuré combine un composant obligataire (protection du capital) et un composant dérivé (coupon conditionnel). Le système StructBoard classe 6 types principaux : Autocall/Phoenix (coupon si sous-jacent > seuil), Dispersion (rendement basé sur écart de performance), Taux Fixe/Callable (coupon garanti mais rappelable), Range Accrual (coupon proportionnel aux jours dans un corridor), Digitale à Mémoire (coupon binaire avec rattrapage), Worst-of/Panier (dépendant du pire sous-jacent).",
+        "concepts": [
+          {
+            "term": "Autocall/Phoenix",
+            "definition": "Produit versant un coupon conditionnel si le sous-jacent reste au-dessus d'un seuil, avec remboursement anticipé automatique si dépassement d'un seuil d'autocall",
+            "ref": "Section 1.2.1"
+          },
+          {
+            "term": "Dispersion",
+            "definition": "Produit dont le rendement dépend de l'écart de performance entre actions d'un panier. Formule : rdtNet = participation × (1 - corrélation_moyenne) × facteur",
+            "ref": "Section 1.2.2"
+          },
+          {
+            "term": "Range Accrual",
+            "definition": "Produit versant un coupon proportionnel au nombre de jours où un taux reste dans un corridor défini",
+            "ref": "Section 1.2.4"
+          }
+        ],
+        "keyPoints": [
+          "6 types principaux de produits structurés analysés",
+          "Combinaison systématique obligataire + dérivé",
+          "Corrélation réelle mesurée à 0.43 (Twelve Data, 1Y)"
+        ],
+        "warnings": [
+          "Worst-of : si une seule action chute sous barrière, l'investisseur subit la perte totale",
+          "Callable : risque de rappel quand les taux baissent (callProb ~20% en stagflation)"
+        ],
+        "examples": [
+          "Phoenix Richemont : Coupon 7.5%/an si CFR ≥ 70%, autocall si ≥ 100%, barrière 60%, 6 ans"
+        ]
+      },
+      {
+        "title": "Système de Grading à 4 Piliers",
+        "content": "Score final = P1×30% + P2×20% + P3×15% + P4×30%. P1 mesure le rendement ajusté (Black-Scholes pour actions), P2 la qualité du sous-jacent, P3 l'adéquation portefeuille, P4 la prime vs CAT (2.80%). Échelle : A(70+), B(55-69), C(45-54), D(25-44), F(<25). Limitation connue : P2 sous-évalue les sous-jacents taux (~33 vs ~70 attendu).",
+        "concepts": [
+          {
+            "term": "P1 - Rendement Ajusté",
+            "definition": "Rendement espéré après ajustement probabiliste Black-Scholes pour actions, TRI actualisé pour taux. Mapping : P1 = 35 + rdtNet × 6",
+            "ref": "Section 2.2"
+          },
+          {
+            "term": "P4 - Prime vs CAT",
+            "definition": "Spread net vs placement sans risque. effSpread = rdtNet - CAT - illiqPremium. CAT benchmark unique : 2.80%",
+            "ref": "Section 2.5"
+          },
+          {
+            "term": "Illiquidity Premium",
+            "definition": "Prime d'illiquidité = 0.50% + 0.15% × max(0, maturité-2). Compensé la moindre liquidité vs CAT",
+            "ref": "Section 2.5"
+          }
+        ],
+        "keyPoints": [
+          "Pondération : P1(30%) + P2(20%) + P3(15%) + P4(30%)",
+          "CAT benchmark unique : 2.80% (CIC Progressif 36M)",
+          "Kendall tau = 1.0 (classement parfait sur 9 produits)"
+        ],
+        "warnings": [
+          "P2 sous-évalue structurellement les sous-jacents taux",
+          "Double pénalité : absence protection pénalise P3 ET P4",
+          "Proxy volatilité : OAT 2Y utilisée pour Euribor"
+        ],
+        "examples": [
+          "Dispersion US Tech : B(68) avec P1=95, P2=69, P3=65, P4=52"
+        ]
+      },
+      {
+        "title": "Allocateur Unifié - 5 Règles",
+        "content": "L'allocateur suit 5 règles strictes : (1) Jamais sortir d'un CAT pour un CAT moins bon, (2) Seuil de spread progressif selon maturité, (3) Montant exact par contrat, (4) Market Intelligence influence timing (miFactor), (5) Objectif guide le choix. Benchmark CAT unique à 2.80% utilisé de manière cohérente.",
+        "concepts": [
+          {
+            "term": "Seuil de Spread Progressif",
+            "definition": "Seuils d'allocation selon maturité : ≤24m +0.50%, 25-48m +1.00%, 49-72m +1.50%, >72m +2.00%",
+            "ref": "Règle 2"
+          },
+          {
+            "term": "MI Factor",
+            "definition": "Facteur d'ajustement timing : miFactor = 1.0 + prob_hike × 0.5. Intègre probabilité de hausse BCE",
+            "ref": "Règle 4"
+          },
+          {
+            "term": "Quality Gate",
+            "definition": "Filtre strict : seuls les produits grade ≥ C avec spread positif passent l'allocateur en stagflation",
+            "ref": "Section 3"
+          }
+        ],
+        "keyPoints": [
+          "5 règles d'allocation avec logique conservatrice",
+          "Montant exact par contrat (pas par bloc)",
+          "1 seul produit éligible en contexte stagflation actuel"
+        ],
+        "warnings": [
+          "En stagflation ultra-sélective : seule la Dispersion US Tech passe",
+          "FGDR : exposition non couverte de 1,709K€ (93% patrimoine)"
+        ],
+        "examples": [
+          "Dispersion US Tech : seul produit grade B éligible allocation"
+        ]
+      },
+      {
+        "title": "Contexte Macro et Impact Stagflation",
+        "content": "Régime stagflation (Brent $122, PCE 2.83%, BCE hawkish hold). Recommandations spécifiques : privilégier capital garanti, duration cap 48 mois, éviter tech/financials, favoriser energy (+37.6% YTD), cash tactique 5-8%. Ajustements grading : +15 coupon garanti, +3 à +10 lock-in stagflation.",
+        "concepts": [
+          {
+            "term": "Stagflation",
+            "definition": "Combinaison inflation élevée (PCE 2.83% > target) et croissance faible. Brent $122 (+14%) indique choc pétrolier",
+            "ref": "Section 5.2"
+          },
+          {
+            "term": "Lock-in Stagflation",
+            "definition": "Bonus grading +3 à +10 pour produits protégeant contre l'inflation via mécanismes de verrouillage",
+            "ref": "Section 2.2"
+          },
+          {
+            "term": "Duration Cap",
+            "definition": "Limitation recommandée à 48 mois en stagflation pour réduire risque taux",
+            "ref": "Section 5.2"
+          }
+        ],
+        "keyPoints": [
+          "VIX 22 = stress modéré, BCE prob hike 35%",
+          "Secteur energy favori (+37.6% YTD vs autres secteurs)",
+          "Capital garanti exempté du seuil 65% en stagflation"
+        ],
+        "warnings": [
+          "Éviter tech, financials, communication-services",
+          "Duration longue pénalisée (risque remontée taux)",
+          "Cash tactique 5-8% recommandé (option sur volatilité)"
+        ],
+        "examples": [
+          "Range Accrual : prob corridor 65.2% (biais stagflation ×0.85)"
+        ]
+      }
+    ]
+  },
+  "enrichments": [],
+  "quiz": {
+    "totalAttempts": 0,
+    "history": [],
+    "weakPoints": []
+  },
+  "discussions": []
+}
