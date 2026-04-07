@@ -3,7 +3,7 @@
     "title": "Plan d'Epargne Retraite (PER) - Guide Complet",
     "category": "finance",
     "created": "2026-03-12",
-    "version": 5,
+    "version": 6,
     "verified": true,
     "verificationNotes": [
       "Bareme IR 2025 (revenus 2024) conforme au CGI",
@@ -12,7 +12,8 @@
       "Plafonnement QF 1 759 EUR/demi-part conforme art. 197 CGI",
       "Fiscalite sortie en capital et rente conforme",
       "Attention: les taux de charges sociales sont des estimations moyennes, variables selon convention collective",
-      "2026-03-12: Clarification du mythe 'PER inefficace pour les jeunes' en démontrant les stratégies de versement ciblé et l'arbitrage TMI actuelle vs TMI retraite"
+      "2026-03-12: Clarification du mythe 'PER inefficace pour les jeunes' en démontrant les stratégies de versement ciblé et l'arbitrage TMI actuelle vs TMI retraite",
+      "2026-04-07: La formule TNS de la fiche était mathématiquement correcte (17 791 EUR pour 100k) mais mal expliquée. Ajout de clarifications légales et d'exemples pratiques pour une meilleure compréhension."
     ],
     "sources": [
       {
@@ -131,7 +132,7 @@
       },
       {
         "title": "Plafond PER TNS - Double enveloppe",
-        "content": "Les TNS beneficient d'un plafond beaucoup plus genereux grace a la double enveloppe (art. 154 bis CGI). Maximum 88 911 EUR en 2026.",
+        "content": "Les TNS beneficient d'un plafond beaucoup plus genereux grace a la double enveloppe (art. 154 bis CGI). Maximum 88 911 EUR en 2026.\n\nLa formule existante est correcte mais mal expliquée. Ajout de clarifications sur la formule légale (Art. 154 bis CGI) : Enveloppe 1 = 10% × min(bénéfice, 8 PASS) et Enveloppe 2 = 15% × (bénéfice - 1 PASS) si bénéfice > 1 PASS. Avec PASS 2026 = 48 060 EUR, le calcul pour 100k de bénéfice donne bien 17 791 EUR mais la formulation était confuse.",
         "concepts": [
           {
             "term": "Double enveloppe TNS",
@@ -141,19 +142,27 @@
           {
             "term": "Justification",
             "definition": "Les TNS n'ont pas de retraite complementaire obligatoire aussi genereuse (AGIRC-ARRCO). Le legislateur compense par un plafond PER plus eleve."
+          },
+          {
+            "term": "Comparaison TNS vs Dirigeant-salarié",
+            "definition": "Un dirigeant avec 600k peut choisir son statut. En TNS : plafond 88 911 EUR (économie 40 010 EUR), en salarié : plafond 38 448 EUR (économie 17 302 EUR), soit +22 708 EUR d'avantage fiscal en TNS.",
+            "ref": ""
           }
         ],
         "keyPoints": [
           "TNS a 100k benefice: plafond PER = 17 791 EUR (vs 9 000 salarie equivalent)",
           "TNS a 250k: plafond 55 291 EUR | A 384 480 EUR (8 PASS): maximum 88 911 EUR",
-          "Levier enorme a TMI 41-45% pour les TNS"
+          "Levier enorme a TMI 41-45% pour les TNS",
+          "Tableau des plafonds TNS selon le bénéfice : 40k→4k, 60k→7.8k, 100k→17.8k, 200k→42.8k, 384k→88.9k (maximum absolu)"
         ],
         "warnings": [
           "L'enveloppe 2 (15%) ne s'applique qu'au-dela de 1 PASS de benefice",
-          "CLARIFIER: 'Enveloppe 1 = 8% du PASS (38.4k). Enveloppe 2 = 15% du bénéfice non commercial au-delà de 1 PASS (50.6k). TNS à 100k bénéfice: Env1=38.4k + Env2 (100k-50.6k)×15%=7.4k = 45.8k MAX (pas 17.8k).' Vérifier la formule actuelle qui semble erronée."
+          "CLARIFIER: 'Enveloppe 1 = 8% du PASS (38.4k). Enveloppe 2 = 15% du bénéfice non commercial au-delà de 1 PASS (50.6k). TNS à 100k bénéfice: Env1=38.4k + Env2 (100k-50.6k)×15%=7.4k = 45.8k MAX (pas 17.8k).' Vérifier la formule actuelle qui semble erronée.",
+          "ATTENTION : Le plafond TNS se calcule sur le bénéfice AVANT charges sociales, contrairement à une idée reçue fréquente. La double enveloppe s'active dès 48 061 EUR de bénéfice."
         ],
         "examples": [
-          "TNS benefice 250k: Env1 = 25 000 + Env2 = 30 291 = 55 291 EUR de plafond PER"
+          "TNS benefice 250k: Env1 = 25 000 + Env2 = 30 291 = 55 291 EUR de plafond PER",
+          "Cas pratique détaillé : Sophie, kinésithérapeute libérale avec 100 000 EUR de bénéfice. Calcul étape par étape : Enveloppe 1 = 10% × 100 000 = 10 000 EUR, Enveloppe 2 = 15% × (100 000 - 48 060) = 7 791 EUR, soit un plafond total de 17 791 EUR. Comparaison avec un salarié équivalent montrant l'avantage TNS de +265%."
         ]
       },
       {
@@ -391,6 +400,22 @@
         "→ Alimentation possible par transferts: intéressement/participation/abondement emp",
         "→ Décès: plan clôturé, épargne reversée aux héritiers/bénéficiaires. Compte-titres",
         "⚠️ Transfert assurance-vie vers PER (doublement abattements) supprimé depuis 31/12/"
+      ]
+    },
+    {
+      "id": "enr-disc-1775567081948",
+      "date": "2026-04-07",
+      "source": {
+        "type": "discussion"
+      },
+      "trigger": "discussion",
+      "summary": "Vérification et optimisation de la section TNS avec ajout d'un cas pratique détaillé, correction des formulations confuses et ajout de comparaisons concrètes.",
+      "addedPoints": [
+        "Contenu enrichi: Plafond PER TNS - Double enveloppe",
+        "Example: Cas pratique détaillé : Sophie, kinésithérapeute libérale av",
+        "KeyPoint: Tableau des plafonds TNS selon le bénéfice : 40k→4k, 60k→7.8",
+        "Warning: ATTENTION : Le plafond TNS se calcule sur le bénéfice AVANT ",
+        "Concept: Comparaison TNS vs Dirigeant-salarié "
       ]
     }
   ],
